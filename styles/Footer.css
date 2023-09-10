@@ -134,9 +134,8 @@
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: end;
-    /* background-color: aqua; */
-}
+    justify-content: flex-end;
+    }
 
 .terms {
     margin: 0px 20px;
