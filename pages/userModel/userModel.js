@@ -1,18 +1,18 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, "Please provide your name"]
+        required: true
     },
     email:{
         type: String,
-        required: [true, "Please provide email"],
+        required: true,
         unique: true,
     },
     password: {
         type: String,
-        required: [true, "Please provide a password"],
+        required: true,
     },
     isVerfied:{
         type: Boolean,
