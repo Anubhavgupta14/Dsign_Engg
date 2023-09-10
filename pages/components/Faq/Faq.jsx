@@ -1,8 +1,8 @@
-"use client";
+
 import React, { useState } from "react";
 // import Button from '../Button'
-import PlainButton from "../PlainButton/page";
-import Faq from "../faq2/page";
+import PlainButton from "../PlainButton/plainbutton";
+import Faq from "../faq2/faq2";
 
 // import Link from 'next/link'
 

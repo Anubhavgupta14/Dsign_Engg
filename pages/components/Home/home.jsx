@@ -1,4 +1,4 @@
-"use client";
+
 import Navbar from "../navbar/Navbar";
 import "@/styles/Home.module.css"
 import { useRef } from 'react';
@@ -6,9 +6,9 @@ import { useRef } from 'react';
 // import PlainButton from '../button/PlainButton'
 
 import About from "../About/about";
-import Faqs from "../Faq/page";
+import Faqs from "../Faq/Faq";
 import Footer from "../Footer/footer";
-import Cards from "../card/page";
+import Cards from "../card/card";
 
 
 const page = () => {

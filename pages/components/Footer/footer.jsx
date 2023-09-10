@@ -1,4 +1,4 @@
-"use client";
+
 import React from 'react'
 import { BsTwitter, BsYoutube } from 'react-icons/bs'
 import { RiInstagramFill } from 'react-icons/ri'
@@ -7,7 +7,7 @@ import { IoLogoLinkedin } from 'react-icons/io5'
 import { AiFillMail } from 'react-icons/ai'
 import { SiDiscord } from 'react-icons/si'
 import Link from 'next/link';
-import PlainButton from '../PlainButton/page'
+import PlainButton from '../PlainButton/plainbutton'
 
 
 

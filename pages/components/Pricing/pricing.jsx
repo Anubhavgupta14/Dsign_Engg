@@ -1,4 +1,4 @@
-"use client";
+
 import React,{useState} from "react";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/footer";

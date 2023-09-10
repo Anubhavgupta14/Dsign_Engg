@@ -1,12 +1,12 @@
-"use client";
+
 import React, { useEffect, useState, useRef } from "react";
 import Script from "next/script";
 import Link from "next/link";
 import $ from "jquery";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import PlainButton from "../PlainButton/page";
-import DropdownButton from "../Dropdown/page";
+import PlainButton from "../PlainButton/plainbutton";
+import DropdownButton from "../Dropdown/dropdown";
 
 // import '../styles/navbar.css'
 

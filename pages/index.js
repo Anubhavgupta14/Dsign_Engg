@@ -15,7 +15,7 @@ import * as React from "react";
 import Home from "./components/Home/home"
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Loader from './components/Loader/page';
+import Loader from './components/Loader/loader';
 
 export default function BasicTextFields() {
   let loaderbool;
