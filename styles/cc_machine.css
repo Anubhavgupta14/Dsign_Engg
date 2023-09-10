@@ -1,0 +1,262 @@
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  .button:hover {
+    background-color: rgb(200, 200, 200);
+    color: black;
+    font-weight: 400;
+  }
+
+  .textfield{
+    width: 120px;
+  }
+  
+  /* Example styles for the Ladlecalculator component */
+  .head {
+    text-align: center;
+    padding-block: 20px;
+    position: relative;
+    top: 100px;
+  }
+  
+  .content {
+    padding-top: 10px;
+    margin: 0 auto;
+    padding: 0 15px 0 30px;
+    width: 253px;
+  }
+  .content2 {
+    padding-top: 10px;
+    margin: 0 auto;
+    width: 211px;
+  }
+  
+  .main-box{
+    display: flex;
+    justify-content: center;
+    padding-top: 130px;
+    padding-bottom: 10px;
+    /* margin: 0 auto; */
+  }
+  .border{
+    border: 2px solid black;
+    border-radius: 12px;
+    margin: 0 11% 0 7%;
+  }
+
+  .box {
+    display: flex;
+    margin: 0 11% 0 7%;
+    border: none;
+    padding-bottom: 50px;
+    /* flex-wrap: wrap; */
+    /* border: 2px solid red; */
+  }
+  .box2 {
+    display: flex;
+    margin: 0 15% 0 0;
+    /* border: 2px solid black;
+    border-radius: 12px; */
+    /* flex-wrap: wrap; */
+    /* border: 2px solid red; */
+  }
+  
+  .row {
+    display: flex;
+    padding: 8px;
+    height: 50px;
+    width: 175px;
+  }
+  
+  
+  .textcentre {
+    text-align: center;
+  }
+  
+  .tab_container{
+    margin-inline: 335px;
+    margin-block: 50px;
+  }
+  .tab_container_main{
+    margin-inline: 335px;
+    margin-top: 130px;
+  }
+  .out_box{
+    border: 1px solid rgb(200,200,200);
+    width: 156px;
+    height: 40px;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+  .main_btn{
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn_res{
+    width: 867px;
+  }
+
+  /* Responsive Layout */
+  @media screen and (max-width: 1080px) {
+    html{
+      font-size: 50%;
+    }
+    p{
+      font-size: 10px;
+    }
+    /* Adjust the layout for smaller screens */
+    .box {
+      margin: 0 2% 0 2%;
+       /* Stack columns on small screens */
+    }
+    .border{
+      margin: 0 2% 0 2%;
+    }
+    .box2 {
+      margin: 0 2% 0 2%;
+       /* Stack columns on small screens */
+    }
+    .content{
+      padding: 0px 0px 0px 10px;
+    }
+    .main-box{
+      flex-direction: column;
+      /* padding-top: 0px; */
+    }
+    .content2 {
+      padding-top: 10px;
+      margin: 0 auto;
+      width: 116px;
+    }
+    .row{
+      width: 92px;
+    }
+    .tab_container{
+      margin-inline: 0px;
+    }
+    .tab_container_main{
+      margin-inline: 0px;
+
+    }
+    .out_box{
+      height: 27px;
+      width: 97px;
+    }
+  }
+
+  
+  
+  
+  /* Calculate Fabrication section */
+  .main-table{
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+  }
+  .column{
+    margin: 0 auto;
+  }
+  .head-column{
+    font-size: 15px;
+  }
+  
+  .cell{
+    margin-block: 4px;
+  }
+  .cell_para{
+    margin-block: 10px;
+  }
+  .cell_para p{
+    font-size: 25px;
+  }
+  .row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .label{
+    padding: 0px 0px 0px 11px;
+    margin-bottom: -5px;
+    color: rgb(100, 100, 100);
+  }
+
+  .label2{
+      padding: 0px 0px 0px 11px;
+      margin-bottom: -5px;
+      color: rgb(100, 100, 100);
+  }
+
+  .ok{
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+  }
+
+  .o{
+    visibility: hidden;
+  }
+  .zone{
+    font-size: 12px;
+      color: rgb(100, 100, 100);
+      padding: 0px 0px 0px 117px;
+      margin: 0px 0px 0px 0px;
+      position: relative;
+      top: -18px;
+  }
+
+  @media screen and (max-width: 600px){
+    .btn_res{
+      width: 355px;
+    }
+    .textfield{
+      width: 100px;
+    }
+    label{
+      font-size: 7px;
+    }
+    .zone{
+      font-size: 7px;
+      padding: 0 0 0 2px;
+    }
+    .label{
+      padding: 0px 0px 0px 11px;
+      margin-bottom: -5px;
+      color: rgb(100, 100, 100);
+      position: relative;
+      top: -5px;
+    }
+  }
+
+  .btn_state{
+    visibility: hidden;
+  }
+.temp{
+  color: red;
+}
+
+
+
+.error{
+  color: red;
+}

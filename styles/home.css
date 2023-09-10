@@ -1,0 +1,407 @@
+.drop-mar {
+    margin: 14% 0px 80px 0px;
+}
+
+.drop-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0px auto;
+    width: 100%;
+    /* background-color: aqua; */
+    /* margin: 140px 0px; */
+    margin-bottom: 8%;
+}
+
+.left-artist {
+    width: 50%;
+}
+
+.drop-left {
+    width: 57%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: black; */
+}
+
+.drop-inner {
+    width: 100%;
+    /* background-color: rebeccapurple; */
+}
+
+.drop-info {
+    font-size: 21px;
+    margin: 30px 0px;
+    margin-bottom: 60px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.drop-email-cont {
+    justify-content: start;
+}
+
+.drop-email svg {
+    color: black !important;
+}
+
+.drop-email-p {
+    color: black !important;
+}
+
+.drop-email-cont input {
+    border: none !important;
+    color: black !important;
+    background-color: rgba(1, 1, 1, .1) !important;
+}
+
+.get {
+    color: white !important;
+    background-color: black !important;
+}
+
+.drop-p {
+    font-weight: 900;
+    font-size: 70px;
+    text-align: center;
+}
+.drop-p2 {
+    font-weight: 900;
+    font-size: 50px;
+    text-align: center;
+}
+
+.drop-right {
+    width: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* background-color: aquamarine; */
+}
+
+.drop-img-cont {
+    height: 600px;
+    width: 486px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.dropping {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    flex-direction: column;
+}
+
+.in {
+    font-size: 18px;
+}
+
+.time-p {
+    margin: 10px 0px;
+    font-size: 24px;
+    font-weight: 900;
+
+
+}
+
+
+.inner-img img {
+    width: 445px;
+    height: unset;
+}
+
+.artist {
+    margin: 30px 0px;
+    display: flex;
+    justify-content: center;
+}
+.extra-cont{
+    width: 90%;
+    margin: 0px auto;
+}
+
+.artist-cont {
+    display: flex;
+    position: relative;
+    width: 410px;
+}
+
+.artist-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.artist-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.artist-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+}
+
+.artist-p {
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.artist-name {
+    font-weight: 900;
+    margin-top: 5px;
+    font-size: 30px;
+}
+
+.circle-cont {
+    position: absolute;
+    display: flex;
+    right: 0px;
+}
+
+.circle {
+    background-color: black;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 0px 3px;
+}
+
+.circle:nth-child(3) {
+    margin-right: 0px;
+}
+
+@media screen and (max-width: 1200px) {
+    .drop-p {
+        font-weight: 900;
+        font-size: 40px;
+    }
+
+    .drop-info {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .drop-mar {
+        margin-bottom: 30px;
+    }
+
+    .drop-cont {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 150px;
+    }
+
+    
+
+    .left-artist {
+        width: 0%;
+    }
+
+    .drop-left {
+        width: 86%;
+    }
+    .drop-inner{
+        width: 100%;
+    }
+
+    .drop-right {
+        margin-top: 10px;
+        width: 100vw;
+        overflow: hidden;
+    }
+    .artist{
+        margin: 30px 0px!important;
+        width: 410px!important;
+    }
+    .extra-cont{
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .drop-p {
+        font-weight: 900;
+        font-size: 50px;
+    }
+
+    .drop-info {
+        font-size: 18px;
+    }
+
+  
+
+    .inner-img {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    .drop-right-artist {
+        width: 40vw;
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .drop-right-artist {
+        width: 20vw;
+        padding-left: 0;
+    }
+
+    .artist-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .artist-info {
+        margin-left: 10px;
+    }
+
+    .artist-p {
+        font-size: 14px;
+    }
+
+    .artist-name {
+        font-weight: 700;
+        font-size: 24px;
+    }
+
+    .drop-p2 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 555px) {
+    .artist-name {
+        margin-top: 0;
+    }
+
+    .artist-cont {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .drop-p {
+        font-weight: 900;
+        font-size: 45px;
+    }
+    .drop-p2 {
+        font-size: 30px;
+    }
+
+    .drop-info {
+        text-align: justify;
+        font-size: 12px;
+        margin: 10px 0px;
+        margin-bottom: 45px;
+    }
+
+    .drop-left {
+        width: 86%;
+    }
+
+    .drop-inner {
+        width: 100%;
+    }
+
+    .drop-right {
+        width: 100%;
+    }
+
+    .artist {
+        width: 282px;
+        margin: 10px 0px;
+        margin-left: 10px;
+    }
+
+    .drop-mar {
+        margin: 50% 0px 0px 0px;
+
+    }
+
+}
+
+/*@media screen and (max-width: 555px){
+    .drop-img-cont {
+        margin-left: 6vw;
+    }
+}*/
+
+@media (max-width:425px) {}
+
+@media (min-width:900px) and (max-width:1200px) {
+    .drop-cont{
+        width: 100%;
+        overflow: hidden;
+    }
+    .drop-right {
+      
+        overflow: hidden;
+    }
+    .extra-cont{
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .drop-img-cont {
+        width: 400px;
+        height: 590px;
+    }
+
+    .inner-img {
+        width: unset;
+        height: unset;
+    }
+
+    .inner-img img {
+        width: 370px;
+        height: unset;
+    }
+    .drop-inner{
+        width: 380px;
+    }
+    .drop-email-cont input{
+        width: 220px!important;
+    }
+
+}
+@media screen and (max-width:550px) {
+    .inner-img img{
+        width: 300px;
+    }
+    .drop-img-cont{
+        min-width: 320px;
+        width: 320px;
+        height: 476px;
+    }
+    .extra-cont{
+        width: 90%;
+    }
+
+    .artist{
+        min-width: 320px;
+        width: 320px;
+    }
+}
+@media screen and (max-width:320px) {
+    .inner-img img{
+        width: 250px;
+    }
+    .drop-img-cont{
+        min-width: 270px;
+        height: 406px;
+    }
+   
+}

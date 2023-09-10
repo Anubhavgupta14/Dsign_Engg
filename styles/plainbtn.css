@@ -1,0 +1,38 @@
+.plain-btn {
+    padding: 0px 20px;
+    min-width: 150px;
+    height: 50px;
+    font-size: 16px;
+    background: black;
+    color: white;
+    font-weight: 600;
+    transition: all .3s ease;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.plain-btn:hover {
+    /* background-color: white; */
+    background-color: rgb(200, 200, 200);
+    /* border: 2px solid black; */
+    color: black;
+
+}
+
+.white-btn .plain-btn {
+    color: black;
+    background: white;
+}
+
+.white-btn .plain-btn:hover {
+    background: none;
+    border: 2px solid white;
+    color: white;
+}
+@media screen and (max-width:600px) {
+    .plain-btn{
+        min-width: 125px;
+        height: 45px;
+        font-size: 14px;
+    }
+}

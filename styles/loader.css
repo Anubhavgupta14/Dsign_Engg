@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Roboto+Slab:wght@600&display=swap');
+.load-cont{
+    position: fixed;
+    top: 0px;
+    z-index: 6;
+    left: 0px;
+    height: 200vh;
+    width: 100vw;
+    animation-name: loader;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count:1;
+    animation-fill-mode: both;
+    animation-delay: 3s;
+}
+.first-load {
+    background-color: #111517;
+    height: 100vh;
+    color: white;
+
+}
+.second-load{
+    height: 100vh;
+}
+
+.name {
+    font-family: 'Merriweather', serif;
+font-family: 'Roboto Slab', serif;
+    font-size: 30px;
+opacity: 0;
+    animation-name: loadname;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    letter-spacing: 7px;
+    font-weight: 900;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+@keyframes loadname {
+    0%{
+opacity: 0;
+    }
+    45%{
+opacity: 1;
+    }
+    75%{
+        opacity: 1;
+
+    }
+    100%{
+
+        opacity: 0;
+    }
+}
+@keyframes loader{
+    
+    to{
+transform: translateY(-200vh);
+    }
+}

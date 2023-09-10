@@ -1,0 +1,107 @@
+
+
+.heading{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    margin-block: 100px;
+  }
+  
+  .card {
+    position: relative;
+    width: 300px;
+    height: 275px;
+    border-radius: 5px;
+    /* background-color: rgb(199, 218, 224); */
+    /* background: url(../../assets/close-up-photo-shoot-hammer-anvil-dark-smith-workshop.jpg); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 22px;
+    text-shadow: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.8s, background-color 0.8s;
+    perspective: 1000px !important;
+    box-shadow: 0px 6px 8px 3px rgba(0, 0, 0, 0.2);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* backdrop-filter: blur(5px); */
+  }
+  
+  .card:hover {
+    transform: rotateY(180deg);
+    /* background: none; */
+    background-color: black;
+
+    color: white;
+    font-size: 15px;
+    text-align: center;
+  }
+  
+  .cardTextContainer {
+    transform-style: preserve-3d; /* Maintain text orientation */
+    transition: transform 0.3s;
+  }
+  
+  .card.hovered .cardTextContainer {
+    transform: rotateY(180deg);
+  }
+
+  /* styles.css */
+/* ... (existing styles) */
+
+.flipButton {
+    margin-top: 10px; /* Adjust the spacing as needed */
+    background-color: white;
+    border: none;
+    padding: 5px 10px;
+    width: 70px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background-color 0.3s;
+  }
+  
+  .flipButton:hover {
+    background-color: rgb(100, 100, 100);
+    color: black;
+  }
+  
+  .arrowIcon {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-image: url(https://res.cloudinary.com/dhlsvwpny/image/upload/v1693248666/icons8-arrow-50_1_k8bvve.png); /* Replace with your arrow icon image */
+    background-size: cover;
+  }
+
+  .cardText{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .price{
+    margin-top: 10px;
+  }
+
+  @media screen and (max-width:600px){
+    .cardContainer{
+        flex-direction: column;
+        align-items: center;
+        gap: 36px;
+        margin-block: 36px;
+    }
+    .heading{
+        font-size: 25px;
+        margin-top: 26px;
+    }
+  }

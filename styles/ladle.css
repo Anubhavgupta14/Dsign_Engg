@@ -1,0 +1,179 @@
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.button_ladle {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.button_ladle:hover {
+  background-color: rgb(200, 200, 200);
+  color: black;
+  font-weight: 400;
+}
+
+/* Example styles for the Ladlecalculator component */
+.head_ladle {
+  text-align: center;
+  padding-block: 20px;
+}
+
+.content_ladle {
+  padding-top: 10px;
+  margin: 0 auto;
+  padding: 0 60px 0 70px;
+  width: 253px;
+}
+
+.content2_ladle {
+  padding-top: 10px;
+  margin: 0 auto;
+  padding: 0 60px 105px 70px;
+  width: 211px;
+}
+
+.main-box_ladle {
+  display: flex;
+  justify-content: center;
+  padding-top: 130px;
+  /* margin: 0 auto; */
+}
+
+.box_ladle {
+  display: flex;
+  margin: 0 15% 0 9%;
+  border: 2px solid black;
+  border-radius: 12px;
+  /* flex-wrap: wrap; */
+  /* border: 2px solid red; */
+}
+
+.box2_ladle {
+  display: flex;
+  margin: 0 15% 0 0;
+  border: 2px solid black;
+  border-radius: 12px;
+  /* flex-wrap: wrap; */
+  /* border: 2px solid red; */
+}
+
+.row_ladle {
+  display: flex;
+  padding: 10px;
+}
+
+.textcentre_ladle {
+  text-align: center;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 1080px) {
+  p {
+    font-size: 12px;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+  /* Adjust the layout for smaller screens */
+  .box_ladle {
+    margin: 0 2% 0 2%;
+    /* Stack columns on small screens */
+  }
+  .box2_ladle {
+    margin: 0 2% 0 2%;
+    /* Stack columns on small screens */
+  }
+  .content_ladle {
+    padding: 0px 0px 0px 20px;
+  }
+  .main-box_ladle {
+    flex-direction: column;
+    /* padding-top: 0px; */
+  }
+  .content2_ladle {
+    padding-top: 10px;
+    margin: 0 auto;
+    padding: 0px 20px 0px 18px;
+  }
+}
+
+/* Calculate Fabrication section */
+.main-table_ladle {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2% 18px 2%;
+}
+
+.row3_ladle {
+  display: flex;
+  padding: 8px;
+  height: 50px;
+  width: 175px;
+}
+.content3_ladle {
+  padding-top: 10px;
+  margin: 0 auto;
+  padding: 0 15px 0 30px;
+  width: 107px;
+}
+.border_ladle {
+  border: 2px solid black;
+  margin: 0 15% 18px 15%;
+  border-radius: 12px;
+}
+.fabrication_result_ladle {
+  padding-block: 20px;
+}
+.result-box_ladle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerfab_ladle {
+  margin-inline: 160px;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: 900px) {
+  .containerfab_ladle {
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .content3_ladle {
+    padding: 0 2px 0 9px;
+    width: 47px;
+    margin: -12px;
+  }
+  .main-table_ladle {
+    margin: 0 2% 18px 2%;
+  }
+  .border_ladle {
+    margin: 0 2% 18px 2%;
+    border-radius: 12px;
+  }
+  .row3_ladle {
+    display: flex;
+    padding: 40px 0 0 0;
+    height: 25px;
+    width: 10px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+}

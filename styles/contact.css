@@ -1,0 +1,172 @@
+.contact_body{
+    margin: 75px;
+}
+
+.heading{
+    font-size: 50px;
+    padding-block: 20px;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    padding-inline: 4px;
+}
+.error-label {
+    color: red;
+  }
+  
+
+.detail_head{
+    font-weight: 650;
+}
+
+.contact_data{
+    font-size: 18px;
+}
+
+.form{
+    margin-block: 10px;
+}
+
+.row{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 0px 20px;
+    min-width: 1422px;
+    height: 50px;
+    font-size: 16px;
+    background: black;
+    color: white;
+    font-weight: 600;
+    transition: all .3s ease;
+    cursor: pointer;
+    margin-inline: 7px;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    /* background-color: white; */
+    background-color: rgb(200, 200, 200);
+    /* border: 2px solid black; */
+    color: black;
+
+}
+
+.white-btn .btn {
+    color: black;
+    background: white;
+}
+
+.white-btn .btn:hover {
+    background: none;
+    border: 2px solid white;
+    color: white;
+}
+@media screen and (max-width:600px) {
+    .btn{
+        min-width: 392px;
+        height: 45px;
+        font-size: 14px;
+    }
+    .contact_data{
+        font-size: 17px;
+    }
+    html{
+        font-size: 60%;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .contact_body{
+        margin: 50px 0 0 20px;
+    }
+    .heading{
+        font-size: 25px;
+    }
+}
+
+
+/* styles.css */
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 94px;
+}
+
+.form {
+    width: 75vh;
+    padding: 70px;
+    margin-top: 40px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .label-container {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  label {
+    position: relative;
+    font-size: 14px;
+    color: #555;
+    transition: all 0.2s ease;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    margin-block: 10px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f8f8f8;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  textarea:focus {
+    border-color: rgb(200,200,200);
+    box-shadow: 0 0 8px rgba(200, 200, 200, 0.5);
+  }
+  
+  button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: rgb(200,200,200);
+    color: black;
+  }
+  
+  @media screen and (max-width:600px){
+    .container{
+        flex-direction: column;
+        padding-inline: 0px;
+    }
+    form{
+        width: 25vh;
+        padding: 20px 60px 20px 60px;
+
+    }
+  }

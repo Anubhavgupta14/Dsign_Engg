@@ -1,0 +1,132 @@
+.about-cont-black{
+    height: 250px;
+    width: 80vw;
+    margin: 30px auto;
+    margin-bottom: 70px;
+    /* background-color: black; */
+    flex-direction: row;
+    overflow: hidden;
+    position: relative;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.full-circle{
+    min-width: 50px;
+    min-height: 50px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 0;
+}
+
+.anime-circle{
+    animation:circle 1.3s ease-in 0s 1 both;
+}
+@keyframes circle {
+    to{
+        min-height: 140vw;
+        min-width: 140vw;
+    }
+}
+
+
+
+.black{
+    position: relative;
+    height: 330px;
+    width: 90vw;
+    background-color: black;
+    z-index: 0;
+    margin: 0px auto;
+    margin-top: -250px;
+}
+.about-cont{
+    /* padding-top: 200px; */
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 270px;
+
+}
+.hefty-title{
+    width: 50%;
+color: white;
+position: relative;
+}
+.hefty-p::after{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background-color: var(--grey);
+    background-color: white;
+    opacity: .3;
+}
+.hefty-p{
+    width: 50%;
+    position: relative;
+    text-align: justify;
+    font-size: 13px;
+
+}
+.hefty-info{
+    width: 60%;
+    color: white;
+}
+@media (min-width:1439px) {
+    .black{
+        width: 80vw;
+    }
+}
+@media (min-width:1900px) {
+    .black{
+width: 70vw;
+    }
+}
+@media screen and (max-width: 500px){
+    .black{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .about-cont-black{
+        flex-direction: column;
+       padding: 25px 20px;
+       height:230px;
+    }
+    .hefty-p{
+        width: 100%;
+    }
+    .hefty-p::after{
+        display: none;
+    }
+    .hefty-info{
+        width: 100%;
+        font-size: 10px;
+        line-height: 18px;
+    }
+    .hefty-title{
+        margin-bottom: 20px;
+        height: 70px;
+        width: 100%;
+        font-size: 26px;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        margin-top: 14px;
+    }
+}
+@media screen and (max-width:500px) {
+    .about-cont-black{
+        margin: 0px auto;
+        margin-top: 25px;
+        width: 90vw;
+        
+    }
+    
+    
+}

@@ -1,0 +1,22 @@
+.heading{
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 40px;
+}
+.body_card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 96px;
+}
+
+@media screen and (max-width:600px){
+    .body_card{
+        flex-direction: column;
+        gap: 50px;
+    }
+    .heading{
+        font-size: 28px;
+        margin-top: 30px;
+    }
+}

@@ -1,0 +1,308 @@
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.a_log {
+  color: black;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.a_log:focus-visible,
+.a_log:hover {
+  text-decoration: none;
+  color: rgb(100, 100, 100);
+}
+
+.body_login_log {
+  background-color: hsl(0, 0%, 100%);
+  display: flex;
+  height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.h1_log {
+  font-size: 3em;
+  margin: 0 0 0.75rem;
+}
+
+p_log {
+  color: hsl(223, 10%, 30%);
+  margin: 0 0 1.5em;
+  transition: color 0.3s;
+}
+
+.login_log,
+.login__bg-img_log,
+.login__col_log {
+  display: flex;
+}
+
+.login_log,
+.login__col_log {
+  width: 100%;
+  height: 100%;
+}
+
+.login__bg-img_log {
+  background: url(https://res.cloudinary.com/dhlsvwpny/image/upload/v1692183349/vertical-shot-adult-industrial-worker-uniforms-melting-metal-factory_1_bqzduy.jpg) center / cover no-repeat;
+  border-radius: 1.5em;
+  margin: 7.75em 0.75em 0.75em 165px;
+  height: 56%;
+  min-height: 20em;
+  width: 65%;
+}
+
+.login__brand_log,
+.login__copyright_log {
+  padding: 0px 0px 25px 12px;
+}
+
+.login__brand_log {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.login__brand_log:before {
+  background-color: hsl(223, 10%, 10%);
+  border-radius: 50%;
+  content: "";
+  display: block;
+  margin-right: 0.5em;
+  width: 0.75em;
+  height: 0.75em;
+  transition: background-color 0.3s;
+}
+
+.login__btn_log {
+  background-color: black;
+  border-radius: 0.2em;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  display: block;
+  margin-bottom: 1.5em;
+  outline: transparent;
+  padding: 0.5em 1.5em;
+  position: relative;
+  width: 100%;
+  transition: background-color 0.3s, opacity 0.3s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.login__btn_log:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.login__btn_log:not(:disabled):focus-visible,
+.login__btn_log:not(:disabled):hover {
+  background-color: rgb(100, 100, 100);
+}
+
+.login__btn-spinner_log,
+.login__btn-spinner_log:before,
+.login__btn-spinner_log:after {
+  animation: spinner 1s ease-in-out infinite;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.login__btn-spinner_log {
+  animation-delay: -0.2s;
+  display: none;
+  top: 50%;
+  left: 50%;
+  width: 0.375em;
+  height: 0.375em;
+  transform: translate(-50%, -50%);
+}
+
+.login__btn-spinner_log:before,
+.login__btn-spinner_log:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.login__btn-spinner_log:before {
+  animation-delay: -0.4s;
+  left: -0.75em;
+}
+
+.login__btn-spinner_log:after {
+  right: -0.75em;
+}
+
+.login__btn[data-login="true"] .login__btn-label_log {
+  visibility: hidden;
+}
+
+.login__btn[data-login="true"] .login__btn-spinner_log {
+  display: block;
+}
+
+.login__checkbox_log,
+.login__field_log {
+  background-color: hsla(223, 90%, 50%, 0);
+  border-radius: 0.2em;
+  box-shadow: 0 0 0 1px hsl(223, 10%, 70%) inset;
+  outline: transparent;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.login__checkbox_log {
+  margin-right: 0.5em;
+  width: 1em;
+  height: 1em;
+}
+
+.login__checkbox_log:before {
+  color: hsla(0, 0%, 100%, 0);
+  content: "\2713";
+  display: block;
+  line-height: 1.333;
+  text-align: center;
+}
+
+.login__checkbox_log:checked {
+  background-color: hsla(223, 90%, 50%, 1);
+  box-shadow: 0 0 0 1px var(--primary) inset;
+}
+
+.login__checkbox_log:checked:before {
+  color: hsla(0, 0%, 100%, 1);
+}
+
+.login__col_log {
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.login__copyright_log p {
+  font-size: 0.75em;
+  line-height: 2;
+  margin: 0;
+  margin-bottom: 0 0 0 5px;
+}
+
+.login__field_log {
+  padding: 0.5em 0.75em;
+  width: 100%;
+  height: 2.5em;
+}
+
+.login__field-group_log {
+  margin-bottom: 0.75em;
+}
+.login__field-group2_log {
+  margin-bottom: 0.75em;
+  margin-top: -16px;
+}
+
+.login__field-group--horz_log {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login__form_log,
+.login__form-wrapper_log {
+  margin: auto;
+}
+
+.login__form_log {
+  width: 100%;
+}
+
+.login__form-wrapper_log {
+  max-width: 23em;
+}
+
+.login__label_log {
+  display: block;
+  font-weight: 500;
+}
+
+.login__label--horz_log {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+}
+
+.login__label_log,
+.login__label_log + a_log,
+.login__sign-up_log {
+  font-size: 0.75em;
+  line-height: 2;
+}
+
+.login__sign-up_log {
+  margin: 0;
+  text-align: center;
+}
+
+.login__testimonial_log {
+  background-image: linear-gradient(hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.6));
+  border-radius: 0 0 1.5em 1.5em;
+  margin-top: auto;
+  padding: 1.5em;
+  width: 100%;
+}
+
+.login__testimonial_log p {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.5em;
+}
+
+.login__testimonial_log p + p {
+  margin-bottom: 0;
+}
+
+.login__testimonial_log small {
+  font-size: 1rem;
+}
+
+/* Dark theme */
+
+/* Mobile */
+@media (max-width: 767px) {
+  .login__col_log + .login__col_log {
+    display: none;
+  }
+
+  html {
+    font-size: 62%;
+  }
+}
+
+.hide_log {
+  visibility: hidden;
+}
+
+.error_log {
+  color: red;
+}
+
+.d_none_log {
+  display: none;
+}
+
+.forget_log {
+  font-size: 12px;
+  margin: 0px;
+  cursor: pointer;
+}
+
+.forget_log:hover {
+  color: rgb(100, 100, 100);
+}
+
+/* Animations */

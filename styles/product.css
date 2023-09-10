@@ -1,0 +1,15 @@
+@media screen and (max-width:600px){
+    .text{
+        font-size: 25px;
+    }
+    .para{
+        font-size: 16px;
+    }
+    .btn_prod{
+        width: 50px;
+        height: 40px;
+    }
+    html{
+        font-size: 60%;
+    }
+}
