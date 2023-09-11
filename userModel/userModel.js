@@ -24,6 +24,10 @@ const userSchema = new mongoose.Schema({
     verifyTokenExpiryExpiry: Date,
 })
 
+userSchema.methods.matchPassword = async function (enteredPassword){
+    return await bcrypt.compare(enteredPassword, this.password);
+}
+
 const User = mongoose.models.users || mongoose.model
 ("users",userSchema);
 

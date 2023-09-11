@@ -4,19 +4,23 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/footer";
 import Link from "next/link";
-// import {axios} from "axios";
+import { toast } from "react-hot-toast";
+import { axios } from "axios";
 import { useRouter } from "next/navigation";
+import Cookies from 'js-cookie';
 
 const LoginPage = () => {
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [timer, setTimer] = useState(null);
-  const [mail, setmail] = useState({ email: "" });
-  const [name,setname]  = useState("")
+  // const [email, setemail] = useState("");
+  // const [name, setname] = useState("")
   const [isEmailValid, setIsEmailValid] = useState(true);
-  const [toggle_form,settoggle_form] = useState(true);
-  const [newpassword,setnewpassword] = useState("");
-  const [cnfpassword,setcnfpassword] = useState("");
-  const [matchpass,setmatchpass] = useState(true);
+  const [toggle_form, settoggle_form] = useState(true);
+  const [newpassword, setnewpassword] = useState("");
+  // const [cnfpassword, setcnfpassword] = useState("");
+  const [matchpass, setmatchpass] = useState(true);
+  const [token, setToken] = useState('');
+  const [user,setuser] = useState({email:"",password:""})
 
   const handleLogin = () => {
     if (isLoggingIn) return;
@@ -27,6 +31,52 @@ const LoginPage = () => {
     clearTimeout(timer);
     setTimer(setTimeout(reset, 1500));
   };
+
+
+  const loginhandle = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch('/api/users/signin/route', {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {
+          'Content-type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ' + token || 'authed',
+        },
+      });
+
+      // Check if response.data exists before accessing the token property
+      
+
+      if (response.data && response.data.token) {
+        setToken(response.data.token);
+        axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
+        toast.success('Login successful. Redirecting to the dashboard.');
+        // router.push('/admin/dashboard');
+      } else {
+        // Handle the case where response.data or response.data.token is undefined
+        console.error('Invalid response:', response);
+        toast.error('Login failed. Please try again.');
+      }
+
+    } catch (error) {
+      console.error('Error during login:', error);
+      toast.error('Login failed. Please try again.');
+    }
+  };
+
+  const tokenauth = async()=>{
+    const test = await fetch('/api/users/signin/test');
+      console.log(test)
+  }
+
+  const logout=async()=>{
+      const ok = await fetch('/api/users/signout/route');
+      console.log(ok)
+  }
+
 
   const loginStateToggle = () => {
     const loginBtn = document.querySelector("[data-login]");
@@ -47,23 +97,12 @@ const LoginPage = () => {
     const value = e.target.value;
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
     setIsEmailValid(isValidEmail || value === ""); // Update email validity
-    setmail({ email: value }); // Update email value in the state
+    setuser({...user, email: value}); // Update email value in the state
     // console.log(isEmailValid);
   };
 
-  const checkpass =(e)=>{
-    setcnfpassword(e.target.value)
-    if (newpassword !== e.target.value) {
-        setmatchpass(false);
-      } else {
-        setmatchpass(true);
-      }
 
-  };
-
-
-
-  const forget=()=>{
+  const forget = () => {
     settoggle_form(!toggle_form);
   }
 
@@ -110,7 +149,7 @@ const LoginPage = () => {
                     id="user-email"
                     type="string"
                     name="user_email"
-                    value={mail.email}
+                    value={user.email}
                     onChange={mail_check}
                   />
                   <p className={isEmailValid ? "error hide" : "error"}>
@@ -126,6 +165,8 @@ const LoginPage = () => {
                     id="pass"
                     type="password"
                     name="pass"
+                    value={user.password}
+                    onChange={(e) => setuser({...user, password: e.target.value})}
                   />
                 </div>
                 <div className="login__field-group_log login__field-group--horz_log">
@@ -140,8 +181,15 @@ const LoginPage = () => {
                   <Link className="a" href="#">
                     Forgot password
                   </Link>
+                  <button onClick={()=>tokenauth()}>
+                    
+                    Test here
+                  </button>
+                  <button onClick={()=>logout()}>
+                    Logout
+                  </button>
                 </div>
-                <button className="login__btn_log" type="button" data-login="false">
+                <button className="login__btn_log" type="button" data-login="false" onClick={loginhandle}>
                   <span className="login__btn-label_log">Sign in</span>
                   <span className="login__btn-spinner_log"></span>
                 </button>
