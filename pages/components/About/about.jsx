@@ -51,8 +51,8 @@ const About = () => {
               >
                 Embark on a journey into the core of metallurgy with our
                 passionate team of experts. With a rich history in the field of
-                Ladle Calculations and Continuous Casting Machine (CCM)
-                Solutions, we stand as pioneers in driving innovation and
+                Continuous Casting Machine (CCM), Ladle Calculations and AOD Calculations 
+                , we stand as pioneers in driving innovation and
                 reliability in the metallurgical industry. Our commitment to
                 excellence resonates through our in-depth understanding of the
                 intricate processes that shape raw materials into high-quality
