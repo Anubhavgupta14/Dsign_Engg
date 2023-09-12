@@ -1,0 +1,28 @@
+.body_dash{
+    margin-top: 150px;
+    height: 90vh;
+}
+.heading_dash{
+    margin-bottom: 25px;
+}
+.head_dash{
+    text-align: center;
+    font-size: 2.5em;
+}
+.head_dash2{
+    text-align: center;
+}
+.photo{
+    border: 2px solid black;
+    height: 250px;
+    width: 250px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+.details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

@@ -84,19 +84,19 @@ const Ladlecalculator = () => {
   const [width2, setWidth2] = useState(0);
   const [volumn1, setVolumn1] = useState(0.0);
   const [volumn2, setVolumn2] = useState(0.0);
-  const [volumn3, setVolumn3] = useState(0.0);
-  const [volumn4, setVolumn4] = useState(0.0);
-  const [volumn5, setVolumn5] = useState(0.0);
-  const [volumn6, setVolumn6] = useState(0.0);
-  const [volumn7, setVolumn7] = useState(0.0);
-  const [volumn8, setVolumn8] = useState(0.0);
-  const [volumn9, setVolumn9] = useState(0.0);
-  const [volumn10, setVolumn10] = useState(0);
-  const [volumn11, setVolumn11] = useState(0);
-  const [volumn12, setVolumn12] = useState(0);
-  const [volumn13, setVolumn13] = useState(0);
-  const [volumn14, setVolumn14] = useState(0);
-  const [volumn15, setVolumn15] = useState(0);
+  // const [volumn3, setVolumn3] = useState(0.0);
+  // const [volumn4, setVolumn4] = useState(0.0);
+  // const [volumn5, setVolumn5] = useState(0.0);
+  // const [volumn6, setVolumn6] = useState(0.0);
+  // const [volumn7, setVolumn7] = useState(0.0);
+  // const [volumn8, setVolumn8] = useState(0.0);
+  // const [volumn9, setVolumn9] = useState(0.0);
+  // const [volumn10, setVolumn10] = useState(0);
+  // const [volumn11, setVolumn11] = useState(0);
+  // const [volumn12, setVolumn12] = useState(0);
+  // const [volumn13, setVolumn13] = useState(0);
+  // const [volumn14, setVolumn14] = useState(0);
+  // const [volumn15, setVolumn15] = useState(0);
   const [weight1, setweight1] = useState(0);
   const [weight2, setweight2] = useState(0);
   const [weight3, setweight3] = useState(0);
@@ -163,14 +163,17 @@ const Ladlecalculator = () => {
   const dev_bottom = r2 * dev_sin * 2;
   const F959 = Math.sqrt(r2 * r2 - (dev_bottom / 2) * (dev_bottom / 2));
 
-  const j31 = 7.864;
-  const length_other = 0;
-  const width_other = 0;
+  // const j31 = 7.864;
+  // const length_other = 0;
+  // const width_other = 0;
 
   const Radius_R = (top_dia_mean + thickness1 + 100) / 2;
   const top_rim_od = top_dia_mean + thickness1 + 100;
-  const Radius_r = (top_rim_od - 2 * 175) / 2;
+  const Radius_r = (parseFloat(top_rim_od) - parseFloat(2*sidelining)) / 2;
   const tan_30 = Math.tan((3.1416 / 180) * 30);
+  const cos_30 = Math.cos((3.1416 / 180) * 30);
+  const I964 = parseFloat(Radius_r) - parseFloat(cos_30*Radius_r);
+  const J964 = ((Radius_R) - Math.sqrt((Radius_R*Radius_R)-((Radius_r/2)*(Radius_r/2))))
 
   
 
@@ -234,17 +237,11 @@ const Ladlecalculator = () => {
       (thickness2 * length2 * width2 * 1 * 7.864) / 1000000
     );
 
-    const width3 = (top_dia_mean + thickness1 + 100) / 2;
-    const length3 = Math.round(
-      (Radius_R - Radius_R / tan_30 / 2 + (Radius_r - Radius_r / tan_30 / 2)) *
-        1 +
-        (Radius_R -
-          Radius_R / tan_30 / 2 +
-          (Radius_R -
-            Radius_R / tan_30 / 2 -
-            (Radius_r - Radius_r / tan_30 / 2))) *
-          5
-    );
+    // const width3 = (top_dia_mean + thickness1 + 100) / 2;
+
+    const width3 = Math.round(((Radius_R-Radius_r+(I964-J964))*6)+J964);
+
+    const length3 = Radius_R;
     setqty3(1);
     setqty2(1);
     setqty1(1);

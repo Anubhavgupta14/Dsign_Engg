@@ -14,6 +14,7 @@ import '@/styles/faq2.css'
 import '@/styles/ladle.css'
 import '@/styles/login.css'
 import '@/styles/pricing.css'
+import '@/styles/dashboard.css'
 
 export default function App({ Component, pageProps }) {
   return <Component {...pageProps} />

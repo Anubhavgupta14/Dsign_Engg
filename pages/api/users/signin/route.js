@@ -4,6 +4,7 @@ import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 import Cookies from "js-cookie";
 import { serialize } from "cookie";
+// import { useRouter } from 'next/router';
 // import generateToken from "../../../../middlewares/generatesToken";
 
 const handler = async (req, res) => {

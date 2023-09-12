@@ -6,10 +6,10 @@ import Footer from "../Footer/footer";
 import Link from "next/link";
 import { toast } from "react-hot-toast";
 import { axios } from "axios";
-import { useRouter } from "next/navigation";
 import Cookies from 'js-cookie';
 
 const LoginPage = () => {
+  
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [timer, setTimer] = useState(null);
   // const [email, setemail] = useState("");
@@ -30,6 +30,8 @@ const LoginPage = () => {
 
     clearTimeout(timer);
     setTimer(setTimeout(reset, 1500));
+
+    
   };
 
 
@@ -65,11 +67,14 @@ const LoginPage = () => {
       console.error('Error during login:', error);
       toast.error('Login failed. Please try again.');
     }
+
+    
+
   };
 
   const tokenauth = async()=>{
-    const test = await fetch('/api/users/signin/test');
-      console.log(test)
+     const test = await fetch('/api/users/signin/test');
+     console.log(test)
   }
 
   const logout=async()=>{

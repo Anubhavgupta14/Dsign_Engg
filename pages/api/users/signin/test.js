@@ -1,13 +1,29 @@
+import { useRouter } from "next/router";
 
-export default async function(req,res){
-    const {cookies} = req;
+const YourPage = ({ cookies }) => {
+  const router = useRouter();
+  const jwt = cookies.JWT;
 
-    const jwt = cookies.JWT;
-    if(!jwt){
-        //  return res.json({body:"Invalid Token"}).status(401)
-        console.log(jwt)
-    }
+  if (jwt) {
+    // Redirect to the dashboard page
+    router.push('/components/Dashboard/dashboard');
+    return null; // Important: Return null to prevent rendering content on this page
+  }
 
-    console.log(jwt)
-    res.json({body: 'Secret Data'})
+  // If no JWT token is found, continue rendering the page
+  return (
+    <div>
+      <p>Your page content here</p>
+    </div>
+  );
+};
+
+export async function getServerSideProps({ req }) {
+  const cookies = req.headers.cookie || ""; // Get cookies from request headers
+
+  return {
+    props: { cookies },
+  };
 }
+
+export default YourPage;
