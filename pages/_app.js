@@ -15,7 +15,14 @@ import '@/styles/ladle.css'
 import '@/styles/login.css'
 import '@/styles/pricing.css'
 import '@/styles/dashboard.css'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer} from 'react-toastify';
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <ToastContainer />
+      <Component {...pageProps} />
+    </>
+  );
 }

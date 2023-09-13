@@ -1,8 +1,20 @@
 import React from 'react'
 import Navbar from '../navbar/Navbar'
 import Footer from '../Footer/footer'
+import { toast } from 'react-toastify'
+import { useRouter } from 'next/navigation'
 
 const dashboard = () => {
+  const router = useRouter();
+
+  const handlelogout = async()=>{
+    const ok = await fetch('/api/users/signout/route');
+    console.log(ok)
+    toast.success("Successfully Logged Out")
+    router.push("/components/LoginPage/login")
+  }
+
+
   return (
     <div>
       <Navbar/>
@@ -21,7 +33,7 @@ const dashboard = () => {
                 <div className='p_detail'>
                     <p><span className='head_p'>Email:</span> test@gmail.com</p>
                 </div>
-                <button>
+                <button onClick={handlelogout}>
                     Logout
                 </button>
             </div>

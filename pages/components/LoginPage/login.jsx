@@ -4,11 +4,14 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/footer";
 import Link from "next/link";
-import { toast } from "react-hot-toast";
 import { axios } from "axios";
 import Cookies from 'js-cookie';
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+
 
 const LoginPage = () => {
+  const router = useRouter();
   
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [timer, setTimer] = useState(null);
@@ -22,6 +25,7 @@ const LoginPage = () => {
   const [token, setToken] = useState('');
   const [user,setuser] = useState({email:"",password:""})
 
+
   const handleLogin = () => {
     if (isLoggingIn) return;
 
@@ -30,7 +34,6 @@ const LoginPage = () => {
 
     clearTimeout(timer);
     setTimer(setTimeout(reset, 1500));
-
     
   };
 
@@ -39,48 +42,98 @@ const LoginPage = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch('/api/users/signin/route', {
+      fetch('/api/users/signin/route', {
         method: 'POST',
-        body: JSON.stringify(user),
         headers: {
-          'Content-type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': 'Bearer ' + token || 'authed',
+          'Content-Type': 'application/json',
         },
-      });
+        body: JSON.stringify(user),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json(); // Parse the response JSON
+        })
+        .then((data) => {
+          // Access the token from the response data
+          const { token } = data;
+          console.log('Received token:', token);
+          if(token){
+            toast.success('Logged In', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              });
+            router.push("/components/Dashboard/dashboard")
+          }
+          else
+          toast.error('Invalid Email or Password', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+          // You can use the token for further actions, such as storing it in local storage or cookies.
+        })
+        .catch((error) => {
+          toast.error('Invalid Email or Password', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+          console.error('Error:', error);
+        });
 
       // Check if response.data exists before accessing the token property
       
 
-      if (response.data && response.data.token) {
-        setToken(response.data.token);
-        axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
-        toast.success('Login successful. Redirecting to the dashboard.');
-        // router.push('/admin/dashboard');
-      } else {
-        // Handle the case where response.data or response.data.token is undefined
-        console.error('Invalid response:', response);
-        toast.error('Login failed. Please try again.');
-      }
+      // if (response.data && response.data.token) {
+      //   setToken(response.data.token);
+      //   axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
+      //   toast.success('Login successful. Redirecting to the dashboard.');
+      //   // router.push('/admin/dashboard');
+      // } else {
+      //   // Handle the case where response.data or response.data.token is undefined
+      //   console.error('Invalid response:', response);
+      //   toast.error('Login failed. Please try again.');
+      // }
 
     } catch (error) {
       console.error('Error during login:', error);
-      toast.error('Login failed. Please try again.');
+      toast.error('Invalid Email or Password', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
-
-    
 
   };
 
-  const tokenauth = async()=>{
-     const test = await fetch('/api/users/signin/test');
-     console.log(test)
-  }
 
-  const logout=async()=>{
-      const ok = await fetch('/api/users/signout/route');
-      console.log(ok)
-  }
+  // const logout=async()=>{
+  //     const ok = await fetch('/api/users/signout/route');
+  //     console.log(ok)
+  // }
 
 
   const loginStateToggle = () => {
@@ -186,13 +239,9 @@ const LoginPage = () => {
                   <Link className="a" href="#">
                     Forgot password
                   </Link>
-                  <button onClick={()=>tokenauth()}>
-                    
-                    Test here
-                  </button>
-                  <button onClick={()=>logout()}>
+                  {/* <button onClick={()=>logout()}>
                     Logout
-                  </button>
+                  </button> */}
                 </div>
                 <button className="login__btn_log" type="button" data-login="false" onClick={loginhandle}>
                   <span className="login__btn-label_log">Sign in</span>
