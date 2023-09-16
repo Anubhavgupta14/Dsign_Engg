@@ -76,7 +76,7 @@ const Signup = () => {
   return (
     <div className="sign_body">
       <Navbar/>
-      <div className="body_login">
+      <div className="body_login" style={{backgroundColor:"#f9fbfc"}}>
         <main className="login">
           <div className="login__col">
             <form className="login__form" method="post" action="">

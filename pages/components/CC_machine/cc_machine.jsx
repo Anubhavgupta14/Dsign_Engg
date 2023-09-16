@@ -341,7 +341,7 @@ const CC_machine = () => {
 
 
   return (
-    <div className="body">
+    <div className="body_ccm">
       <Navbar moveIndex={0} />
       <h2 className="head">CCM Complete Solution</h2>
       {/* <div className="main-box">
@@ -875,7 +875,7 @@ const CC_machine = () => {
         </div>
       </div> */}
       <div className="tab_container_main">
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} style={{backgroundColor:"#f9fbfc"}}>
           <Table sx={{ minWidth: 100 }} aria-label="simple table">
             <TableBody>
               <TableRow
@@ -1394,7 +1394,7 @@ const CC_machine = () => {
       </div>
 
       <div className="tab_container">
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} style={{backgroundColor:"#f9fbfc"}}>
           <Table sx={{ minWidth: 100 }} aria-label="simple table">
             <TableBody>
               <TableRow
@@ -1644,7 +1644,7 @@ const CC_machine = () => {
       </div>
 
       <div className="tab_container">
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} style={{backgroundColor:"#f9fbfc"}}>
           <Table sx={{ minWidth: 100 }} aria-label="simple table">
             <TableBody>
               <TableRow

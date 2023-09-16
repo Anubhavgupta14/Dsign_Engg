@@ -49,7 +49,7 @@ const Footer = () => {
                         <div className="white-btn" >
                             {/* <div className="subscribe flex-all">Subscribe</div> */}
                             {/* <Button text='Subscribe' /> */}
-                            <PlainButton text="Subscribe" />                            
+                            <button className='footer_btn'>Subscribe</button>                            
                         </div>
 
                     </div>

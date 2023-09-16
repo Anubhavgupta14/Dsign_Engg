@@ -2,6 +2,7 @@
 import { useState } from "react";
 
 import Navbar from "../navbar/Navbar";
+import Footer from "../Footer/footer";
 
 const page = () => {
   const [isEmailValid, setIsEmailValid] = useState(true);
@@ -45,88 +46,43 @@ const page = () => {
     console.log("Form data submitted:", formData);
   };
   return (
-    <div>
+    <div style={{ backgroundColor: "#f9fbfc" }}>
       <Navbar />
 
       <div className="contact_body">
         <div className="container">
           <div>
-            <h2 className="heading">Contact Us</h2>
-            <div className="details">
+            <h2 className="head_contact">Contact Us</h2>
+            <p className="contact_p">Let’s explore how "The Design Engg" can work for you.</p>
+            <div className="details_contact">
               <div className="contact_data">
-                <span className="detail_head">Street:</span> 39/42, Modi Street,
-                Fort
+                One flexible tool for your entire company to share knowledge, ship projects, and collaborate.
               </div>
+              <hr style={{
+                color: '#e5e4e3',
+                backgroundColor: '#e5e4e3',
+                height: .5,
+                borderColor: '#e5e4e3'
+              }} />
               <div className="contact_data">
-                <span className="detail_head">City:</span> Mumbai
+                Enterprise features to securely manage user access and security.
               </div>
+              <hr style={{
+                color: '#e5e4e3',
+                backgroundColor: '#e5e4e3',
+                height: .5,
+                borderColor: '#e5e4e3'
+              }} />
               <div className="contact_data">
-                <span className="detail_head">State/province/area:</span>{" "}
-                Maharastra
-              </div>
-              <div className="contact_data">
-                <span className="detail_head">Country calling code:</span> +91
-              </div>
-              <div className="contact_data">
-                <span className="detail_head">Country:</span> India
+                Dedicated support to work with you on your setup and help you build the best plan for your company.
               </div>
             </div>
           </div>
 
-          {/* <div className="form">
-        <div className="row">
-          <TextField
-            sx={{ m: 1, minWidth: isMobile ? 700 : 135 }}
-            className="textfield"
-            id="outlined-number"
-            label="Name"
-            variant="outlined"
-            type="string"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <TextField
-            required
-            sx={{ m: 1, minWidth: isMobile ? 700 : 135 }}
-            className="textfield"
-            id="outlined-number"
-            label="Email"
-            variant="outlined"
-            type="string"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="row">
-          <TextField
-            sx={{ m: 1, minWidth: isMobile ? 1420 : 390 }}
-            className="textfield"
-            id="outlined-number"
-            label="Phone No."
-            variant="outlined"
-            type="string"
-            onChange={(e) => setPhone(e.target.value)}
-          />
-        </div>
-        <div className="row">
-          <TextField
-            sx={{ m: 1, minWidth: isMobile ? 1420 : 390 }}
-            id="outlined-multiline-static"
-            label="Comment"
-            className="textfield"
-            multiline
-            rows={4}
-            onChange={(e) => setComment(e.target.value)}
-          />
-        </div>
-        <div className="row">
-            <button className="btn">
-                Send
-            </button>
-        </div>
-      </div> */}
 
           <form onSubmit={handleSubmit} className="form">
             <div>
-              <label htmlFor="name">Name:</label>
+              <label htmlFor="name">Full Name:</label>
               <input
                 type="text"
                 id="name"
@@ -140,7 +96,7 @@ const page = () => {
                 htmlFor="email"
                 className={isEmailValid ? "" : "error-label"}
               >
-              Email: {isEmailValid ? "" : "Invalid Email"}
+                Email: {isEmailValid ? "" : "Invalid Email"}
               </label>
               <input
                 type="email"
@@ -174,6 +130,7 @@ const page = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

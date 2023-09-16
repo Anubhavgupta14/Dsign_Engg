@@ -191,7 +191,7 @@ const LoginPage = () => {
   return (
     <div>
       <Navbar />
-      <div className="body_login_log">
+      <div className="body_login_log" style={{backgroundColor:"#f9fbfc"}}>
         <main className="login_log">
           <div className="login__col_log">
             <form className="login__form_log" method="post" action="">

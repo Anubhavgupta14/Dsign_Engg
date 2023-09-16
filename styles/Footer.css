@@ -170,6 +170,14 @@
     margin-left: 0px;
 }
 
+.footer_btn{
+    background-color: white;
+    color: black;
+    height: 51px;
+    width: 170px;
+    font-size: 18px;
+}
+
 .input-anime svg {
     font-size: 15px;
     color: white;

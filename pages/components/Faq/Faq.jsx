@@ -56,20 +56,11 @@ const Faqs = () => {
           <div className="faqs-title ha-title">
             <div
               className="faq-one"
-              data-aos-easing="ease-in-out"
-              data-aos-duration="800"
-              data-aos-delay="0"
-              data-aos="fade-up"
             >
               Frequently Asked
             </div>
             <div
               className="faq-two"
-              data-aos-easing="ease-in-out"
-              data-oas-once={true}
-              data-aos-duration="800"
-              data-aos-delay="100"
-              data-aos="fade-up"
             >
               Questions
             </div>
@@ -93,11 +84,6 @@ const Faqs = () => {
         {/* <div className="learn flex-all" >Load More</div> */}
         <div
           className="faq-btn"
-          data-aos-easing="ease-in-out"
-          data-aos-duration="800"
-          data-aos-delay="300"
-          data-aos="fade-up"
-          data-aos-once={true}
           // onClick={() =>  { num<faqs.length?setNum(num + 5):setNum(num - 5) }}>
           onClick={() => {
             num == 5 ? setNum(faqs.length) : loadless();

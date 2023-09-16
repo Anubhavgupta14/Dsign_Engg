@@ -7,7 +7,7 @@
     position: fixed;
     z-index: 100;
     width: 100%;
-    background-color: white;
+    background-color: #f9fbfc;
     top: 0px;
     transition: all .5s ease;
     align-items: center;
@@ -23,7 +23,7 @@
 }
 
 .scrolled-navbar {
-    background-color: white;
+    background-color: #f9fbfc;
     /* height: 60px !important; */
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -324,7 +324,7 @@
 .drop-menu{
     position: absolute;
     top: -100%;
-    background-color: white;
+    background-color: #f9fbfc;
     /* border: 2px solid red; */
     width: 99.8%;
     height: 46vh;

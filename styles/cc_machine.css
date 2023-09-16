@@ -3,6 +3,10 @@ p {
     line-height: 1.6;
     margin-bottom: 10px;
   }
+
+  .body_ccm{
+    background-color: #f9fbfc;
+  }
   
   .button {
     margin-top: 20px;

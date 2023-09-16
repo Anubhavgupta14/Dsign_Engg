@@ -11,7 +11,7 @@ const page = () => {
       <div className="body_pricing">
         <section className="pricing-plans">
           <div className="pricing-card basic">
-            <div className="heading">
+            <div className="heading_pri">
               <h4>BASIC</h4>
               <p>CCM Solutions</p>
             </div>
@@ -43,7 +43,7 @@ const page = () => {
             <button className="cta-btn">SELECT</button>
           </div>
           <div className="pricing-card standard">
-            <div className="heading">
+            <div className="heading_pri">
               <h4>STANDARD</h4>
               <p>CCM Solutions & Ladle Calulator</p>
             </div>
@@ -80,7 +80,7 @@ const page = () => {
             <button className="cta-btn">SELECT</button>
           </div>
           <div className="pricing-card premium">
-            <div className="heading">
+            <div className="heading_pri">
               <h4>PREMIUM</h4>
               <p>CCM Solutions, Ladle Calculator & AOD Calculator</p>
             </div>

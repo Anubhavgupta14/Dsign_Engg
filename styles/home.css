@@ -1,5 +1,5 @@
 .drop-mar {
-    margin: 14% 0px 80px 0px;
+    margin: 6% 0px 80px 0px;
 }
 
 .drop-cont {
@@ -28,15 +28,47 @@
 
 .drop-inner {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     /* background-color: rebeccapurple; */
 }
 
 .drop-info {
     font-size: 21px;
-    margin: 30px 0px;
+    margin: -26px 0px;
     margin-bottom: 60px;
     font-weight: 600;
     text-align: center;
+}
+
+.home_data{
+    height: 250px;
+    margin: 0 auto;
+    width: 1222px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 93px;
+}
+.home_datas{
+    background-color: #f6f5f4;
+    height: 164px;
+    width: 300px;
+    padding: 22px;
+    border-radius: 8px;
+}
+
+.home_datas h2{
+    color: #1081fc;
+    font-size: 65px;
+    text-align: left;
+}
+
+.home_datas p{
+    font-size: 15px;
+    text-align: left;
 }
 
 .drop-email-cont {
@@ -64,13 +96,21 @@
 
 .drop-p {
     font-weight: 900;
-    font-size: 70px;
+    font-size: 65px;
     text-align: center;
+    margin-top: 56px;
 }
+.home_btn{
+    width: 146px;
+    height: 60px;
+    font-size: 20px;
+}
+
 .drop-p2 {
     font-weight: 900;
-    font-size: 50px;
+    font-size: 43px;
     text-align: center;
+    margin-bottom: 22px;
 }
 
 .drop-right {

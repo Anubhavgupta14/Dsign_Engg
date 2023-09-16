@@ -223,6 +223,8 @@ const Ladlecalculator = () => {
 
   const result3 = () => {
     event.preventDefault();
+    result();
+    result2();
     const length1 = Math.round(R2 * dev_sin * 2);
     const width1 = parseInt(slant_height) + (parseInt(r2) - parseInt(F959));
     const volumn1 = ((thickness1 * length1 * width1) / 1000000).toFixed(2);
@@ -477,7 +479,7 @@ const Ladlecalculator = () => {
   };
 
   return (
-    <div className="body_ladle">
+    <div className="body_ladle" style={{backgroundColor:"#f9fbfc"}}>
       <Navbar moveIndex={0} />
       <div className="main-box_ladle">
         <Box component="form_ladle">
@@ -570,16 +572,6 @@ const Ladlecalculator = () => {
               <p>In Between Heigh : {inbetweenheight}</p>
 
               <div className="outcome_ladle">
-                <Stack spacing={2} direction="row">
-                  <button
-                    onClick={() => {
-                      result();
-                    }}
-                    className="button_ladle"
-                  >
-                    Calculate
-                  </button>
-                </Stack>
 
                 <p>Volumn of Ladle : {(pieHby3 * temp).toFixed(2)} cu.M</p>
                 <p>
@@ -670,16 +662,7 @@ const Ladlecalculator = () => {
               <p className="textcentre_ladle">Bottom ID: {output2}</p>
               <p className="textcentre_ladle">Height: {output3}</p>
               <div className="outcome_ladle">
-                <Stack spacing={2} direction="row">
-                  <button
-                    onClick={() => {
-                      result2();
-                    }}
-                    className="button_ladle"
-                  >
-                    Calculate
-                  </button>
-                </Stack>
+                
                 <p>
                   Capacity:{" "}
                   {(
@@ -712,7 +695,7 @@ const Ladlecalculator = () => {
 
       <div className="containerfab_ladle">
         <Paper sx={{ width: "100%", overflow: "hidden" }}>
-          <TableContainer sx={{ maxHeight: 440 }}>
+          <TableContainer sx={{ maxHeight: 440 }} style={{backgroundColor:"#f9fbfc"}}>
             <Table stickyHeader aria-label="sticky table">
               <TableBody>
                 <TableRow hover role="checkbox" tabIndex={-1}>
@@ -1245,28 +1228,28 @@ const Ladlecalculator = () => {
       <br />
 
       <div className="containerfab_ladle">
-        <Paper sx={{ width: "100%", overflow: "hidden" }}>
-          <TableContainer sx={{ maxHeight: 440 }}>
+        <Paper sx={{ width: "100%", overflow: "hidden" }} >
+          <TableContainer sx={{ maxHeight: 1200 }} style={{backgroundColor:"#f9fbfc"}}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
-                <TableRow hover role="checkbox" tabIndex={-1}>
-                  <TableCell>
+                <TableRow hover role="checkbox" tabIndex={-1} >
+                  <TableCell style={{backgroundColor:"#c8c8c8"}}>
                     <p>Particulars</p>
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{backgroundColor:"#c8c8c8"}}>
                     <p>Thick/Size</p>
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{backgroundColor:"#c8c8c8"}}>
                     <p>Weight in Kgs</p>
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{backgroundColor:"#c8c8c8"}}>
                     <p>Length</p>
                   </TableCell>
-                  <TableCell>
+                  <TableCell style={{backgroundColor:"#c8c8c8"}}>
                     <p>Width</p>
                   </TableCell>
 
-                  <TableCell>
+                  <TableCell style={{backgroundColor:"#c8c8c8"}}>
                     <p>Qty</p>
                   </TableCell>
                 </TableRow>

@@ -76,7 +76,7 @@ const Navbar = ({ moveIndex }) => {
       <div className={color ? (open ? "navbar":"navbar scrolled-navbar") : "navbar"} id="navbar">
         <div className="navbar-left normal">
           <Link href={"/"}>
-            <h2 className="logo">Dsign Engg</h2>
+            <h2 className="logo">The Design Engg</h2>
           </Link>
 
           <div className="navrel pos-rel">
@@ -152,7 +152,7 @@ const Navbar = ({ moveIndex }) => {
         <div className="hamburger">
           <div>
             <Link href={"/"}>
-              <h2 className="logo">Dsign Engg</h2>
+              <h2 className="logo">The Design Engg</h2>
             </Link>
           </div>
           <div onClick={handleClick} className={open ? "ham-pos res-nav":"ham-pos"}>

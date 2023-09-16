@@ -7,12 +7,19 @@
     padding-block: 20px;
 }
 
-.details{
+.head_contact{
+    font-size: 60px;
+}
+
+.details_contact{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 15px;
+    gap: 26px;
+    width: 600px;
+    padding: 10px;
     padding-inline: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .error-label {
     color: red;
@@ -25,6 +32,7 @@
 
 .contact_data{
     font-size: 18px;
+    padding: 16px;
 }
 
 .form{
@@ -103,12 +111,17 @@
 }
 
 .form {
-    width: 75vh;
+    width: 50vh;
     padding: 70px;
     margin-top: 40px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact_p{
+    font-size: 18px;
+    margin-bottom: 30px;
   }
   
   .label-container {

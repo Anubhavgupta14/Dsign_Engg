@@ -26,7 +26,7 @@ const About = () => {
 
   return (
     <>
-      <div className="about-cont-black flex-all">
+      <div className="about-cont-black flex-all" style={{backgroundColor:"#f9fbfc"}}>
         <div className="full-circle"></div>
         {show && (
           <>
