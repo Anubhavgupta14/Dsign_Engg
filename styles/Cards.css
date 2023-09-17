@@ -152,14 +152,14 @@
   justify-content: center;
 }
 
-.card_arrow {
-  height: 14px;
+.arrow_new {
+  /* height: 14px;
   width: 15px;
-  margin: 0px 0px -2px -4px;
-  transform: translateX(0); /* Initial position, no translation */
+  margin: 0px 0px -2px -4px; */
+  transform: translateX(0);
   transition: transform 0.3s ease-in-out;
 }
 
-.card_p:hover .card_arrow {
+.card_p:hover .arrow_new {
   transform: translateX(5px); /* Move the icon 5 pixels to the left on hover */
 }
