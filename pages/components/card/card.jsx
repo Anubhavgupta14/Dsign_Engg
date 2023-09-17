@@ -27,7 +27,7 @@ const page = () => {
             <div className='card_space'>
               <h2>CCM Solutions</h2>
               <p>CCM Solutions presents an innovative CCM Calculator designed to simplify your customer communication management.</p>
-              <Link href="/components/CC_machine/cc_machine"><span className='card_p'>Explore <ArrowForwardIcon className='card_arrow'/></span></Link>
+              <Link style={{width:"120px"}} href="/components/CC_machine/cc_machine"><div className='card_p'>Explore <ArrowForwardIcon className='card_arrow'/></div></Link>
               
             </div>
           </div>
@@ -36,7 +36,7 @@ const page = () => {
             <div className='card_space'>
               <h2>Ladle Calculator</h2>
               <p>Introducing Ladle Calculator, your go-to solution for precise ladle and pouring calculations.</p>
-              <Link href="/components/Ladle/ladle"><span className='card_p'>Explore <ArrowForwardIcon className='card_arrow'/></span></Link>
+              <Link style={{width:"120px"}} href="/components/Ladle/ladle"><span className='card_p'>Explore <ArrowForwardIcon className='card_arrow'/></span></Link>
             </div>
           </div>
 
@@ -44,7 +44,7 @@ const page = () => {
           <div className='card_space'>
             <h2>AOD Calculator</h2>
             <p>Presenting AOD Calculator, your essential partner for accurate AOD (Argon Oxygen Decarburization) calculations.</p>
-            <Link href="/"><span className='card_p'>Explore <ArrowForwardIcon className='card_arrow'/></span></Link>
+            <Link style={{width:"120px"}} href="/"><span className='card_p'>Explore <ArrowForwardIcon className='card_arrow'/></span></Link>
             </div>
           </div>
         </div>

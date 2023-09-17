@@ -7,6 +7,16 @@ p {
   .body_ccm{
     background-color: #f9fbfc;
   }
+  .ccm_desc{
+    margin: 0 auto;
+    width: 128vh;
+    margin-top: 19vh;
+    text-align: justify;
+  }
+
+  .ccm_para{
+    font-size: 16px;
+  }
   
   .button {
     margin-top: 20px;

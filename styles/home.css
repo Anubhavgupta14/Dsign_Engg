@@ -46,7 +46,7 @@
 .home_data{
     height: 250px;
     margin: 0 auto;
-    width: 1222px;
+    width: 1152px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,6 +58,11 @@
     width: 300px;
     padding: 22px;
     border-radius: 8px;
+}
+
+.home_datas:hover{
+    cursor: pointer;
+  background-color: #e9e8e8;
 }
 
 .home_datas h2{
@@ -94,6 +99,12 @@
     background-color: black !important;
 }
 
+
+.home_free{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .drop-p {
     font-weight: 900;
     font-size: 65px;
@@ -101,10 +112,20 @@
     margin-top: 56px;
 }
 .home_btn{
-    width: 146px;
-    height: 60px;
+    width: 130px;
+    height: 45px;
     font-size: 20px;
 }
+
+.arrow_home{
+    font-size: 35px;
+    transform: translateX(0px); /* Initial position, no translation */
+  transition: transform 0.3s ease-in-out;
+}
+
+.home_free:hover .arrow_home {
+    transform: translateX(5px); /* Move the icon 5 pixels to the left on hover */
+  }
 
 .drop-p2 {
     font-weight: 900;

@@ -84,35 +84,35 @@ const CC_machine = () => {
   const [out_kgpermin, setout_kgpermin] = useState(0);
   const specific_value = 1;
   const constant2 = 9.8;
-  const [c,setC] = useState(0);
-  const [Si,setSi] = useState(0);
-  const [Mn,setMn] = useState(0);
-  const [P,setP] = useState(0);
-  const [S,setS] = useState(0);
-  const [Nb,setNb] = useState(0);
-  const [Ca,setCa] = useState(0);
-  const [Ni,setNi] = useState(0);
-  const [Cu,setCu] = useState(0);
-  const [Mo,setMo] = useState(0);
-  const [Cr,setCr] = useState(0);
-  const [error,seterror] = useState("");
-  const [liquidus,setliquidus] = useState(0);
-  const isdisable = !(section && viscosity_powder && casting_speed&& heat_size && no_of_strands && negative_strip && oscl_stroke && specific_value && specific_value2 && nozzle_degree && constant && nozzle_model && nozzle_dia && ferostatic_height && c&&Si && Mn && P && S&& Nb &&Ca && Ni&& Cu&& Mo&& Cr)
-  
-  const fun=()=>{
+  const [c, setC] = useState(0);
+  const [Si, setSi] = useState(0);
+  const [Mn, setMn] = useState(0);
+  const [P, setP] = useState(0);
+  const [S, setS] = useState(0);
+  const [Nb, setNb] = useState(0);
+  const [Ca, setCa] = useState(0);
+  const [Ni, setNi] = useState(0);
+  const [Cu, setCu] = useState(0);
+  const [Mo, setMo] = useState(0);
+  const [Cr, setCr] = useState(0);
+  const [error, seterror] = useState("");
+  const [liquidus, setliquidus] = useState(0);
+  const isdisable = !(section && viscosity_powder && casting_speed && heat_size && no_of_strands && negative_strip && oscl_stroke && specific_value && specific_value2 && nozzle_degree && constant && nozzle_model && nozzle_dia && ferostatic_height && c && Si && Mn && P && S && Nb && Ca && Ni && Cu && Mo && Cr)
+
+  const fun = () => {
     seterror("Error : Enter the required values")
-    let v=document.querySelector(".error")
+    let v = document.querySelector(".error")
     v.style.visibility = "initial"
   }
 
   const result = () => {
-  
+
     seterror("ok")
-    let v=document.querySelector(".error")
+    let v = document.querySelector(".error")
     v.style.visibility = "hidden"
     let col1 = 0;
     let col2 = 0;
-    let col3= 0;
+    let col3 = 0;
 
     let flow = 0;
 
@@ -334,8 +334,8 @@ const CC_machine = () => {
     setNozzle_area(nozzle_area);
     setout_kgpermin(Math.round(H27 * H28));
 
-    const H829 = parseFloat((31.15*c*c)+(c*62.645)) + parseFloat((0.609*Si*Si)+(Si*2.0678)) + parseFloat(((0.674*Mn*Mn)+(Mn*5.3464))) + parseFloat((20*P*P)+(P*9)) + parseFloat((1.7724*S*S)+(24.755*S)) + parseFloat((1.1159*Nb*Nb)+(5.3326*Nb)) + parseFloat((0.0758*Ca*Ca)+(3.1313*Ca)) + parseFloat((0.0379*Ni*Ni)+(5.2917*Ni)) + parseFloat((0.6818*Cu*Cu)+(2.5955*Cu)) + parseFloat((0.0214*Mo*Mo)+(3.2214*Mo)) + parseFloat((0.0359*Cr*Cr)+(1.1402*Cr))
-    const liquidus= (Math.round(1538 - H829 + 1.7971 + 0.3358)).toFixed(2)
+    const H829 = parseFloat((31.15 * c * c) + (c * 62.645)) + parseFloat((0.609 * Si * Si) + (Si * 2.0678)) + parseFloat(((0.674 * Mn * Mn) + (Mn * 5.3464))) + parseFloat((20 * P * P) + (P * 9)) + parseFloat((1.7724 * S * S) + (24.755 * S)) + parseFloat((1.1159 * Nb * Nb) + (5.3326 * Nb)) + parseFloat((0.0758 * Ca * Ca) + (3.1313 * Ca)) + parseFloat((0.0379 * Ni * Ni) + (5.2917 * Ni)) + parseFloat((0.6818 * Cu * Cu) + (2.5955 * Cu)) + parseFloat((0.0214 * Mo * Mo) + (3.2214 * Mo)) + parseFloat((0.0359 * Cr * Cr) + (1.1402 * Cr))
+    const liquidus = (Math.round(1538 - H829 + 1.7971 + 0.3358)).toFixed(2)
     setliquidus(liquidus)
   };
 
@@ -344,6 +344,11 @@ const CC_machine = () => {
     <div className="body_ccm">
       <Navbar moveIndex={0} />
       <h2 className="head">CCM Complete Solution</h2>
+      <div className="ccm_desc">
+        <p className="ccm_para">
+          <span style={{color:"#1081fc"}}>A Continuous Casting Machine (CCM)</span> is a state-of-the-art industrial apparatus integral to the metallurgical and manufacturing sectors. It transforms the production of metals, especially steel and non-ferrous alloys, by enabling a continuous and seamless casting process. Unlike traditional methods, CCMs do away with the need for multiple mold changes and reheating steps. Instead, molten metal is poured into a tundish and flows through a water-cooled mold, emerging as perfectly shaped products like slabs, billets, and blooms.
+        </p>
+      </div>
       {/* <div className="main-box">
         <div className="border">
           <Box component="form">
@@ -875,7 +880,7 @@ const CC_machine = () => {
         </div>
       </div> */}
       <div className="tab_container_main">
-        <TableContainer component={Paper} style={{backgroundColor:"#f9fbfc"}}>
+        <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
           <Table sx={{ minWidth: 100 }} aria-label="simple table">
             <TableBody>
               <TableRow
@@ -1275,7 +1280,7 @@ const CC_machine = () => {
                     <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
                       {secwater}
                     </p>
-                  <label className="zone">Zone 1</label>
+                    <label className="zone">Zone 1</label>
                   </div>
                 </TableCell>
                 <TableCell align="left">
@@ -1394,7 +1399,7 @@ const CC_machine = () => {
       </div>
 
       <div className="tab_container">
-        <TableContainer component={Paper} style={{backgroundColor:"#f9fbfc"}}>
+        <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
           <Table sx={{ minWidth: 100 }} aria-label="simple table">
             <TableBody>
               <TableRow
@@ -1403,44 +1408,44 @@ const CC_machine = () => {
               >
                 <TableCell component="th" scope="row">
                   <div className="ok">
-                  <label className="label o">Nozzle Model</label>
-                  <FormControl
-                    sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                    size="small"
-                  >
-                    <InputLabel id="demo-select-small-label">
-                      Nozzle Model
-                    </InputLabel>
-                    <Select
-                      labelId="demo-select-small-label"
-                      id="demo-select-small"
-                      value={nozzle_model}
-                      label="Nozzle Model"
-                      onChange={(e) => setNozzle_model(e.target.value)}
+                    <label className="label o">Nozzle Model</label>
+                    <FormControl
+                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      size="small"
                     >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={"DB1565"}>DB1565</MenuItem>
-                      <MenuItem value={"DB2065"}>DB2065</MenuItem>
-                      <MenuItem value={"DB2465"}>DB2465</MenuItem>
-                      <MenuItem value={"DB2565"}>DB2565</MenuItem>
-                      <MenuItem value={"DB3065"}>DB3065</MenuItem>
-                      <MenuItem value={"DB3565"}>DB3565</MenuItem>
-                      <MenuItem value={"DB4065"}>DB4065</MenuItem>
-                      <MenuItem value={"DB4565"}>DB4565</MenuItem>
-                      <MenuItem value={"DB5065"}>DB5065</MenuItem>
-                      <MenuItem value={"DB5565"}>DB5565</MenuItem>
-                      <MenuItem value={"DB6065"}>DB6065</MenuItem>
-                      <MenuItem value={"DB6565"}>DB6565</MenuItem>
-                      <MenuItem value={"DB7065"}>DB7065</MenuItem>
-                      <MenuItem value={"DB7565"}>DB7565</MenuItem>
-                      <MenuItem value={"DB8065"}>DB8065</MenuItem>
-                      <MenuItem value={"DB8565"}>DB8565</MenuItem>
-                      <MenuItem value={"DB9065"}>DB9065</MenuItem>
-                      <MenuItem value={"DB9565"}>DB9565</MenuItem>
-                    </Select>
-                  </FormControl>
+                      <InputLabel id="demo-select-small-label">
+                        Nozzle Model
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        value={nozzle_model}
+                        label="Nozzle Model"
+                        onChange={(e) => setNozzle_model(e.target.value)}
+                      >
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={"DB1565"}>DB1565</MenuItem>
+                        <MenuItem value={"DB2065"}>DB2065</MenuItem>
+                        <MenuItem value={"DB2465"}>DB2465</MenuItem>
+                        <MenuItem value={"DB2565"}>DB2565</MenuItem>
+                        <MenuItem value={"DB3065"}>DB3065</MenuItem>
+                        <MenuItem value={"DB3565"}>DB3565</MenuItem>
+                        <MenuItem value={"DB4065"}>DB4065</MenuItem>
+                        <MenuItem value={"DB4565"}>DB4565</MenuItem>
+                        <MenuItem value={"DB5065"}>DB5065</MenuItem>
+                        <MenuItem value={"DB5565"}>DB5565</MenuItem>
+                        <MenuItem value={"DB6065"}>DB6065</MenuItem>
+                        <MenuItem value={"DB6565"}>DB6565</MenuItem>
+                        <MenuItem value={"DB7065"}>DB7065</MenuItem>
+                        <MenuItem value={"DB7565"}>DB7565</MenuItem>
+                        <MenuItem value={"DB8065"}>DB8065</MenuItem>
+                        <MenuItem value={"DB8565"}>DB8565</MenuItem>
+                        <MenuItem value={"DB9065"}>DB9065</MenuItem>
+                        <MenuItem value={"DB9565"}>DB9565</MenuItem>
+                      </Select>
+                    </FormControl>
                   </div>
                 </TableCell>
                 <TableCell align="left">
@@ -1644,7 +1649,7 @@ const CC_machine = () => {
       </div>
 
       <div className="tab_container">
-        <TableContainer component={Paper} style={{backgroundColor:"#f9fbfc"}}>
+        <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
           <Table sx={{ minWidth: 100 }} aria-label="simple table">
             <TableBody>
               <TableRow
@@ -1653,18 +1658,18 @@ const CC_machine = () => {
               >
                 <TableCell component="th" scope="row">
                   <div className="ok">
-                  <label className="label o">C%</label>
-                  <TextField
-                    required
-                    sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                    className="textfield"
-                    id="outlined-number"
-                    label="C%"
-                    size="small"
-                    variant="outlined"
-                    type="number"
-                    onChange={(e) => setC(e.target.value)}
-                  />
+                    <label className="label o">C%</label>
+                    <TextField
+                      required
+                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      className="textfield"
+                      id="outlined-number"
+                      label="C%"
+                      size="small"
+                      variant="outlined"
+                      type="number"
+                      onChange={(e) => setC(e.target.value)}
+                    />
                   </div>
                 </TableCell>
                 <TableCell align="left">
@@ -1682,52 +1687,52 @@ const CC_machine = () => {
               >
                 <TableCell component="th" scope="row">
                   <div className="ok">
-                  <label className="label o">Si%</label>
-                  <TextField
-                    required
-                    sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                    className="textfield"
-                    id="outlined-number"
-                    label="Si%"
-                    size="small"
-                    variant="outlined"
-                    type="number"
-                    onChange={(e) => setSi(e.target.value)}
-                  />
+                    <label className="label o">Si%</label>
+                    <TextField
+                      required
+                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      className="textfield"
+                      id="outlined-number"
+                      label="Si%"
+                      size="small"
+                      variant="outlined"
+                      type="number"
+                      onChange={(e) => setSi(e.target.value)}
+                    />
                   </div>
                 </TableCell>
 
                 <TableCell align="left">
                   <div className="ok">
-                  <label className="label o">Nozzle Dia(mm)</label>
-                  <FormControl
-                    sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                    size="small"
-                  >
-                    <InputLabel id="demo-select-small-label">
-                      Nozzle Dia(mm)
-                    </InputLabel>
-                    <Select
-                      labelId="demo-select-small-label"
-                      id="demo-select-small"
-                      value={nozzle_dia}
-                      label="Nozzle Model"
-                      onChange={(e) => setNozzle_dia(e.target.value)}
+                    <label className="label o">Nozzle Dia(mm)</label>
+                    <FormControl
+                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      size="small"
                     >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={12}>12</MenuItem>
-                      <MenuItem value={12.5}>12.5</MenuItem>
-                      <MenuItem value={13}>13</MenuItem>
-                      <MenuItem value={13.5}>13.5</MenuItem>
-                      <MenuItem value={14}>14</MenuItem>
-                      <MenuItem value={14.5}>14.5</MenuItem>
-                      <MenuItem value={15}>15</MenuItem>
-                      <MenuItem value={15.5}>15.5</MenuItem>
-                      <MenuItem value={16}>16</MenuItem>
-                    </Select>
-                  </FormControl>
+                      <InputLabel id="demo-select-small-label">
+                        Nozzle Dia(mm)
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        value={nozzle_dia}
+                        label="Nozzle Model"
+                        onChange={(e) => setNozzle_dia(e.target.value)}
+                      >
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={12}>12</MenuItem>
+                        <MenuItem value={12.5}>12.5</MenuItem>
+                        <MenuItem value={13}>13</MenuItem>
+                        <MenuItem value={13.5}>13.5</MenuItem>
+                        <MenuItem value={14}>14</MenuItem>
+                        <MenuItem value={14.5}>14.5</MenuItem>
+                        <MenuItem value={15}>15</MenuItem>
+                        <MenuItem value={15.5}>15.5</MenuItem>
+                        <MenuItem value={16}>16</MenuItem>
+                      </Select>
+                    </FormControl>
                   </div>
                 </TableCell>
               </TableRow>
@@ -1737,18 +1742,18 @@ const CC_machine = () => {
               >
                 <TableCell component="th" scope="row">
                   <div className="ok">
-                  <label className="label o">Mn%</label>
-                  <TextField
-                    required
-                    sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                    className="textfield"
-                    id="outlined-number"
-                    label="Mn%"
-                    size="small"
-                    variant="outlined"
-                    type="number"
-                    onChange={(e) => setMn(e.target.value)}
-                  />
+                    <label className="label o">Mn%</label>
+                    <TextField
+                      required
+                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      className="textfield"
+                      id="outlined-number"
+                      label="Mn%"
+                      size="small"
+                      variant="outlined"
+                      type="number"
+                      onChange={(e) => setMn(e.target.value)}
+                    />
                   </div>
                 </TableCell>
                 <TableCell align="left">
@@ -1766,35 +1771,35 @@ const CC_machine = () => {
               >
                 <TableCell component="th" scope="row">
                   <div className="ok">
-                  <label className="label o">P%</label>
-                  <TextField
-                    required
-                    sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                    className="textfield"
-                    id="outlined-number"
-                    label="P%"
-                    size="small"
-                    variant="outlined"
-                    type="number"
-                    onChange={(e) => setP(e.target.value)}
-                  />
+                    <label className="label o">P%</label>
+                    <TextField
+                      required
+                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      className="textfield"
+                      id="outlined-number"
+                      label="P%"
+                      size="small"
+                      variant="outlined"
+                      type="number"
+                      onChange={(e) => setP(e.target.value)}
+                    />
                   </div>
                 </TableCell>
                 <TableCell align="left">
                   <div className="ok">
-                  <label className="label">Ferostatic Height(mm)</label>
-                  <TextField
-                    required
-                    sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                    className="textfield"
-                    id="outlined-number"
-                    // label="Ferostatic Height"
-                    size="small"
-                    variant="outlined"
-                    type="number"
-                    defaultValue={600}
-                    onChange={(e) => setferostatic_height(e.target.value)}
-                  />
+                    <label className="label">Ferostatic Height(mm)</label>
+                    <TextField
+                      required
+                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      className="textfield"
+                      id="outlined-number"
+                      // label="Ferostatic Height"
+                      size="small"
+                      variant="outlined"
+                      type="number"
+                      defaultValue={600}
+                      onChange={(e) => setferostatic_height(e.target.value)}
+                    />
                   </div>
                 </TableCell>
               </TableRow>
@@ -1804,18 +1809,18 @@ const CC_machine = () => {
               >
                 <TableCell component="th" scope="row">
                   <div className="ok">
-                  <label className="label o">S%</label>
-                  <TextField
-                    required
-                    sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                    className="textfield"
-                    id="outlined-number"
-                    label="S%"
-                    size="small"
-                    variant="outlined"
-                    type="number"
-                    onChange={(e) => setS(e.target.value)}
-                  />
+                    <label className="label o">S%</label>
+                    <TextField
+                      required
+                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      className="textfield"
+                      id="outlined-number"
+                      label="S%"
+                      size="small"
+                      variant="outlined"
+                      type="number"
+                      onChange={(e) => setS(e.target.value)}
+                    />
                   </div>
                 </TableCell>
                 <TableCell component="th" scope="row">
@@ -1834,22 +1839,22 @@ const CC_machine = () => {
               >
                 <TableCell component="th" scope="row">
                   <div className="ok">
-                  <label className="label o">Nb%</label>
-                  <TextField
-                    required
-                    sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                    className="textfield"
-                    id="outlined-number"
-                    label="Nb%"
-                    size="small"
-                    variant="outlined"
-                    type="number"
-                    onChange={(e) => setNb(e.target.value)}
-                  />
+                    <label className="label o">Nb%</label>
+                    <TextField
+                      required
+                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      className="textfield"
+                      id="outlined-number"
+                      label="Nb%"
+                      size="small"
+                      variant="outlined"
+                      type="number"
+                      onChange={(e) => setNb(e.target.value)}
+                    />
                   </div>
                 </TableCell>
                 <TableCell align="left">
-                  
+
                 </TableCell>
               </TableRow>
 
@@ -1859,18 +1864,18 @@ const CC_machine = () => {
               >
                 <TableCell component="th" scope="row">
                   <div className="ok">
-                  <label className="label o">Ca%</label>
-                  <TextField
-                    required
-                    sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                    className="textfield"
-                    id="outlined-number"
-                    label="Ca%"
-                    size="small"
-                    variant="outlined"
-                    type="number"
-                    onChange={(e) => setCa(e.target.value)}
-                  />
+                    <label className="label o">Ca%</label>
+                    <TextField
+                      required
+                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      className="textfield"
+                      id="outlined-number"
+                      label="Ca%"
+                      size="small"
+                      variant="outlined"
+                      type="number"
+                      onChange={(e) => setCa(e.target.value)}
+                    />
                   </div>
                 </TableCell>
                 <TableCell></TableCell>
@@ -1881,18 +1886,18 @@ const CC_machine = () => {
               >
                 <TableCell component="th" scope="row">
                   <div className="ok">
-                  <label className="label o">Ni%</label>
-                  <TextField
-                    required
-                    sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                    className="textfield"
-                    id="outlined-number"
-                    label="Ni%"
-                    size="small"
-                    variant="outlined"
-                    type="number"
-                    onChange={(e) => setNi(e.target.value)}
-                  />
+                    <label className="label o">Ni%</label>
+                    <TextField
+                      required
+                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      className="textfield"
+                      id="outlined-number"
+                      label="Ni%"
+                      size="small"
+                      variant="outlined"
+                      type="number"
+                      onChange={(e) => setNi(e.target.value)}
+                    />
                   </div>
                 </TableCell>
                 <TableCell></TableCell>
@@ -1903,18 +1908,18 @@ const CC_machine = () => {
               >
                 <TableCell component="th" scope="row">
                   <div className="ok">
-                  <label className="label o">Cu%</label>
-                  <TextField
-                    required
-                    sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                    className="textfield"
-                    id="outlined-number"
-                    label="Cu%"
-                    size="small"
-                    variant="outlined"
-                    type="number"
-                    onChange={(e) => setCu(e.target.value)}
-                  />
+                    <label className="label o">Cu%</label>
+                    <TextField
+                      required
+                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      className="textfield"
+                      id="outlined-number"
+                      label="Cu%"
+                      size="small"
+                      variant="outlined"
+                      type="number"
+                      onChange={(e) => setCu(e.target.value)}
+                    />
                   </div>
                 </TableCell>
                 <TableCell></TableCell>
@@ -1925,18 +1930,18 @@ const CC_machine = () => {
               >
                 <TableCell component="th" scope="row">
                   <div className="ok">
-                  <label className="label o">Mo%</label>
-                  <TextField
-                    required
-                    sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                    className="textfield"
-                    id="outlined-number"
-                    label="Mo%"
-                    size="small"
-                    variant="outlined"
-                    type="number"
-                    onChange={(e) => setMo(e.target.value)}
-                  />
+                    <label className="label o">Mo%</label>
+                    <TextField
+                      required
+                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      className="textfield"
+                      id="outlined-number"
+                      label="Mo%"
+                      size="small"
+                      variant="outlined"
+                      type="number"
+                      onChange={(e) => setMo(e.target.value)}
+                    />
                   </div>
                 </TableCell>
                 <TableCell></TableCell>
@@ -1947,18 +1952,18 @@ const CC_machine = () => {
               >
                 <TableCell component="th" scope="row">
                   <div className="ok">
-                  <label className="label o">Cr%</label>
-                  <TextField
-                    required
-                    sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                    className="textfield"
-                    id="outlined-number"
-                    label="Cr%"
-                    size="small"
-                    variant="outlined"
-                    type="number"
-                    onChange={(e) => setCr(e.target.value)}
-                  />
+                    <label className="label o">Cr%</label>
+                    <TextField
+                      required
+                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      className="textfield"
+                      id="outlined-number"
+                      label="Cr%"
+                      size="small"
+                      variant="outlined"
+                      type="number"
+                      onChange={(e) => setCr(e.target.value)}
+                    />
                   </div>
                 </TableCell>
                 <TableCell></TableCell>
@@ -1969,12 +1974,12 @@ const CC_machine = () => {
               >
                 <TableCell component="th" scope="row">
                   <div className="ok">
-                  <label className="label">Liquius Temp.</label>
-                  <div className="out_box">
-                    <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                      {liquidus}
-                    </p>
-                  </div>
+                    <label className="label">Liquius Temp.</label>
+                    <div className="out_box">
+                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                        {liquidus}
+                      </p>
+                    </div>
                   </div>
                 </TableCell>
                 <TableCell></TableCell>
@@ -1985,21 +1990,21 @@ const CC_machine = () => {
       </div>
       <div className="main_btn">
         <Stack spacing={2} direction="row">
-                    <button
-                      onClick={() => {
-                      if(isdisable){
-                        fun();
-                      }
-                      else{
-                      result();
-                      }
-                      }}
-                      className="button btn_res"
-                      
-                    >
-                      Calculate
-                    </button>
-                    
+          <button
+            onClick={() => {
+              if (isdisable) {
+                fun();
+              }
+              else {
+                result();
+              }
+            }}
+            className="button btn_res"
+
+          >
+            Calculate
+          </button>
+
         </Stack>
         <p className="error">{error}</p>
       </div>

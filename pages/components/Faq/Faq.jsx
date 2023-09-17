@@ -57,12 +57,7 @@ const Faqs = () => {
             <div
               className="faq-one"
             >
-              Frequently Asked
-            </div>
-            <div
-              className="faq-two"
-            >
-              Questions
+              Frequently Asked Question
             </div>
           </div>
           <div className="faq-cont" id="fcont">

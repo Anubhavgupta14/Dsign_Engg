@@ -8,7 +8,12 @@
 }
 
 .head_contact{
-    font-size: 60px;
+    margin-top: 20px;
+    font-size: 40px;
+}
+.head_contact2{
+    font-size: 40px;
+    margin-bottom: 20px;
 }
 
 .details_contact{
@@ -17,6 +22,7 @@
     justify-content: center;
     gap: 26px;
     width: 600px;
+    background-color: #ececec;
     padding: 10px;
     padding-inline: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -116,12 +122,13 @@
     margin-top: 40px;
     /* border: 1px solid #ccc; */
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   }
 
   .contact_p{
     font-size: 18px;
     margin-bottom: 30px;
+    width: 528px;
   }
   
   .label-container {

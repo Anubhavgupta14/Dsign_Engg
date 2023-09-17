@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/footer";
+import DoneIcon from '@mui/icons-material/Done';
 
 const page = () => {
   const [isEmailValid, setIsEmailValid] = useState(true);
@@ -52,26 +53,29 @@ const page = () => {
       <div className="contact_body">
         <div className="container">
           <div>
-            <h2 className="head_contact">Contact Us</h2>
-            <p className="contact_p">Let’s explore how "The Design Engg" can work for you.</p>
+            <h2 className="head_contact">Questions?</h2>
+            <h2 className="head_contact2">We’ll put you on the right path.</h2>
+            <p className="contact_p">Ask about our range of products, customization or bulk orders.
+
+              We are at stand by, ready to help.</p>
             <div className="details_contact">
               <div className="contact_data">
-                One flexible tool for your entire company to share knowledge, ship projects, and collaborate.
+                <span><DoneIcon/></span>One flexible tool for your entire company to share knowledge, ship projects, and collaborate.
               </div>
               <hr style={{
-                color: '#e5e4e3',
-                backgroundColor: '#e5e4e3',
+                color: '#c6c5c5',
+                backgroundColor: '#c6c5c5',
                 height: .5,
-                borderColor: '#e5e4e3'
+                borderColor: '#c6c5c5'
               }} />
               <div className="contact_data">
                 Enterprise features to securely manage user access and security.
               </div>
               <hr style={{
-                color: '#e5e4e3',
-                backgroundColor: '#e5e4e3',
+                color: '#c6c5c5',
+                backgroundColor: '#c6c5c5',
                 height: .5,
-                borderColor: '#e5e4e3'
+                borderColor: '#c6c5c5'
               }} />
               <div className="contact_data">
                 Dedicated support to work with you on your setup and help you build the best plan for your company.

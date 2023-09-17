@@ -38,7 +38,7 @@ const About = () => {
               data-aos-once={true}
               className="hefty-title about-left flex-all ha-title"
             >
-              Dsign Engg
+              The Design Engg
             </div>
             <div className="hefty-p about-right flex-all">
               <div

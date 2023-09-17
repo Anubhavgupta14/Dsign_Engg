@@ -34,11 +34,10 @@ const Footer = () => {
         <>
             <div className="footer-cont">
                 <div className="footer-title">
-                    <div className="ha-inner footer-inner">Join Dsign Engg</div>
+                    <div className="ha-inner footer-inner">Join The Design Engg</div>
                     <div className="ha-inner footer-inner">Community</div>
                 </div>
-                <div className="footer-p">Gain exclusive access to the hottest
-                    news, drops and collectibles</div>
+                <div className="footer-p">Gain exclusive access to offers and updates</div>
                 <div className="email-cont">
 
                     <div className="flex-all footer-email-cont email-anime">
@@ -57,7 +56,7 @@ const Footer = () => {
                 <div className="h-box-cont">
                     <div className="h-box">
                         <div className="footer-logo-cont">
-                        <Link href={"/"}><h2>Dsign Engg</h2></Link>
+                        <Link href={"/"}><h2>The Design Engg</h2></Link>
                         </div>
 
                         <div className="icons-cont">

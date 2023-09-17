@@ -3,7 +3,7 @@
 .navbar {
     height: 90px;
     position: relative;
-    display: flex;
+    /* display: flex; */
     position: fixed;
     z-index: 100;
     width: 100%;
@@ -19,7 +19,11 @@
 }
 
 .logo{
-    padding-inline: 25px;
+    padding-inline: 18px;
+    margin-right: 97px;
+}
+.logo:hover{
+    color: #1081fc;
 }
 
 .scrolled-navbar {
@@ -74,8 +78,8 @@
     margin: 0px 19px;
     height: 90px;
     /* font-family: 'Lora', serif; */
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 500;
+    /* font-family: 'Rajdhani', sans-serif; */
+    font-weight: 400;
 }
 
 .nav:hover{
@@ -94,7 +98,7 @@
 .navbar-left{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 .res{
     display: none;
@@ -116,7 +120,6 @@
 }
 
 .ham-pos{
-    position: absolute;
     position: absolute;
     left: 92%;
 }
@@ -327,7 +330,7 @@
     background-color: #f9fbfc;
     /* border: 2px solid red; */
     width: 99.8%;
-    height: 46vh;
+    height: 53vh;
     z-index: 10;
     margin-top: 90px;
     margin-inline: 1px;
@@ -357,6 +360,12 @@
 
 .drop-details{
     padding: 45px;
+}
+
+.navbar_button{
+    display: flex;
+    gap: 14px;
+    padding-inline: 18px;
 }
 
 .button {
@@ -415,7 +424,7 @@
   .arrow-cont2 {
     position: absolute;
     cursor: pointer;
-    left: 218px;
+    left: 224px;
     height: 30px;
     width: 30px;
     border-radius: 50%;
@@ -436,4 +445,33 @@
 .ham_2{
     left: 44vh;
     top: 2vh;
+}
+
+.nav_login{
+    height: 50px;
+    width: 160px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.nav_login:hover{
+    border: 3px solid black;
+    background-color: white;
+    color: black;
+}
+.nav_login2{
+    background: transparent;
+    color: black;
+    border: 3px solid black;
+    height: 50px;
+    width: 190px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.nav_login2:hover{
+    background-color: black;
+    color: white;
 }
