@@ -71,6 +71,7 @@ const LoginPage = () => {
               theme: "light",
               });
             router.push("/components/Dashboard/dashboard")
+            window.location.reload();
           }
           else
           toast.error('Invalid Email or Password', {

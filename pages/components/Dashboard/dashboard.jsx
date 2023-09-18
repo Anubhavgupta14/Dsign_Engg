@@ -12,6 +12,7 @@ const dashboard = () => {
     console.log(ok)
     toast.success("Successfully Logged Out")
     router.push("/components/LoginPage/login")
+    window.location.reload();
   }
 
 
