@@ -95,6 +95,7 @@ const CC_machine = () => {
   const [Cu, setCu] = useState(0);
   const [Mo, setMo] = useState(0);
   const [Cr, setCr] = useState(0);
+  const [Ce, setCe] = useState(0);
   const [error, seterror] = useState("");
   const [liquidus, setliquidus] = useState(0);
   const isdisable = !(section && viscosity_powder && casting_speed && heat_size && no_of_strands && negative_strip && oscl_stroke && specific_value && specific_value2 && nozzle_degree && constant && nozzle_model && nozzle_dia && ferostatic_height && c && Si && Mn && P && S && Nb && Ca && Ni && Cu && Mo && Cr)
@@ -334,9 +335,14 @@ const CC_machine = () => {
     setNozzle_area(nozzle_area);
     setout_kgpermin(Math.round(H27 * H28));
 
+    
     const H829 = parseFloat((31.15 * c * c) + (c * 62.645)) + parseFloat((0.609 * Si * Si) + (Si * 2.0678)) + parseFloat(((0.674 * Mn * Mn) + (Mn * 5.3464))) + parseFloat((20 * P * P) + (P * 9)) + parseFloat((1.7724 * S * S) + (24.755 * S)) + parseFloat((1.1159 * Nb * Nb) + (5.3326 * Nb)) + parseFloat((0.0758 * Ca * Ca) + (3.1313 * Ca)) + parseFloat((0.0379 * Ni * Ni) + (5.2917 * Ni)) + parseFloat((0.6818 * Cu * Cu) + (2.5955 * Cu)) + parseFloat((0.0214 * Mo * Mo) + (3.2214 * Mo)) + parseFloat((0.0359 * Cr * Cr) + (1.1402 * Cr))
     const liquidus = (Math.round(1538 - H829 + 1.7971 + 0.3358)).toFixed(2)
     setliquidus(liquidus)
+
+    const Ce = parseFloat(c)+parseFloat(Mn/6)+(parseFloat(parseFloat(Cr)+parseFloat(Mo))/5)+(parseFloat(parseFloat(Ni)+parseFloat(Cu))/15);
+    
+    setCe((Ce).toFixed(2));
   };
 
 
@@ -1974,7 +1980,23 @@ const CC_machine = () => {
               >
                 <TableCell component="th" scope="row">
                   <div className="ok">
-                    <label className="label">Liquius Temp.</label>
+                    <label className="label">Carbon Equivalency Percentage (CE%)</label>
+                    <div className="out_box">
+                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                        {Ce}
+                      </p>
+                    </div>
+                  </div>
+                </TableCell>
+                <TableCell></TableCell>
+              </TableRow>
+              <TableRow
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                hover
+              >
+                <TableCell component="th" scope="row">
+                  <div className="ok">
+                    <label className="label">Liquidus Temp.</label>
                     <div className="out_box">
                       <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
                         {liquidus}

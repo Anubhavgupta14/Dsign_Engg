@@ -13,7 +13,7 @@ import '@/styles/faq.css'
 import '@/styles/faq2.css'
 import '@/styles/ladle.css'
 import '@/styles/login.css'
-import '@/styles/pricing.css'
+import '@/styles/pricing_new.css'
 import '@/styles/dashboard.css'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer} from 'react-toastify';
