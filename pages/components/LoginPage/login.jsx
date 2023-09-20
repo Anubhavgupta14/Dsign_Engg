@@ -8,6 +8,8 @@ import { axios } from "axios";
 import Cookies from 'js-cookie';
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 
 const LoginPage = () => {
@@ -24,9 +26,12 @@ const LoginPage = () => {
   const [matchpass, setmatchpass] = useState(true);
   const [token, setToken] = useState('');
   const [user,setuser] = useState({email:"",password:""})
+  const [load,setload] = useState(false);
+
 
 
   const handleLogin = () => {
+    setload(true);
     if (isLoggingIn) return;
 
     setIsLoggingIn(true);
@@ -73,20 +78,23 @@ const LoginPage = () => {
             router.push("/components/Dashboard/dashboard")
             window.location.reload();
           }
-          else
-          toast.error('Invalid Email or Password', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
+          else{
+            setload(false)
+            toast.error('Invalid Email or Password', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
             });
+          }
           // You can use the token for further actions, such as storing it in local storage or cookies.
         })
         .catch((error) => {
+          setload(false)
           toast.error('Invalid Email or Password', {
             position: "top-right",
             autoClose: 5000,
@@ -246,8 +254,9 @@ const LoginPage = () => {
                 </div>
                 <button className="login__btn_log" type="button" data-login="false" onClick={loginhandle}>
                   <span className="login__btn-label_log">Sign in</span>
-                  <span className="login__btn-spinner_log"></span>
+                  
                 </button>
+                <div className={load ? "loader_load":"loader_load dis_none"}><div><CircularProgress className="CircularProgress" color="inherit"/></div></div>
                 <p className="login__sign-up_log">
                   Don’t have an account?{" "}
                   <Link className="a_log forget_log" href="/components/signup/Signup">

@@ -7,14 +7,19 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import PlainButton from "../PlainButton/plainbutton";
 import DropdownButton from "../Dropdown/dropdown";
+import Profile from "../profile/Profile"
+
+
 
 // import '../styles/navbar.css'
 
-const Navbar = ({ moveIndex }) => {
+const Navbar = ({authtoken}) => {
   const [open, setOpen] = useState(false);
   const [click, setClick] = useState(false);
   const [click2, setClick2] = useState(false);
   const [drop_ham, setdrop_ham] = useState(false);
+  
+  
   const handleClick = () => {
     setClick(!click);
   };
@@ -108,12 +113,15 @@ const Navbar = ({ moveIndex }) => {
                 </button>
               </Link>
             </div>
-            <div className="menu-btn">
+            <div className={authtoken!='' ? "menu-btn dis_none":"menu-btn"}>
               <Link href="/components/LoginPage/login">
                 <button className="nav_login">
                   Login / Signup
                 </button>
               </Link>
+            </div>
+            <div className={authtoken!='' ? "menu-btn":"menu-btn dis_none"}>
+              <Profile/>
             </div>
           </div>
         </div>
@@ -252,3 +260,7 @@ const Navbar = ({ moveIndex }) => {
 };
 
 export default Navbar;
+
+export function getServerSideProps({ req, res }) {
+  return { props: { token: req.cookies.JWT || "" } };
+}

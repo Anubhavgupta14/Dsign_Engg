@@ -94,6 +94,21 @@ p_log {
   appearance: none;
 }
 
+.CircularProgress{
+  height: 2px;
+}
+.loader_load{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    width: 365px;
+    height: 44px;
+}
+
+.dis_none{
+  display: none;
+}
+
 .login__btn_log:disabled {
   cursor: not-allowed;
   opacity: 0.5;

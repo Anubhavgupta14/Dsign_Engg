@@ -14,7 +14,7 @@ import Link from "next/link";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
-const page = () => {
+const page = ({authtoken}) => {
   const aboutRef = useRef(null);
 
   const scrollToAbout = () => {
@@ -23,7 +23,7 @@ const page = () => {
 
   return (
     <div style={{ backgroundColor: "#f9fbfc" }}>
-      <Navbar />
+      <Navbar authtoken={authtoken||""} />
       <div className="drop-mar" >
         <div className="drop-cont">
           <div className="drop-left">
