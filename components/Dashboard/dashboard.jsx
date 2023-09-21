@@ -11,7 +11,7 @@ const dashboard = () => {
     const ok = await fetch('/api/users/signout/route');
     console.log(ok)
     toast.success("Successfully Logged Out")
-    router.push("/components/LoginPage/login")
+    router.push("/signin")
     window.location.reload();
   }
 

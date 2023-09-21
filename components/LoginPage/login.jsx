@@ -75,7 +75,7 @@ const LoginPage = () => {
               progress: undefined,
               theme: "light",
               });
-            router.push("/components/Dashboard/dashboard")
+            router.push("/dashboard")
             window.location.reload();
           }
           else{
@@ -259,7 +259,7 @@ const LoginPage = () => {
                 <div className={load ? "loader_load":"loader_load dis_none"}><div><CircularProgress className="CircularProgress" color="inherit"/></div></div>
                 <p className="login__sign-up_log">
                   Don’t have an account?{" "}
-                  <Link className="a_log forget_log" href="/components/signup/Signup">
+                  <Link className="a_log forget_log" href="/signup">
                     Sign Up
                   </Link>
                 </p>

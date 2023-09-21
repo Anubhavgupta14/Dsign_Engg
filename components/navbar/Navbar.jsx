@@ -96,25 +96,25 @@ const Navbar = ({authtoken}) => {
             </div>
 
 
-            <Link href={"/components/Pricing/pricing"}>
+            <Link href={"/pricing"}>
               <div className="nav nav3">Pricing</div>
             </Link>
 
-            <Link href={"/components/contact_us/contact"}>
+            <Link href={"/contact"}>
               <div className="nav nav2">Contact</div>
             </Link>
           </div>
           
           <div className="navbar_button">
             <div className="menu-btn">
-              <Link href="/components/CC_machine/cc_machine">
+              <Link href="/ccm">
                 <button className="nav_login2">
                   Get Started Its - Free
                 </button>
               </Link>
             </div>
             <div className={authtoken!='' ? "menu-btn dis_none":"menu-btn"}>
-              <Link href="/components/LoginPage/login">
+              <Link href="/signin">
                 <button className="nav_login">
                   Login / Signup
                 </button>
@@ -142,11 +142,11 @@ const Navbar = ({authtoken}) => {
             </div>
 
 
-            <Link href={"/components/Pricing/pricing"}>
+            <Link href={"/pricing"}>
               <div className="nav nav3">Pricing</div>
             </Link>
 
-            <Link href={"/components/contact_us/contact"}>
+            <Link href={"/contact"}>
               <div className="nav nav2">Contact</div>
             </Link>
 
@@ -155,12 +155,12 @@ const Navbar = ({authtoken}) => {
             </Link> */}
 
             <div className="menu-btn res-btn">
-              <Link href="/components/CC_machine/cc_machine">
+              <Link href="/ccm">
                 <PlainButton text="Get Started- Its free" />
               </Link>
             </div>
             <div className="menu-btn res-btn">
-              <Link href="/components/contact_us/contact">
+              <Link href="/signin">
                 <PlainButton text="Login" />
               </Link>
             </div>
@@ -230,7 +230,7 @@ const Navbar = ({authtoken}) => {
             Explore our expertise, resources, and insights that power the
             heart of industries. Your journey into the realm of metallurgy
             begins here.</p>
-          <Link href="/components/CC_machine/cc_machine"><button className="button">Try Now</button></Link>
+          <Link href="/ccm"><button className="button">Try Now</button></Link>
         </div>
         <div className="drop-details">
           <h2>Ladle Calculator</h2>
@@ -241,7 +241,7 @@ const Navbar = ({authtoken}) => {
             Explore our expertise, resources, and insights that power the
             heart of industries. Your journey into the realm of metallurgy
             begins here.</p>
-          <Link href="/components/Ladle/ladle"><button className="button">Try Now</button></Link>
+          <Link href="/ladle"><button className="button">Try Now</button></Link>
         </div>
         <div className="drop-details">
           <h2>AOD Vessel Calculator</h2>
@@ -260,7 +260,3 @@ const Navbar = ({authtoken}) => {
 };
 
 export default Navbar;
-
-export function getServerSideProps({ req, res }) {
-  return { props: { token: req.cookies.JWT || "" } };
-}

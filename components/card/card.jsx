@@ -27,7 +27,7 @@ const page = () => {
             <div className='card_space'>
               <h2>CCM Solutions</h2>
               <p>CCM Solutions presents an innovative CCM Calculator designed to simplify your customer communication management.</p>
-              <Link style={{ width: "120px" }} href="/components/CC_machine/cc_machine"><div className='card_p'>Explore <ArrowForwardIcon style={{height:"14px", width:"15px", margin:"0 0 -2px -4px", transform:"translateX(0)", transition:"transform 0.3s ease-in-out" }} /></div></Link>
+              <Link style={{ width: "120px" }} href="/ccm"><div className='card_p'>Explore <ArrowForwardIcon style={{height:"14px", width:"15px", margin:"0 0 -2px -4px", transform:"translateX(0)", transition:"transform 0.3s ease-in-out" }} /></div></Link>
 
             </div>
           </div>
@@ -36,7 +36,7 @@ const page = () => {
             <div className='card_space'>
               <h2>Ladle Calculator</h2>
               <p>Introducing Ladle Calculator, your go-to solution for precise ladle and pouring calculations.</p>
-              <Link style={{ width: "120px" }} href="/components/Ladle/ladle"><span className='card_p'>Explore <ArrowForwardIcon style={{height:"14px", width:"15px", margin:"0 0 -2px -4px", transform:"translateX(0)", transition:"transform 0.3s ease-in-out" }}/></span></Link>
+              <Link style={{ width: "120px" }} href="/ladle"><span className='card_p'>Explore <ArrowForwardIcon style={{height:"14px", width:"15px", margin:"0 0 -2px -4px", transform:"translateX(0)", transition:"transform 0.3s ease-in-out" }}/></span></Link>
             </div>
           </div>
 

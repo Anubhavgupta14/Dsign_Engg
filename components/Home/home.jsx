@@ -31,7 +31,7 @@ const page = ({authtoken}) => {
               <div className="drop-p">The Design Engg</div>
               <div className="drop-p2"> Fastest way to smart <span style={{ color: "#1081fc" }}>solutions</span></div>
               <div className="home_free">
-                <div className="home_btn_div"><Link href="/components/CC_machine/cc_machine"><button className="home_btn">
+                <div className="home_btn_div"><Link href="/ccm"><button className="home_btn">
                   Free Trail
                 </button></Link></div>
                 <div className="arrow_home"><ArrowForwardIcon className="arrow_home"/></div>

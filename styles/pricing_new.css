@@ -4,8 +4,9 @@
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.15);
     width: 1170px;
     margin: 0 auto;
-    margin-top: 17vh;
+    margin-top: 13vh;
     margin-bottom: 10vh;
+    padding-top: 6vh;
 }
 .price-table {
     width: 100%;

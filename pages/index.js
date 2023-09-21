@@ -1,7 +1,7 @@
 "use client";
 import { useEffect,useState } from 'react';
 import * as React from "react";
-import Home from "./components/Home/home"
+import Home from "../components/Home/home"
 import AOS from "aos";
 import "aos/dist/aos.css";
 import cookies from 'js-cookie';

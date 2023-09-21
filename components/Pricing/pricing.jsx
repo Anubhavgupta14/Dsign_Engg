@@ -8,7 +8,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 
 const page = () => {
   return (
-    <div>
+    <div style={{backgroundColor:'#f9fbfc'}}>
       <Navbar /> 
       {/* <div className="body_pricing">
         <section className="pricing-plans">
