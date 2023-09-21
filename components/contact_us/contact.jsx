@@ -60,7 +60,8 @@ const page = () => {
               We are at stand by, ready to help.</p>
             <div className="details_contact">
               <div className="contact_data">
-                <span><DoneIcon/></span>One flexible tool for your entire company to share knowledge, ship projects, and collaborate.
+                <div><DoneIcon/></div>
+                <div>One flexible tool for your entire company to share knowledge, ship projects, and collaborate.</div>
               </div>
               <hr style={{
                 color: '#c6c5c5',
@@ -69,7 +70,8 @@ const page = () => {
                 borderColor: '#c6c5c5'
               }} />
               <div className="contact_data">
-                Enterprise features to securely manage user access and security.
+              <div><DoneIcon/></div>
+                <div>Enterprise features to securely manage user access and security.</div>
               </div>
               <hr style={{
                 color: '#c6c5c5',
@@ -78,7 +80,8 @@ const page = () => {
                 borderColor: '#c6c5c5'
               }} />
               <div className="contact_data">
-                Dedicated support to work with you on your setup and help you build the best plan for your company.
+                <div><DoneIcon/></div>
+                <div>Dedicated support to work with you on your setup and help you build the best plan for your company.</div>
               </div>
             </div>
           </div>

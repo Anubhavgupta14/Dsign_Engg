@@ -37,6 +37,8 @@
 }
 
 .contact_data{
+    display: flex;
+    gap: 10px;
     font-size: 18px;
     padding: 16px;
 }
