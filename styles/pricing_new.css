@@ -1,13 +1,18 @@
 
-
+.body_pricing{
+    background-color: #f9fbfc;
+}
 .main {
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.15);
-    width: 1170px;
+    width: 85%;
     margin: 0 auto;
     margin-top: 13vh;
-    margin-bottom: 10vh;
-    padding-top: 6vh;
+    margin-bottom: 15vh;
+    padding-top: 0vh;
+    position: relative;
+    top: 6vh;
 }
+
 .price-table {
     width: 100%;
     border-collapse: collapse;

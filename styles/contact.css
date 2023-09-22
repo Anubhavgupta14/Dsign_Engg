@@ -8,7 +8,6 @@
 }
 
 .head_contact{
-    margin-top: 20px;
     font-size: 40px;
 }
 .head_contact2{
@@ -120,7 +119,7 @@
 
 .form {
     width: 50vh;
-    padding: 70px;
+    padding: 61px;
     margin-top: 40px;
     /* border: 1px solid #ccc; */
     border-radius: 8px;
@@ -137,6 +136,10 @@
     position: relative;
     margin-bottom: 15px;
   }
+  .div_name{
+    display: flex;
+    align-items: center;
+  }
   
   label {
     position: relative;
@@ -144,8 +147,36 @@
     color: #555;
     transition: all 0.2s ease;
   }
+
+  /* input[type="text"]{
+    width: 100%;
+    margin-block: 10px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f8f8f8;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  } */
+
+  .first_name{
+    width: 100%;
+    margin-block: 10px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f8f8f8;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .last_name{
+    width: 100%;
+    margin-block: 10px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f8f8f8;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
   
-  input[type="text"],
   input[type="email"],
   input[type="tel"],
   textarea {
@@ -157,9 +188,20 @@
     background-color: #f8f8f8;
     transition: border-color 0.3s, box-shadow 0.3s;
   }
+
+  select[type="phone_code"]{
+    width: 107%;
+    margin-block: 10px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f8f8f8;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
   
   input[type="text"]:focus,
   input[type="email"]:focus,
+  select[type="phone_code"]:focus,
   input[type="tel"]:focus,
   textarea:focus {
     border-color: rgb(200,200,200);

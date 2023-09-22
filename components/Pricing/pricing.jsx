@@ -8,144 +8,24 @@ import ClearIcon from '@mui/icons-material/Clear';
 
 const page = () => {
   return (
-    <div style={{backgroundColor:'#f9fbfc'}}>
+    <div className="body_pricing">
       <Navbar /> 
-      {/* <div className="body_pricing">
-        <section className="pricing-plans">
-          <div className="pricing-card basic">
-            <div className="heading_pri">
-              <h4>BASIC</h4>
-              <p>CCM Solutions</p>
-            </div>
-            <p className="price">
-              FREE
-            </p>
-            <ul className="features">
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >CCM Solutions</strong> Full Access
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >Login</strong> Dashboard
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >Free</strong> Downloads
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >Unlimited</strong> Time
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >24/7</strong> support
-              </li>
-            </ul>
-            <button className="cta-btn">SELECT</button>
-          </div>
-          <div className="pricing-card standard">
-            <div className="heading_pri">
-              <h4>STANDARD</h4>
-              <p>CCM Solutions & Ladle Calulator</p>
-            </div>
-            <p className="price">
-            &#8377; 500
-              <sub>/month</sub>
-            </p>
-            <ul className="features">
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >CCM Solutions</strong> Full Access
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >Ladle Calculator</strong> Full Access
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >Free </strong>Downloads
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >Unlimited</strong> Time
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >Login</strong> Dashboard
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >24/7</strong> support
-              </li>
-            </ul>
-            <button className="cta-btn">SELECT</button>
-          </div>
-          <div className="pricing-card premium">
-            <div className="heading_pri">
-              <h4>PREMIUM</h4>
-              <p>CCM Solutions, Ladle Calculator & AOD Calculator</p>
-            </div>
-            <p className="price">
-            &#8377;1000
-              <sub>/month</sub>
-            </p>
-            <ul className="features">
-            <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >CCM Solutions</strong> Full Access
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >Ladle Calculator</strong> Full Access
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >AOD Calculator</strong> Full Access
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >Free </strong>Downloads
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >Unlimited</strong> Time
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >Login</strong> Dashboard
-              </li>
-              <li>
-                <i className="fa-solid fa-check"></i>
-                <strong >24/7</strong> support
-              </li>
-            </ul>
-            <button className="cta-btn">SELECT</button>
-          </div>
-        </section>
-      </div> */}
         <div className="main">
           <table className="price-table">
             <tbody>
-              {/* <tr>
-                <td className="price-blank" />
-                <td className="price-blank" />
-                <td className="price-table-popular">Most popular</td>
-                <td className="price-blank" />
-              </tr> */}
               <tr className="price-table-head">
                 <td />
                 <td>
                   Basic
-                  <br /><small style={{ fontSize: 12, fontWeight: 400 }}>Limited Access</small>
+                  <br /><small style={{ fontSize: 12, fontWeight: 400 }}>Plan</small>
                 </td>
                 <td>
                   Standard
-                  <br /><small style={{ fontSize: 12, fontWeight: 400 }}>Intermediate Access</small>
+                  <br /><small style={{ fontSize: 12, fontWeight: 400 }}>Plan</small>
                 </td>
                 <td className="green-width">
                   Premium
-                  <br /><small style={{ fontSize: 12, fontWeight: 400 }}>Complete Access</small>
+                  <br /><small style={{ fontSize: 12, fontWeight: 400 }}>Plan</small>
                 </td>
               </tr>
               <tr>
@@ -166,7 +46,7 @@ const page = () => {
                     <path d="M62.6 103.3a1 1 0 00-1.4 0L44 120.8a1 1 0 000 1.4 1 1 0 00.7.3 1 1 0 00.7-.3l17.3-17.3a1 1 0 000-1.5zM58.7 116.3a1 1 0 00.7-.3l7.2-7.2a1 1 0 00-1.4-1.5l-7.2 7.3a1 1 0 00.7 1.7zM55.2 117.4l-2.8 2.8a1 1 0 00.7 1.7 1 1 0 00.7-.3l2.8-2.8a1 1 0 000-1.4 1 1 0 00-1.4 0zM5.9 84.1a1 1 0 00.7.3 1 1 0 00.7-.3l17.4-17.3a1 1 0 10-1.5-1.4L6 82.7a1 1 0 000 1.4zM13.4 70l7.3-7.2a1 1 0 10-1.5-1.4L12 68.6a1 1 0 00.7 1.7 1 1 0 00.7-.3zM7.8 75.6l2.8-2.8a1 1 0 000-1.4 1 1 0 00-1.4 0l-2.8 2.8a1 1 0 000 1.4 1 1 0 00.7.3 1 1 0 00.7-.3zM68 33.6L27.1 40a1 1 0 00-.5.3L20 46.8a1 1 0 000 1.5l16.6 16.6-4.7 4.7a1 1 0 000 1.5l11.5 11.4-4.6 4.6a1 1 0 00.7 1.7 1 1 0 00.7-.3l4.6-4.6L57 96a1 1 0 001.4 0l4.7-4.7 16.7 16.6a1 1 0 001.4 0l6-6 .5-.5a1 1 0 00.3-.6L94.4 60l20.3-20.3a22.8 22.8 0 006-10.3.6.6 0 000-.2 22 22 0 00.5-3.4l1.1-11.3a8.1 8.1 0 00-8.8-8.8l-11.3 1a22.7 22.7 0 00-3.4.6h-.1a22.8 22.8 0 00-10.4 6zm-23.9 24L28.4 41.8 65.6 36zm-22-10l4.6-4.6 16 16-4.6 4.5zm58.4 58.2l-16-16 4.5-4.5 16 16zm5.6-6.3L70.5 84 92 62.4zm16.3-90.8l11.3-1.1a6.1 6.1 0 016.7 6.7l-1.1 11.3-.2 1.3-18-18 1.3-.2zm-3.6.7l19.8 19.8a21 21 0 01-5.3 9L57.7 94 46.3 82.5 75 53.7a1 1 0 000-1.4 1 1 0 00-1.5 0L45 81.1 34 70.3l10.7-10.6 45-45a21 21 0 019-5.3zM10.9 120.4a3.3 3.3 0 001.4-.3l19.5-9.1A11.2 11.2 0 1017 96.2l-9.1 19.5a3.3 3.3 0 003 4.7zm-1.2-3.9l9-19.5a9.1 9.1 0 016.8-5.2 10.2 10.2 0 011.7-.1 9.2 9.2 0 019 10.8 9.1 9.1 0 01-5.2 6.7l-19.5 9a1.3 1.3 0 01-1.8-1.7z" />
                     <path d="M96.2 42.3a10.5 10.5 0 10-7.4-3 10.4 10.4 0 007.4 3zm-6-16.5a8.5 8.5 0 110 12 8.4 8.4 0 010-12z" />
                   </svg>
-                  <br />&#8377;1000/download
+                  <br />&#8377;900
                   <br />
                   <a href="#">Get started</a>
                 </td>
@@ -177,28 +57,28 @@ const page = () => {
                     <path d="M2.7 102.7a1 1 0 00.3.7L24.5 125a1 1 0 00.7.3 1 1 0 00.7-.3l12.4-12.3a.8.8 0 00.4-.5l12.1-12a1 1 0 00.3-.2.9.9 0 00.2-.3l12.3-12.3a1 1 0 000-1.4l-8.4-8.4 1.5-1.5 11.8 11.9 3.7 6.4.1.1a1 1 0 00.1.2l5.1 5.1a1 1 0 00.7.3 1 1 0 00.7-.3L99.7 79a1 1 0 000-1.4l-5-5.1a1 1 0 00-.2-.1h-.1l-6.5-3.8-11.8-11.9 1.4-1.4 8.4 8.3a1 1 0 00.7.3 1 1 0 00.7-.3L125 26a1 1 0 000-1.4L103.5 3a1 1 0 00-1.4 0L89.7 15.4a.8.8 0 00-.4.5L77.2 28a1 1 0 00-.3.2.9.9 0 00-.2.3L64.4 40.8a1 1 0 000 1.4l8.4 8.4-1.5 1.4-11.4-11.4a1 1 0 00-1.4 0l-18 17.9a1 1 0 000 1.4L52 71.3l-1.4 1.4-8.4-8.3a1 1 0 00-1.4 0L3 102a1 1 0 00-.3.7zM29 79l9.3 9.3L27 99.5l-9.4-9.3zm10.7 10.8l9.3 9.3-11.1 11.1-9.3-9.3zm38.7 7.8L74.6 94 94 74.6l3.7 3.7zm-4.9-5.3l-2.8-5 16.8-16.7 5 2.8zm-4-6.5L67 83.6 78.7 72a1 1 0 000-1.4 1 1 0 00-1.4 0L65.7 82.2 46.3 62.8l16.5-16.5 19.4 19.4-1.7 1.7a1 1 0 101.4 1.4l1.7-1.7 2.2 2.2zm20.8-68l9.3 9.3-11 11.1L79 29zm10.7 10.8l9.4 9.3L99.2 49l-9.4-9.3zm1.9-23.4l20 20-11.1 11.2-9.3-9.3 10-10a1 1 0 000-1.4 1 1 0 00-1.5 0l-10 10-9.3-9.3zM77.7 30.3l9.3 9.3-9.6 9.7a1 1 0 000 1.4 1 1 0 001.4 0l9.6-9.7 9.3 9.4-11 11.1-20.2-20zM74.2 52l2 2-1.5 1.4-2-2zm-15-9.2l2.2 2.2L45 61.4l-2.2-2.2zm-5.8 30l1.9 2-1.5 1.4-2-2zm-12-6.2l20 20-11 11.2-9.4-9.3 9.6-9.7a1 1 0 00-1.4-1.4L39.6 87l-9.3-9.3zm-25 25l9.2 9.4-10 10a1 1 0 000 1.4 1 1 0 001.5 0l10-10 9.3 9.3-11.2 11.2-20-20zM43.6 28.2a1 1 0 00-.3-1.4 11.9 11.9 0 00-16.5 16.5 1 1 0 00.9.5 1 1 0 00.5-.2 1 1 0 00.3-1.4 9.9 9.9 0 0113.7-13.7 1 1 0 001.4-.3z" />
                     <path d="M38.6 32.3a1 1 0 10.9-1.8 6.7 6.7 0 00-9 9 1 1 0 00.9.5 1 1 0 00.9-1.4 4.7 4.7 0 016.3-6.3z" />
                   </svg>
-                  <br />&#8377;2000/download
+                  <br />&#8377;2400
                   <br />
                   <a href="#">Get started</a>
                 </td>
               </tr>
               <tr>
                 <td><a href="#wordpress-security-monitoring" className="price-table-help"><i className="far fa-fw fa-question-circle" /></a>CCM Solutions</td>
-                <td><CheckIcon/></td>
-                <td><CheckIcon/></td>
-                <td><CheckIcon/></td>
+                <td>Unlimited Downloads</td>
+                <td>Unlimited Downloads</td>
+                <td>Unlimited Downloads</td>
               </tr>
               <tr>
                 <td><a href="#wordpress-uptime-monitoring" className="price-table-help"><i className="far fa-fw fa-question-circle" /></a>Ladle Calculator</td>
                 <td><ClearIcon/></td>
-                <td><CheckIcon/></td>
-                <td><CheckIcon/></td>
+                <td>2 Downloads</td>
+                <td>2 Downloads</td>
               </tr>
               <tr>
                 <td><a href="#wordpress-malware-cleanup" className="price-table-help"><i className="far fa-fw fa-question-circle" /></a>AOD Calculator</td>
                 <td><ClearIcon/></td>
                 <td><ClearIcon/></td>
-                <td><CheckIcon/></td>
+                <td>2 Downloads</td>
               </tr>
               <tr>
                 <td><a href="#wordpress-security-audit" className="price-table-help"><i className="far fa-fw fa-question-circle" /></a>Login Dashboard</td>

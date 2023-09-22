@@ -14,7 +14,7 @@
 .a_log:focus-visible,
 .a_log:hover {
   text-decoration: none;
-  color: rgb(100, 100, 100);
+  color: #1081fc;
 }
 
 .body_login_log {
@@ -103,6 +103,10 @@ p_log {
   align-items: center;
     width: 365px;
     height: 44px;
+}
+.forgot_pas:hover{
+  cursor: pointer;
+  color: #1081fc;
 }
 
 .dis_none{
@@ -316,8 +320,5 @@ p_log {
   cursor: pointer;
 }
 
-.forget_log:hover {
-  color: rgb(100, 100, 100);
-}
 
 /* Animations */

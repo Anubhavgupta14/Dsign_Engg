@@ -21,12 +21,16 @@ export default function AccountMenu() {
   const handlepro = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = async() => {
+
+  const handleClose=()=>{
     setAnchorEl(null);
+  }
+
+  const handlelogout = async() => {
     const ok = await fetch('/api/users/signout/route');
       console.log(ok)
       toast.success("Successfully Logged Out")
-      router.push("/components/LoginPage/login")
+      router.push("/signin")
       window.location.reload();
   };
   return (
@@ -99,7 +103,7 @@ export default function AccountMenu() {
           </ListItemIcon>
           Settings
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handlelogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

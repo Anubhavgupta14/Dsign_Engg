@@ -150,9 +150,9 @@ const Ladlecalculator = () => {
   const top_dia_mean = parseInt(topdiameter) + parseInt(thickness1);
   const degree_tan =
     (parseInt(topdiameter) - parseInt(bottomdiameter)) / (2 * parseInt(height));
-    const cos_A = (Math.cos(
-      (3.1416 / 180) * (Math.atan(degree_tan) * (3.1416 / 180))
-    ))- 0.0013821705717152
+  const cos_A = (Math.cos(
+    (3.1416 / 180) * (Math.atan(degree_tan) * (3.1416 / 180))
+  )) - 0.0013821705717152
 
   const R2 = top_dia_mean / 2 / degree_tan / cos_A;
   const develop_angle = (top_dia_mean * 3.1416 * 360) / (3.1416 * R2 * 4);
@@ -169,16 +169,19 @@ const Ladlecalculator = () => {
 
   const Radius_R = (top_dia_mean + thickness1 + 100) / 2;
   const top_rim_od = top_dia_mean + thickness1 + 100;
-  const Radius_r = (parseFloat(top_rim_od) - parseFloat(2*sidelining)) / 2;
+  const Radius_r = (parseFloat(top_rim_od) - parseFloat(2 * sidelining)) / 2;
   const tan_30 = Math.tan((3.1416 / 180) * 30);
   const cos_30 = Math.cos((3.1416 / 180) * 30);
-  const I964 = parseFloat(Radius_r) - parseFloat(cos_30*Radius_r);
-  const J964 = ((Radius_R) - Math.sqrt((Radius_R*Radius_R)-((Radius_r/2)*(Radius_r/2))))
+  const I964 = parseFloat(Radius_r) - parseFloat(cos_30 * Radius_r);
+  const J964 = ((Radius_R) - Math.sqrt((Radius_R * Radius_R) - ((Radius_r / 2) * (Radius_r / 2))))
 
-  
 
-  const result = () => {
+
+  const result = (e) => {
     event.preventDefault();
+
+
+    setInput1(e.target.value)
     const inbetweenheight = height - bottomlining - freeboard;
     setInbetweenheight(inbetweenheight);
     const pieHby3 = (3.1416 / 3000) * inbetweenheight;
@@ -241,7 +244,7 @@ const Ladlecalculator = () => {
 
     // const width3 = (top_dia_mean + thickness1 + 100) / 2;
 
-    const width3 = Math.round(((Radius_R-Radius_r+(I964-J964))*6)+J964);
+    const width3 = Math.round(((Radius_R - Radius_r + (I964 - J964)) * 6) + J964);
 
     const length3 = Radius_R;
     setqty3(1);
@@ -266,7 +269,7 @@ const Ladlecalculator = () => {
     const weight3 = Math.round(
       (thickness3 * length3 * width3 * q3 * 7.864) / 1000000
     );
-    
+
 
     const N972 = topdiameter / 2 + thickness1;
     const H972 = (topdiameter - bottomdiameter) / (2 * height);
@@ -449,20 +452,20 @@ const Ladlecalculator = () => {
     setLength5(length5);
     setTotal_weight(
       weight1 +
-        weight2 +
-        weight3 +
-        weight4 +
-        weight5 +
-        weight6 +
-        weight7 +
-        weight8 +
-        weight9 +
-        weight10 +
-        weight11 +
-        weight12 +
-        weight13 +
-        weight14 +
-        weight15
+      weight2 +
+      weight3 +
+      weight4 +
+      weight5 +
+      weight6 +
+      weight7 +
+      weight8 +
+      weight9 +
+      weight10 +
+      weight11 +
+      weight12 +
+      weight13 +
+      weight14 +
+      weight15
     );
   };
 
@@ -479,10 +482,10 @@ const Ladlecalculator = () => {
   };
 
   return (
-    <div className="body_ladle" style={{backgroundColor:"#f9fbfc"}}>
+    <div className="body_ladle" style={{ backgroundColor: "#f9fbfc" }}>
       <Navbar moveIndex={0} />
       <div className="main-box_ladle">
-        <Box component="form_ladle">
+        {/* <Box component="form_ladle">
           <div className="box_ladle">
             <div className="content_ladle">
               <h2 className="head_ladle">Fabricated Dimensions</h2>
@@ -580,12 +583,171 @@ const Ladlecalculator = () => {
               </div>
             </div>
           </div>
-        </Box>
+        </Box> */}
+
+       <div className="ladle_first">
+        <Paper sx={{ width: "100%", overflow: "hidden" }}>
+          <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
+            <Table stickyHeader aria-label="sticky table" >
+              <TableBody>
+                <TableRow hover role="checkbox" tabIndex={-1} sx={{maxHeight:'10px'}}>
+                  <TableCell>
+                    <h2 className="head_ladle">Fabricated Dimensions</h2>
+                  </TableCell>
+                  <TableCell>
+                    <h2 className="head_ladle">After Lining</h2>
+                  </TableCell>
+                </TableRow>
+
+
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell>
+                    <div className="row_ladle">
+                      <TextField
+                        required
+                        className="textfield_ladle"
+                        id="outlined-number"
+                        label="Top ID"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setTopdiameter(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <p>Free Board Level Diameter : {freeboardleveldiameter}</p>
+                  </TableCell>
+                </TableRow>
+
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell>
+                    <div className="row_ladle">
+                <TextField
+                  required
+                  className="textfield_ladle"
+                  id="outlined-number"
+                  label="Bottom ID"
+                  variant="outlined"
+                  type="number"
+                  onChange={(e) => setBottomdiameter(e.target.value)}
+                />
+              </div>
+                  </TableCell>
+                  <TableCell>
+                  <p>Bottom Lining Level Diameter : {bottomliningleveldiameter}</p>
+                  </TableCell>
+                </TableRow>
+
+
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell>
+                    <div className="row_ladle">
+                <TextField
+                  required
+                  className="textfield_ladle"
+                  id="outlined-number"
+                  label="Height"
+                  variant="outlined"
+                  type="number"
+                  onChange={(e) => setHeight(e.target.value)}
+                />
+              </div>
+                  </TableCell>
+                  <TableCell>
+                  <p>In Between Heigh : {inbetweenheight}</p>
+                  </TableCell>
+                </TableRow>
+
+
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell>
+                     <div className="row_ladle">
+                <TextField
+                  required
+                  className="textfield_ladle"
+                  id="outlined-number"
+                  label="Bottom Lining"
+                  variant="outlined"
+                  type="number"
+                  onChange={(e) => setBottomlining(e.target.value)}
+                />
+              </div>
+                  </TableCell>
+                  <TableCell>
+                  <p>Volumn of Ladle : {(pieHby3 * temp).toFixed(2)} cu.M</p>
+                  </TableCell>
+                </TableRow>
+
+
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell>
+                     <div className="row_ladle">
+                <TextField
+                  required
+                  className="textfield_ladle"
+                  id="outlined-number"
+                  label="Side Lining"
+                  variant="outlined"
+                  type="number"
+                  onChange={(e) => setSidelining(e.target.value)}
+                />
+              </div>
+                  </TableCell>
+                  <TableCell>
+                  <p>Capacity of Ladle : {(pieHby3 * temp * density).toFixed(2)} MT</p>
+                  </TableCell>
+                </TableRow>
+
+
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell>
+                     <div className="row_ladle">
+                <TextField
+                  required
+                  className="textfield_ladle"
+                  id="outlined-number"
+                  label="Free Board"
+                  variant="outlined"
+                  type="number"
+                  onChange={(e) => setFreeboard(e.target.value)}
+                />
+              </div>
+                  </TableCell>
+                  <TableCell>
+                  
+                  </TableCell>
+                </TableRow>
+
+
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell>
+                     <div className="row_ladle">
+                <TextField
+                  required
+                  className="textfield_ladle"
+                  id="outlined-number"
+                  label="Density"
+                  variant="outlined"
+                  type="number"
+                  onChange={(e) => setDensity(e.target.value)}
+                />
+              </div>
+                  </TableCell>
+                  <TableCell>
+                  
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Paper>
+        </div>
+
         <br />
         <br />
         <br />
 
-        <Box component="form_ladle">
+        {/* <Box component="form_ladle">
           <div className="box2_ladle">
             <div className="content2_ladle">
               <h2 className="head_ladle">After Lining</h2>
@@ -662,7 +824,7 @@ const Ladlecalculator = () => {
               <p className="textcentre_ladle">Bottom ID: {output2}</p>
               <p className="textcentre_ladle">Height: {output3}</p>
               <div className="outcome_ladle">
-                
+
                 <p>
                   Capacity:{" "}
                   {(
@@ -689,13 +851,191 @@ const Ladlecalculator = () => {
               </div>
             </div>
           </div>
-        </Box>
+        </Box> */}
+        <div className="ladle_second">
+        <Paper sx={{ width: "100%", overflow: "hidden" }}>
+          <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
+            <Table stickyHeader aria-label="sticky table">
+              <TableBody>
+                <TableRow hover role="checkbox" tabIndex={-1} className="cell">
+                  <TableCell className="cell">
+                  <h2 className="head_ladle">After Lining</h2>
+                  </TableCell>
+                  <TableCell>
+                  <h2 className="head_ladle">Fab. Size</h2>
+                  </TableCell>
+                </TableRow>
+
+
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell>
+                  <div className="row_ladle">
+                <TextField
+                  required
+                  className="textfield_ladle"
+                  id="outlined-number"
+                  label="Top ID"
+                  variant="outlined"
+                  type="number"
+                  onChange={(e) => setInput1(e.target.value)}
+                />
+              </div>
+                  </TableCell>
+                  <TableCell>
+                  <p className="textcentre_ladle">Top ID: {output1}</p>
+                  </TableCell>
+                </TableRow>
+
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell>
+                  <div className="row_ladle">
+                <TextField
+                  required
+                  className="textfield_ladle"
+                  id="outlined-number"
+                  label="Bottom ID"
+                  variant="outlined"
+                  type="number"
+                  onChange={(e) => setInput2(e.target.value)}
+                />
+              </div>
+                  </TableCell>
+                  <TableCell>
+                  <p className="textcentre_ladle">Bottom ID: {output2}</p>
+                  </TableCell>
+                </TableRow>
+
+
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell>
+                  <div className="row_ladle">
+                <TextField
+                  required
+                  className="textfield_ladle"
+                  id="outlined-number"
+                  label="Height"
+                  variant="outlined"
+                  type="number"
+                  onChange={(e) => setInput3(e.target.value)}
+                />
+              </div>
+                  </TableCell>
+                  <TableCell>
+                  <p className="textcentre_ladle">Height: {output3}</p>
+                  </TableCell>
+                </TableRow>
+
+
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell>
+                  <div className="row_ladle">
+                <TextField
+                  required
+                  className="textfield_ladle"
+                  id="outlined-number"
+                  label="Bottom Lining"
+                  variant="outlined"
+                  type="number"
+                  onChange={(e) => setInput4(e.target.value)}
+                />
+              </div>
+                  </TableCell>
+                  <TableCell>
+                  <p style={{textAlign:'center'}}>
+                  Capacity:{" "}
+                  {(
+                    outputlining1 *
+                    ((outputlining2 * outputlining2 +
+                      outputlining2 * outputlining3 +
+                      outputlining3 * outputlining3) /
+                      1000000) *
+                    density
+                  ).toFixed(2)}{" "}
+                  MT
+                </p>
+                  </TableCell>
+                </TableRow>
+
+
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell>
+                  <div className="row_ladle">
+                <TextField
+                  required
+                  className="textfield_ladle"
+                  id="outlined-number"
+                  label="Side Lining"
+                  variant="outlined"
+                  type="number"
+                  onChange={(e) => setInput5(e.target.value)}
+                />
+              </div>
+                  </TableCell>
+                  <TableCell>
+                  <p style={{textAlign:'center'}}>
+                  Volumn:{" "}
+                  {(
+                    outputlining1 *
+                    ((outputlining2 * outputlining2 +
+                      outputlining2 * outputlining3 +
+                      outputlining3 * outputlining3) /
+                      1000000)
+                  ).toFixed(2)}{" "}
+                  cu.M
+                </p>
+                  </TableCell>
+                </TableRow>
+
+
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell>
+                  <div className="row_ladle">
+                <TextField
+                  required
+                  className="textfield_ladle"
+                  id="outlined-number"
+                  label="Free Board"
+                  variant="outlined"
+                  type="number"
+                  onChange={(e) => setInput6(e.target.value)}
+                />
+              </div>
+                  </TableCell>
+                  <TableCell>
+                  
+                  </TableCell>
+                </TableRow>
+
+
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell>
+                     <div className="row_ladle">
+                <TextField
+                  required
+                  className="textfield_ladle"
+                  id="outlined-number"
+                  label="Density"
+                  variant="outlined"
+                  type="number"
+                  onChange={(e) => setDensity(e.target.value)}
+                />
+              </div>
+                  </TableCell>
+                  <TableCell>
+                  
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Paper>
+        </div>
       </div>
       <h2 className="head_ladle">Fabrication</h2>
 
       <div className="containerfab_ladle">
         <Paper sx={{ width: "100%", overflow: "hidden" }}>
-          <TableContainer sx={{ maxHeight: 440 }} style={{backgroundColor:"#f9fbfc"}}>
+          <TableContainer sx={{ maxHeight: 440 }} style={{ backgroundColor: "#f9fbfc" }}>
             <Table stickyHeader aria-label="sticky table">
               <TableBody>
                 <TableRow hover role="checkbox" tabIndex={-1}>
@@ -1150,7 +1490,7 @@ const Ladlecalculator = () => {
                   </TableCell>
                 </TableRow>
                 <TableRow hover role="checkbox" tabIndex={-1}>
-                <TableCell>
+                  <TableCell>
                     <FormControl
                       sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                       size="small"
@@ -1229,27 +1569,27 @@ const Ladlecalculator = () => {
 
       <div className="containerfab_ladle">
         <Paper sx={{ width: "100%", overflow: "hidden" }} >
-          <TableContainer sx={{ maxHeight: 1200 }} style={{backgroundColor:"#f9fbfc"}}>
+          <TableContainer sx={{ maxHeight: 1200 }} style={{ backgroundColor: "#f9fbfc" }}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow hover role="checkbox" tabIndex={-1} >
-                  <TableCell style={{backgroundColor:"#c8c8c8"}}>
+                  <TableCell style={{ backgroundColor: "#c8c8c8" }}>
                     <p>Particulars</p>
                   </TableCell>
-                  <TableCell style={{backgroundColor:"#c8c8c8"}}>
+                  <TableCell style={{ backgroundColor: "#c8c8c8" }}>
                     <p>Thick/Size</p>
                   </TableCell>
-                  <TableCell style={{backgroundColor:"#c8c8c8"}}>
+                  <TableCell style={{ backgroundColor: "#c8c8c8" }}>
                     <p>Weight in Kgs</p>
                   </TableCell>
-                  <TableCell style={{backgroundColor:"#c8c8c8"}}>
+                  <TableCell style={{ backgroundColor: "#c8c8c8" }}>
                     <p>Length</p>
                   </TableCell>
-                  <TableCell style={{backgroundColor:"#c8c8c8"}}>
+                  <TableCell style={{ backgroundColor: "#c8c8c8" }}>
                     <p>Width</p>
                   </TableCell>
 
-                  <TableCell style={{backgroundColor:"#c8c8c8"}}>
+                  <TableCell style={{ backgroundColor: "#c8c8c8" }}>
                     <p>Qty</p>
                   </TableCell>
                 </TableRow>

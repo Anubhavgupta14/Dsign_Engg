@@ -150,11 +150,10 @@ const Signup = () => {
                 </div>
                 <button className={buttondisabled?"login__btn block":"login__btn"} type="button" data-login="false" onClick={handleLogin}>
                   <span className="login__btn-label">Sign up</span>
-                  <span className="login__btn-spinner"></span>
                 </button>
                 <p className="login__sign-up">
                   Already have a account?{" "}
-                  <Link className="a forget" href="/components/LoginPage/login">
+                  <Link className="a_log forget" href="/signin">
                     Sign In
                   </Link>
                 </p>
@@ -165,9 +164,6 @@ const Signup = () => {
                 © <span data-year>2023</span> Dsign Engg. All rights reserved.
               </p>
             </footer>
-          </div>
-          <div className="login__col">
-            <div className="login__bg-img"></div>
           </div>
         </main>
       </div>

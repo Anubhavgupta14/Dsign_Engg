@@ -148,6 +148,20 @@ p {
   align-items: center;
 }
 
+.ladle_first{
+  margin-inline: 75px;
+  width: 100%;
+}
+
+.cell{
+  height: 10px;
+}
+
+.ladle_second{
+  margin-inline: 75px;
+  width: 100%;
+}
+
 .containerfab_ladle {
   margin-inline: 160px;
   margin-bottom: 25px;

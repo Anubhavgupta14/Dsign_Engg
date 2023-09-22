@@ -17,7 +17,7 @@ export function middleware(request) {
     }
   }
 
-  const loggedInUserNotAccessPath = request.nextUrl.pathname === "/signin" || request.nextUrl.pathname === "/signup" || request.nextUrl.pathname === "/api/users/signin"
+  const loggedInUserNotAccessPath = request.nextUrl.pathname === "/signin" || request.nextUrl.pathname === "/signup" || request.nextUrl.pathname === "/api/users/signin" || request.nextUrl.pathname === "/api/users/signup"
 
   if(loggedInUserNotAccessPath){
     if(authToken){

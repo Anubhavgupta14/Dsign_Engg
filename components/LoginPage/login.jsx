@@ -245,8 +245,8 @@ const LoginPage = () => {
                     />
                     <span>Remember me</span>
                   </label>
-                  <Link className="a" href="#">
-                    Forgot password
+                  <Link href="#">
+                    <label><span className="forgot_pas">Forgot password</span></label>
                   </Link>
                   {/* <button onClick={()=>logout()}>
                     Logout
@@ -271,9 +271,7 @@ const LoginPage = () => {
               </p>
             </footer>
           </div>
-          <div className="login__col_log">
-            <div className="login__bg-img_log"></div>
-          </div>
+          
         </main>
       </div>
       <Footer />
