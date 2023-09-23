@@ -24,7 +24,7 @@ import TableRow from "@mui/material/TableRow";
 
 const rows = [];
 
-const Ladlecalculator = () => {
+const Ladlecalculator = ({authtoken}) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.up("sm"));
   const [topdiameter, setTopdiameter] = useState(null);
@@ -483,7 +483,7 @@ const Ladlecalculator = () => {
 
   return (
     <div className="body_ladle" style={{ backgroundColor: "#f9fbfc" }}>
-      <Navbar moveIndex={0} />
+      <Navbar moveIndex={0} authtoken={authtoken} />
       <div className="main-box_ladle">
         {/* <Box component="form_ladle">
           <div className="box_ladle">

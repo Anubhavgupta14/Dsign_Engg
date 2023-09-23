@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-const dashboard = () => {
+const dashboard = ({authtoken}) => {
   const router = useRouter();
 
   const handlelogout = async () => {
@@ -19,7 +19,7 @@ const dashboard = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar authtoken={authtoken} />
       <div className='body_dash'>
         <div className='side_nav'>
           <Link href='/dashboard'><div className='nav_items'>Profile</div></Link>

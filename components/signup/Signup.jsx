@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-const Signup = () => {
+const Signup = ({authtoken}) => {
   const router = useRouter();
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [matchpass,setmatchpass] = useState(true);
@@ -75,7 +75,7 @@ const Signup = () => {
 
   return (
     <div className="sign_body">
-      <Navbar/>
+      <Navbar authtoken={authtoken}/>
       <div className="body_login" style={{backgroundColor:"#f9fbfc"}}>
         <main className="login">
           <div className="login__col">

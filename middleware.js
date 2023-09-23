@@ -5,6 +5,7 @@ export function middleware(request) {
   console.log("MiddleWare Executed")
   const authToken = request.cookies.get("JWT")?.value;
   if(request.nextUrl.pathname==="/api/users/signin/route") return;
+  if(request.nextUrl.pathname==="/api/users/signup/route") return;
   console.log(authToken)
 
   const protectedRoute = request.nextUrl.pathname === '/ccm' || request.nextUrl.pathname=== '/ladle';
@@ -17,7 +18,7 @@ export function middleware(request) {
     }
   }
 
-  const loggedInUserNotAccessPath = request.nextUrl.pathname === "/signin" || request.nextUrl.pathname === "/signup" || request.nextUrl.pathname === "/api/users/signin" || request.nextUrl.pathname === "/api/users/signup"
+  const loggedInUserNotAccessPath = request.nextUrl.pathname === "/signin" || request.nextUrl.pathname === "/signup"
 
   if(loggedInUserNotAccessPath){
     if(authToken){
@@ -28,9 +29,10 @@ export function middleware(request) {
         return NextResponse.redirect(new URL("/signin",request.url))
     }
   }
+
 }
  
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ['/signin','/signup','/dashboard','/dashboard_history','/api/users/:path*','/ccm','/ladle'],
+  matcher: ['/signin','/signup','/dashboard','/dashboard_history' ,'/api/users/:path*','/ccm','/ladle'],
 }

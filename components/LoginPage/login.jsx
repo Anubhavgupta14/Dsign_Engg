@@ -12,7 +12,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
 
-const LoginPage = () => {
+const LoginPage = ({authtoken}) => {
   const router = useRouter();
   
   const [isLoggingIn, setIsLoggingIn] = useState(false);
@@ -199,7 +199,7 @@ const LoginPage = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar authtoken={authtoken} />
       <div className="body_login_log" style={{backgroundColor:"#f9fbfc"}}>
         <main className="login_log">
           <div className="login__col_log">

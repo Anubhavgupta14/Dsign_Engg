@@ -4,12 +4,67 @@ import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/footer";
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
+import { v4 as uuidv4 } from 'uuid';
 
 
-const page = () => {
+const page = ({authtoken}) => {
+
+  const submit = async () => {
+
+      let order_id = uuidv4();
+      let paymentDetails = {
+        order_id,
+        currency: "INR",
+        redirect_url: `${window.location.protocol + "//" + window.location.host}/api/ccavResponseHandler`, // any route name that where ccaveneue response hit back to sever
+        cancel_url: `${window.location.protocol + "//" + window.location.host}/api/ccavResponseHandler`,
+        // billing_name: user.name,
+        // billing_address: user.address,
+        // billing_tel: user.phone,
+        // billing_email: user.email,
+        // merchant_param1: pancard,
+        // merchant_param2: pancardcopy || "",
+        // merchant_param3: user.message,
+        amount:1000
+      }
+      console.log(paymentDetails)
+
+
+      try {
+        const response = await fetch('/api/ccavRequestHandler', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(paymentDetails), // Send the paymentDetails object in the request body
+        });
+        if (response.status != 200) {
+          // toast.error("Some error occurred");
+          return;
+        }
+        const formHTML = await response.text();
+        const container = document.getElementById('payment-form-container');
+        container.innerHTML = formHTML;
+        const form = document.getElementById('nonseamless');
+        if (form) {
+          form.submit();
+        } else {
+          console.error('Form element not found');
+        }
+      } catch (error) {
+        // toast.error('An error occurred:', error.message);
+      }
+
+    }
+
+
   return (
     <div className="body_pricing">
-      <Navbar /> 
+      <Navbar authtoken={authtoken} /> 
+
+      <div id='payment-form-container'>
+
+      </div>
+
         <div className="main">
           <table className="price-table">
             <tbody>
@@ -38,7 +93,7 @@ const page = () => {
                   </svg>
                   <br />Free
                   <br />
-                  <a href="#">Get started</a>
+                  <button onClick={submit}>Get started</button>
                 </td>
                 <td className="price">
                   <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 128 128">

@@ -24,7 +24,7 @@ import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 
-const dashboard = () => {
+const dashboard = ({authtoken}) => {
   const router = useRouter();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.up("sm"));
@@ -40,7 +40,7 @@ const dashboard = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar authtoken={authtoken} />
       <div className='body_dash'>
         <div className='side_nav'>
           <Link href='/dashboard'><div className='nav_items'>Profile</div></Link>

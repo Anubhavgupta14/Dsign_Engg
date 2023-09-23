@@ -4,7 +4,9 @@ import bcryptjs from "bcryptjs";
 // import generateToken from "../../../../middlewares/generatesToken";
 
 const handler = async (req, res) => {
+  console.log("Function running")
   if (req.method === "POST") {
+
     try {
       const reqBody = req.body;
       const { name, email, password } = reqBody;

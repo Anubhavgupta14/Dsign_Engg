@@ -21,7 +21,7 @@ import Paper from "@mui/material/Paper";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-const CC_machine = () => {
+const CC_machine = ({authtoken}) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.up("sm"));
   const [section, setSection] = useState("");
@@ -348,7 +348,7 @@ const CC_machine = () => {
 
   return (
     <div className="body_ccm">
-      <Navbar moveIndex={0} />
+      <Navbar moveIndex={0} authtoken={authtoken} />
       <h2 className="head">CCM Complete Solution</h2>
       <div className="ccm_desc">
         <p className="ccm_para">

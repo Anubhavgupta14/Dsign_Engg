@@ -5,7 +5,7 @@ import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/footer";
 import DoneIcon from '@mui/icons-material/Done';
 
-const page = () => {
+const page = ({authtoken}) => {
   const [isEmailValid, setIsEmailValid] = useState(true);
 
   const [formData, setFormData] = useState({
@@ -60,7 +60,7 @@ const page = () => {
   };
   return (
     <div style={{ backgroundColor: "#f9fbfc" }}>
-      <Navbar />
+      <Navbar authtoken={authtoken} />
 
       <div className="contact_body">
         <div className="container">

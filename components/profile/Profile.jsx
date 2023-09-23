@@ -13,6 +13,7 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
+import PersonIcon from '@mui/icons-material/Person';
 
 export default function AccountMenu() {
     const router = useRouter();
@@ -24,6 +25,10 @@ export default function AccountMenu() {
 
   const handleClose=()=>{
     setAnchorEl(null);
+  }
+
+  const dashboard =()=>{
+    router.push("/dashboard")
   }
 
   const handlelogout = async() => {
@@ -45,7 +50,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 45, height: 45, color:"inherit" }}>M</Avatar>
+            <Avatar sx={{ width: 45, height: 45, color:"inherit" }}><PersonIcon/></Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -84,19 +89,13 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={dashboard}>
           <Avatar /> Profile
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Avatar /> My account
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Add another account
-        </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />
