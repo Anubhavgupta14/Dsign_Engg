@@ -48,7 +48,7 @@ const Footer = () => {
                         <div className="white-btn" >
                             {/* <div className="subscribe flex-all">Subscribe</div> */}
                             {/* <Button text='Subscribe' /> */}
-                            <button className='footer_btn'>Subscribe</button>                            
+                            <button className='footer_btn'>Subscribe</button>
                         </div>
 
                     </div>
@@ -56,7 +56,7 @@ const Footer = () => {
                 <div className="h-box-cont">
                     <div className="h-box">
                         <div className="footer-logo-cont">
-                        <Link href={"/"}><h2>The Design Engg</h2></Link>
+                            <Link href={"/"}><h2>The Design Engg</h2></Link>
                         </div>
 
                         <div className="icons-cont">
@@ -64,16 +64,24 @@ const Footer = () => {
                             {
                                 icons.map((icon, index) => {
                                     return (
-                                            <div className="icons" key={index}>{icon.svg}</div>
+                                        <div className="icons" key={index}>{icon.svg}</div>
                                     )
                                 })
                             }
 
                         </div>
                     </div>
-                    <div className="terms-cont">
-                        <div className="terms">Terms Of Use</div>
-                        <div className="terms">Privacy Policy</div>
+
+                    <div className='footer_subline'>
+                        <div>
+                            <p className="p_sign">
+                                © <span data-year>2023</span> The Design Engg. All rights reserved.
+                            </p>
+                        </div>
+                        <div className="terms-cont">
+                            <div className="terms">Terms Of Use</div>
+                            <div className="terms">Privacy Policy</div>
+                        </div>
                     </div>
                 </div>
             </div>

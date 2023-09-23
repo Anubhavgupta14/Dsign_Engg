@@ -15,6 +15,8 @@ import '@/styles/ladle.css'
 import '@/styles/login.css'
 import '@/styles/pricing_new.css'
 import '@/styles/dashboard.css'
+import '@/styles/payment.css'
+import '@/styles/failure.css'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer} from 'react-toastify';
 

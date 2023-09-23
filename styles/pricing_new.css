@@ -76,6 +76,12 @@
     font-weight: 600;
     font-family: "Montserrat";
 }
+
+.btn_pricing{
+    background-color: rgb(16,129,252);
+    margin-top: 15px;
+}
+
 .price-table td.price a {
     background-color: rgb(16,129,252);
     color: #FFFFFF;

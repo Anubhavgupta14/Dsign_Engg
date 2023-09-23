@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 import ccavutil from 'components/ccavutil'; // Adjust the path to ccavutil.js
 import mongoose from 'mongoose';
+import payment from "../../userModel/Payment"
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -30,7 +31,7 @@ export default async function handler(req, res) {
     });
   }
 
-  await Donation.create(jsonresponse);
+  await payment.create(jsonresponse);
   if(jsonresponse.order_status == "Success"){
     return res.redirect('/payment/' + jsonresponse.order_id);
   }

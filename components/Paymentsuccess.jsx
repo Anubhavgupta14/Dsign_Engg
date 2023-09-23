@@ -27,28 +27,20 @@ const DonationSuccess = (props) => {
 
     return (
         <div className='thank-cont'>
-            {/* <div className="tlc">
-                <div className="t-logo">
-                    <Image src={"/check.gif"} fill />
-                    <div className="t-tick flex-all">
-                        <TiTick />
-                    </div>
-                </div>
-            </div> */}
             <div className="tlc t-logo-check">
             <Image src={"/check.gif"} fill  loading='lazy' loop='false'/>
             </div>
 
             <div className="trc">
                 <div className="t-text">
-                    <h1>Thanks for  donation</h1>
-                    <p>Your donation of <span>₹{amount}</span> has been successfully processed.</p>
+                    <h1>Thanks for purchasing</h1>
+                    <p>Your order of <span>₹{amount}</span> has been successfully processed.</p>
                     <p>Your order id is <span>{order_id}</span></p>
                     <p>You will be redirected to the home page in <span>{time}</span> seconds</p>
                     <Link href="/">
                         <p className="donation-success__btn">Go to home page</p></Link>
                     <p className='donation-success__contact'>For any queries, please contact us at <span>
-                        <a href="mailto:contact@rss.org">contact@rss.org</a>
+                        <a href="mailto:hello@zerrorstudios.com">hello@zerrorstudios.com</a>
                     </span>
                     </p>
                 </div>

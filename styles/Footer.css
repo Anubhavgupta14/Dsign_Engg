@@ -197,6 +197,19 @@
     font-weight: 600;
 }
 
+.footer_subline{
+    display: flex;
+}
+
+.p_sign {
+    font-size: 13px;
+    width: 265px;
+    color: rgba(255, 255, 255, .6);
+    margin: 14px 0 1.5em;
+    transition: color 0.3s;
+    height: 50px;
+  }
+
 @media screen and (max-width:945px) {
     .footer-p {
         width: 90%;

@@ -27,10 +27,10 @@ export async function getServerSideProps(context) {
             useUnifiedTopology: true,
         });
     }
-    console.log(slug, "slug");
+    // console.log(slug, "slug");
 
     let doc = await Donation.findOne({ order_id: slug });
-    console.log(doc, "title");
+    // console.log(doc, "title");
 
     // Ensure you return the data as props within an object
     return {

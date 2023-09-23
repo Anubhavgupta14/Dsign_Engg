@@ -265,11 +265,6 @@ const LoginPage = ({authtoken}) => {
                 </p>
               </div>
             </form>
-            <footer className="login__copyright_log">
-              <p>
-                © <span data-year>2023</span> Dsign Engg. All rights reserved.
-              </p>
-            </footer>
           </div>
           
         </main>

@@ -12,13 +12,14 @@ const Failure = () =>{
                 </div>
                 <p className = 'donation-success__contact' > Sorry, your payment was not successful.Please
                     try again. </p>
-                <p className='donation-success__contact' > If you have any questions, please contact us at <a href='mailto:office@rss.org'>office@rss.org</a>
+                <p className='donation-success__contact' > If you have any questions, please contact us at <a href='mailto:hello@zerrorstudios.com'>hello@zerrorstudios.com</a>
                 </p>
 
-                <video width="640" height="360" loop autoplay muted>
+                {/* <video width="640" height="360" loop autoplay muted style={{backgroundColor:'#f9fbfc'}}>
                     <source src="/fail.mp4" type="video/mp4"/>
                         Your browser does not support the video tag.
-                </video>
+                </video> */}
+                <img src='/failure.gif' className='fail_img'></img>
             </div>
             <Footer />
         </>

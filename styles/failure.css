@@ -1,0 +1,27 @@
+.failed{
+    /* color:white; */
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    /* border:2px solid red; */
+}
+
+.failure-cont{
+    background-color: #f9fbfc;
+    margin-top: 5rem;
+    margin-bottom: 0rem;
+    /* border: 2px solid blue; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10vh;
+    padding-bottom: 22vh;
+}
+
+.fail_img{
+    height: 300px;
+    width: 400px;
+}
