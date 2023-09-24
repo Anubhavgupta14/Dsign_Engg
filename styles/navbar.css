@@ -330,7 +330,7 @@
     background-color: #f9fbfc;
     /* border: 2px solid red; */
     width: 99.8%;
-    height: 53vh;
+    height: 41vh;
     z-index: 10;
     margin-top: 90px;
     margin-inline: 1px;
@@ -360,6 +360,7 @@
 
 .drop-details{
     padding: 45px;
+    text-align: justify;
 }
 
 .navbar_button{

@@ -13,13 +13,13 @@ import Profile from "../profile/Profile"
 
 // import '../styles/navbar.css'
 
-const Navbar = ({authtoken}) => {
+const Navbar = ({ authtoken }) => {
   const [open, setOpen] = useState(false);
   const [click, setClick] = useState(false);
   const [click2, setClick2] = useState(false);
   const [drop_ham, setdrop_ham] = useState(false);
-  
-  
+
+
   const handleClick = () => {
     setClick(!click);
   };
@@ -104,7 +104,7 @@ const Navbar = ({authtoken}) => {
               <div className="nav nav2">Contact</div>
             </Link>
           </div>
-          
+
           <div className="navbar_button">
             <div className="menu-btn">
               <Link href="/ccm">
@@ -113,15 +113,15 @@ const Navbar = ({authtoken}) => {
                 </button>
               </Link>
             </div>
-            <div className={authtoken!='' ? "menu-btn dis_none":"menu-btn"}>
+            <div className={authtoken != '' ? "menu-btn dis_none" : "menu-btn"}>
               <Link href="/signin">
                 <button className="nav_login">
                   Login / Signup
                 </button>
               </Link>
             </div>
-            <div className={authtoken!='' ? "menu-btn":"menu-btn dis_none"}>
-              <Profile/>
+            <div className={authtoken != '' ? "menu-btn" : "menu-btn dis_none"}>
+              <Profile />
             </div>
           </div>
         </div>
@@ -223,35 +223,19 @@ const Navbar = ({authtoken}) => {
 
         <div ref={excludedDivRef} className="drop-details">
           <h2>CCM Solution</h2>
-          <p>Welcome to our realm of Metallurgical Excellence! Embrace the
+          <p>Embrace the
             art and science of Ladle Calculations and Continuous Casting
-            Machine (CCM) Solutions with us. Dive into the fascinating world
-            of metallurgy, where innovation and precision forge the future.
-            Explore our expertise, resources, and insights that power the
-            heart of industries. Your journey into the realm of metallurgy
-            begins here.</p>
+            Machine (CCM) Solutions with us.</p>
           <Link href="/ccm"><button className="button">Try Now</button></Link>
         </div>
         <div className="drop-details">
           <h2>Ladle Calculator</h2>
-          <p>Welcome to our realm of Metallurgical Excellence! Embrace the
-            art and science of Ladle Calculations and Continuous Casting
-            Machine (CCM) Solutions with us. Dive into the fascinating world
-            of metallurgy, where innovation and precision forge the future.
-            Explore our expertise, resources, and insights that power the
-            heart of industries. Your journey into the realm of metallurgy
-            begins here.</p>
+          <p>Ladle Calculator is an indispensable tool for professionals in the field of metallurgy, particularly in the realm of metal casting.</p>
           <Link href="/ladle"><button className="button">Try Now</button></Link>
         </div>
         <div className="drop-details">
           <h2>AOD Vessel Calculator</h2>
-          <p>Welcome to our realm of Metallurgical Excellence! Embrace the
-            art and science of Ladle Calculations and Continuous Casting
-            Machine (CCM) Solutions with us. Dive into the fascinating world
-            of metallurgy, where innovation and precision forge the future.
-            Explore our expertise, resources, and insights that power the
-            heart of industries. Your journey into the realm of metallurgy
-            begins here.</p>
+          <p>Our AOD Converter Calculator is a vital asset for professionals in the stainless steel refining industry.</p>
           <Link href="/"><button className="button">Try Now</button></Link>
         </div>
       </div>

@@ -3,7 +3,11 @@ p {
   line-height: 1.6;
   margin-bottom: 10px;
 }
-
+.heading_ladle{
+  text-align: center;
+  padding-top: 17vh;
+  font-size: 35px;
+}
 .button_ladle {
   margin-top: 20px;
   padding: 10px 20px;
@@ -16,11 +20,23 @@ p {
   transition: background-color 0.3s ease;
   margin-bottom: 10px;
 }
+.download_btn{
+  margin-top: 10px;
+    width: 107px;
+    font-size: 16px;
+}
 
 .button_ladle:hover {
   background-color: rgb(200, 200, 200);
   color: black;
   font-weight: 400;
+}
+
+.btns_ladle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10vh;
 }
 
 /* Example styles for the Ladlecalculator component */
@@ -166,6 +182,7 @@ p {
   margin-inline: 160px;
   margin-bottom: 25px;
 }
+
 
 @media screen and (max-width: 900px) {
   .containerfab_ladle {
