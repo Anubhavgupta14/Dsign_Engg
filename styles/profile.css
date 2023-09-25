@@ -451,7 +451,9 @@
   
   .sm-body-profile, .sm-top-profile {
     border: none;
-    /* padding: 0; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .sm-form-group input {
@@ -494,21 +496,10 @@
     bottom: 15px;
     right: 15px;
   }
+  .sm-body-left{
+    margin-right: 125px;
+  }
   
-  /* For screens larger than 768px */
-  /* @media (min-width: 769px) {
-    .profile-container {
-      grid-template-columns: auto 1fr;
-    }
-  
-    .sidebar {
-      display: block;
-    }
-  
-    .profile-content {
-      grid-column: 2;
-    }
-  } */
   
   @media screen and (max-width: 900px) {
     .profile-container {

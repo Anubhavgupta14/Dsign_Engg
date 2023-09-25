@@ -113,6 +113,7 @@ const General = () => {
   }
 
   let save = async () => {
+    console.log("Save chala")
     let formErrors = validate();
     if (Object.keys(formErrors).length == 0) {
       setErrors({
@@ -149,20 +150,20 @@ const General = () => {
       }
       console.log(user, "user")
       // let role = localStorage.getItem('role');
-      // let res = await fetch(`/api/${role}`, {
-      //   method: 'PUT',
-      //   body: JSON.stringify(user),
-      //   headers: {
-      //     'Content-type': 'application/json',
-      //   },
-      // })
-      // let data = await res.json();
-      // let { error } = data;
-      // if (error) {
-      //   toast.error(error || "some error occured",)
-      //   return;
-      // }
-      // console.log(data, "data: ")
+      let res = await fetch(`/api/profile`, {
+         method: 'PUT',
+         body: JSON.stringify(user),
+         headers: {
+           'Content-type': 'application/json',
+         },
+       })
+       let data = await res.json();
+       let { error } = data;
+       if (error) {
+         toast.error(error || "some error occured",)
+         return;
+       }
+       console.log(data, "data: ")
       toast.success("Changes saved successfully");
     }
     else {

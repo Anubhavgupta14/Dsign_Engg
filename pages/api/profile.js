@@ -30,7 +30,20 @@ const handler = async (req, res) => {
       console.log("yaha problem")
       return res.status(401).json({ error: "Invalid token." });
     }
-  } else {
+  }
+  else if (req.method === 'PUT') {
+    let user = req.body;
+    try {
+      await Member.findByIdAndUpdate(user._id, user);
+      return res.status(200).json({ message: 'success' })
+    }
+    catch (err) {
+      return res.status(500).json({ error: err.message });
+
+    }
+  }
+  
+  else {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 };

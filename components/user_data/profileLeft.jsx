@@ -22,7 +22,7 @@ const ProfileLeft = () => {
             link: '/dashboard_security'
         },
         {
-            title: 'Members area',
+            title: 'Orders',
             icon: <BsPeople />,
             link: '/dashboard_orders'
         }
