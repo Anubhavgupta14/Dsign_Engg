@@ -16,7 +16,7 @@ const Faqs = () => {
     },
     {
       ques: "What is included in your Premium Pack?",
-      ans: "Our Premium Pack offers an enhanced experience, granting you access to exclusive content, advanced tools, and in-depth insights into Ladle Calculations and Continuous Casting Machine (CCM) Solutions. You'll be able to dive deeper into metallurgy with premium resources and expert analysis.",
+      ans: "Our Premium Pack offers an enhanced experience, granting you access to exclusive content, advanced tools, and in-depth insights into AOD Calculations, Ladle Calculations and Continuous Casting Machine (CCM) Solutions. You'll be able to dive deeper into metallurgy with premium resources and expert analysis.",
     },
     {
       ques: "How can I purchase the Premium Pack?",

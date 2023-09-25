@@ -60,6 +60,7 @@ export default function AccountMenu() {
         open={open}
         onClose={handleClose}
         onClick={handleClose}
+        disableScrollLock={true}
         PaperProps={{
           elevation: 0,
           sx: {

@@ -23,19 +23,19 @@ const page = ({authtoken}) => {
 
   return (
     <div style={{ backgroundColor: "#f9fbfc" }}>
-      <Navbar authtoken={authtoken||""} />
+      <Navbar authtoken={authtoken} />
       <div className="drop-mar" >
         <div className="drop-cont">
           <div className="drop-left">
             <div className="drop-inner">
               <div className="drop-p">The Design Engg</div>
               <div className="drop-p2"> Fastest way to smart <span style={{ color: "#1081fc" }}>solutions</span></div>
-              <div className="home_free">
+              {/* <div className="home_free">
                 <div className="home_btn_div"><Link href="/ccm"><button className="home_btn">
                   Free Trail
                 </button></Link></div>
                 <div className="arrow_home"><ArrowForwardIcon className="arrow_home"/></div>
-              </div>
+              </div> */}
               <div style={{ height: "372px" }}>
                 <Image
                   src="/image.svg"

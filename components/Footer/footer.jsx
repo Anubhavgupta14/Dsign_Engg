@@ -34,8 +34,8 @@ const Footer = () => {
         <>
             <div className="footer-cont">
                 <div className="footer-title">
-                    <div className="ha-inner footer-inner">Join The Design Engg</div>
-                    <div className="ha-inner footer-inner">Community</div>
+                    <div className="ha-inner footer-inner">Join The Design Engg Community</div>
+                    
                 </div>
                 <div className="footer-p">Gain exclusive access to offers and updates</div>
                 <div className="email-cont">
