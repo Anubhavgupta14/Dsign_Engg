@@ -1,5 +1,5 @@
 import React from 'react'
-import Dashboard from "../components/Dashboard/dashboard"
+import Dashboard from "../components/New_dashboard/Dashboard"
 
 const dashboard = ({token}) => {
   return (

@@ -5,7 +5,7 @@ import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/footer";
 import DoneIcon from '@mui/icons-material/Done';
 
-const page = ({authtoken}) => {
+const page = ({ authtoken }) => {
   const [isEmailValid, setIsEmailValid] = useState(true);
 
   const [formData, setFormData] = useState({
@@ -111,7 +111,7 @@ const page = ({authtoken}) => {
                   onChange={handleChange}
                 />
               </div>
-              <div style={{marginLeft:'33px'}}>
+              <div style={{ marginLeft: '33px' }}>
                 <label htmlFor="name">Last Name:</label>
                 <input
                   className="last_name"

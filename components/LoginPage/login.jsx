@@ -63,6 +63,7 @@ const LoginPage = ({authtoken}) => {
         .then((data) => {
           // Access the token from the response data
           const { token } = data;
+          localStorage.setItem('JWT', token);
           console.log('Received token:', token);
           if(token){
             toast.success('Logged In', {

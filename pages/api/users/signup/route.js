@@ -8,16 +8,21 @@ const handler = async (req, res) => {
   if (req.method === "POST") {
 
     try {
-      const reqBody = req.body;
-      const { name, email, password } = reqBody;
+      // const reqBody = req.body;
+      const { name, email, phone, dob, gender, password } = req.body;
 
-      console.log(reqBody);
+      console.log(req.body);
 
       // Check if user already exists
-      const user = await User.findOne({ email });
+      const userExist = await User.findOne({ email });
 
-      if (user) {
+      const phonesame = await User.findOne({phone});
+
+      if (userExist) {
         return res.status(409).json({ Error: "User already exists" });
+      }
+      else if(phonesame){
+        return res.status(409).json({Error:"Phone no. is already registered"})
       }
 
       // Hash password
@@ -32,11 +37,14 @@ const handler = async (req, res) => {
       const newUser = new User({
         name,
         email,
+        phone,
+        dob,
+        gender,
         password: hashedPassword,
       });
 
       const savedUser = await newUser.save();
-      console.log(savedUser);
+      console.log('details',savedUser);
 
       // Send verification email (you can uncomment this once you have the sendEmail function implemented)
 
