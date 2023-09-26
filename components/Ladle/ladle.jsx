@@ -25,8 +25,23 @@ import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import {toast} from "react-toastify";
 import { fetchCurrentUser } from '../../libs/fetchUser'
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
 
 const rows = [];
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 const Ladlecalculator = ({ authtoken }) => {
   const pdfRef = useRef();
@@ -151,6 +166,9 @@ const Ladlecalculator = ({ authtoken }) => {
   const [qty13, setqty13] = useState(0);
   const [qty14, setqty14] = useState(0);
   const [qty15, setqty15] = useState(0);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const [userData, setUserData] = useState({
     name: '',
@@ -164,6 +182,7 @@ const Ladlecalculator = ({ authtoken }) => {
     addressLine1: '',
     addressLine2: '',
     basicProfile: '',
+    ladle_ticket:0,
   });
 
   const top_dia_mean = parseInt(topdiameter) + parseInt(thickness1);
@@ -533,6 +552,8 @@ const Ladlecalculator = ({ authtoken }) => {
     const result = await validate_ticket();
   if (result === -1) {
     toast.error("You don't have tickets");
+    setOpen(false)
+    getUserData();
     return;
   }
 
@@ -550,6 +571,8 @@ const Ladlecalculator = ({ authtoken }) => {
       pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
       pdf.save('ladle.pdf')
     });
+    setOpen(false)
+    getUserData();
   };
 
   const validate_ticket = async () => {
@@ -583,6 +606,22 @@ const Ladlecalculator = ({ authtoken }) => {
   return (
     <div className="body_ladle" style={{ backgroundColor: "#f9fbfc" }}>
       <Navbar moveIndex={0} authtoken={authtoken} />
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Are you sure ?
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2, marginBottom:'17px' }}>
+            You have {userData.ladle_ticket} Tickets left !
+          </Typography>
+          <button onClick={handleDownloadPDF}>Download</button>
+        </Box>
+      </Modal>
       <div ref={pdfRef} id="pdf">
         <h2 className="head">Ladle Calculator</h2>
         <div className="ccm_desc">
@@ -2395,7 +2434,7 @@ const Ladlecalculator = ({ authtoken }) => {
             </button>
           </Stack>
         </div>
-        <div><button onClick={handleDownloadPDF} className="download_btn">Download</button></div>
+        <div><button onClick={handleOpen} className="download_btn">Download</button></div>
       </div>
       <Footer />
     </div>
