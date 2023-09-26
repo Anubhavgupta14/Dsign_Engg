@@ -3,7 +3,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import Footer from "../Footer/footer";
 import MenuItem from "@mui/material/MenuItem";
@@ -23,6 +23,8 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import {toast} from "react-toastify";
+import { fetchCurrentUser } from '../../libs/fetchUser'
 
 const rows = [];
 
@@ -149,6 +151,20 @@ const Ladlecalculator = ({ authtoken }) => {
   const [qty13, setqty13] = useState(0);
   const [qty14, setqty14] = useState(0);
   const [qty15, setqty15] = useState(0);
+
+  const [userData, setUserData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    state: "",
+    city: "",
+    pincode: "",
+    dob: '',
+    gender: "",
+    addressLine1: '',
+    addressLine2: '',
+    basicProfile: '',
+  });
 
   const top_dia_mean = parseInt(topdiameter) + parseInt(thickness1);
   const degree_tan =
@@ -484,7 +500,42 @@ const Ladlecalculator = ({ authtoken }) => {
     setPage(0);
   };
 
-  const handleDownloadPDF = () => {
+  const getUserData = async () => {
+    const token = localStorage.getItem('JWT');
+    try {
+
+      const data = await fetchCurrentUser(token);
+      console.log(data, "data fetched");
+      const { error } = data;
+      console.log(error, "error getting user data");
+      if (error) {
+        toast.error(error)
+        return;
+      }
+      let user = data;
+      const convertedUser = {
+        ...user,
+        dob: user.dob ? user.dob.split('T')[0] : '',
+      };
+      setUserData(convertedUser);
+    } catch (error) {
+      toast.error(error.message + "op" || "Some error occurred while fetching data");
+    }
+  };
+
+
+  useEffect(() => {
+    getUserData();
+   }, []);
+
+  const handleDownloadPDF = async() => {
+
+    const result = await validate_ticket();
+  if (result === -1) {
+    toast.error("You don't have tickets");
+    return;
+  }
+
     const input = pdfRef.current;
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
@@ -499,6 +550,34 @@ const Ladlecalculator = ({ authtoken }) => {
       pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
       pdf.save('ladle.pdf')
     });
+  };
+
+  const validate_ticket = async () => {
+    try {
+      const response = await fetch('/api/ladle_ticket', {
+        method: 'POST',
+        body: JSON.stringify(userData.email),
+        headers: {
+          'Content-type': 'application/json',
+        },
+      });
+  
+      if (response.status === 404) {
+        // toast.error("You don't have tickets");
+        return -1;
+      } else if (response.status === 201) {
+        toast.success("Thank You for download");
+        return 1;
+      } else {
+        const data = await response.json();
+        toast.success(data.message);
+        toast.success("Thank you for download");
+        return 1;
+      }
+    } catch (err) {
+      toast.error(err);
+      return 0;
+    }
   };
 
   return (

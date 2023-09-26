@@ -84,15 +84,6 @@ const DonationSchema = new mongoose.Schema({
     delivery_tel: {
         type: String,
     },
-    merchant_param1: {
-        type: String,
-    },
-    merchant_param2: {
-        type: String,
-    },
-    merchant_param3:{
-        type: String,
-    },
     vault: {
         type: String,
     },

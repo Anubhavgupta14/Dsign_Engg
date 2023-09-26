@@ -69,6 +69,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
+  ladle_ticket:{
+    type: Number,
+    default: 0
+  },
+  aod_ticket:{
+    type: Number,
+    default: 0
+  },
   isVerfied: {
     type: Boolean,
     default: false,

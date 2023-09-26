@@ -2,6 +2,7 @@ import crypto from 'crypto';
 import ccavutil from 'components/ccavutil'; // Adjust the path to ccavutil.js
 import mongoose from 'mongoose';
 import payment from "../../userModel/Payment"
+import User from "../../userModel/userModel"
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -32,7 +33,37 @@ export default async function handler(req, res) {
   }
 
   await payment.create(jsonresponse);
-  if(jsonresponse.order_status == "Success"){
+
+  // const paymentDocument = await payment.findOne({ order_id: jsonresponse.order_id });
+  
+
+  if (jsonresponse.order_status == "Success") {
+    
+    const userEmail = jsonresponse.billing_email
+
+    // Assuming you have access to the logged-in user's email
+     // Replace with the way you access the email in your authentication system
+    const user = await User.findOne({ email: userEmail });
+
+    if (user) {
+      console.log("user ke ander hai")
+
+      if(jsonresponse.amount==900){
+        user.ladle_ticket += 2;  
+      }
+      else if(jsonresponse.amount==2400){
+        // Update ladle_ticket and aod_ticket by 2
+        user.ladle_ticket += 2;
+        user.aod_ticket += 2;
+      }
+
+      // Save the updated user document
+      await user.save();
+    }
+    else{
+      console.log("else pe aagaya")
+    }
+
     return res.redirect('/payment/' + jsonresponse.order_id);
   }
   return res.redirect('/payment/failure');
