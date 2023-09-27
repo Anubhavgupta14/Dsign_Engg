@@ -162,9 +162,10 @@ const Ladlecalculator = ({ authtoken }) => {
   const isdisabled = !(topdiameter && bottomdiameter && height && bottomlining && sidelining && freeboard && density && input1 && input2 && input3 && input4 && input5 && input6 && thickness1 && thickness4 && thickness8 && tru_box_v2 && thickness2 && thickness5 && thickness9 && tru_box_v1 && thickness3 && thickness7 && thickness10 && rest_box_v && thickness15 && thickness11 && thickness12 && rest_box_h && thickness13)
 
   const fun = () => {
-    seterror("Error : Enter the required values")
-    let v = document.querySelector(".error_ccm")
-    v.style.visibility = "initial"
+    // seterror("Error : Enter the required values")
+    // let v = document.querySelector(".error_ccm")
+    // v.style.visibility = "initial"
+    toast.error("Error : Enter the required values")
   }
 
   const [userData, setUserData] = useState({
