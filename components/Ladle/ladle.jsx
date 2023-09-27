@@ -148,8 +148,9 @@ const Ladlecalculator = ({ authtoken }) => {
   const [qty13, setqty13] = useState(0);
   const [qty14, setqty14] = useState(0);
   const [qty15, setqty15] = useState(0);
+  const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () =>{
+  const handleOpen = () => {
     seterror("")
     let v = document.querySelector(".error_ccm")
     v.style.visibility = "hidden"
@@ -158,7 +159,7 @@ const Ladlecalculator = ({ authtoken }) => {
   const handleClose = () => setOpen(false);
   const [download, setdownload] = useState(false);
   const [error, seterror] = useState("");
-  const isdisabled = !(topdiameter&&bottomdiameter&&height&&bottomlining&&sidelining&&freeboard&&density&& input1&&input2&&input3&&input4&&input5&&input6&&thickness1&&thickness4&&thickness8&&tru_box_v2&&thickness2&&thickness5&&thickness9&&tru_box_v1&&thickness3&&thickness7&&thickness10&&rest_box_v&&thickness15&&thickness11&&thickness12&&rest_box_h&&thickness13)
+  const isdisabled = !(topdiameter && bottomdiameter && height && bottomlining && sidelining && freeboard && density && input1 && input2 && input3 && input4 && input5 && input6 && thickness1 && thickness4 && thickness8 && tru_box_v2 && thickness2 && thickness5 && thickness9 && tru_box_v1 && thickness3 && thickness7 && thickness10 && rest_box_v && thickness15 && thickness11 && thickness12 && rest_box_h && thickness13)
 
   const fun = () => {
     seterror("Error : Enter the required values")
@@ -471,6 +472,7 @@ const Ladlecalculator = ({ authtoken }) => {
     setOpen(false)
     getUserData();
     setdownload(true);
+    setOutput_show(true);
   };
 
   const getUserData = async () => {
@@ -553,6 +555,10 @@ const Ladlecalculator = ({ authtoken }) => {
     }
   };
 
+  const reset =()=>{
+    window.location.reload();
+  }
+
   return (
     <div className="body_ladle" style={{ backgroundColor: "#f9fbfc" }}>
       <Navbar moveIndex={0} authtoken={authtoken} />
@@ -571,16 +577,16 @@ const Ladlecalculator = ({ authtoken }) => {
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2, marginBottom: '17px' }}>
             {userData.ladle_ticket == 0 ?
-            <div>
-              <p>You Can Purchase Plans or Continue with <Link href="/ccm" className="plan_head">Free Plan</Link></p>
-              <div className="btn_div">
-                <Link href="/pricing"><button>Purchase</button></Link>
-                {/* <button onClick={result3}>Calculate</button> */}
+              <div>
+                <p>You Can Purchase Plans or Continue with <Link href="/ccm" className="plan_head">Free Plan</Link></p>
+                <div className="btn_div">
+                  <Link href="/pricing"><button>Purchase</button></Link>
+                  {/* <button onClick={result3}>Calculate</button> */}
+                </div>
               </div>
-            </div>
               : ""}
           </Typography>
-          <button className={userData.ladle_ticket == 0?"dis":"btn_cal"} onClick={result3}>Calculate</button>
+          <button className={userData.ladle_ticket == 0 ? "dis" : "btn_cal"} onClick={result3}>Calculate</button>
         </Box>
       </Modal>
       <div ref={pdfRef} id="pdf">
@@ -592,7 +598,7 @@ const Ladlecalculator = ({ authtoken }) => {
         </div>
         <div className="main-box_ladle">
           <div className="ladle_first">
-            <Paper sx={{ width: "100%", overflow: "hidden" }}>
+            <Paper sx={{ overflow: "hidden" }}>
               <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
                 <Table stickyHeader aria-label="sticky table" >
                   <TableBody>
@@ -600,15 +606,13 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell>
                         <h2 className="head_ladle">Fabricated Dimensions</h2>
                       </TableCell>
-                      <TableCell>
-                        <h2 className="head_ladle">After Lining</h2>
-                      </TableCell>
+
                     </TableRow>
 
 
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle">
+                        <div className="row_ladle flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -620,14 +624,12 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      <TableCell>
-                        <p>Free Board Level Diameter : {freeboardleveldiameter}</p>
-                      </TableCell>
+
                     </TableRow>
 
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle">
+                        <div className="row_ladle  flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -639,15 +641,13 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      <TableCell>
-                        <p>Bottom Lining Level Diameter : {bottomliningleveldiameter}</p>
-                      </TableCell>
+
                     </TableRow>
 
 
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle">
+                        <div className="row_ladle  flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -659,15 +659,13 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      <TableCell>
-                        <p>In Between Heigh : {inbetweenheight}</p>
-                      </TableCell>
+
                     </TableRow>
 
 
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle">
+                        <div className="row_ladle  flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -679,15 +677,13 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      <TableCell>
-                        <p>Volumn of Ladle : {(pieHby3 * temp).toFixed(2)} cu.M</p>
-                      </TableCell>
+
                     </TableRow>
 
 
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle">
+                        <div className="row_ladle  flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -699,15 +695,13 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      <TableCell>
-                        <p>Capacity of Ladle : {(pieHby3 * temp * density).toFixed(2)} MT</p>
-                      </TableCell>
+
                     </TableRow>
 
 
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle">
+                        <div className="row_ladle  flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -719,15 +713,12 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      <TableCell>
-
-                      </TableCell>
                     </TableRow>
 
 
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle">
+                        <div className="row_ladle  flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -739,9 +730,6 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      <TableCell>
-
-                      </TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>
@@ -749,12 +737,8 @@ const Ladlecalculator = ({ authtoken }) => {
             </Paper>
           </div>
 
-          <br />
-          <br />
-          <br />
-
           <div className="ladle_second">
-            <Paper sx={{ width: "100%", overflow: "hidden" }}>
+            <Paper sx={{ overflow: "hidden" }}>
               <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
                 <Table stickyHeader aria-label="sticky table">
                   <TableBody>
@@ -762,15 +746,13 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell className="cell">
                         <h2 className="head_ladle">After Lining</h2>
                       </TableCell>
-                      <TableCell>
-                        <h2 className="head_ladle">Fab. Size</h2>
-                      </TableCell>
+
                     </TableRow>
 
 
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle">
+                        <div className="row_ladle flex-all flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -782,14 +764,12 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      <TableCell>
-                        <p className="textcentre_ladle">Top ID: {output1}</p>
-                      </TableCell>
+
                     </TableRow>
 
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle">
+                        <div className="row_ladle flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -801,15 +781,13 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      <TableCell>
-                        <p className="textcentre_ladle">Bottom ID: {output2}</p>
-                      </TableCell>
+
                     </TableRow>
 
 
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle">
+                        <div className="row_ladle flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -821,15 +799,13 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      <TableCell>
-                        <p className="textcentre_ladle">Height: {output3}</p>
-                      </TableCell>
+
                     </TableRow>
 
 
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle">
+                        <div className="row_ladle flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -841,26 +817,13 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      <TableCell>
-                        <p style={{ textAlign: 'center' }}>
-                          Capacity:{" "}
-                          {(
-                            outputlining1 *
-                            ((outputlining2 * outputlining2 +
-                              outputlining2 * outputlining3 +
-                              outputlining3 * outputlining3) /
-                              1000000) *
-                            density
-                          ).toFixed(2)}{" "}
-                          MT
-                        </p>
-                      </TableCell>
+
                     </TableRow>
 
 
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle">
+                        <div className="row_ladle flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -872,25 +835,12 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      <TableCell>
-                        <p style={{ textAlign: 'center' }}>
-                          Volumn:{" "}
-                          {(
-                            outputlining1 *
-                            ((outputlining2 * outputlining2 +
-                              outputlining2 * outputlining3 +
-                              outputlining3 * outputlining3) /
-                              1000000)
-                          ).toFixed(2)}{" "}
-                          cu.M
-                        </p>
-                      </TableCell>
                     </TableRow>
 
 
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle">
+                        <div className="row_ladle flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -902,20 +852,16 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      <TableCell>
-
-                      </TableCell>
                     </TableRow>
+
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle" style={{ height: '8vh' }}>
+                        <div className="row_ladle flex-all" style={{ height: '8vh' }}>
 
                         </div>
                       </TableCell>
-                      <TableCell>
-
-                      </TableCell>
                     </TableRow>
+
                   </TableBody>
                 </Table>
               </TableContainer>
@@ -930,7 +876,7 @@ const Ladlecalculator = ({ authtoken }) => {
               <Table stickyHeader aria-label="sticky table">
                 <TableBody>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                         size="small"
@@ -965,7 +911,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                         size="small"
@@ -999,7 +945,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                         size="small"
@@ -1033,7 +979,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <TextField
                         required
                         className="textfield_ladle"
@@ -1047,7 +993,7 @@ const Ladlecalculator = ({ authtoken }) => {
                   </TableRow>
 
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                         size="small"
@@ -1080,7 +1026,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         </Select>
                       </FormControl>
                     </TableCell>
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                         size="small"
@@ -1114,7 +1060,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                         size="small"
@@ -1147,7 +1093,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         </Select>
                       </FormControl>
                     </TableCell>
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <TextField
                         required
                         className="textfield_ladle"
@@ -1161,7 +1107,7 @@ const Ladlecalculator = ({ authtoken }) => {
                   </TableRow>
 
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                         size="small"
@@ -1194,7 +1140,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         </Select>
                       </FormControl>
                     </TableCell>
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                         size="small"
@@ -1228,7 +1174,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                         size="small"
@@ -1261,7 +1207,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         </Select>
                       </FormControl>
                     </TableCell>
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <TextField
                         required
                         className="textfield_ladle"
@@ -1275,7 +1221,7 @@ const Ladlecalculator = ({ authtoken }) => {
                   </TableRow>
 
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                         size="small"
@@ -1305,7 +1251,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         </Select>
                       </FormControl>
                     </TableCell>
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                         size="small"
@@ -1336,7 +1282,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         </Select>
                       </FormControl>
                     </TableCell>
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                         size="small"
@@ -1369,7 +1315,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         </Select>
                       </FormControl>
                     </TableCell>
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <TextField
                         required
                         className="textfield_ladle"
@@ -1382,7 +1328,7 @@ const Ladlecalculator = ({ authtoken }) => {
                     </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                         size="small"
@@ -1416,7 +1362,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: -1, minWidth: isMobile ? 100 : 60 }}
                         size="small"
@@ -1459,8 +1405,8 @@ const Ladlecalculator = ({ authtoken }) => {
         <br />
         <br />
 
-        <div className="containerfab_ladle">
-          <Paper sx={{ width: "100%", overflow: "hidden" }} >
+        {/* <div className="containerfab_ladle flex-all">
+          <Paper sx={{ width: "50%", overflow: "hidden" }} >
             <TableContainer sx={{ maxHeight: 1200 }} style={{ backgroundColor: "#f9fbfc" }}>
               <Table stickyHeader aria-label="sticky table">
                 <TableHead>
@@ -1471,19 +1417,7 @@ const Ladlecalculator = ({ authtoken }) => {
                     <TableCell style={{ backgroundColor: "#c8c8c8" }}>
                       <p>Thick/Size</p>
                     </TableCell>
-                    <TableCell style={{ backgroundColor: "#c8c8c8" }}>
-                      <p>Weight in Kgs</p>
-                    </TableCell>
-                    <TableCell style={{ backgroundColor: "#c8c8c8" }}>
-                      <p>Length</p>
-                    </TableCell>
-                    <TableCell style={{ backgroundColor: "#c8c8c8" }}>
-                      <p>Width</p>
-                    </TableCell>
 
-                    <TableCell style={{ backgroundColor: "#c8c8c8" }}>
-                      <p>Qty</p>
-                    </TableCell>
                   </TableRow>
                 </TableHead>
 
@@ -1526,11 +1460,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight1}</TableCell>
-                    <TableCell>{length1}</TableCell>
-                    <TableCell>{width1}</TableCell>
 
-                    <TableCell>{qty1}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell>
@@ -1570,11 +1500,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight2}</TableCell>
-                    <TableCell>{length2}</TableCell>
-                    <TableCell>{width2}</TableCell>
 
-                    <TableCell>{qty2}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell>
@@ -1614,11 +1540,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight3}</TableCell>
-                    <TableCell>{length3}</TableCell>
-                    <TableCell>{width3}</TableCell>
 
-                    <TableCell>{qty3}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell>
@@ -1658,11 +1580,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight4}</TableCell>
-                    <TableCell>{length4}</TableCell>
-                    <TableCell>{width4}</TableCell>
 
-                    <TableCell>{qty4}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell>
@@ -1702,11 +1620,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight5}</TableCell>
-                    <TableCell>{length5}</TableCell>
-                    <TableCell>{width5}</TableCell>
 
-                    <TableCell>{qty5}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell>
@@ -1746,11 +1660,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight6}</TableCell>
-                    <TableCell>{length6}</TableCell>
-                    <TableCell>{width6}</TableCell>
 
-                    <TableCell>{qty6}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell>
@@ -1790,11 +1700,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight7}</TableCell>
-                    <TableCell>{length7}</TableCell>
-                    <TableCell>{width7}</TableCell>
 
-                    <TableCell>{qty7}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell>
@@ -1834,11 +1740,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight8}</TableCell>
-                    <TableCell>{length8}</TableCell>
-                    <TableCell>{width8}</TableCell>
 
-                    <TableCell>{qty8}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell>
@@ -1878,11 +1780,6 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight9}</TableCell>
-                    <TableCell>{length9}</TableCell>
-                    <TableCell>{width9}</TableCell>
-
-                    <TableCell>{qty9}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell>
@@ -1922,11 +1819,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight10}</TableCell>
-                    <TableCell>{length10}</TableCell>
-                    <TableCell>{width10}</TableCell>
 
-                    <TableCell>{qty10}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell>
@@ -1966,11 +1859,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight11}</TableCell>
-                    <TableCell>{length11}</TableCell>
-                    <TableCell>{width11}</TableCell>
 
-                    <TableCell>{qty11}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell>
@@ -2010,11 +1899,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight12}</TableCell>
-                    <TableCell>{length12}</TableCell>
-                    <TableCell>{width12}</TableCell>
 
-                    <TableCell>{qty12}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell>
@@ -2054,11 +1939,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight13}</TableCell>
-                    <TableCell>{length13}</TableCell>
-                    <TableCell>{width13}</TableCell>
 
-                    <TableCell>{qty13}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell>
@@ -2098,11 +1979,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight14}</TableCell>
-                    <TableCell>{length14}</TableCell>
-                    <TableCell>{width14}</TableCell>
 
-                    <TableCell>{qty14}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell>
@@ -2139,47 +2016,383 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell>{weight15}</TableCell>
-                    <TableCell>{length15}</TableCell>
-                    <TableCell>{width15}</TableCell>
 
-                    <TableCell>{qty15}</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
             </TableContainer>
           </Paper>
-          {/* yaha hu */}
+          
+        </div> */}
+
+        <div className="btns_ladle">
+          <div className="row4_ladle">
+            <Stack spacing={2} direction="row">
+              <button
+                onClick={() => {
+                  if (isdisabled) {
+                    fun();
+                  }
+                  else {
+                    handleOpen();
+                  }
+                }}
+                className="button_ladle"
+              >
+                Calculate
+              </button>
+            </Stack>
+            <p className="error_ccm">{error}</p>
+          </div>
+
         </div>
-        <div className="result-box_ladle">
-          <div className="fabrication_result_ladle">
-            <div className="row4_ladle">
-              <p>Fabrication Wt.: {Math.ceil(total_weight)} Kgs</p>
+
+
+        {/* Output screen */}
+        <div className={output_show ? "output_ladle" : "output_ladle dis"}>
+          <h2 className="head_output">Output</h2>
+
+          <div className="main-box_ladle" style={{ gap: '10vh' }}>
+            <div className="ladle_first">
+              <Paper sx={{ width: "100%", overflow: "hidden" }}>
+                <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
+                  <Table stickyHeader aria-label="sticky table" >
+                    <TableBody>
+                      <TableRow hover role="checkbox" tabIndex={-1} sx={{ maxHeight: '10px' }}>
+
+                        <TableCell>
+                          <h2 className="head_ladle">After Lining</h2>
+                        </TableCell>
+                      </TableRow>
+
+
+                      <TableRow hover role="checkbox" tabIndex={-1}>
+
+                        <TableCell>
+                          <p className="textcentre_ladle">Free Board Level Diameter : {freeboardleveldiameter}</p>
+                        </TableCell>
+                      </TableRow>
+
+                      <TableRow hover role="checkbox" tabIndex={-1}>
+
+                        <TableCell>
+                          <p className="textcentre_ladle">Bottom Lining Level Diameter : {bottomliningleveldiameter}</p>
+                        </TableCell>
+                      </TableRow>
+
+
+                      <TableRow hover role="checkbox" tabIndex={-1}>
+
+                        <TableCell>
+                          <p className="textcentre_ladle">In Between Heigh : {inbetweenheight}</p>
+                        </TableCell>
+                      </TableRow>
+
+
+                      <TableRow hover role="checkbox" tabIndex={-1}>
+
+                        <TableCell>
+                          <p className="textcentre_ladle">Volumn of Ladle : {(pieHby3 * temp).toFixed(2)} cu.M</p>
+                        </TableCell>
+                      </TableRow>
+
+
+                      <TableRow hover role="checkbox" tabIndex={-1}>
+
+                        <TableCell>
+                          <p className="textcentre_ladle">Capacity of Ladle : {(pieHby3 * temp * density).toFixed(2)} MT</p>
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Paper>
             </div>
+
+            <br />
+            <br />
+            <br />
+
+            <div className="ladle_second">
+              <Paper sx={{ width: "100%", overflow: "hidden" }}>
+                <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
+                  <Table stickyHeader aria-label="sticky table">
+                    <TableBody>
+                      <TableRow hover role="checkbox" tabIndex={-1} className="cell">
+
+                        <TableCell>
+                          <h2 className="head_ladle">Fab. Size</h2>
+                        </TableCell>
+                      </TableRow>
+
+
+                      <TableRow hover role="checkbox" tabIndex={-1}>
+
+                        <TableCell>
+                          <p className="textcentre_ladle">Top ID: {output1}</p>
+                        </TableCell>
+                      </TableRow>
+
+                      <TableRow hover role="checkbox" tabIndex={-1}>
+
+                        <TableCell>
+                          <p className="textcentre_ladle">Bottom ID: {output2}</p>
+                        </TableCell>
+                      </TableRow>
+
+
+                      <TableRow hover role="checkbox" tabIndex={-1}>
+
+                        <TableCell>
+                          <p className="textcentre_ladle">Height: {output3}</p>
+                        </TableCell>
+                      </TableRow>
+
+
+                      <TableRow hover role="checkbox" tabIndex={-1}>
+
+                        <TableCell>
+                          <p style={{ textAlign: 'center' }}>
+                            Capacity:{" "}
+                            {(
+                              outputlining1 *
+                              ((outputlining2 * outputlining2 +
+                                outputlining2 * outputlining3 +
+                                outputlining3 * outputlining3) /
+                                1000000) *
+                              density
+                            ).toFixed(2)}{" "}
+                            MT
+                          </p>
+                        </TableCell>
+                      </TableRow>
+
+
+                      <TableRow hover role="checkbox" tabIndex={-1}>
+
+                        <TableCell>
+                          <p style={{ textAlign: 'center' }}>
+                            Volumn:{" "}
+                            {(
+                              outputlining1 *
+                              ((outputlining2 * outputlining2 +
+                                outputlining2 * outputlining3 +
+                                outputlining3 * outputlining3) /
+                                1000000)
+                            ).toFixed(2)}{" "}
+                            cu.M
+                          </p>
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Paper>
+            </div>
+          </div>
+
+          {/* fabrication_output */}
+
+          <div className="containerfab_ladle flex-all" style={{ marginTop: '10vh' }}>
+            <Paper sx={{ width: "60%", overflow: "hidden" }} >
+              <TableContainer sx={{ maxHeight: 1200 }} style={{ backgroundColor: "#f9fbfc" }}>
+                <Table stickyHeader aria-label="sticky table">
+                  <TableHead>
+                    <TableRow hover role="checkbox" tabIndex={-1} >
+                      <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                        <p>Particulars</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                        <p>Weight in Kgs</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                        <p>Length</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                        <p>Width</p>
+                      </TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                        <p>Qty</p>
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+
+                  <TableBody>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Shell Plate</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{weight1}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length1}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width1}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{qty1}</TableCell>
+                    </TableRow>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Bottom Plate</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{weight2}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length2}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width2}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{qty2}</TableCell>
+                    </TableRow>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Top Rim Plate</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{weight3}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length3}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width3}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{qty3}</TableCell>
+                    </TableRow>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Trunion Box Hori. Plt. 1</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{weight4}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length4}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width4}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{qty4}</TableCell>
+                    </TableRow>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Trunion Box Hori. Plt. 2</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{weight5}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length5}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width5}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{qty5}</TableCell>
+                    </TableRow>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Trunion Box Vertical Plt.</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{weight6}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length6}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width6}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{qty6}</TableCell>
+                    </TableRow>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Trunion Box Side Plt.</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{weight7}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length7}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width7}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{qty7}</TableCell>
+                    </TableRow>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Resting Box Hori. Plt</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{weight8}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length8}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width8}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{qty8}</TableCell>
+                    </TableRow>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Resting Box Ver. Plt.</p>
+                      </TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{weight9}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length9}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width9}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{qty9}</TableCell>
+                    </TableRow>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Resting Box Side Plt.</p>
+                      </TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{weight10}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length10}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width10}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{qty10}</TableCell>
+                    </TableRow>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Legs</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{weight11}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length11}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width11}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{qty11}</TableCell>
+                    </TableRow>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Retaining RCS</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{weight12}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length12}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width12}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{qty12}</TableCell>
+                    </TableRow>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Lifting Hooks</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{weight13}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length13}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width13}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{qty13}</TableCell>
+                    </TableRow>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Stiffners</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{weight14}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length14}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width14}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}> {qty14}</TableCell>
+                    </TableRow>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+                      <TableCell sx={{ textAlign: 'center' }}>
+                        <p>Trunion Pin</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{weight15}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{length15}</TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{width15}</TableCell>
+
+                      <TableCell sx={{ textAlign: 'center' }}>{qty15}</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Paper>
+            {/* yaha hu */}
+          </div>
+          <div className="fab_weight flex-all">
+            <p style={{ fontSize: '25px' }}>Fabrication Weight: {Math.ceil(total_weight)} Kgs</p>
           </div>
         </div>
       </div>
-      <div className="btns_ladle">
-        <div className="row4_ladle">
-          <Stack spacing={2} direction="row">
-            <button
-              onClick={() => {
-                if(isdisabled){
-                  fun();
-                }
-                else{
-                  handleOpen();
-                }
-              }}
-              className="button_ladle"
-            >
-              Calculate
-            </button>
-          </Stack>
-          <p className="error_ccm">{error}</p>
-        </div>
-        <div><button onClick={handleDownloadPDF} className="download_btn">Download PDF</button></div>
-      </div>
+          <div className={output_show?"flex-all":"dis"} style={{ marginBottom: '1vh' }}><button onClick={handleDownloadPDF} className="download_btn">Download PDF</button></div>
+          <div className={output_show?"flex-all":"dis"} style={{ marginBottom: '8vh' }}><button onClick={reset} className="download_btn">Reset</button></div>
       <Footer />
     </div>
   );
