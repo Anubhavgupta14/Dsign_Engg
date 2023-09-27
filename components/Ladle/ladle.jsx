@@ -149,7 +149,12 @@ const Ladlecalculator = ({ authtoken }) => {
   const [qty14, setqty14] = useState(0);
   const [qty15, setqty15] = useState(0);
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () =>{
+    seterror("")
+    let v = document.querySelector(".error_ccm")
+    v.style.visibility = "hidden"
+    setOpen(true);
+  }
   const handleClose = () => setOpen(false);
   const [download, setdownload] = useState(false);
   const [error, seterror] = useState("");
@@ -939,6 +944,7 @@ const Ladlecalculator = ({ authtoken }) => {
                           value={thickness1}
                           label="Nozzle Model"
                           onChange={(e) => setThickness1(e.target.value)}
+                          sx={{ '& .MuiSelect-select': { overflowY: 'scroll' } }}
                         >
                           <MenuItem value="">
                             <em>None</em>

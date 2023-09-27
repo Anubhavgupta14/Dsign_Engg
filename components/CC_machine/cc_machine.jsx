@@ -112,7 +112,7 @@ const CC_machine = ({ authtoken }) => {
   const result = () => {
 
     seterror("ok")
-    let v = document.querySelector(".error")
+    let v = document.querySelector(".error_ccm")
     v.style.visibility = "hidden"
     let col1 = 0;
     let col2 = 0;
