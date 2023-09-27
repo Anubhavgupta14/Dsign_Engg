@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import { useState, useRef, useEffect } from "react";
-
 import Footer from "../Footer/footer";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -19,17 +18,14 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
-import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 import { fetchCurrentUser } from '../../libs/fetchUser'
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-
-const rows = [];
+import Link from "next/link";
 
 const style = {
   position: 'absolute',
@@ -70,7 +66,6 @@ const Ladlecalculator = ({ authtoken }) => {
   const [outputlining1, setOutputlining1] = useState(0);
   const [outputlining2, setOutputlining2] = useState(0);
   const [outputlining3, setOutputlining3] = useState(0);
-  const [outputlining4, setOutputlining4] = useState(0);
   const [thickness1, setThickness1] = useState(0);
   const [thickness2, setThickness2] = useState(0);
   const [thickness3, setThickness3] = useState(0);
@@ -104,19 +99,6 @@ const Ladlecalculator = ({ authtoken }) => {
   const [width2, setWidth2] = useState(0);
   const [volumn1, setVolumn1] = useState(0.0);
   const [volumn2, setVolumn2] = useState(0.0);
-  // const [volumn3, setVolumn3] = useState(0.0);
-  // const [volumn4, setVolumn4] = useState(0.0);
-  // const [volumn5, setVolumn5] = useState(0.0);
-  // const [volumn6, setVolumn6] = useState(0.0);
-  // const [volumn7, setVolumn7] = useState(0.0);
-  // const [volumn8, setVolumn8] = useState(0.0);
-  // const [volumn9, setVolumn9] = useState(0.0);
-  // const [volumn10, setVolumn10] = useState(0);
-  // const [volumn11, setVolumn11] = useState(0);
-  // const [volumn12, setVolumn12] = useState(0);
-  // const [volumn13, setVolumn13] = useState(0);
-  // const [volumn14, setVolumn14] = useState(0);
-  // const [volumn15, setVolumn15] = useState(0);
   const [weight1, setweight1] = useState(0);
   const [weight2, setweight2] = useState(0);
   const [weight3, setweight3] = useState(0);
@@ -169,6 +151,15 @@ const Ladlecalculator = ({ authtoken }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [download, setdownload] = useState(false);
+  const [error, seterror] = useState("");
+  const isdisabled = !(topdiameter&&bottomdiameter&&height&&bottomlining&&sidelining&&freeboard&&density&& input1&&input2&&input3&&input4&&input5&&input6&&thickness1&&thickness4&&thickness8&&tru_box_v2&&thickness2&&thickness5&&thickness9&&tru_box_v1&&thickness3&&thickness7&&thickness10&&rest_box_v&&thickness15&&thickness11&&thickness12&&rest_box_h&&thickness13)
+
+  const fun = () => {
+    seterror("Error : Enter the required values")
+    let v = document.querySelector(".error_ccm")
+    v.style.visibility = "initial"
+  }
 
   const [userData, setUserData] = useState({
     name: '',
@@ -182,7 +173,7 @@ const Ladlecalculator = ({ authtoken }) => {
     addressLine1: '',
     addressLine2: '',
     basicProfile: '',
-    ladle_ticket:0,
+    ladle_ticket: 0,
   });
 
   const top_dia_mean = parseInt(topdiameter) + parseInt(thickness1);
@@ -200,11 +191,6 @@ const Ladlecalculator = ({ authtoken }) => {
   const r2 = R2 - slant_height;
   const dev_bottom = r2 * dev_sin * 2;
   const F959 = Math.sqrt(r2 * r2 - (dev_bottom / 2) * (dev_bottom / 2));
-
-  // const j31 = 7.864;
-  // const length_other = 0;
-  // const width_other = 0;
-
   const Radius_R = (top_dia_mean + thickness1 + 100) / 2;
   const top_rim_od = top_dia_mean + thickness1 + 100;
   const Radius_r = (parseFloat(top_rim_od) - parseFloat(2 * sidelining)) / 2;
@@ -215,23 +201,17 @@ const Ladlecalculator = ({ authtoken }) => {
 
 
 
-  const result = (e) => {
-    event.preventDefault();
-
-
-    setInput1(e.target.value)
+  const result = async (event) => {
+    // event.preventDefault();
     const inbetweenheight = height - bottomlining - freeboard;
     setInbetweenheight(inbetweenheight);
     const pieHby3 = (3.1416 / 3000) * inbetweenheight;
-    // console.log(pieHby3);
     setPieHby3(pieHby3.toFixed(3));
 
     const I14 = (0.5 * (topdiameter - bottomdiameter)) / inbetweenheight;
     const freeboardleveldiameter =
       topdiameter - 2 * sidelining - I14 * 2 * freeboard;
     setFreeboardleveldiameter(Math.round(freeboardleveldiameter));
-    // console.log(freeboardleveldiameter)
-
     const bottomliningleveldiameter =
       I14 * 2 * bottomlining + (bottomdiameter - 2 * sidelining);
     setBottomliningleveldiameter(Math.round(bottomliningleveldiameter));
@@ -241,8 +221,8 @@ const Ladlecalculator = ({ authtoken }) => {
   const R = Math.floor(freeboardleveldiameter / 2);
   const temp = ((R * R + R * r + r * r) / 1000000).toFixed(3);
 
-  const result2 = () => {
-    event.preventDefault();
+  const result2 = async (event) => {
+    // event.preventDefault();
     const s13 = parseInt(input1) + parseInt(input5) + parseInt(input5);
     const s14 = parseInt(input2) + parseInt(input5) + parseInt(input5);
     const s16 = 0.5 * ((s13 - s14) / parseInt(input3));
@@ -262,8 +242,17 @@ const Ladlecalculator = ({ authtoken }) => {
       1000000;
   };
 
-  const result3 = () => {
-    event.preventDefault();
+  const result3 = async (event) => {
+    // event.preventDefault();
+
+    const result_ticket = await validate_ticket();
+    if (result_ticket === -1) {
+      toast.error("You don't have tickets");
+      setOpen(false)
+      getUserData();
+      return;
+    }
+
     result();
     result2();
     const length1 = Math.round(R2 * dev_sin * 2);
@@ -279,8 +268,6 @@ const Ladlecalculator = ({ authtoken }) => {
     const weight2 = Math.round(
       (thickness2 * length2 * width2 * 1 * 7.864) / 1000000
     );
-
-    // const width3 = (top_dia_mean + thickness1 + 100) / 2;
 
     const width3 = Math.round(((Radius_R - Radius_r + (I964 - J964)) * 6) + J964);
 
@@ -300,8 +287,6 @@ const Ladlecalculator = ({ authtoken }) => {
     setqty13(1);
     setqty14(0);
     setqty15(2);
-
-    // const F959 = Math.sqrt((r2*r2)-((r2*dev_sin*2/2)*(r2*dev_sin*2/2)))
 
     const q3 = 1;
     const weight3 = Math.round(
@@ -390,8 +375,6 @@ const Ladlecalculator = ({ authtoken }) => {
     const width12 = 50;
     const U100 =
       parseInt(tru_box_v2) - parseInt(thickness4) - parseInt(thickness4);
-    // const dev_angle = (top_dia_mean*3.1416)*360/(3.1416*R*4)
-    // const dev_sin = Math.sin(3.1416/180*dev_angle)
     const length12 = Math.ceil(
       parseInt(((R2 * dev_sin * 2) / 2) * 2 * 2) + parseInt(8 * U100)
     );
@@ -417,21 +400,6 @@ const Ladlecalculator = ({ authtoken }) => {
     const weight15 = Math.round(
       (thickness15 * length15 * width15 * q15 * 7.864) / 1000000
     );
-
-    // const volumn3 = thickness3 * width_other * length_other;
-    // const volumn4 = thickness4 * length_other * width_other * 4;
-    // const volumn5 = thickness5 * length_other * width_other * 4;
-    // const volumn6 = thickness6 * length_other * width_other * 4;
-    // const volumn7 = thickness7 * length_other * width_other * 4;
-    // const volumn8 =
-    //   (3.1416 / 4) * length_other * length_other * width_other * 2;
-    // const volumn9 = width_other * width_other * length_other * 1;
-    // const volumn10 = thickness10 * length_other * width_other * 9;
-    // const volumn12 =
-    //   ((3.1416 / 4) * thickness12 * thickness12 * width_other) / 1000;
-    // const volumn14 = thickness14 * length_other * width_other * 3;
-    // const volumn15 = thickness15 * length_other * width_other * 2;
-
     setLength1(length1);
     setWidth1(width1);
     setVolumn1(volumn1);
@@ -459,17 +427,6 @@ const Ladlecalculator = ({ authtoken }) => {
     setVolumn2(volumn2);
     setLength4(length4);
     setLength6(length6);
-    // setVolumn3(volumn3);
-    // setVolumn4(volumn4);
-    // setVolumn5(volumn5);
-    // setVolumn6(volumn6);
-    // setVolumn7(volumn7);
-    // setVolumn8(volumn8);
-    // setVolumn9(volumn9);
-    // setVolumn10(volumn10);
-    // setVolumn12(volumn12);
-    // setVolumn14(volumn14);
-    // setVolumn15(volumn15);
     setweight1(weight1);
     setweight2(weight2);
     setweight3(weight3);
@@ -505,18 +462,10 @@ const Ladlecalculator = ({ authtoken }) => {
       weight14 +
       weight15
     );
-  };
 
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
+    setOpen(false)
+    getUserData();
+    setdownload(true);
   };
 
   const getUserData = async () => {
@@ -545,17 +494,14 @@ const Ladlecalculator = ({ authtoken }) => {
 
   useEffect(() => {
     getUserData();
-   }, []);
+  }, []);
 
-  const handleDownloadPDF = async() => {
+  const handleDownloadPDF = async () => {
 
-    const result = await validate_ticket();
-  if (result === -1) {
-    toast.error("You don't have tickets");
-    setOpen(false)
-    getUserData();
-    return;
-  }
+    if (!download) {
+      toast.error("Calculate First")
+      return;
+    }
 
     const input = pdfRef.current;
     html2canvas(input).then((canvas) => {
@@ -570,9 +516,9 @@ const Ladlecalculator = ({ authtoken }) => {
       const imgY = 0;
       pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
       pdf.save('ladle.pdf')
+      toast.success("Successfully Downloaded")
     });
-    setOpen(false)
-    getUserData();
+
   };
 
   const validate_ticket = async () => {
@@ -584,12 +530,11 @@ const Ladlecalculator = ({ authtoken }) => {
           'Content-type': 'application/json',
         },
       });
-  
+
       if (response.status === 404) {
-        // toast.error("You don't have tickets");
         return -1;
       } else if (response.status === 201) {
-        toast.success("Thank You for download");
+        toast.success("Successfully Calculated");
         return 1;
       } else {
         const data = await response.json();
@@ -616,10 +561,21 @@ const Ladlecalculator = ({ authtoken }) => {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Are you sure ?
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2, marginBottom:'17px' }}>
+          <Typography id="modal-modal-description" sx={{ mt: 2, marginBottom: '17px' }}>
             You have {userData.ladle_ticket} Tickets left !
           </Typography>
-          <button onClick={handleDownloadPDF}>Download</button>
+          <Typography id="modal-modal-description" sx={{ mt: 2, marginBottom: '17px' }}>
+            {userData.ladle_ticket == 0 ?
+            <div>
+              <p>You Can Purchase Plans or Continue with <Link href="/ccm" className="plan_head">Free Plan</Link></p>
+              <div className="btn_div">
+                <Link href="/pricing"><button>Purchase</button></Link>
+                {/* <button onClick={result3}>Calculate</button> */}
+              </div>
+            </div>
+              : ""}
+          </Typography>
+          <button className={userData.ladle_ticket == 0?"dis":"btn_cal"} onClick={result3}>Calculate</button>
         </Box>
       </Modal>
       <div ref={pdfRef} id="pdf">
@@ -630,106 +586,6 @@ const Ladlecalculator = ({ authtoken }) => {
           </p>
         </div>
         <div className="main-box_ladle">
-          {/* <Box component="form_ladle">
-          <div className="box_ladle">
-            <div className="content_ladle">
-              <h2 className="head_ladle">Fabricated Dimensions</h2>
-              <div className="row_ladle">
-                <TextField
-                  required
-                  className="textfield_ladle"
-                  id="outlined-number"
-                  label="Top ID"
-                  variant="outlined"
-                  type="number"
-                  onChange={(e) => setTopdiameter(e.target.value)}
-                />
-              </div>
-              <div className="row_ladle">
-                <TextField
-                  required
-                  className="textfield_ladle"
-                  id="outlined-number"
-                  label="Bottom ID"
-                  variant="outlined"
-                  type="number"
-                  onChange={(e) => setBottomdiameter(e.target.value)}
-                />
-              </div>
-              <div className="row_ladle">
-                <TextField
-                  required
-                  className="textfield_ladle"
-                  id="outlined-number"
-                  label="Height"
-                  variant="outlined"
-                  type="number"
-                  onChange={(e) => setHeight(e.target.value)}
-                />
-              </div>
-              <div className="row_ladle">
-                <TextField
-                  required
-                  className="textfield_ladle"
-                  id="outlined-number"
-                  label="Bottom Lining"
-                  variant="outlined"
-                  type="number"
-                  onChange={(e) => setBottomlining(e.target.value)}
-                />
-              </div>
-              <div className="row_ladle">
-                <TextField
-                  required
-                  className="textfield_ladle"
-                  id="outlined-number"
-                  label="Side Lining"
-                  variant="outlined"
-                  type="number"
-                  onChange={(e) => setSidelining(e.target.value)}
-                />
-              </div>
-              <div className="row_ladle">
-                <TextField
-                  required
-                  className="textfield_ladle"
-                  id="outlined-number"
-                  label="Free Board"
-                  variant="outlined"
-                  type="number"
-                  onChange={(e) => setFreeboard(e.target.value)}
-                />
-              </div>
-              <div className="row_ladle">
-                <TextField
-                  required
-                  className="textfield_ladle"
-                  id="outlined-number"
-                  label="Density"
-                  variant="outlined"
-                  type="number"
-                  onChange={(e) => setDensity(e.target.value)}
-                />
-              </div>
-            </div>
-
-            <div className="content_ladle">
-              <h2 className="head_ladle">After Lining</h2>
-              <p>Free Board Level Diameter : {freeboardleveldiameter}</p>
-              <p>Bottom Lining Level Diameter : {bottomliningleveldiameter}</p>
-              <p>In Between Heigh : {inbetweenheight}</p>
-
-              <div className="outcome_ladle">
-
-                <p>Volumn of Ladle : {(pieHby3 * temp).toFixed(2)} cu.M</p>
-                <p>
-                  Capacity of Ladle : {(pieHby3 * temp * density).toFixed(2)} MT
-                </p>
-              </div>
-            </div>
-          </div>
-        </Box> */}
-
           <div className="ladle_first">
             <Paper sx={{ width: "100%", overflow: "hidden" }}>
               <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
@@ -892,111 +748,6 @@ const Ladlecalculator = ({ authtoken }) => {
           <br />
           <br />
 
-          {/* <Box component="form_ladle">
-          <div className="box2_ladle">
-            <div className="content2_ladle">
-              <h2 className="head_ladle">After Lining</h2>
-              <div className="row_ladle">
-                <TextField
-                  required
-                  className="textfield_ladle"
-                  id="outlined-number"
-                  label="Top ID"
-                  variant="outlined"
-                  type="number"
-                  onChange={(e) => setInput1(e.target.value)}
-                />
-              </div>
-              <div className="row_ladle">
-                <TextField
-                  required
-                  className="textfield_ladle"
-                  id="outlined-number"
-                  label="Bottom ID"
-                  variant="outlined"
-                  type="number"
-                  onChange={(e) => setInput2(e.target.value)}
-                />
-              </div>
-              <div className="row_ladle">
-                <TextField
-                  required
-                  className="textfield_ladle"
-                  id="outlined-number"
-                  label="Height"
-                  variant="outlined"
-                  type="number"
-                  onChange={(e) => setInput3(e.target.value)}
-                />
-              </div>
-              <div className="row_ladle">
-                <TextField
-                  required
-                  className="textfield_ladle"
-                  id="outlined-number"
-                  label="Bottom Lining"
-                  variant="outlined"
-                  type="number"
-                  onChange={(e) => setInput4(e.target.value)}
-                />
-              </div>
-              <div className="row_ladle">
-                <TextField
-                  required
-                  className="textfield_ladle"
-                  id="outlined-number"
-                  label="Side Lining"
-                  variant="outlined"
-                  type="number"
-                  onChange={(e) => setInput5(e.target.value)}
-                />
-              </div>
-              <div className="row_ladle">
-                <TextField
-                  required
-                  className="textfield_ladle"
-                  id="outlined-number"
-                  label="Free Board"
-                  variant="outlined"
-                  type="number"
-                  onChange={(e) => setInput6(e.target.value)}
-                />
-              </div>
-            </div>
-            <div className="content2_ladle">
-              <h2 className="head_ladle">Fab. Size</h2>
-              <p className="textcentre_ladle">Top ID: {output1}</p>
-              <p className="textcentre_ladle">Bottom ID: {output2}</p>
-              <p className="textcentre_ladle">Height: {output3}</p>
-              <div className="outcome_ladle">
-
-                <p>
-                  Capacity:{" "}
-                  {(
-                    outputlining1 *
-                    ((outputlining2 * outputlining2 +
-                      outputlining2 * outputlining3 +
-                      outputlining3 * outputlining3) /
-                      1000000) *
-                    density
-                  ).toFixed(2)}{" "}
-                  MT
-                </p>
-                <p>
-                  Volumn:{" "}
-                  {(
-                    outputlining1 *
-                    ((outputlining2 * outputlining2 +
-                      outputlining2 * outputlining3 +
-                      outputlining3 * outputlining3) /
-                      1000000)
-                  ).toFixed(2)}{" "}
-                  cu.M
-                </p>
-              </div>
-            </div>
-          </div>
-        </Box> */}
           <div className="ladle_second">
             <Paper sx={{ width: "100%", overflow: "hidden" }}>
               <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
@@ -1150,20 +901,10 @@ const Ladlecalculator = ({ authtoken }) => {
 
                       </TableCell>
                     </TableRow>
-
-
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell>
-                        <div className="row_ladle">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            label="Density"
-                            variant="outlined"
-                            type="number"
-                            onChange={(e) => setDensity(e.target.value)}
-                          />
+                        <div className="row_ladle" style={{ height: '8vh' }}>
+
                         </div>
                       </TableCell>
                       <TableCell>
@@ -1176,7 +917,7 @@ const Ladlecalculator = ({ authtoken }) => {
             </Paper>
           </div>
         </div>
-        <h2 className="head_ladle">Fabrication</h2>
+        <h2 className="head_ladle" style={{ marginTop: '10vh' }}>Fabrication</h2>
 
         <div className="containerfab_ladle">
           <Paper sx={{ width: "100%", overflow: "hidden" }}>
@@ -2401,15 +2142,6 @@ const Ladlecalculator = ({ authtoken }) => {
                 </TableBody>
               </Table>
             </TableContainer>
-            {/* <TablePagination
-            rowsPerPageOptions={[10, 25, 100]}
-            component="div"
-            count={rows.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          /> */}
           </Paper>
           {/* yaha hu */}
         </div>
@@ -2426,15 +2158,21 @@ const Ladlecalculator = ({ authtoken }) => {
           <Stack spacing={2} direction="row">
             <button
               onClick={() => {
-                result3();
+                if(isdisabled){
+                  fun();
+                }
+                else{
+                  handleOpen();
+                }
               }}
               className="button_ladle"
             >
               Calculate
             </button>
           </Stack>
+          <p className="error_ccm">{error}</p>
         </div>
-        <div><button onClick={handleOpen} className="download_btn">Download</button></div>
+        <div><button onClick={handleDownloadPDF} className="download_btn">Download PDF</button></div>
       </div>
       <Footer />
     </div>

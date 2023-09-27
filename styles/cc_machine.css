@@ -127,7 +127,7 @@ p {
   }
 
   .btn_res{
-    width: 867px;
+    width: 150px;
   }
 
   /* Responsive Layout */
@@ -272,6 +272,6 @@ p {
 
 
 
-.error{
+.error_ccm{
   color: red;
 }

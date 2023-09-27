@@ -105,7 +105,7 @@ const CC_machine = ({ authtoken }) => {
 
   const fun = () => {
     seterror("Error : Enter the required values")
-    let v = document.querySelector(".error")
+    let v = document.querySelector(".error_ccm")
     v.style.visibility = "initial"
   }
 
@@ -1521,8 +1521,8 @@ const CC_machine = ({ authtoken }) => {
           </button>
 
         </Stack>
-        <p className="error">{error}</p>
-        <button onClick={handleDownloadPDF}>Download</button>
+        <p className="error_ccm">{error}</p>
+        <div><button onClick={handleDownloadPDF} className="download_btn">Download PDF</button></div>
       </div>
       <Footer />
     </div>

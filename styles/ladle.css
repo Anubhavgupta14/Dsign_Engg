@@ -19,11 +19,30 @@ p {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-bottom: 10px;
+  width: 150px;
+  font-size: 16px;
 }
 .download_btn{
-  margin-top: 10px;
-    width: 107px;
+    margin-top: 10px;
+    width: 150px;
     font-size: 16px;
+}
+
+.plan_head{
+  color: #1081fc;
+}
+.plan_head:hover{
+  text-decoration: underline;
+}
+.dis{
+  display: none;
+}
+.btn_div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:30px;
+  margin-top: 24px;
 }
 
 .button_ladle:hover {
@@ -31,7 +50,11 @@ p {
   color: black;
   font-weight: 400;
 }
-
+.row4_ladle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .btns_ladle{
   display: flex;
   flex-direction: column;
