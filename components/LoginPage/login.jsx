@@ -206,7 +206,7 @@ const LoginPage = ({authtoken}) => {
           <div className="login__col_log">
             <form className="login__form_log" method="post" action="">
               <div className="login__form-wrapper_log">
-                <h1 className="h1">Welcome back</h1>
+                <h1 className="h1">Login</h1>
                 <p>Sign in to your account.</p>
                 <div className="login__field-group_log">
                   <label className="login__label_log" htmlFor="user-email">

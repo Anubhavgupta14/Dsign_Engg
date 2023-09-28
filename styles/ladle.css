@@ -84,8 +84,17 @@ p {
 .main-box_ladle {
   display: flex;
   justify-content: center;
-  padding-top: 130px;
-  gap: 40vh;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 5px;
+  gap: 5vh;
+}
+.main-box_ladle_output {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+  gap: 5vh;
 }
 
 .box_ladle {
@@ -119,6 +128,12 @@ p {
 
 .textcentre_ladle {
   text-align: center;
+}
+.ladle_desc{
+  margin: 0 auto;
+    width: 128vh;
+    margin-top: 13vh;
+    text-align: justify;
 }
 
 /* Responsive Layout */
@@ -187,6 +202,9 @@ p {
 }
 
 .ladle_first{
+  width: 92%;
+}
+.ladle_first_output{
   width: 22%;
 }
 
@@ -200,6 +218,9 @@ p {
 }
 
 .ladle_second{
+  width: 92%;
+}
+.ladle_second_output{
   width: 22%;
 }
 
