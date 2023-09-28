@@ -8,7 +8,6 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useState, useEffect, useRef } from "react";
-
 import Footer from "../Footer/footer";
 import Navbar from "../navbar/Navbar";
 import Table from "@mui/material/Table";
@@ -22,6 +21,7 @@ import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import { toast } from "react-toastify"
 
 const CC_machine = ({ authtoken }) => {
   const pdfRef = useRef();
@@ -44,7 +44,6 @@ const CC_machine = ({ authtoken }) => {
   const [secwater, setSecwater] = useState(0);
   const [nozzle_distant, setNozzle_distant] = useState(0);
   const [nozzle_distant2, setNozzle_distant2] = useState(0);
-  // const [specific_value, setSpecific_value] = useState(1);
   const [specific_value2, setSpecific_value2] = useState("");
   const [nst, setNst] = useState(0);
   const [col1, setcol1] = useState(0);
@@ -100,20 +99,24 @@ const CC_machine = ({ authtoken }) => {
   const [Cr, setCr] = useState(0);
   const [Ce, setCe] = useState(0);
   const [error, seterror] = useState("");
+  const [showoutput, setShowoutput] = useState(false);
   const [liquidus, setliquidus] = useState(0);
   const isdisable = !(section && viscosity_powder && casting_speed && heat_size && no_of_strands && negative_strip && oscl_stroke && specific_value && specific_value2 && nozzle_degree && constant && nozzle_model && nozzle_dia && ferostatic_height && c && Si && Mn && P && S && Nb && Ca && Ni && Cu && Mo && Cr)
 
   const fun = () => {
-    seterror("Error : Enter the required values")
-    let v = document.querySelector(".error_ccm")
-    v.style.visibility = "initial"
+    // seterror("Error : Enter the required values")
+    // let v = document.querySelector(".error_ccm")
+    // v.style.visibility = "initial"
+    toast.error("Enter the required value")
+  }
+
+  const fun2 = () => {
+    window.location.reload();
   }
 
   const result = () => {
 
-    seterror("ok")
-    let v = document.querySelector(".error_ccm")
-    v.style.visibility = "hidden"
+
     let col1 = 0;
     let col2 = 0;
     let col3 = 0;
@@ -346,6 +349,8 @@ const CC_machine = ({ authtoken }) => {
     const Ce = parseFloat(c) + parseFloat(Mn / 6) + (parseFloat(parseFloat(Cr) + parseFloat(Mo)) / 5) + (parseFloat(parseFloat(Ni) + parseFloat(Cu)) / 15);
 
     setCe((Ce).toFixed(2));
+
+    setShowoutput(true);
   };
 
 
@@ -356,14 +361,15 @@ const CC_machine = ({ authtoken }) => {
       const pdf = new jsPDF('p', 'mm', 'a4', true);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
-      const imgWidth = canvas.width*2;
-      const imgHeight = canvas.height*2;
+      const imgWidth = canvas.width * 2;
+      const imgHeight = canvas.height * 2;
       const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
       const imgX = (pdfWidth - imgWidth * ratio) / 2;
       const imgY = 0;
       pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
       pdf.save('ccm.pdf')
     });
+    toast.success("Successfully Calculated")
   };
 
 
@@ -377,6 +383,7 @@ const CC_machine = ({ authtoken }) => {
             <span style={{ color: "#1081fc" }}>A Continuous Casting Machine (CCM)</span> is a state-of-the-art industrial apparatus integral to the metallurgical and manufacturing sectors. It transforms the production of metals, especially steel and non-ferrous alloys, by enabling a continuous and seamless casting process. Unlike traditional methods, CCMs do away with the need for multiple mold changes and reheating steps. Instead, molten metal is poured into a tundish and flows through a water-cooled mold, emerging as perfectly shaped products like slabs, billets, and blooms.
           </p>
         </div>
+        <h2 className="head_cc">Concast Data</h2>
         <div className="tab_container_main">
           <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
             <Table sx={{ minWidth: 100 }} aria-label="simple table">
@@ -422,14 +429,7 @@ const CC_machine = ({ authtoken }) => {
                       </Select>
                     </FormControl>
                   </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Casting Powder (Gram/T)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {casting_powder}
-                      </p>
-                    </div>
-                  </TableCell>
+
                   <TableCell align="left">
                     <label className="label">(dpa.s)</label>
                     <FormControl
@@ -459,20 +459,6 @@ const CC_machine = ({ authtoken }) => {
                       </Select>
                     </FormControl>
                   </TableCell>
-                  <TableCell align="left">
-                    <label className="label">(%)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {" "}
-                        {(zone31).toFixed(2)}
-                      </p>
-                    </div>
-                  </TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
                   <TableCell component="th" scope="row">
                     <label className="label o">Casting Speed(Mtr/Min)</label>
                     <FormControl
@@ -525,35 +511,6 @@ const CC_machine = ({ authtoken }) => {
                       </Select>
                     </FormControl>
                   </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Machine Speed(Mtr/Min)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {machine_speed}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Casting Time(Hr)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {casting_time}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">(Min)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {zone32}
-                      </p>
-                    </div>
-                  </TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
                   <TableCell component="th" scope="row">
                     <label className="label o">Heat Size(MT)</label>
                     <TextField
@@ -568,6 +525,12 @@ const CC_machine = ({ authtoken }) => {
                       onChange={(e) => setHeat_size(e.target.value)}
                     />
                   </TableCell>
+
+                </TableRow>
+                <TableRow
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  hover
+                >
                   <TableCell align="left">
                     <label className="label o">Nos. of Strand</label>
                     <FormControl
@@ -594,27 +557,6 @@ const CC_machine = ({ authtoken }) => {
                       </Select>
                     </FormControl>
                   </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Throughput(kg/Min)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {throughput}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">(MT/Hr)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {zone33}
-                      </p>
-                    </div>
-                  </TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
                   <TableCell component="th" scope="row">
                     <label className="label o">Negative Strip(%)</label>
                     <FormControl
@@ -645,35 +587,6 @@ const CC_machine = ({ authtoken }) => {
                       </Select>
                     </FormControl>
                   </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Metalurgical Length(Mtr)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {matalurgical_length}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Primary Water(Lpm)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {primary_water}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">(Lpm)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {zone34}
-                      </p>
-                    </div>
-                  </TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
                   <TableCell component="th" scope="row">
                     <label className="label o">Oscl. Stroke(MM)</label>
                     <FormControl
@@ -709,22 +622,6 @@ const CC_machine = ({ authtoken }) => {
                       </Select>
                     </FormControl>
                   </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Secondary Water(Lpm)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {secondary_water}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Specific Value</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {specific_value}
-                      </p>
-                    </div>
-                  </TableCell>
                   <TableCell component="th" scope="row">
                     <label className="label o">Metal Density</label>
                     <FormControl
@@ -759,48 +656,8 @@ const CC_machine = ({ authtoken }) => {
                       </Select>
                     </FormControl>
                   </TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <label className="label">Oscl. Freq(Cycle/Min)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {oscl_freq}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Sec. Water Pr.(kg/cm^2)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {secwater}
-                      </p>
-                      <label className="zone">Zone 1</label>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Sec. Water Pr.(kg/cm^2)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {metal_density}
-                      </p>
-                      <label className="zone">Zone 2</label>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Sec. Water Pr.(kg/cm^2)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {zone35}
-                      </p>
-                      <label className="zone">Zone 3</label>
-                    </div>
-                  </TableCell>
-                </TableRow>
 
+                </TableRow>
                 <TableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   hover
@@ -830,35 +687,6 @@ const CC_machine = ({ authtoken }) => {
                       </Select>
                     </FormControl>
                   </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Nozzle Distant</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {nozzle_distant}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Nozzle Distant</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {nozzle_distant2}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">NST(Sec)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {zone36}
-                      </p>
-                    </div>
-                  </TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
                   <TableCell component="th" scope="row">
                     <label className="label o">Constant</label>
                     <FormControl
@@ -890,20 +718,6 @@ const CC_machine = ({ authtoken }) => {
                       </Select>
                     </FormControl>
                   </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </div>
-
-        <div className="tab_container">
-          <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
-            <Table sx={{ minWidth: 100 }} aria-label="simple table">
-              <TableBody>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
                   <TableCell component="th" scope="row">
                     <div className="ok">
                       <label className="label o">Nozzle Model</label>
@@ -946,199 +760,8 @@ const CC_machine = ({ authtoken }) => {
                       </FormControl>
                     </div>
                   </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Flow(Lpm)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {flow}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Pr.</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {prcol31}
-                      </p>
-                    </div>
-                  </TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <label className="label">Nozzle Flow</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {nozzle_flow_zone1}
-                      </p>
-                      <label className="zone">Zone 1</label>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Nozzle Flow</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {flowcol22}
-                      </p>
-                      <label className="zone">Zone 2</label>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Nozzle Flow</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {prcol32}
-                      </p>
-                      <label className="zone">Zone 3</label>
-                    </div>
-                  </TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <label className="label">Nos. of Nozzles Req.</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {no_of_nozzle_req}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label o"></label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {flowcol23}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label o"></label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {prcol33}
-                      </p>
-                    </div>
-                  </TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <label className="label">Avail Nozzles No.</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {avail_nozzles}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label o"></label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {flowcol24}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label o"></label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {prcol34}
-                      </p>
-                    </div>
-                  </TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <label className="label">Nozzle Max Pr.</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {nozzle_max_pr}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label o"></label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {nozzle_max_pr}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label o"></label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {nozzle_max_pr}
-                      </p>
-                    </div>
-                  </TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <label className="label">Nozzle Max Flow</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {nozzle_max_flow}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label o"></label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {flowcol27}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label o"></label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {prcol36}
-                      </p>
-                    </div>
-                  </TableCell>
-                </TableRow>
+                  <TableCell>
 
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <label className="label">Nozzle Set Pr.</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {nozzle_set_pr}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label o"></label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {nozzle_set_pr}
-                      </p>
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label o"></label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {nozzle_set_pr}
-                      </p>
-                    </div>
                   </TableCell>
                 </TableRow>
               </TableBody>
@@ -1146,59 +769,17 @@ const CC_machine = ({ authtoken }) => {
           </TableContainer>
         </div>
 
-        <div className="tab_container">
+
+        <h2 className="head_cc">Tundish Nozzle Calculations</h2>
+        <div className="tab_container_output">
           <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
-            <Table sx={{ minWidth: 100 }} aria-label="simple table">
+            <Table sx={{ minWidth: 150 }} aria-label="simple table">
               <TableBody>
                 <TableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   hover
                 >
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">C%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="C%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setC(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label o"></label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {out_kgpermin}Kg/Min
-                      </p>
-                    </div>
-                  </TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">Si%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="Si%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setSi(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
+
 
                   <TableCell align="left">
                     <div className="ok">
@@ -1233,56 +814,7 @@ const CC_machine = ({ authtoken }) => {
                       </FormControl>
                     </div>
                   </TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">Mn%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="Mn%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setMn(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
-                  <TableCell align="left">
-                    <label className="label">Nozzle Area(Sq.mm)</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {nozzle_area} Sq.mm
-                      </p>
-                    </div>
-                  </TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">P%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="P%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setP(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
+
                   <TableCell align="left">
                     <div className="ok">
                       <label className="label">Ferostatic Height(mm)</label>
@@ -1301,10 +833,83 @@ const CC_machine = ({ authtoken }) => {
                     </div>
                   </TableCell>
                 </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+        <h2 className="head_cc">CE Ratio Calculations</h2>
+        <div className="tab_container_output">
+          <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
+            <Table sx={{ minWidth: 100 }} aria-label="simple table">
+              <TableBody>
                 <TableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   hover
                 >
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">C%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="C%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setC(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">Si%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="Si%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setSi(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">Mn%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="Mn%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setMn(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">P%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="P%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setP(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
                   <TableCell component="th" scope="row">
                     <div className="ok">
                       <label className="label o">S%</label>
@@ -1321,14 +926,7 @@ const CC_machine = ({ authtoken }) => {
                       />
                     </div>
                   </TableCell>
-                  <TableCell component="th" scope="row">
-                    <label className="label">Constant</label>
-                    <div className="out_box">
-                      <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                        {constant2}
-                      </p>
-                    </div>
-                  </TableCell>
+
                 </TableRow>
 
                 <TableRow
@@ -1351,15 +949,6 @@ const CC_machine = ({ authtoken }) => {
                       />
                     </div>
                   </TableCell>
-                  <TableCell align="left">
-
-                  </TableCell>
-                </TableRow>
-
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
                   <TableCell component="th" scope="row">
                     <div className="ok">
                       <label className="label o">Ca%</label>
@@ -1376,12 +965,6 @@ const CC_machine = ({ authtoken }) => {
                       />
                     </div>
                   </TableCell>
-                  <TableCell></TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
                   <TableCell component="th" scope="row">
                     <div className="ok">
                       <label className="label o">Ni%</label>
@@ -1398,12 +981,6 @@ const CC_machine = ({ authtoken }) => {
                       />
                     </div>
                   </TableCell>
-                  <TableCell></TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
                   <TableCell component="th" scope="row">
                     <div className="ok">
                       <label className="label o">Cu%</label>
@@ -1420,12 +997,6 @@ const CC_machine = ({ authtoken }) => {
                       />
                     </div>
                   </TableCell>
-                  <TableCell></TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
                   <TableCell component="th" scope="row">
                     <div className="ok">
                       <label className="label o">Mo%</label>
@@ -1442,8 +1013,9 @@ const CC_machine = ({ authtoken }) => {
                       />
                     </div>
                   </TableCell>
-                  <TableCell></TableCell>
+
                 </TableRow>
+
                 <TableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   hover
@@ -1464,66 +1036,548 @@ const CC_machine = ({ authtoken }) => {
                       />
                     </div>
                   </TableCell>
-                  <TableCell></TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label">Carbon Equivalency Percentage (CE%)</label>
-                      <div className="out_box">
-                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                          {Ce}
-                        </p>
-                      </div>
-                    </div>
-                  </TableCell>
-                  <TableCell></TableCell>
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label">Liquidus Temp.</label>
-                      <div className="out_box">
-                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                          {liquidus}
-                        </p>
-                      </div>
-                    </div>
-                  </TableCell>
-                  <TableCell></TableCell>
+
                 </TableRow>
               </TableBody>
             </Table>
           </TableContainer>
         </div>
-      </div>
-      <div className="main_btn">
-        <Stack spacing={2} direction="row">
-          <button
-            onClick={() => {
-              if (isdisable) {
-                fun();
-              }
-              else {
-                result();
-              }
-            }}
-            className="button btn_res"
 
-          >
-            Calculate
-          </button>
+        <div className="main_btn">
+          <Stack spacing={2} direction="row">
+            <button
+              onClick={() => {
+                if (isdisable) {
+                  fun();
+                }
+                else {
+                  result();
+                }
+              }}
+              className="button btn_res"
 
-        </Stack>
-        <p className="error_ccm">{error}</p>
-        <div><button onClick={handleDownloadPDF} className="download_btn">Download PDF</button></div>
+            >
+              Calculate
+            </button>
+
+          </Stack>
+          {/* <p className="error_ccm">{error}</p> */}
+
+
+        </div>
+        {/* output */}
+        <div className={showoutput ? "" : "dis"}>
+          <h2 className="head_cc">Output</h2>
+          <div className="tab_container_main">
+            <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
+              <Table sx={{ minWidth: 100 }} aria-label="simple table">
+                <TableBody>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+
+                    <TableCell align="left">
+                      <label className="label">Casting Powder (Gram/T)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {casting_powder}
+                        </p>
+                      </div>
+                    </TableCell>
+
+                    <TableCell align="left">
+                      <label className="label">(%)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {" "}
+                          {(zone31).toFixed(2)}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Machine Speed(Mtr/Min)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {machine_speed}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Casting Time(Hr)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {casting_time}
+                        </p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+                    <TableCell align="left">
+                      <label className="label">(Min)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {zone32}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Throughput(kg/Min)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {throughput}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">(MT/Hr)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {zone33}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Metalurgical Length(Mtr)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {matalurgical_length}
+                        </p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+
+
+                    <TableCell align="left">
+                      <label className="label">Primary Water(Lpm)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {primary_water}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">(Lpm)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {zone34}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Secondary Water(Lpm)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {secondary_water}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Specific Value</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {specific_value}
+                        </p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+
+
+
+                  </TableRow>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+                    <TableCell component="th" scope="row">
+                      <label className="label">Oscl. Freq(Cycle/Min)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {oscl_freq}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Sec. Water Pr.(kg/cm^2)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {secwater}
+                        </p>
+                        <label className="zone">Zone 1</label>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Sec. Water Pr.(kg/cm^2)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {metal_density}
+                        </p>
+                        <label className="zone">Zone 2</label>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Sec. Water Pr.(kg/cm^2)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {zone35}
+                        </p>
+                        <label className="zone">Zone 3</label>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+
+                    <TableCell align="left">
+                      <label className="label">Nozzle Distant</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {nozzle_distant}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Nozzle Distant</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {nozzle_distant2}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">NST(Sec)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {zone36}
+                        </p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
+
+          <div className="tab_container_output">
+            <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
+              <Table sx={{ minWidth: 100 }} aria-label="simple table">
+                <TableBody>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+                    <TableCell component="th" scope="row">
+                      <label className="label">Nozzle Set Pr.</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {nozzle_set_pr}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Flow(Lpm)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {flow}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Pr.</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {prcol31}
+                        </p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+                    <TableCell component="th" scope="row">
+                      <label className="label">Nozzle Flow</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {nozzle_flow_zone1}
+                        </p>
+                        <label className="zone">Zone 1</label>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Nozzle Flow</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {flowcol22}
+                        </p>
+                        <label className="zone">Zone 2</label>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Nozzle Flow</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {prcol32}
+                        </p>
+                        <label className="zone">Zone 3</label>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+                    <TableCell component="th" scope="row">
+                      <label className="label">Nos. of Nozzles Req.</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {no_of_nozzle_req}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label o"></label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {flowcol23}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label o"></label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {prcol33}
+                        </p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+                    <TableCell component="th" scope="row">
+                      <label className="label">Avail Nozzles No.</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {avail_nozzles}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label o"></label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {flowcol24}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label o"></label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {prcol34}
+                        </p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+                    <TableCell component="th" scope="row">
+                      <label className="label">Nozzle Max Pr.</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {nozzle_max_pr}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label o"></label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {nozzle_max_pr}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label o"></label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {nozzle_max_pr}
+                        </p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+                    <TableCell component="th" scope="row">
+                      <label className="label">Nozzle Max Flow</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {nozzle_max_flow}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label o"></label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {flowcol27}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label o"></label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {prcol36}
+                        </p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+                    <TableCell align="left">
+                      <label className="label o"></label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {nozzle_set_pr}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label o"></label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {nozzle_set_pr}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell component="th" scope="row">
+
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
+
+          <div className="tab_container_output">
+            <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
+              <Table sx={{ minWidth: 150 }} aria-label="simple table">
+                <TableBody>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+
+                    <TableCell align="left">
+                      <label className="label o"></label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {out_kgpermin}Kg/Min
+                        </p>
+                      </div>
+                    </TableCell>
+
+                    <TableCell align="left">
+                      <label className="label">Nozzle Area(Sq.mm)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {nozzle_area} Sq.mm
+                        </p>
+                      </div>
+                    </TableCell>
+
+                    <TableCell component="th" scope="row">
+                      <label className="label">Constant</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {constant2}
+                        </p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
+          <div className="tab_container_output">
+            <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
+              <Table sx={{ minWidth: 100 }} aria-label="simple table">
+                <TableBody>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+
+                    <TableCell component="th" scope="row">
+                      <div className="ok">
+                        <label className="label">CE%</label>
+                        <div className="out_box">
+                          <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                            {Ce}
+                          </p>
+                        </div>
+                      </div>
+                    </TableCell>
+                    <TableCell component="th" scope="row">
+                      <div className="ok">
+                        <label className="label">Liquidus Temp.</label>
+                        <div className="out_box">
+                          <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                            {liquidus}
+                          </p>
+                        </div>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="ok" style={{ visibility: 'hidden' }}>
+                        <label className="label">Liquidus Temp.</label>
+                        <div className="out_box">
+                          <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                            {liquidus}
+                          </p>
+                        </div>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
+        </div>
       </div>
+          <div style={{ textAlign: 'center', marginBottom: '1vh' }} className={showoutput?"":"dis"}><button onClick={handleDownloadPDF} className="download_btn">Download PDF</button></div>
+          <div style={{ textAlign: 'center', marginBottom: '5vh' }} className={showoutput?"":"dis"}><button onClick={fun2} className="download_btn">Reset</button></div>
       <Footer />
     </div>
   );

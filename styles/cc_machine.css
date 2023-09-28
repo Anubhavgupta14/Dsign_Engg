@@ -48,6 +48,10 @@ p {
     position: relative;
     top: 100px;
   }
+  .head_cc {
+    text-align: center;
+    padding-block: 20px;
+  }
   
   .content {
     padding-top: 10px;
@@ -107,9 +111,14 @@ p {
     margin-inline: 277px;
     margin-block: 50px;
   }
+  .tab_container_output{
+    margin-inline: 241px;
+    margin-block: 50px;
+  }
   .tab_container_main{
-    margin-inline: 277px;
-    margin-top: 130px;
+    margin-inline: 241px;
+    margin-top: 24px;
+    margin-bottom: 25px;
   }
   .out_box{
     border: 1px solid rgb(200,200,200);
