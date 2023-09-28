@@ -31,13 +31,32 @@ export default function AccountMenu() {
     router.push("/dashboard")
   }
 
-  const handlelogout = async() => {
-    const ok = await fetch('/api/users/signout/route');
-      console.log(ok)
-      toast.success("Successfully Logged Out")
-      router.push("/signin")
+  const handlelogout = async () => {
+    try {
+      const response = await fetch('/api/users/signout/route', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (!response.ok) {
+        // If the response status is not in the range 200-299, it's an error
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      // The response is successful
+      console.log('Logout successful');
+      toast.success('Successfully Logged Out');
+      router.push('/');
       window.location.reload();
+      localStorage.removeItem('JWT');
+    } catch (error) {
+      console.error('Error during logout:', error);
+      toast.error('Server Error');
+    }
   };
+  
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
