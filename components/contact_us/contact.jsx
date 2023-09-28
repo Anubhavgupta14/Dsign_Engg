@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/footer";
 import DoneIcon from '@mui/icons-material/Done';
+import {toast} from "react-toastify"
 
 const page = ({ authtoken }) => {
   const [isEmailValid, setIsEmailValid] = useState(true);
@@ -13,13 +14,14 @@ const page = ({ authtoken }) => {
     lastname: "",
     email: "",
     phone: "",
+    countryCode:"",
     comments: "",
   });
 
-  const [countryCode, setCountryCode] = useState(""); // Set the default country code
+  // const [countryCode, setCountryCode] = useState(""); // Set the default country code
 
   const handleCountryCodeChange = (e) => {
-    setCountryCode(e.target.value);
+    setFormData({...formData,countryCode:e.target.value});
   };
 
   const handleChange = (e) => {
@@ -53,10 +55,28 @@ const page = ({ authtoken }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // You can perform form submission or data handling here
     console.log("Form data submitted:", formData);
+    try {
+      const response = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast.success('Email sent successfully!');
+      } else {
+        toast.error('Failed to send email.');
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error('Server Error');
+    }
   };
   return (
     <div style={{ backgroundColor: "#f9fbfc" }}>
@@ -145,7 +165,7 @@ const page = ({ authtoken }) => {
                 id="countryCode"
                 type="phone_code"
                 name="countryCode"
-                value={countryCode}
+                value={FormData.countryCode}
                 required
                 onChange={handleCountryCodeChange}
               >
