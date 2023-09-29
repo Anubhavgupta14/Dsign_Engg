@@ -228,6 +228,50 @@ p {
   margin-inline: 160px;
   margin-bottom: 25px;
 }
+.img_ladle{
+  gap: 15vh;
+}
+.p_1{
+  position: absolute;
+  left: 76vh;
+  margin-top: -4vh;
+}
+.p_2{
+  position: absolute;
+  left: 62vh;
+  margin-top: -4vh;
+}
+.p_3{
+  position: absolute;
+  left: 96vh;
+  margin-top: 21vh;
+}
+.p_4{
+  position: absolute;
+  left: 71vh;
+  margin-top: 41vh;
+}
+.p_5{
+  position: absolute;
+  left: 139vh;
+  margin-top: -4vh;
+}
+.p_6{
+  position: absolute;
+    left: 113vh;
+    margin-top: 21vh;
+}
+.p_7{
+  position: absolute;
+  left: 186vh;
+  margin-top: 17vh;
+}
+.p_8{
+  position: absolute;
+  left: 162vh;
+  margin-top: 41vh;
+}
+
 
 
 @media screen and (max-width: 900px) {

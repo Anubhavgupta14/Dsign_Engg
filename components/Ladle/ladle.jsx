@@ -26,6 +26,7 @@ import { fetchCurrentUser } from '../../libs/fetchUser'
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Link from "next/link";
+import Image from "next/image";
 
 const style = {
   position: 'absolute',
@@ -148,6 +149,13 @@ const Ladlecalculator = ({ authtoken }) => {
   const [qty13, setqty13] = useState(0);
   const [qty14, setqty14] = useState(0);
   const [qty15, setqty15] = useState(0);
+  const [d1,setd1] = useState(null);
+  const [d2,setd2] = useState(null);
+  const [d3,setd3] = useState(null);
+  const [d4,setd4] = useState(null);
+  const [d5,setd5] = useState(null);
+  const [d6,setd6] = useState(null);
+  const [d7,setd7] = useState(null);
   const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
@@ -252,13 +260,13 @@ const Ladlecalculator = ({ authtoken }) => {
   const result3 = async (event) => {
     // event.preventDefault();
 
-    const result_ticket = await validate_ticket();
-    if (result_ticket === -1) {
-      toast.error("You don't have tickets");
-      setOpen(false)
-      getUserData();
-      return;
-    }
+     const result_ticket = await validate_ticket();
+     if (result_ticket === -1) {
+       toast.error("You don't have tickets");
+       setOpen(false)
+       getUserData();
+       return;
+     }
 
     result();
     result2();
@@ -469,6 +477,20 @@ const Ladlecalculator = ({ authtoken }) => {
       weight14 +
       weight15
     );
+
+    const d1 = (parseFloat(topdiameter)+2*parseFloat(thickness1)+100)/2
+    setd1(d1);
+    setd2(d1);
+    const E968 = ((parseFloat(top_dia_mean)+parseFloat(thickness1)+100)-(2*sidelining))/2
+    // const J964 = d1-Math.sqrt((d1*d1)-((E968/2)*(E968/2)))
+    const d3  =((d1-E968+((E968-(cos_30*E968))-J964))*6)+J964
+    setd3(Math.round(d3))
+    const d4 = ((parseFloat(top_dia_mean)+parseFloat(thickness1)+100)-(2*sidelining))/2
+    setd4(d4);
+    setd5(bottomdiameter)
+    setd6(bottomdiameter)
+    const d7 = parseFloat(tru_box_v2)-parseFloat(thickness5)-parseFloat(thickness5)
+    setd7(d7)
 
     setOpen(false)
     getUserData();
@@ -974,7 +996,7 @@ const Ladlecalculator = ({ authtoken }) => {
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60}}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
                         size="small"
                       >
                         <InputLabel id="demo-select-small-label">
@@ -1320,15 +1342,15 @@ const Ladlecalculator = ({ authtoken }) => {
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
 
-                      <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <Box
-                      component="form"
-                      sx={{
-                        '& .MuiTextField-root': { m: 0, width: '13ch' },
-                      }}
-                      noValidate
-                      autoComplete="off"
-                    >
+                        component="form"
+                        sx={{
+                          '& .MuiTextField-root': { m: 0, width: '13ch' },
+                        }}
+                        noValidate
+                        autoComplete="off"
+                      >
                         <TextField
                           required
                           className="textfield_ladle"
@@ -1341,17 +1363,17 @@ const Ladlecalculator = ({ authtoken }) => {
                           size="small"
                           onChange={(e) => setTru_box_v1(e.target.value)}
                         />
-                        </Box>
-                      </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      </Box>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <Box
-                      component="form"
-                      sx={{
-                        '& .MuiTextField-root': { m: 1, width: '13ch' },
-                      }}
-                      noValidate
-                      autoComplete="off"
-                    >
+                        component="form"
+                        sx={{
+                          '& .MuiTextField-root': { m: 1, width: '13ch' },
+                        }}
+                        noValidate
+                        autoComplete="off"
+                      >
                         <TextField
                           sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
                           required
@@ -1364,17 +1386,17 @@ const Ladlecalculator = ({ authtoken }) => {
                           size="small"
                           onChange={(e) => setTru_box_v2(e.target.value)}
                         />
-                        </Box>
-                      </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      </Box>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <Box
-                      component="form"
-                      sx={{
-                        '& .MuiTextField-root': { m: 1, width: '13ch' },
-                      }}
-                      noValidate
-                      autoComplete="off"
-                    >
+                        component="form"
+                        sx={{
+                          '& .MuiTextField-root': { m: 1, width: '13ch' },
+                        }}
+                        noValidate
+                        autoComplete="off"
+                      >
                         <TextField
                           required
                           sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
@@ -1387,17 +1409,17 @@ const Ladlecalculator = ({ authtoken }) => {
                           size="small"
                           onChange={(e) => setrest_box_h(e.target.value)}
                         />
-                        </Box>
-                      </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      </Box>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>
                       <Box
-                      component="form"
-                      sx={{
-                        '& .MuiTextField-root': { m: 1, width: '13ch' },
-                      }}
-                      noValidate
-                      autoComplete="off"
-                    >
+                        component="form"
+                        sx={{
+                          '& .MuiTextField-root': { m: 1, width: '13ch' },
+                        }}
+                        noValidate
+                        autoComplete="off"
+                      >
                         <TextField
                           required
                           sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
@@ -1410,8 +1432,8 @@ const Ladlecalculator = ({ authtoken }) => {
                           size="small"
                           onChange={(e) => setrest_box_v(e.target.value)}
                         />
-                        </Box>
-                      </TableCell>
+                      </Box>
+                    </TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -1446,7 +1468,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
         {/* Output screen */}
         <div className={output_show ? "output_ladle" : "output_ladle dis"}>
-          <h2 className="head_output" style={{marginBottom:'6vh'}}>Output</h2>
+          <h2 className="head_output" style={{ marginBottom: '6vh' }}>Output</h2>
 
           <div className="main-box_ladle_output" style={{ gap: '10vh' }}>
             <div className="ladle_first_output">
@@ -1454,7 +1476,7 @@ const Ladlecalculator = ({ authtoken }) => {
                 <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
                   <Table stickyHeader aria-label="sticky table" >
                     <TableBody>
-                      <TableRow  role="checkbox" tabIndex={-1} sx={{ maxHeight: '10px' }}>
+                      <TableRow role="checkbox" tabIndex={-1} sx={{ maxHeight: '10px' }}>
 
                         <TableCell>
                           <h2 className="head_ladle">After Lining</h2>
@@ -1785,10 +1807,198 @@ const Ladlecalculator = ({ authtoken }) => {
           <div className="fab_weight flex-all">
             <p style={{ fontSize: '25px' }}>Fabrication Weight: {Math.ceil(total_weight)} Kgs</p>
           </div>
+
+          {/* Diagrams */}
+          <h2 className="head_cc" style={{marginBottom:'5vh'}}>Graphical Models</h2>
+
+          <div className="flex-all img_ladle" style={{marginBottom:'10vh'}}>
+            <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+              <h3 style={{textAlign:'center',marginBottom:'1vh'}}>DEVELOPMENT OF LADLE SHELL PLATE</h3>
+              <h5 style={{textAlign:'center',marginBottom:'10vh'}}>Vertical Division 200 mm from Centre____Nos.</h5>
+              <div>
+              <Image
+                src="/ladle_main.jpeg"
+                alt="My Image"
+                width={1100}
+                height={300}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+              </div>
+            </div>
+            
+          </div>
+          <div className="flex-all img_ladle">
+            <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+              <h3 style={{textAlign:'center',marginBottom:'1vh'}}>DEVELOPMENT OF LADLE TOP RIM PLATE</h3>
+              <h5 style={{textAlign:'center',marginBottom:'10vh'}}>SIX SECTOR PLATE @ 60 DEGREE EACH</h5>
+              <div>
+                <div>
+                  <p className="p_1">R {d2}</p>
+                  <p className="p_2">{d1}</p>
+                  <p className="p_3">{d3}</p>
+                  <p className="p_4">r {d4}</p>
+                </div>
+              <Image
+
+                src="/top_rim.jpeg"
+                alt="My Image"
+                width={300}
+                height={300}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+              </div>
+            </div>
+            <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+              <h3 style={{textAlign:'center',marginBottom:'1vh'}}>DEVELOPMENT OF LADLE BOTTOM PLATE</h3>
+              <h5 style={{textAlign:'center',marginBottom:'10vh'}}>GIVEN SQUARE PLATE DIMENSIONS</h5>
+              <div>
+                <div>
+                  <p className="p_5">{d5}</p>
+                  
+                  <p className="p_6">{d6}</p>
+                  
+                </div>
+              <Image
+
+                src="/bottom_plate.jpeg"
+                alt="My Image"
+                width={300}
+                height={300}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+              </div>
+            </div>
+          </div>
+
+
+           <h3 style={{textAlign:'center', marginTop:'10vh'}}>DEVELOPMENT OF LADLE BOX HORIZONTAL PLATE</h3>
+           <h5 style={{textAlign:'center',marginBottom:'10vh'}}>TRUNION BOX AND RESTING BOX</h5>
+          <div className="flex-all img_ladle" style={{marginTop:'5vh'}}>
+            <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+            <h3 style={{textAlign:'center',marginBottom:'1vh'}}>Trunion Box Top Plate</h3>
+            <h5 style={{textAlign:'center',marginBottom:'5vh'}}>2 Nos</h5>
+              <div>
+                
+              <Image
+
+                src="/lr.jpeg"
+                alt="My Image"
+                width={300}
+                height={300}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+              </div>
+            </div>
+            <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+              <h3 style={{textAlign:'center',marginBottom:'1vh'}}>Trunion Box Bottom Plate</h3>
+              <h5 style={{textAlign:'center',marginBottom:'5vh'}}>2 Nos</h5>
+              <div>
+                
+              <Image
+
+                src="/lr.jpeg"
+                alt="My Image"
+                width={300}
+                height={300}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+              </div>
+            </div>
+            <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+              <h3 style={{textAlign:'center',marginBottom:'1vh'}}>Resting Box Bottom Plate</h3>
+              <h5 style={{textAlign:'center',marginBottom:'5vh'}}>2 Nos</h5>
+              <div>
+                
+              <Image
+
+                src="/lr.jpeg"
+                alt="My Image"
+                width={300}
+                height={300}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+              </div>
+            </div>
+          </div>
+
+          <h3 style={{textAlign:'center', marginTop:'10vh'}}>DEVELOPMENT OF LADLE BOX VERTICAL PLATE</h3>
+           <h5 style={{textAlign:'center',marginBottom:'10vh'}}>TRUNION BOX AND RESTING BOX</h5>
+          <div className="flex-all img_ladle" style={{marginTop:'5vh'}}>
+            <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+            <h3 style={{textAlign:'center',marginBottom:'1vh'}}>Trunion Box Vertical Plates</h3>
+            <h5 style={{textAlign:'center',marginBottom:'5vh'}}>4 Nos</h5>
+              <div>
+                
+              <Image
+
+                src="/Trunion.jpeg"
+                alt="My Image"
+                width={300}
+                height={300}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+              </div>
+            </div>
+            <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+              <h3 style={{textAlign:'center',marginBottom:'1vh'}}>Resting Box Vertical Plates</h3>
+              <h5 style={{textAlign:'center',marginBottom:'5vh'}}>4 Nos</h5>
+              <div>
+                
+              <Image
+
+                src="/Trunion.jpeg"
+                alt="My Image"
+                width={300}
+                height={300}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+              </div>
+            </div>
+            <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+              <h3 style={{textAlign:'center',marginBottom:'1vh'}}>CENTRE PLATE TRUNION PIN HOLD</h3>
+              <h5 style={{textAlign:'center',marginBottom:'5vh'}}>2 Nos</h5>
+              <div>
+                <div>
+                  <p className="p_7">{d7}</p>
+                  <p className="p_8">{d7}</p>
+                </div>
+                
+              <Image
+
+                src="/gola.jpeg"
+                alt="My Image"
+                width={300}
+                height={300}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div className={output_show ? "flex-all" : "dis"} style={{ marginBottom: '1vh' }}><button onClick={handleDownloadPDF} className="download_btn">Download PDF</button></div>
-      <div className={output_show ? "flex-all" : "dis"} style={{ marginBottom: '8vh' }}><button onClick={reset} className="download_btn">Reset</button></div>
+      <div className="flex-all" style={{ flexDirection: 'column' }}>
+        <div className={output_show ? "flex-all" : "dis"} style={{ marginBottom: '1vh' }}><button onClick={handleDownloadPDF} className="download_btn">Download PDF</button></div>
+        <div className={output_show ? "flex-all" : "dis"} style={{ marginBottom: '8vh' }}><button onClick={reset} className="download_btn">Reset</button></div>
+      </div>
       <Footer />
     </div>
   );
