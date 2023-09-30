@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
             <Navbar />
             <div>
                 <div className="profile-container">
-                    <ProfileLeft scroll={1450}/>
+                    <ProfileLeft scroll={150} />
                     <div className="profile-content">
                         {children}
                     </div>

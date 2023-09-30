@@ -10,11 +10,11 @@ const handler = async (req, res) => {
 
     try {
 
-      console.log('yeh hai token',token)
+      // console.log('yeh hai token',token)
 
       const decodedToken = jwt.verify(token, 'your_secret_key');
-
-      console.log('yes /no',decodedToken);
+      // Email milega
+      console.log(decodedToken);
 
 
       const email = decodedToken.email;

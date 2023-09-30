@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { toast } from 'react-toastify'
 import { fetchCurrentUser } from '../../libs/fetchUser'
 
-const ProfileLeft = () => {
+const ProfileLeft = ({scroll}) => {
     const router = useRouter();
     const links = [
         {
@@ -48,7 +48,7 @@ const ProfileLeft = () => {
                 console.log("profileleft mai token",token)
 
                 const data = await fetchCurrentUser(token);
-                console.log(data, "data fetched");
+                console.log(data, "data fetched from profile left");
                 const { error } = data;
                 console.log(error, "error getting user data");
                 if (error) {
@@ -75,8 +75,35 @@ const ProfileLeft = () => {
         getUserData();
     }, []);
 
+    const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Define the scroll limit where you want to add the sticky class
+      const scrollLimit = scroll; // Adjust this value as needed
+      
+      // Get the current scroll position
+      const scrollY = window.scrollY || window.pageYOffset;
+
+      // Check if the scroll position is beyond the scroll limit
+      if (scrollY >= scrollLimit) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    // Attach the scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
     return (
-        <div className="shadow h-auto w-15">
+        <div className={isSticky?"shadow h-auto w-15 fixed dis":"shadow h-auto w-15 fixed"}>
             <div className="user-details-profile">
                 <div className="user-image-profile">
                     <img
