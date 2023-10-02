@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
@@ -9,26 +10,75 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
+import { fetchCurrentUser } from '../../libs/fetchUser';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import { toast } from 'react-toastify'
-import { useRouter } from 'next/navigation'
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 import PersonIcon from '@mui/icons-material/Person';
 
 export default function AccountMenu() {
-    const router = useRouter();
+  const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handlepro = (event) => {
     setAnchorEl(event.currentTarget);
   };
+  const [userData, setUserData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    state: '',
+    city: '',
+    pincode: '',
+    dob: '',
+    gender: '',
+    addressLine1: '',
+    addressLine2: '',
+    basicProfile: '',
+    role: 'user', // Default role
+  });
 
-  const handleClose=()=>{
+  const getUserData = async () => {
+    const token = localStorage.getItem('JWT');
+    if(token=="") return;
+    try {
+      const data = await fetchCurrentUser(token);
+      console.log(data, 'data fetched');
+      const { error } = data;
+      console.log(error, 'error getting user data');
+      if (error) {
+        toast.error(error);
+        return;
+      }
+      let user = data;
+      const convertedUser = {
+        ...user,
+        dob: user.dob ? user.dob.split('T')[0] : '',
+      };
+      setUserData(convertedUser);
+    } catch (error) {
+      toast.error(error.message + 'op' || 'Some error occurred while fetching data');
+    }
+  };
+
+  useEffect(() => {
+    getUserData();
+  }, []);
+
+  const handleClose = () => {
     setAnchorEl(null);
-  }
+  };
 
-  const dashboard =()=>{
-    router.push("/dashboard")
+  const dashboard = () => {
+    router.push('/dashboard');
+  };
+
+  const security = () => {
+    router.push('/dashboard_security');
+  };
+  const admin_page=()=>{
+    router.push('/admin');
   }
 
   const handlelogout = async () => {
@@ -39,12 +89,12 @@ export default function AccountMenu() {
           'Content-Type': 'application/json',
         },
       });
-  
+
       if (!response.ok) {
         // If the response status is not in the range 200-299, it's an error
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-  
+
       // The response is successful
       console.log('Logout successful');
       toast.success('Successfully Logged Out');
@@ -56,7 +106,7 @@ export default function AccountMenu() {
       toast.error('Server Error');
     }
   };
-  
+
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -69,7 +119,9 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 45, height: 45, color:"inherit" }}><PersonIcon/></Avatar>
+            <Avatar sx={{ width: 45, height: 45, color: 'inherit' }}>
+              <PersonIcon />
+            </Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -113,15 +165,23 @@ export default function AccountMenu() {
           <Avatar /> Profile
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Avatar /> My account
+          <Avatar /> My Orders
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={security}>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
-          Settings
+          Change Password
         </MenuItem>
+        {userData.role === 'admin' && ( // Conditionally show "Admin" menu item
+          <MenuItem onClick={admin_page}>
+            <ListItemIcon>
+              <PersonAdd fontSize="small" />
+            </ListItemIcon>
+            Admin
+          </MenuItem>
+        )}
         <MenuItem onClick={handlelogout}>
           <ListItemIcon>
             <Logout fontSize="small" />

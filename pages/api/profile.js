@@ -8,6 +8,8 @@ const handler = async (req, res) => {
   if (req.method === "POST") {
     const { token } = req.body;
 
+    if(token==null) return;
+
     try {
 
       // console.log('yeh hai token',token)
