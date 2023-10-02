@@ -113,13 +113,22 @@ p {
   }
   .tab_container_output{
     margin-inline: 241px;
-    margin-block: 50px;
+    margin-bottom: 5px;
   }
   .tab_container_main{
     margin-inline: 241px;
     margin-top: 24px;
     margin-bottom: 25px;
   }
+  .tundish{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68%;
+    margin: 0 auto;
+    margin-bottom: 5vh;
+  }
+  
   .out_box{
     border: 1px solid rgb(200,200,200);
     width: 156px;

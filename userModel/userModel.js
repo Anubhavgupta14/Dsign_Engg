@@ -77,6 +77,10 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+  role:{
+    type: String,
+    default: "user"
+  },
   isVerfied: {
     type: Boolean,
     default: false,

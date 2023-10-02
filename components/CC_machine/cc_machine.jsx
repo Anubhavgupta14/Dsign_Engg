@@ -377,13 +377,222 @@ const CC_machine = ({ authtoken }) => {
     <div className="body_ccm" >
       <Navbar moveIndex={0} authtoken={authtoken} />
       <div ref={pdfRef} id="pdf">
-        <h2 className="head">CCM Complete Solution</h2>
+        <h2 className="head" style={{fontSize:'33px'}}>CCM Complete Solution</h2>
         <div className="ccm_desc">
           <p className="ccm_para">
             <span style={{ color: "#1081fc" }}>A Continuous Casting Machine (CCM)</span> is a state-of-the-art industrial apparatus integral to the metallurgical and manufacturing sectors. It transforms the production of metals, especially steel and non-ferrous alloys, by enabling a continuous and seamless casting process. Unlike traditional methods, CCMs do away with the need for multiple mold changes and reheating steps. Instead, molten metal is poured into a tundish and flows through a water-cooled mold, emerging as perfectly shaped products like slabs, billets, and blooms.
           </p>
         </div>
         <h2 className="head_cc">Concast Data</h2>
+
+        {/* <div className="tab_container_output">
+          <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
+            <Table sx={{ minWidth: 100 }} aria-label="simple table">
+              <TableBody>
+                <TableRow
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  hover
+                >
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">C%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="C%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setC(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">Si%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="Si%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setSi(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">Mn%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="Mn%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setMn(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">P%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="P%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setP(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">S%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="S%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setS(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+
+                </TableRow>
+
+                <TableRow
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  hover
+                >
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">Nb%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="Nb%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setNb(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">Ca%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="Ca%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setCa(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">Ni%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="Ni%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setNi(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">Cu%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="Cu%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setCu(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">Mo%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="Mo%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setMo(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+
+                </TableRow>
+
+                <TableRow
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  hover
+                >
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                      <label className="label o">Cr%</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="Cr%"
+                        size="small"
+                        variant="outlined"
+                        type="number"
+                        onChange={(e) => setCr(e.target.value)}
+                      />
+                    </div>
+                  </TableCell>
+
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div> */}
+
+
+
+
         <div className="tab_container_main">
           <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
             <Table sx={{ minWidth: 100 }} aria-label="simple table">
@@ -393,9 +602,10 @@ const CC_machine = ({ authtoken }) => {
                   hover
                 >
                   <TableCell component="th" scope="row">
+                    <div className="ok">
                     <label className="label o">Section</label>
                     <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"
                     >
                       <InputLabel id="demo-select-small-label">
@@ -428,12 +638,14 @@ const CC_machine = ({ authtoken }) => {
                         <MenuItem value={"400x400"}>400x400</MenuItem>
                       </Select>
                     </FormControl>
+                    </div>
                   </TableCell>
 
                   <TableCell align="left">
+                  <div className="ok">
                     <label className="label">(dpa.s)</label>
                     <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"
                     >
                       <InputLabel id="demo-select-small-label">
@@ -458,11 +670,13 @@ const CC_machine = ({ authtoken }) => {
                         <MenuItem value={0.99}>0.99</MenuItem>
                       </Select>
                     </FormControl>
+                    </div>
                   </TableCell>
                   <TableCell component="th" scope="row">
+                  <div className="ok">
                     <label className="label o">Casting Speed(Mtr/Min)</label>
                     <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"
                     >
                       <InputLabel id="demo-select-small-label">
@@ -510,12 +724,14 @@ const CC_machine = ({ authtoken }) => {
                         <MenuItem value={4}>4</MenuItem>
                       </Select>
                     </FormControl>
+                    </div>
                   </TableCell>
                   <TableCell component="th" scope="row">
+                    <div className="ok">
                     <label className="label o">Heat Size(MT)</label>
                     <TextField
                       required
-                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       className="textfield"
                       id="outlined-number"
                       label="Heat Size"
@@ -524,7 +740,9 @@ const CC_machine = ({ authtoken }) => {
                       type="number"
                       onChange={(e) => setHeat_size(e.target.value)}
                     />
+                    </div>
                   </TableCell>
+
 
                 </TableRow>
                 <TableRow
@@ -532,9 +750,10 @@ const CC_machine = ({ authtoken }) => {
                   hover
                 >
                   <TableCell align="left">
+                  <div className="ok">
                     <label className="label o">Nos. of Strand</label>
                     <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"
                     >
                       <InputLabel id="demo-select-small-label">
@@ -556,11 +775,13 @@ const CC_machine = ({ authtoken }) => {
                         <MenuItem value={4}>4</MenuItem>
                       </Select>
                     </FormControl>
+                    </div>
                   </TableCell>
                   <TableCell component="th" scope="row">
+                  <div className="ok">
                     <label className="label o">Negative Strip(%)</label>
                     <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"
                     >
                       <InputLabel id="demo-select-small-label">
@@ -586,11 +807,13 @@ const CC_machine = ({ authtoken }) => {
                         <MenuItem value={0.33}>0.33</MenuItem>
                       </Select>
                     </FormControl>
+                    </div>
                   </TableCell>
                   <TableCell component="th" scope="row">
+                  <div className="ok">
                     <label className="label o">Oscl. Stroke(MM)</label>
                     <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"
                     >
                       <InputLabel id="demo-select-small-label">
@@ -621,11 +844,13 @@ const CC_machine = ({ authtoken }) => {
                         <MenuItem value={18}>18</MenuItem>
                       </Select>
                     </FormControl>
+                    </div>
                   </TableCell>
                   <TableCell component="th" scope="row">
+                  <div className="ok">
                     <label className="label o">Metal Density</label>
                     <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"
                     >
                       <InputLabel id="demo-select-small-label">
@@ -655,6 +880,7 @@ const CC_machine = ({ authtoken }) => {
                         <MenuItem value={7.86}>7.86</MenuItem>
                       </Select>
                     </FormControl>
+                    </div>
                   </TableCell>
 
                 </TableRow>
@@ -663,9 +889,10 @@ const CC_machine = ({ authtoken }) => {
                   hover
                 >
                   <TableCell component="th" scope="row">
+                  <div className="ok">
                     <label className="label o">Nozzle Degree</label>
                     <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"
                     >
                       <InputLabel id="demo-select-small-label">
@@ -686,11 +913,13 @@ const CC_machine = ({ authtoken }) => {
                         <MenuItem value={110}>110</MenuItem>
                       </Select>
                     </FormControl>
+                    </div>
                   </TableCell>
                   <TableCell component="th" scope="row">
+                  <div className="ok">
                     <label className="label o">Constant</label>
                     <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"
                     >
                       <InputLabel id="demo-select-small-label">
@@ -717,12 +946,13 @@ const CC_machine = ({ authtoken }) => {
                         <MenuItem value={30}>30</MenuItem>
                       </Select>
                     </FormControl>
+                    </div>
                   </TableCell>
                   <TableCell component="th" scope="row">
                     <div className="ok">
                       <label className="label o">Nozzle Model</label>
                       <FormControl
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
+                        sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                         size="small"
                       >
                         <InputLabel id="demo-select-small-label">
@@ -771,7 +1001,57 @@ const CC_machine = ({ authtoken }) => {
 
 
         <h2 className="head_cc">Tundish Nozzle Calculations</h2>
-        <div className="tab_container_output">
+        <div className="tundish">
+          <div className="ok">
+            <label className="label o">Ferostatic Height(mm)</label>
+            <TextField
+              required
+              sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+              className="textfield"
+              id="outlined-number"
+              label="Ferostatic Height"
+              size="small"
+              variant="outlined"
+              type="number"
+              defaultValue={600}
+              onChange={(e) => setferostatic_height(e.target.value)}
+            />
+          </div>
+          
+
+          <div className="ok">
+            <label className="label o">Nozzle Dia(mm)</label>
+            <FormControl
+              sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+              size="small"
+            >
+              <InputLabel id="demo-select-small-label">
+                Nozzle Dia(mm)
+              </InputLabel>
+              <Select
+                labelId="demo-select-small-label"
+                id="demo-select-small"
+                value={nozzle_dia}
+                label="Nozzle Model"
+                onChange={(e) => setNozzle_dia(e.target.value)}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={12}>12</MenuItem>
+                <MenuItem value={12.5}>12.5</MenuItem>
+                <MenuItem value={13}>13</MenuItem>
+                <MenuItem value={13.5}>13.5</MenuItem>
+                <MenuItem value={14}>14</MenuItem>
+                <MenuItem value={14.5}>14.5</MenuItem>
+                <MenuItem value={15}>15</MenuItem>
+                <MenuItem value={15.5}>15.5</MenuItem>
+                <MenuItem value={16}>16</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
+        </div>
+        {/* <div className="tab_container_output">
           <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
             <Table sx={{ minWidth: 150 }} aria-label="simple table">
               <TableBody>
@@ -781,7 +1061,7 @@ const CC_machine = ({ authtoken }) => {
                 >
 
 
-                  <TableCell align="left">
+                  <TableCell>
                     <div className="ok">
                       <label className="label o">Nozzle Dia(mm)</label>
                       <FormControl
@@ -815,7 +1095,7 @@ const CC_machine = ({ authtoken }) => {
                     </div>
                   </TableCell>
 
-                  <TableCell align="left">
+                  <TableCell>
                     <div className="ok">
                       <label className="label">Ferostatic Height(mm)</label>
                       <TextField
@@ -836,7 +1116,7 @@ const CC_machine = ({ authtoken }) => {
               </TableBody>
             </Table>
           </TableContainer>
-        </div>
+        </div> */}
         <h2 className="head_cc">CE Ratio Calculations</h2>
         <div className="tab_container_output">
           <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
@@ -1067,7 +1347,8 @@ const CC_machine = ({ authtoken }) => {
         </div>
         {/* output */}
         <div className={showoutput ? "" : "dis"}>
-          <h2 className="head_cc">Output</h2>
+          <h2 className="head_cc" style={{fontSize:'33px'}}>Output</h2>
+          <h2 className="head_cc">Concast Data</h2>
           <div className="tab_container_main">
             <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
               <Table sx={{ minWidth: 100 }} aria-label="simple table">
@@ -1278,7 +1559,7 @@ const CC_machine = ({ authtoken }) => {
               </Table>
             </TableContainer>
           </div>
-
+          <h2 className="head_cc">Tundish Nozzle Calculation</h2>
           <div className="tab_container_output">
             <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
               <Table sx={{ minWidth: 100 }} aria-label="simple table">
@@ -1489,8 +1770,8 @@ const CC_machine = ({ authtoken }) => {
               </Table>
             </TableContainer>
           </div>
-
-          <div className="tab_container_output">
+          <h2 className="head_cc">CE Ratio Calculation</h2>
+          <div className= "tab_container_output">
             <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
               <Table sx={{ minWidth: 150 }} aria-label="simple table">
                 <TableBody>
@@ -1525,21 +1806,11 @@ const CC_machine = ({ authtoken }) => {
                         </p>
                       </div>
                     </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </div>
-          <div className="tab_container_output">
-            <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
-              <Table sx={{ minWidth: 100 }} aria-label="simple table">
-                <TableBody>
-                  <TableRow
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    hover
-                  >
 
-                    <TableCell component="th" scope="row">
+                  </TableRow>
+                  <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover>
+                  <TableCell component="th" scope="row">
                       <div className="ok">
                         <label className="label">CE%</label>
                         <div className="out_box">
@@ -1559,25 +1830,16 @@ const CC_machine = ({ authtoken }) => {
                         </div>
                       </div>
                     </TableCell>
-                    <TableCell>
-                      <div className="ok" style={{ visibility: 'hidden' }}>
-                        <label className="label">Liquidus Temp.</label>
-                        <div className="out_box">
-                          <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                            {liquidus}
-                          </p>
-                        </div>
-                      </div>
-                    </TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
             </TableContainer>
           </div>
+          
         </div>
       </div>
-          <div style={{ textAlign: 'center', marginBottom: '1vh' }} className={showoutput?"":"dis"}><button onClick={handleDownloadPDF} className="download_btn">Download PDF</button></div>
-          <div style={{ textAlign: 'center', marginBottom: '5vh' }} className={showoutput?"":"dis"}><button onClick={fun2} className="download_btn">Reset</button></div>
+      <div style={{ textAlign: 'center', marginBottom: '1vh' }} className={showoutput ? "" : "dis"}><button onClick={handleDownloadPDF} className="download_btn">Download PDF</button></div>
+      <div style={{ textAlign: 'center', marginBottom: '5vh' }} className={showoutput ? "" : "dis"}><button onClick={fun2} className="download_btn">Reset</button></div>
       <Footer />
     </div>
   );

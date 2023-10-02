@@ -202,7 +202,7 @@ p {
 }
 
 .ladle_first{
-  width: 92%;
+  width: 78%;
 }
 .ladle_first_output{
   width: 22%;
@@ -218,15 +218,16 @@ p {
 }
 
 .ladle_second{
-  width: 92%;
+  width: 78%;
 }
 .ladle_second_output{
   width: 22%;
 }
 
 .containerfab_ladle {
-  margin-inline: 160px;
   margin-bottom: 25px;
+  width: 78%;
+  margin: 0 auto;
 }
 .img_ladle{
   gap: 15vh;

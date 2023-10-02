@@ -11,8 +11,9 @@ const handler = async (req, res) => {
   if (req.method === "POST") {
     try {
         const reqBody = req.body;
-        const { email, password } = reqBody;
+        const { email, password, role} = reqBody;
         console.log('Email:', email);
+        console.log('Role:',role);
         console.log('password:', password);
         // if (email == "krishnadevassi@gmail.com") {
         //   let admin = await Admin.findOne({ email });

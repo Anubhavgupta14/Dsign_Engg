@@ -1,0 +1,14 @@
+.container_admin{
+    width: 80%;
+    margin: 0 auto;
+    padding: 35px;
+}
+.main_admin{
+    padding-top: 20vh;
+    background-color: #f9fbfc;
+    padding-bottom: 10vh;
+}
+.expanded-row {
+    height: auto !important;
+    overflow: visible !important;
+  }

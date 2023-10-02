@@ -18,6 +18,7 @@ import '@/styles/dashboard.css'
 import '@/styles/payment.css'
 import '@/styles/failure.css'
 import '@/styles/profile.css'
+import '@/styles/admin.css'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer} from 'react-toastify';
 
