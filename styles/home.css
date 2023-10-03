@@ -388,11 +388,29 @@
         margin-left: 10px;
     }
 
-    .drop-mar {
-        margin: 50% 0px 0px 0px;
-
+    
+    .home_data{
+        flex-direction: column;
+        width: 295px;
+        height: 86vh;
+        margin-top: -24vh;
     }
-
+    .img_home{
+        width: 343px;
+    }
+    .home_datas{
+        width: 180px;
+        
+    }
+    .home_datas h2{
+        font-size: 40px;
+    }
+    .home_datas p{
+        font-size: 13px;
+    }
+    .home_faq{
+        margin-top: 35vh;
+    }
 }
 
 /*@media screen and (max-width: 555px){

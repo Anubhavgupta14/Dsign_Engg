@@ -98,6 +98,33 @@ const CC_machine = ({ authtoken }) => {
   const [Mo, setMo] = useState(0);
   const [Cr, setCr] = useState(0);
   const [Ce, setCe] = useState(0);
+  const [error_show, setError_show] = useState({
+    section: false,
+    casting_speed:false,
+    oscl_stroke: false,
+    viscosity_powder: false,
+    heat_size: false,
+    no_of_strands: false,
+    negative_strip: false,
+    specific_value2: false,
+    constant: false,
+    nozzle_model: false,
+    nozzle_degree: false,
+    nozzle_dia: false,
+    ferostatic_height: false,
+    c: false,
+    Si: false,
+    Mn: false,
+    P: false,
+    S: false,
+    Nb: false,
+    Ca: false,
+    Ni: false,
+    Cu: false,
+    Mo: false,
+    Cr: false,
+
+  })
   const [error, seterror] = useState("");
   const [showoutput, setShowoutput] = useState(false);
   const [liquidus, setliquidus] = useState(0);
@@ -108,6 +135,30 @@ const CC_machine = ({ authtoken }) => {
     // let v = document.querySelector(".error_ccm")
     // v.style.visibility = "initial"
     toast.error("Enter the required value")
+    setError_show({...error_show,section: true,
+      casting_speed:true,
+      oscl_stroke: true,
+      viscosity_powder: true,
+      heat_size: true,
+      no_of_strands: true,
+      negative_strip: true,
+      specific_value2: true,
+      constant: true,
+      nozzle_model: true,
+      nozzle_degree: true,
+      nozzle_dia: true,
+      ferostatic_height: true,
+      c: true,
+      Si: true,
+      Mn: true,
+      P: true,
+      S: true,
+      Nb: true,
+      Ca: true,
+      Ni: true,
+      Cu: true,
+      Mo: true,
+      Cr: true, })
   }
 
   const fun2 = () => {
@@ -158,6 +209,7 @@ const CC_machine = ({ authtoken }) => {
     } else if (section == "160x160") {
       col1 = 200.96;
       col2 = 80;
+      col3 = 80;
     } else if (section == "200x200") {
       col1 = 314;
       col2 = 100;
@@ -607,6 +659,7 @@ const CC_machine = ({ authtoken }) => {
                     <FormControl
                       sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"
+                      error={error_show.section && !section}
                     >
                       <InputLabel id="demo-select-small-label">
                         Section
@@ -640,44 +693,13 @@ const CC_machine = ({ authtoken }) => {
                     </FormControl>
                     </div>
                   </TableCell>
-
-                  <TableCell align="left">
-                  <div className="ok">
-                    <label className="label">(dpa.s)</label>
-                    <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      size="small"
-                    >
-                      <InputLabel id="demo-select-small-label">
-                        Viscosity Powder
-                      </InputLabel>
-                      <Select
-                        labelId="demo-select-small-label"
-                        id="demo-select-small"
-                        value={viscosity_powder}
-                        label="Viscosity Powder"
-                        onChange={(e) => setViscosity_powder(e.target.value)}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={0.94}>0.94</MenuItem>
-                        <MenuItem value={0.27}>0.27</MenuItem>
-                        <MenuItem value={0.1}>0.1</MenuItem>
-                        <MenuItem value={0.15}>0.15</MenuItem>
-                        <MenuItem value={0.24}>0.24</MenuItem>
-                        <MenuItem value={1.3}>1.3</MenuItem>
-                        <MenuItem value={0.99}>0.99</MenuItem>
-                      </Select>
-                    </FormControl>
-                    </div>
-                  </TableCell>
                   <TableCell component="th" scope="row">
                   <div className="ok">
                     <label className="label o">Casting Speed(Mtr/Min)</label>
                     <FormControl
                       sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"
+                      error={error_show.casting_speed && !casting_speed}
                     >
                       <InputLabel id="demo-select-small-label">
                         Casting Speed
@@ -726,95 +748,14 @@ const CC_machine = ({ authtoken }) => {
                     </FormControl>
                     </div>
                   </TableCell>
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                    <label className="label o">Heat Size(MT)</label>
-                    <TextField
-                      required
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      className="textfield"
-                      id="outlined-number"
-                      label="Heat Size"
-                      size="small"
-                      variant="outlined"
-                      type="number"
-                      onChange={(e) => setHeat_size(e.target.value)}
-                    />
-                    </div>
-                  </TableCell>
 
-
-                </TableRow>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell align="left">
-                  <div className="ok">
-                    <label className="label o">Nos. of Strand</label>
-                    <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      size="small"
-                    >
-                      <InputLabel id="demo-select-small-label">
-                        Nos. of Strands
-                      </InputLabel>
-                      <Select
-                        labelId="demo-select-small-label"
-                        id="demo-select-small"
-                        value={no_of_strands}
-                        label="Nos. of Strands"
-                        onChange={(e) => setNo_of_strands(e.target.value)}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={1}>1</MenuItem>
-                        <MenuItem value={2}>2</MenuItem>
-                        <MenuItem value={3}>3</MenuItem>
-                        <MenuItem value={4}>4</MenuItem>
-                      </Select>
-                    </FormControl>
-                    </div>
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                  <div className="ok">
-                    <label className="label o">Negative Strip(%)</label>
-                    <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      size="small"
-                    >
-                      <InputLabel id="demo-select-small-label">
-                        Negative Strip(%)
-                      </InputLabel>
-                      <Select
-                        labelId="demo-select-small-label"
-                        id="demo-select-small"
-                        value={negative_strip}
-                        label="Negative Strip"
-                        onChange={(e) => setNegative_strip(e.target.value)}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={0.26}>0.26</MenuItem>
-                        <MenuItem value={0.27}>0.27</MenuItem>
-                        <MenuItem value={0.28}>0.28</MenuItem>
-                        <MenuItem value={0.29}>0.29</MenuItem>
-                        <MenuItem value={0.3}>0.3</MenuItem>
-                        <MenuItem value={0.31}>0.31</MenuItem>
-                        <MenuItem value={0.32}>0.32</MenuItem>
-                        <MenuItem value={0.33}>0.33</MenuItem>
-                      </Select>
-                    </FormControl>
-                    </div>
-                  </TableCell>
                   <TableCell component="th" scope="row">
                   <div className="ok">
                     <label className="label o">Oscl. Stroke(MM)</label>
                     <FormControl
                       sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"
+                      error={error_show.oscl_stroke && !oscl_stroke}
                     >
                       <InputLabel id="demo-select-small-label">
                         Oscl. Stroke
@@ -846,12 +787,135 @@ const CC_machine = ({ authtoken }) => {
                     </FormControl>
                     </div>
                   </TableCell>
+
+                  <TableCell align="left">
+                  <div className="ok">
+                    <label className="label">(dpa.s)</label>
+                    <FormControl
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                      size="small"
+                      error={error_show.viscosity_powder && !viscosity_powder}
+                    >
+                      <InputLabel id="demo-select-small-label">
+                        Viscosity Powder
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        value={viscosity_powder}
+                        label="Viscosity Powder"
+                        onChange={(e) => setViscosity_powder(e.target.value)}
+                      >
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={0.94}>0.94</MenuItem>
+                        <MenuItem value={0.27}>0.27</MenuItem>
+                        <MenuItem value={0.1}>0.1</MenuItem>
+                        <MenuItem value={0.15}>0.15</MenuItem>
+                        <MenuItem value={0.24}>0.24</MenuItem>
+                        <MenuItem value={1.3}>1.3</MenuItem>
+                        <MenuItem value={0.99}>0.99</MenuItem>
+                      </Select>
+                    </FormControl>
+                    </div>
+                  </TableCell>
+                  
+                  
+
+
+                </TableRow>
+                <TableRow
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  hover
+                >
+                  <TableCell component="th" scope="row">
+                    <div className="ok">
+                    <label className="label o">Heat Size(MT)</label>
+                    <TextField
+                      required
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                      className="textfield"
+                      id="outlined-number"
+                      label="Heat Size"
+                      size="small"
+                      variant="outlined"
+                      error={error_show.heat_size && !heat_size}
+                      type="number"
+                      onChange={(e) => setHeat_size(e.target.value)}
+                    />
+                    </div>
+                  </TableCell>
+                  <TableCell align="left">
+                  <div className="ok">
+                    <label className="label o">Nos. of Strand</label>
+                    <FormControl
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                      size="small"
+                      error={error_show.no_of_strands && !no_of_strands}
+                    >
+                      <InputLabel id="demo-select-small-label">
+                        Nos. of Strands
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        value={no_of_strands}
+                        label="Nos. of Strands"
+                        onChange={(e) => setNo_of_strands(e.target.value)}
+                      >
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={1}>1</MenuItem>
+                        <MenuItem value={2}>2</MenuItem>
+                        <MenuItem value={3}>3</MenuItem>
+                        <MenuItem value={4}>4</MenuItem>
+                      </Select>
+                    </FormControl>
+                    </div>
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                  <div className="ok">
+                    <label className="label o">Negative Strip(%)</label>
+                    <FormControl
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                      size="small"
+                      error={error_show.negative_strip && !negative_strip}
+                    >
+                      <InputLabel id="demo-select-small-label">
+                        Negative Strip(%)
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        value={negative_strip}
+                        label="Negative Strip"
+                        onChange={(e) => setNegative_strip(e.target.value)}
+                      >
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={0.26}>0.26</MenuItem>
+                        <MenuItem value={0.27}>0.27</MenuItem>
+                        <MenuItem value={0.28}>0.28</MenuItem>
+                        <MenuItem value={0.29}>0.29</MenuItem>
+                        <MenuItem value={0.3}>0.3</MenuItem>
+                        <MenuItem value={0.31}>0.31</MenuItem>
+                        <MenuItem value={0.32}>0.32</MenuItem>
+                        <MenuItem value={0.33}>0.33</MenuItem>
+                      </Select>
+                    </FormControl>
+                    </div>
+                  </TableCell>
+                  
                   <TableCell component="th" scope="row">
                   <div className="ok">
                     <label className="label o">Metal Density</label>
                     <FormControl
                       sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"
+                      error={error_show.specific_value2 && !specific_value2}
                     >
                       <InputLabel id="demo-select-small-label">
                         Metal Density
@@ -888,39 +952,14 @@ const CC_machine = ({ authtoken }) => {
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   hover
                 >
-                  <TableCell component="th" scope="row">
-                  <div className="ok">
-                    <label className="label o">Nozzle Degree</label>
-                    <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      size="small"
-                    >
-                      <InputLabel id="demo-select-small-label">
-                        Nozzle Degree
-                      </InputLabel>
-                      <Select
-                        labelId="demo-select-small-label"
-                        id="demo-select-small"
-                        value={nozzle_degree}
-                        label="Nozzle Degree"
-                        onChange={(e) => setNozzle_degree(e.target.value)}
-                      >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={65}>65</MenuItem>
-                        <MenuItem value={80}>80</MenuItem>
-                        <MenuItem value={110}>110</MenuItem>
-                      </Select>
-                    </FormControl>
-                    </div>
-                  </TableCell>
+                  
                   <TableCell component="th" scope="row">
                   <div className="ok">
                     <label className="label o">Constant</label>
                     <FormControl
                       sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"
+                      error={error_show.constant && !constant}
                     >
                       <InputLabel id="demo-select-small-label">
                         Constant
@@ -954,6 +993,7 @@ const CC_machine = ({ authtoken }) => {
                       <FormControl
                         sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                         size="small"
+                        error={error_show.nozzle_model && !nozzle_model}
                       >
                         <InputLabel id="demo-select-small-label">
                           Nozzle Model
@@ -990,8 +1030,33 @@ const CC_machine = ({ authtoken }) => {
                       </FormControl>
                     </div>
                   </TableCell>
-                  <TableCell>
-
+                  <TableCell component="th" scope="row">
+                  <div className="ok">
+                    <label className="label o">Nozzle Degree</label>
+                    <FormControl
+                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                      size="small"
+                      error={error_show.nozzle_degree && !nozzle_degree}
+                    >
+                      <InputLabel id="demo-select-small-label">
+                        Nozzle Degree
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        value={nozzle_degree}
+                        label="Nozzle Degree"
+                        onChange={(e) => setNozzle_degree(e.target.value)}
+                      >
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={65}>65</MenuItem>
+                        <MenuItem value={80}>80</MenuItem>
+                        <MenuItem value={110}>110</MenuItem>
+                      </Select>
+                    </FormControl>
+                    </div>
                   </TableCell>
                 </TableRow>
               </TableBody>
@@ -1003,27 +1068,11 @@ const CC_machine = ({ authtoken }) => {
         <h2 className="head_cc">Tundish Nozzle Calculations</h2>
         <div className="tundish">
           <div className="ok">
-            <label className="label o">Ferostatic Height(mm)</label>
-            <TextField
-              required
-              sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-              className="textfield"
-              id="outlined-number"
-              label="Ferostatic Height"
-              size="small"
-              variant="outlined"
-              type="number"
-              defaultValue={600}
-              onChange={(e) => setferostatic_height(e.target.value)}
-            />
-          </div>
-          
-
-          <div className="ok">
             <label className="label o">Nozzle Dia(mm)</label>
             <FormControl
               sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
               size="small"
+              error={error_show.nozzle_dia && !nozzle_dia}
             >
               <InputLabel id="demo-select-small-label">
                 Nozzle Dia(mm)
@@ -1049,6 +1098,22 @@ const CC_machine = ({ authtoken }) => {
                 <MenuItem value={16}>16</MenuItem>
               </Select>
             </FormControl>
+          </div>
+          <div className="ok">
+            <label className="label o">Ferostatic Height(mm)</label>
+            <TextField
+              required
+              sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+              className="textfield"
+              id="outlined-number"
+              label="Ferostatic Height"
+              size="small"
+              variant="outlined"
+              type="number"
+              error={error_show.ferostatic_height && !ferostatic_height}
+              defaultValue={600}
+              onChange={(e) => setferostatic_height(e.target.value)}
+            />
           </div>
         </div>
         {/* <div className="tab_container_output">
@@ -1137,6 +1202,7 @@ const CC_machine = ({ authtoken }) => {
                         label="C%"
                         size="small"
                         variant="outlined"
+                        error={error_show.c && !c}
                         type="number"
                         onChange={(e) => setC(e.target.value)}
                       />
@@ -1153,6 +1219,7 @@ const CC_machine = ({ authtoken }) => {
                         label="Si%"
                         size="small"
                         variant="outlined"
+                        error={error_show.Si && !Si}
                         type="number"
                         onChange={(e) => setSi(e.target.value)}
                       />
@@ -1169,6 +1236,7 @@ const CC_machine = ({ authtoken }) => {
                         label="Mn%"
                         size="small"
                         variant="outlined"
+                        error={error_show.Mn && !Mn}
                         type="number"
                         onChange={(e) => setMn(e.target.value)}
                       />
@@ -1185,11 +1253,20 @@ const CC_machine = ({ authtoken }) => {
                         label="P%"
                         size="small"
                         variant="outlined"
+                        error={error_show.P && !P}
                         type="number"
                         onChange={(e) => setP(e.target.value)}
                       />
                     </div>
                   </TableCell>
+                  
+
+                </TableRow>
+
+                <TableRow
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  hover
+                >
                   <TableCell component="th" scope="row">
                     <div className="ok">
                       <label className="label o">S%</label>
@@ -1201,18 +1278,12 @@ const CC_machine = ({ authtoken }) => {
                         label="S%"
                         size="small"
                         variant="outlined"
+                        error={error_show.S && !S}
                         type="number"
                         onChange={(e) => setS(e.target.value)}
                       />
                     </div>
                   </TableCell>
-
-                </TableRow>
-
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
                   <TableCell component="th" scope="row">
                     <div className="ok">
                       <label className="label o">Nb%</label>
@@ -1224,6 +1295,7 @@ const CC_machine = ({ authtoken }) => {
                         label="Nb%"
                         size="small"
                         variant="outlined"
+                        error={error_show.Nb && !Nb}
                         type="number"
                         onChange={(e) => setNb(e.target.value)}
                       />
@@ -1239,6 +1311,7 @@ const CC_machine = ({ authtoken }) => {
                         id="outlined-number"
                         label="Ca%"
                         size="small"
+                        error={error_show.Ca && !Ca}
                         variant="outlined"
                         type="number"
                         onChange={(e) => setCa(e.target.value)}
@@ -1256,11 +1329,18 @@ const CC_machine = ({ authtoken }) => {
                         label="Ni%"
                         size="small"
                         variant="outlined"
+                        error={error_show.Ni && !Ni}
                         type="number"
                         onChange={(e) => setNi(e.target.value)}
                       />
                     </div>
                   </TableCell>
+                </TableRow>
+
+                <TableRow
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  hover
+                >
                   <TableCell component="th" scope="row">
                     <div className="ok">
                       <label className="label o">Cu%</label>
@@ -1271,6 +1351,7 @@ const CC_machine = ({ authtoken }) => {
                         id="outlined-number"
                         label="Cu%"
                         size="small"
+                        error={error_show.Cu && !Cu}
                         variant="outlined"
                         type="number"
                         onChange={(e) => setCu(e.target.value)}
@@ -1288,18 +1369,12 @@ const CC_machine = ({ authtoken }) => {
                         label="Mo%"
                         size="small"
                         variant="outlined"
+                        error={error_show.Mo && !Mo}
                         type="number"
                         onChange={(e) => setMo(e.target.value)}
                       />
                     </div>
                   </TableCell>
-
-                </TableRow>
-
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
                   <TableCell component="th" scope="row">
                     <div className="ok">
                       <label className="label o">Cr%</label>
@@ -1312,6 +1387,7 @@ const CC_machine = ({ authtoken }) => {
                         size="small"
                         variant="outlined"
                         type="number"
+                        error={error_show.Cr && !Cr}
                         onChange={(e) => setCr(e.target.value)}
                       />
                     </div>
@@ -1357,25 +1433,15 @@ const CC_machine = ({ authtoken }) => {
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     hover
                   >
-
-                    <TableCell align="left">
-                      <label className="label">Casting Powder (Gram/T)</label>
+                    <TableCell component="th" scope="row">
+                      <label className="label">Oscl. Freq(Cycle/Min)</label>
                       <div className="out_box">
                         <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                          {casting_powder}
+                          {oscl_freq}
                         </p>
                       </div>
                     </TableCell>
 
-                    <TableCell align="left">
-                      <label className="label">(%)</label>
-                      <div className="out_box">
-                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                          {" "}
-                          {(zone31).toFixed(2)}
-                        </p>
-                      </div>
-                    </TableCell>
                     <TableCell align="left">
                       <label className="label">Machine Speed(Mtr/Min)</label>
                       <div className="out_box">
@@ -1384,6 +1450,7 @@ const CC_machine = ({ authtoken }) => {
                         </p>
                       </div>
                     </TableCell>
+
                     <TableCell align="left">
                       <label className="label">Casting Time(Hr)</label>
                       <div className="out_box">
@@ -1392,19 +1459,21 @@ const CC_machine = ({ authtoken }) => {
                         </p>
                       </div>
                     </TableCell>
-                  </TableRow>
-                  <TableRow
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    hover
-                  >
+
                     <TableCell align="left">
-                      <label className="label">(Min)</label>
+                      <label className="label">Casting Time(Min)</label>
                       <div className="out_box">
                         <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
                           {zone32}
                         </p>
                       </div>
                     </TableCell>
+                  </TableRow>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >
+                    
                     <TableCell align="left">
                       <label className="label">Throughput(kg/Min)</label>
                       <div className="out_box">
@@ -1414,7 +1483,7 @@ const CC_machine = ({ authtoken }) => {
                       </div>
                     </TableCell>
                     <TableCell align="left">
-                      <label className="label">(MT/Hr)</label>
+                      <label className="label">Throughput(MT/Hr)</label>
                       <div className="out_box">
                         <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
                           {zone33}
@@ -1422,23 +1491,7 @@ const CC_machine = ({ authtoken }) => {
                       </div>
                     </TableCell>
                     <TableCell align="left">
-                      <label className="label">Metalurgical Length(Mtr)</label>
-                      <div className="out_box">
-                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                          {matalurgical_length}
-                        </p>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-
-                  <TableRow
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    hover
-                  >
-
-
-                    <TableCell align="left">
-                      <label className="label">Primary Water(Lpm)</label>
+                      <label className="label">Primary Water Max(Lpm)</label>
                       <div className="out_box">
                         <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
                           {primary_water}
@@ -1446,47 +1499,25 @@ const CC_machine = ({ authtoken }) => {
                       </div>
                     </TableCell>
                     <TableCell align="left">
-                      <label className="label">(Lpm)</label>
+                      <label className="label">Primary Water Min(Lpm)</label>
                       <div className="out_box">
                         <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
                           {zone34}
                         </p>
                       </div>
                     </TableCell>
+                    
+                  </TableRow>
+
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    hover
+                  >                  
                     <TableCell align="left">
                       <label className="label">Secondary Water(Lpm)</label>
                       <div className="out_box">
                         <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
                           {secondary_water}
-                        </p>
-                      </div>
-                    </TableCell>
-                    <TableCell align="left">
-                      <label className="label">Specific Value</label>
-                      <div className="out_box">
-                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                          {specific_value}
-                        </p>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    hover
-                  >
-
-
-
-                  </TableRow>
-                  <TableRow
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    hover
-                  >
-                    <TableCell component="th" scope="row">
-                      <label className="label">Oscl. Freq(Cycle/Min)</label>
-                      <div className="out_box">
-                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                          {oscl_freq}
                         </p>
                       </div>
                     </TableCell>
@@ -1517,26 +1548,37 @@ const CC_machine = ({ authtoken }) => {
                         <label className="zone">Zone 3</label>
                       </div>
                     </TableCell>
+                    
                   </TableRow>
+                  
+                  
 
                   <TableRow
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     hover
                   >
-
                     <TableCell align="left">
-                      <label className="label">Nozzle Distant</label>
+                      <label className="label">Casting Powder (Gram/T)</label>
                       <div className="out_box">
                         <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                          {nozzle_distant}
+                          {casting_powder}
                         </p>
                       </div>
                     </TableCell>
                     <TableCell align="left">
-                      <label className="label">Nozzle Distant</label>
+                      <label className="label">Metalurgical Length(Mtr)</label>
                       <div className="out_box">
                         <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
-                          {nozzle_distant2}
+                          {matalurgical_length}
+                        </p>
+                      </div>
+                    </TableCell>
+
+                    <TableCell align="left">
+                      <label className="label">Specific Value</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {specific_value}
                         </p>
                       </div>
                     </TableCell>
@@ -1548,12 +1590,39 @@ const CC_machine = ({ authtoken }) => {
                         </p>
                       </div>
                     </TableCell>
+
+                    
+                    
                   </TableRow>
                   <TableRow
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     hover
                   >
-
+                    <TableCell align="left">
+                      <label className="label">Nozzle Distant(mm)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {nozzle_distant}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">Nozzle Distant(mm)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {nozzle_distant2}
+                        </p>
+                      </div>
+                    </TableCell>
+                    <TableCell align="left">
+                      <label className="label">(%)</label>
+                      <div className="out_box">
+                        <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
+                          {" "}
+                          {(zone31).toFixed(2)}
+                        </p>
+                      </div>
+                    </TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -1781,7 +1850,7 @@ const CC_machine = ({ authtoken }) => {
                   >
 
                     <TableCell align="left">
-                      <label className="label o"></label>
+                    <label className="label">Max. Flow</label>
                       <div className="out_box">
                         <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
                           {out_kgpermin}Kg/Min

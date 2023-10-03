@@ -158,6 +158,43 @@ const Ladlecalculator = ({ authtoken }) => {
   const [d7, setd7] = useState(null);
   const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
+  const [error_show,seterror_show] = useState({
+    topdiameter:false,
+    bottomdiameter:false,
+    height: false,
+    bottomlining: false,
+    sidelining:false,
+    freeboard:false,
+    density:false,
+    input1: false,
+    input2: false,
+    input3: false,
+    input4: false,
+    input5: false,
+    input6: false,
+    thickness1:false,
+    thickness2:false,
+    thickness3:false,
+    thickness4:false,
+    thickness5:false,
+    thickness6:false,
+    thickness7:false,
+    thickness8:false,
+    thickness9:false,
+    thickness8:false,
+    thickness9:false,
+    thickness10:false,
+    thickness11:false,
+    thickness12:false,
+    thickness13:false,
+    thickness14:false,
+    thickness15:false,
+    tru_box_v1: false,
+    tru_box_v2: false,
+    rest_box_h:false,
+    rest_box_v:false,
+
+  })
   const handleOpen = () => {
     seterror("")
     let v = document.querySelector(".error_ccm")
@@ -174,6 +211,39 @@ const Ladlecalculator = ({ authtoken }) => {
     // let v = document.querySelector(".error_ccm")
     // v.style.visibility = "initial"
     toast.error("Error : Enter the required values")
+    seterror_show({...error_show, topdiameter:true, bottomdiameter:true, height:true,
+      bottomlining: true,
+      sidelining:true,
+      freeboard:true,
+      density:true,
+      input1: true,
+      input2: true,
+      input3: true,
+      input4: true,
+      input5: true,
+      input6: true,
+      thickness1:true,
+      thickness2:true,
+      thickness3:true,
+      thickness4:true,
+      thickness5:true,
+      thickness6:true,
+      thickness7:true,
+      thickness8:true,
+      thickness9:true,
+      thickness8:true,
+      thickness9:true,
+      thickness10:true,
+      thickness11:true,
+      thickness12:true,
+      thickness13:true,
+      thickness14:true,
+      thickness15:true,
+      tru_box_v1: true,
+      tru_box_v2: true,
+      rest_box_h:true,
+      rest_box_v:true,})
+    
   }
 
   const [userData, setUserData] = useState({
@@ -267,6 +337,7 @@ const Ladlecalculator = ({ authtoken }) => {
       getUserData();
       return;
     }
+
 
     result();
     result2();
@@ -613,8 +684,8 @@ const Ladlecalculator = ({ authtoken }) => {
         </Box>
       </Modal>
       <div ref={pdfRef} id="pdf">
-        <h2 className="head" style={{fontSize:'33px'}}>Ladle Calculator</h2>
-        <div className="ladle_desc" style={{marginBottom:'10vh'}}>
+        <h2 className="head" style={{ fontSize: '33px' }}>Ladle Calculator</h2>
+        <div className="ladle_desc" style={{ marginBottom: '10vh' }}>
           <p className="ccm_para">
             <span style={{ color: "#1081fc" }}>Ladle Calculator </span>is an indispensable tool for professionals in the field of metallurgy, particularly in the realm of metal casting. This specialized calculator streamlines the process of determining the precise amount of molten metal required for casting operations. With its user-friendly interface, metallurgists and foundry workers can input essential parameters such as casting dimensions, metal type, and desired specifications. The calculator then generates accurate measurements, ensuring that the correct amount of molten metal is utilized, minimizing waste, and optimizing production efficiency.
           </p>
@@ -637,6 +708,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             variant="outlined"
                             type="number"
                             defaultValue="Small"
+                            error={error_show.topdiameter && !topdiameter}
                             size="small"
                             onChange={(e) => setTopdiameter(e.target.value)}
                           />
@@ -652,6 +724,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             variant="outlined"
                             type="number"
                             defaultValue="Small"
+                            error={error_show.bottomdiameter && !bottomdiameter}
                             size="small"
                             onChange={(e) => setBottomdiameter(e.target.value)}
                           />
@@ -669,6 +742,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             type="number"
                             defaultValue="Small"
                             size="small"
+                            error={error_show.height && !height}
                             onChange={(e) => setHeight(e.target.value)}
                           />
                         </div>
@@ -683,6 +757,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             variant="outlined"
                             type="number"
                             defaultValue="Small"
+                            error={error_show.bottomlining && !bottomlining}
                             size="small"
                             onChange={(e) => setBottomlining(e.target.value)}
                           />
@@ -701,6 +776,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             variant="outlined"
                             type="number"
                             defaultValue="Small"
+                            error={error_show.sidelining && !sidelining}
                             size="small"
                             onChange={(e) => setSidelining(e.target.value)}
                           />
@@ -717,6 +793,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             type="number"
                             defaultValue="Small"
                             size="small"
+                            error={error_show.freeboard && !freeboard}
                             onChange={(e) => setFreeboard(e.target.value)}
                           />
                         </div>
@@ -730,6 +807,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             label="Density"
                             variant="outlined"
                             defaultValue="Small"
+                            error={error_show.density && !density}
                             size="small"
                             type="number"
                             onChange={(e) => setDensity(e.target.value)}
@@ -760,6 +838,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             defaultValue="Small"
                             size="small"
                             variant="outlined"
+                            error={error_show.input1 && !input1}
                             type="number"
                             onChange={(e) => setInput1(e.target.value)}
                           />
@@ -775,6 +854,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             variant="outlined"
                             defaultValue="Small"
                             size="small"
+                            error={error_show.input2 && !input2}
                             type="number"
                             onChange={(e) => setInput2(e.target.value)}
                           />
@@ -791,6 +871,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             variant="outlined"
                             defaultValue="Small"
                             size="small"
+                            error={error_show.input3 && !input3}
                             type="number"
                             onChange={(e) => setInput3(e.target.value)}
                           />
@@ -806,6 +887,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             variant="outlined"
                             defaultValue="Small"
                             size="small"
+                            error={error_show.input4 && !input4}
                             type="number"
                             onChange={(e) => setInput4(e.target.value)}
                           />
@@ -825,6 +907,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             defaultValue="Small"
                             size="small"
                             variant="outlined"
+                            error={error_show.input5 && !input5}
                             type="number"
                             onChange={(e) => setInput5(e.target.value)}
                           />
@@ -840,6 +923,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             defaultValue="Small"
                             size="small"
                             variant="outlined"
+                            error={error_show.input6 && !input6}
                             type="number"
                             onChange={(e) => setInput6(e.target.value)}
                           />
@@ -853,8 +937,9 @@ const Ladlecalculator = ({ authtoken }) => {
           </div>
         </div>
 
+
         <div className="containerfab_ladle">
-        <h2 className="head_ladle" style={{ marginTop: '10vh' }}>Fabrication</h2>
+          <h2 className="head_ladle" style={{ marginTop: '10vh' }}>Plate Thickness for Ladle Fabrication</h2>
           <Paper sx={{ width: "100%", overflow: "hidden" }}>
             <TableContainer sx={{ maxHeight: 500 }} style={{ backgroundColor: "#f9fbfc" }}>
               <Table stickyHeader aria-label="sticky table">
@@ -864,6 +949,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
                         size="small"
+                        error={error_show.thickness1 && !thickness1}
                       >
                         <InputLabel id="demo-select-small-label">
                           Shell Plate
@@ -899,6 +985,42 @@ const Ladlecalculator = ({ authtoken }) => {
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
                         size="small"
+                        error={error_show.thickness3 && !thickness3}
+                      >
+                        <InputLabel id="demo-select-small-label">
+                          Top Rim Plate
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={thickness3}
+                          label="Nozzle Model"
+                          onChange={(e) => setThickness3(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={12}>12</MenuItem>
+                          <MenuItem value={14}>14</MenuItem>
+                          <MenuItem value={16}>16</MenuItem>
+                          <MenuItem value={20}>20</MenuItem>
+                          <MenuItem value={22}>22</MenuItem>
+                          <MenuItem value={25}>25</MenuItem>
+                          <MenuItem value={32}>32</MenuItem>
+                          <MenuItem value={36}>36</MenuItem>
+                          <MenuItem value={40}>40</MenuItem>
+                          <MenuItem value={45}>45</MenuItem>
+                          <MenuItem value={50}>50</MenuItem>
+                          <MenuItem value={60}>60</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </TableCell>
+
+                    <TableCell sx={{ textAlign: 'center' }}>
+                      <FormControl
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        size="small"
+                        error={error_show.thickness4 && !thickness4}
                       >
                         <InputLabel id="demo-select-small-label">
                           Trunion Box Hori
@@ -933,110 +1055,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
                         size="small"
-                      >
-                        <InputLabel id="demo-select-small-label">
-                          Resting Box H
-                        </InputLabel>
-                        <Select
-                          labelId="demo-select-small-label"
-                          id="demo-select-small"
-                          value={thickness8}
-                          label="Nozzle Model"
-                          onChange={(e) => setThickness8(e.target.value)}
-                        >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
-                          <MenuItem value={12}>12</MenuItem>
-                          <MenuItem value={14}>14</MenuItem>
-                          <MenuItem value={16}>16</MenuItem>
-                          <MenuItem value={20}>20</MenuItem>
-                          <MenuItem value={22}>22</MenuItem>
-                          <MenuItem value={25}>25</MenuItem>
-                          <MenuItem value={32}>32</MenuItem>
-                          <MenuItem value={36}>36</MenuItem>
-                          <MenuItem value={40}>40</MenuItem>
-                          <MenuItem value={45}>45</MenuItem>
-                          <MenuItem value={50}>50</MenuItem>
-                          <MenuItem value={60}>60</MenuItem>
-                        </Select>
-                      </FormControl>
-                    </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
-                        size="small"
-                      >
-                        <InputLabel id="demo-select-small-label">
-                          Lifting Hooks
-                        </InputLabel>
-                        <Select
-                          labelId="demo-select-small-label"
-                          id="demo-select-small"
-                          value={thickness13}
-                          label="Nozzle Model"
-                          onChange={(e) => setThickness13(e.target.value)}
-                        >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
-                          <MenuItem value={12}>12</MenuItem>
-                          <MenuItem value={14}>14</MenuItem>
-                          <MenuItem value={16}>16</MenuItem>
-                          <MenuItem value={20}>20</MenuItem>
-                          <MenuItem value={22}>22</MenuItem>
-                          <MenuItem value={25}>25</MenuItem>
-                          <MenuItem value={32}>32</MenuItem>
-                          <MenuItem value={36}>36</MenuItem>
-                          <MenuItem value={40}>40</MenuItem>
-                          <MenuItem value={45}>45</MenuItem>
-                          <MenuItem value={50}>50</MenuItem>
-                          <MenuItem value={60}>60</MenuItem>
-                        </Select>
-                      </FormControl>
-                    </TableCell>
-
-
-                  </TableRow>
-
-                  <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
-                        size="small"
-                      >
-                        <InputLabel id="demo-select-small-label">
-                          Bottom Plate
-                        </InputLabel>
-                        <Select
-                          labelId="demo-select-small-label"
-                          id="demo-select-small"
-                          value={thickness2}
-                          label="Nozzle Model"
-                          onChange={(e) => setThickness2(e.target.value)}
-                        >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
-                          <MenuItem value={12}>12</MenuItem>
-                          <MenuItem value={14}>14</MenuItem>
-                          <MenuItem value={16}>16</MenuItem>
-                          <MenuItem value={20}>20</MenuItem>
-                          <MenuItem value={22}>22</MenuItem>
-                          <MenuItem value={25}>25</MenuItem>
-                          <MenuItem value={32}>32</MenuItem>
-                          <MenuItem value={36}>36</MenuItem>
-                          <MenuItem value={40}>40</MenuItem>
-                          <MenuItem value={45}>45</MenuItem>
-                          <MenuItem value={50}>50</MenuItem>
-                          <MenuItem value={60}>60</MenuItem>
-                        </Select>
-                      </FormControl>
-                    </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
-                        size="small"
+                        error={error_show.thickness5 && !thickness5}
                       >
                         <InputLabel id="demo-select-small-label">
                           Trunion Box Vert
@@ -1067,74 +1086,6 @@ const Ladlecalculator = ({ authtoken }) => {
                       </FormControl>
                     </TableCell>
 
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
-                        size="small"
-                      >
-                        <InputLabel id="demo-select-small-label">
-                          Resting Box V
-                        </InputLabel>
-                        <Select
-                          labelId="demo-select-small-label"
-                          id="demo-select-small"
-                          value={thickness9}
-                          label="Nozzle Model"
-                          onChange={(e) => setThickness9(e.target.value)}
-                        >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
-                          <MenuItem value={12}>12</MenuItem>
-                          <MenuItem value={14}>14</MenuItem>
-                          <MenuItem value={16}>16</MenuItem>
-                          <MenuItem value={20}>20</MenuItem>
-                          <MenuItem value={22}>22</MenuItem>
-                          <MenuItem value={25}>25</MenuItem>
-                          <MenuItem value={32}>32</MenuItem>
-                          <MenuItem value={36}>36</MenuItem>
-                          <MenuItem value={40}>40</MenuItem>
-                          <MenuItem value={45}>45</MenuItem>
-                          <MenuItem value={50}>50</MenuItem>
-                          <MenuItem value={60}>60</MenuItem>
-                        </Select>
-                      </FormControl>
-
-                    </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
-                        size="small"
-                      >
-                        <InputLabel id="demo-select-small-label">
-                          Stiffners
-                        </InputLabel>
-                        <Select
-                          labelId="demo-select-small-label"
-                          id="demo-select-small"
-                          value={thickness14}
-                          label="Nozzle Model"
-                          onChange={(e) => setThickness14(e.target.value)}
-                        >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
-                          <MenuItem value={0}>0</MenuItem>
-                          <MenuItem value={12}>12</MenuItem>
-                          <MenuItem value={14}>14</MenuItem>
-                          <MenuItem value={16}>16</MenuItem>
-                          <MenuItem value={20}>20</MenuItem>
-                          <MenuItem value={22}>22</MenuItem>
-                          <MenuItem value={25}>25</MenuItem>
-                          <MenuItem value={32}>32</MenuItem>
-                          <MenuItem value={36}>36</MenuItem>
-                          <MenuItem value={40}>40</MenuItem>
-                          <MenuItem value={45}>45</MenuItem>
-                          <MenuItem value={50}>50</MenuItem>
-                          <MenuItem value={60}>60</MenuItem>
-                        </Select>
-                      </FormControl>
-                    </TableCell>
 
                   </TableRow>
 
@@ -1143,39 +1094,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
                         size="small"
-                      >
-                        <InputLabel id="demo-select-small-label">
-                          Top Rim Plate
-                        </InputLabel>
-                        <Select
-                          labelId="demo-select-small-label"
-                          id="demo-select-small"
-                          value={thickness3}
-                          label="Nozzle Model"
-                          onChange={(e) => setThickness3(e.target.value)}
-                        >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
-                          <MenuItem value={12}>12</MenuItem>
-                          <MenuItem value={14}>14</MenuItem>
-                          <MenuItem value={16}>16</MenuItem>
-                          <MenuItem value={20}>20</MenuItem>
-                          <MenuItem value={22}>22</MenuItem>
-                          <MenuItem value={25}>25</MenuItem>
-                          <MenuItem value={32}>32</MenuItem>
-                          <MenuItem value={36}>36</MenuItem>
-                          <MenuItem value={40}>40</MenuItem>
-                          <MenuItem value={45}>45</MenuItem>
-                          <MenuItem value={50}>50</MenuItem>
-                          <MenuItem value={60}>60</MenuItem>
-                        </Select>
-                      </FormControl>
-                    </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
-                        size="small"
+                        error={error_show.thickness7 && !thickness7}
                       >
                         <InputLabel id="demo-select-small-label">
                           Trunion Box Side
@@ -1210,6 +1129,217 @@ const Ladlecalculator = ({ authtoken }) => {
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
                         size="small"
+                        error={error_show.thickness11 && !thickness11}
+                      >
+                        <InputLabel id="demo-select-small-label">Legs</InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={thickness11}
+                          label="Nozzle Model"
+                          onChange={(e) => setThickness11(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={12}>12</MenuItem>
+                          <MenuItem value={14}>14</MenuItem>
+                          <MenuItem value={16}>16</MenuItem>
+                          <MenuItem value={20}>20</MenuItem>
+                          <MenuItem value={22}>22</MenuItem>
+                          <MenuItem value={25}>25</MenuItem>
+                          <MenuItem value={32}>32</MenuItem>
+                          <MenuItem value={36}>36</MenuItem>
+                          <MenuItem value={40}>40</MenuItem>
+                          <MenuItem value={45}>45</MenuItem>
+                          <MenuItem value={50}>50</MenuItem>
+                          <MenuItem value={60}>60</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </TableCell>
+
+                    <TableCell sx={{ textAlign: 'center' }}>
+                      <FormControl
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        size="small"
+                        error={thickness14==0?(false):(error_show.thickness14 && !thickness14)}
+                      >
+                        <InputLabel id="demo-select-small-label">
+                          Stiffners
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={thickness14}
+                          label="Nozzle Model"
+                          onChange={(e) => setThickness14(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={0}>0</MenuItem>
+                          <MenuItem value={12}>12</MenuItem>
+                          <MenuItem value={14}>14</MenuItem>
+                          <MenuItem value={16}>16</MenuItem>
+                          <MenuItem value={20}>20</MenuItem>
+                          <MenuItem value={22}>22</MenuItem>
+                          <MenuItem value={25}>25</MenuItem>
+                          <MenuItem value={32}>32</MenuItem>
+                          <MenuItem value={36}>36</MenuItem>
+                          <MenuItem value={40}>40</MenuItem>
+                          <MenuItem value={45}>45</MenuItem>
+                          <MenuItem value={50}>50</MenuItem>
+                          <MenuItem value={60}>60</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </TableCell>
+
+                    <TableCell sx={{ textAlign: 'center' }}>
+                      <FormControl
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        size="small"
+                        error={error_show.thickness2 && !thickness2}
+                      >
+                        <InputLabel id="demo-select-small-label">
+                          Bottom Plate
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={thickness2}
+                          label="Nozzle Model"
+                          onChange={(e) => setThickness2(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={12}>12</MenuItem>
+                          <MenuItem value={14}>14</MenuItem>
+                          <MenuItem value={16}>16</MenuItem>
+                          <MenuItem value={20}>20</MenuItem>
+                          <MenuItem value={22}>22</MenuItem>
+                          <MenuItem value={25}>25</MenuItem>
+                          <MenuItem value={32}>32</MenuItem>
+                          <MenuItem value={36}>36</MenuItem>
+                          <MenuItem value={40}>40</MenuItem>
+                          <MenuItem value={45}>45</MenuItem>
+                          <MenuItem value={50}>50</MenuItem>
+                          <MenuItem value={60}>60</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </TableCell>
+
+                  </TableRow>
+
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+
+                    <TableCell sx={{ textAlign: 'center' }}>
+                      <FormControl
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        size="small"
+                        error={error_show.thickness15 && !thickness15}
+                      >
+                        <InputLabel id="demo-select-small-label">
+                          Trunion Pin
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={thickness15}
+                          label="Nozzle Model"
+                          onChange={(e) => setThickness15(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={100}>100</MenuItem>
+                          <MenuItem value={125}>125</MenuItem>
+                          <MenuItem value={150}>150</MenuItem>
+                          <MenuItem value={175}>175</MenuItem>
+                          <MenuItem value={200}>200</MenuItem>
+                          <MenuItem value={220}>220</MenuItem>
+                          <MenuItem value={250}>250</MenuItem>
+                          <MenuItem value={275}>275</MenuItem>
+                          <MenuItem value={300}>300</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </TableCell>
+
+                    <TableCell sx={{ textAlign: 'center' }}>
+                      <FormControl
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        size="small"
+                        error={error_show.thickness8 && !thickness8}
+                      >
+                        <InputLabel id="demo-select-small-label">
+                          Resting Box H
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={thickness8}
+                          label="Nozzle Model"
+                          onChange={(e) => setThickness8(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={12}>12</MenuItem>
+                          <MenuItem value={14}>14</MenuItem>
+                          <MenuItem value={16}>16</MenuItem>
+                          <MenuItem value={20}>20</MenuItem>
+                          <MenuItem value={22}>22</MenuItem>
+                          <MenuItem value={25}>25</MenuItem>
+                          <MenuItem value={32}>32</MenuItem>
+                          <MenuItem value={36}>36</MenuItem>
+                          <MenuItem value={40}>40</MenuItem>
+                          <MenuItem value={45}>45</MenuItem>
+                          <MenuItem value={50}>50</MenuItem>
+                          <MenuItem value={60}>60</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </TableCell>
+
+                    <TableCell sx={{ textAlign: 'center' }}>
+                      <FormControl
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        size="small"
+                        error={error_show.thickness9 && !thickness9}
+                      >
+                        <InputLabel id="demo-select-small-label">
+                          Resting Box V
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={thickness9}
+                          label="Nozzle Model"
+                          onChange={(e) => setThickness9(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={12}>12</MenuItem>
+                          <MenuItem value={14}>14</MenuItem>
+                          <MenuItem value={16}>16</MenuItem>
+                          <MenuItem value={20}>20</MenuItem>
+                          <MenuItem value={22}>22</MenuItem>
+                          <MenuItem value={25}>25</MenuItem>
+                          <MenuItem value={32}>32</MenuItem>
+                          <MenuItem value={36}>36</MenuItem>
+                          <MenuItem value={40}>40</MenuItem>
+                          <MenuItem value={45}>45</MenuItem>
+                          <MenuItem value={50}>50</MenuItem>
+                          <MenuItem value={60}>60</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </TableCell>
+
+                    <TableCell sx={{ textAlign: 'center' }}>
+                      <FormControl
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        size="small"
+                        error={error_show.thickness10 && !thickness10}
                       >
                         <InputLabel id="demo-select-small-label">
                           Resting Box S
@@ -1239,11 +1369,6 @@ const Ladlecalculator = ({ authtoken }) => {
                         </Select>
                       </FormControl>
                     </TableCell>
-                    <TableCell>
-
-                    </TableCell>
-
-
                   </TableRow>
 
                   <TableRow hover role="checkbox" tabIndex={-1}>
@@ -1251,44 +1376,17 @@ const Ladlecalculator = ({ authtoken }) => {
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
                         size="small"
+                        error={error_show.thickness13 && !thickness13}
                       >
                         <InputLabel id="demo-select-small-label">
-                          Trunion Pin
+                          Lifting Hooks
                         </InputLabel>
                         <Select
                           labelId="demo-select-small-label"
                           id="demo-select-small"
-                          value={thickness15}
+                          value={thickness13}
                           label="Nozzle Model"
-                          onChange={(e) => setThickness15(e.target.value)}
-                        >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
-                          <MenuItem value={100}>100</MenuItem>
-                          <MenuItem value={125}>125</MenuItem>
-                          <MenuItem value={150}>150</MenuItem>
-                          <MenuItem value={175}>175</MenuItem>
-                          <MenuItem value={200}>200</MenuItem>
-                          <MenuItem value={220}>220</MenuItem>
-                          <MenuItem value={250}>250</MenuItem>
-                          <MenuItem value={275}>275</MenuItem>
-                          <MenuItem value={300}>300</MenuItem>
-                        </Select>
-                      </FormControl>
-                    </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
-                        size="small"
-                      >
-                        <InputLabel id="demo-select-small-label">Legs</InputLabel>
-                        <Select
-                          labelId="demo-select-small-label"
-                          id="demo-select-small"
-                          value={thickness11}
-                          label="Nozzle Model"
-                          onChange={(e) => setThickness11(e.target.value)}
+                          onChange={(e) => setThickness13(e.target.value)}
                         >
                           <MenuItem value="">
                             <em>None</em>
@@ -1308,10 +1406,12 @@ const Ladlecalculator = ({ authtoken }) => {
                         </Select>
                       </FormControl>
                     </TableCell>
+
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
                         size="small"
+                        error={error_show.thickness12 && !thickness12}
                       >
                         <InputLabel id="demo-select-small-label">
                           Retaining RCS
@@ -1341,13 +1441,6 @@ const Ladlecalculator = ({ authtoken }) => {
                         </Select>
                       </FormControl>
                     </TableCell>
-                    <TableCell>
-
-                    </TableCell>
-
-                  </TableRow>
-                  <TableRow hover role="checkbox" tabIndex={-1}>
-
                     <TableCell sx={{ textAlign: 'center' }}>
                       <Box
                         component="form"
@@ -1360,11 +1453,12 @@ const Ladlecalculator = ({ authtoken }) => {
                         <TextField
                           required
                           className="textfield_ladle"
-                          sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                          sx={{ m: 0, minWidth: isMobile ? 175 : 60,textAlign: 'center' }}
                           id="outlined-number"
                           label="Tru. Box V1"
                           variant="outlined"
                           type="number"
+                          error={error_show.tru_box_v1 && !tru_box_v1}
                           defaultValue="Small"
                           size="small"
                           onChange={(e) => setTru_box_v1(e.target.value)}
@@ -1388,12 +1482,16 @@ const Ladlecalculator = ({ authtoken }) => {
                           label="Tru Box V2"
                           variant="outlined"
                           type="number"
+                          error={error_show.tru_box_v2 && !tru_box_v2}
                           defaultValue="Small"
                           size="small"
                           onChange={(e) => setTru_box_v2(e.target.value)}
                         />
                       </Box>
                     </TableCell>
+                  </TableRow>
+
+                  <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell sx={{ textAlign: 'center' }}>
                       <Box
                         component="form"
@@ -1412,6 +1510,7 @@ const Ladlecalculator = ({ authtoken }) => {
                           variant="outlined"
                           type="number"
                           defaultValue="Small"
+                          error={error_show.rest_box_h && !rest_box_h}
                           size="small"
                           onChange={(e) => setrest_box_h(e.target.value)}
                         />
@@ -1435,6 +1534,7 @@ const Ladlecalculator = ({ authtoken }) => {
                           variant="outlined"
                           type="number"
                           defaultValue="Small"
+                          error={error_show.rest_box_v && !rest_box_v}
                           size="small"
                           onChange={(e) => setrest_box_v(e.target.value)}
                         />
@@ -1473,10 +1573,11 @@ const Ladlecalculator = ({ authtoken }) => {
 
 
         {/* Output screen */}
+        
         <div className={output_show ? "output_ladle" : "output_ladle dis"}>
           <h2 className="head_output" style={{ marginBottom: '6vh' }}>Output</h2>
 
-          <div className="main-box_ladle_output" style={{ gap: '10vh' }}>
+          <div className="main-box_ladle_output" style={{ gap: '15vh' }}>
             <div className="ladle_first_output">
               <Paper sx={{ width: "100%", overflow: "hidden" }}>
                 <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
@@ -1485,7 +1586,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableRow role="checkbox" tabIndex={-1} sx={{ maxHeight: '10px' }}>
 
                         <TableCell>
-                          <h2 className="head_ladle" style={{textAlign:'center'}}>After Lining</h2>
+                          <h2 className="head_ladle" style={{ textAlign: 'center' }}>After Lining Dimensions & Capacity of Fabrication Ladle</h2>
                         </TableCell>
                       </TableRow>
 
@@ -1493,22 +1594,14 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableRow hover role="checkbox" tabIndex={-1}>
 
                         <TableCell>
-                          <p className="textcentre_ladle">Free Board Level Diameter : {freeboardleveldiameter}</p>
+                          <p className="textcentre_ladle">Free Board Level Diameter(mm) : {freeboardleveldiameter}</p>
                         </TableCell>
                       </TableRow>
 
                       <TableRow hover role="checkbox" tabIndex={-1}>
 
                         <TableCell>
-                          <p className="textcentre_ladle">Bottom Lining Level Diameter : {bottomliningleveldiameter}</p>
-                        </TableCell>
-                      </TableRow>
-
-
-                      <TableRow hover role="checkbox" tabIndex={-1}>
-
-                        <TableCell>
-                          <p className="textcentre_ladle">In Between Heigh : {inbetweenheight}</p>
+                          <p className="textcentre_ladle">Bottom Lining Level Diameter(mm) : {bottomliningleveldiameter}</p>
                         </TableCell>
                       </TableRow>
 
@@ -1516,7 +1609,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableRow hover role="checkbox" tabIndex={-1}>
 
                         <TableCell>
-                          <p className="textcentre_ladle">Volumn of Ladle : {(pieHby3 * temp).toFixed(2)} cu.M</p>
+                          <p className="textcentre_ladle">In Between Height(mm) : {inbetweenheight}</p>
                         </TableCell>
                       </TableRow>
 
@@ -1524,7 +1617,15 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableRow hover role="checkbox" tabIndex={-1}>
 
                         <TableCell>
-                          <p className="textcentre_ladle">Capacity of Ladle : {(pieHby3 * temp * density).toFixed(2)} MT</p>
+                          <p className="textcentre_ladle">Volumn of Ladle after Lining(Cu.Mtr) : {(pieHby3 * temp).toFixed(2)} cu.M</p>
+                        </TableCell>
+                      </TableRow>
+
+
+                      <TableRow hover role="checkbox" tabIndex={-1}>
+
+                        <TableCell>
+                          <p className="textcentre_ladle">Capacity of Ladle(MT) : {(pieHby3 * temp * density).toFixed(2)} MT</p>
                         </TableCell>
                       </TableRow>
                     </TableBody>
@@ -1545,7 +1646,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableRow role="checkbox" tabIndex={-1} className="cell">
 
                         <TableCell>
-                          <h2 className="head_ladle" style={{textAlign:'center'}}>Fab. Size</h2>
+                          <h2 className="head_ladle" style={{ textAlign: 'center' }}>Fabrication Dimensions & Capacity of Linined Ladle</h2>
                         </TableCell>
                       </TableRow>
 
@@ -1553,14 +1654,14 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableRow hover role="checkbox" tabIndex={-1}>
 
                         <TableCell>
-                          <p className="textcentre_ladle">Top ID: {output1}</p>
+                          <p className="textcentre_ladle">Top ID for Fabrication of Ladle: {output1}</p>
                         </TableCell>
                       </TableRow>
 
                       <TableRow hover role="checkbox" tabIndex={-1}>
 
                         <TableCell>
-                          <p className="textcentre_ladle">Bottom ID: {output2}</p>
+                          <p className="textcentre_ladle">Bottom ID for Fabrication of Ladle: {output2}</p>
                         </TableCell>
                       </TableRow>
 
@@ -1568,16 +1669,31 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableRow hover role="checkbox" tabIndex={-1}>
 
                         <TableCell>
-                          <p className="textcentre_ladle">Height: {output3}</p>
+                          <p className="textcentre_ladle">Height for Fabrication of Ladle: {output3}</p>
                         </TableCell>
                       </TableRow>
+                      <TableRow hover role="checkbox" tabIndex={-1}>
 
+                        <TableCell>
+                          <p style={{ textAlign: 'center' }}>
+                            Volumn of Lined Ladle(Cu.Mtr):{" "}
+                            {(
+                              outputlining1 *
+                              ((outputlining2 * outputlining2 +
+                                outputlining2 * outputlining3 +
+                                outputlining3 * outputlining3) /
+                                1000000)
+                            ).toFixed(2)}{" "}
+                            cu.M
+                          </p>
+                        </TableCell>
+                      </TableRow>
 
                       <TableRow hover role="checkbox" tabIndex={-1}>
 
                         <TableCell>
                           <p style={{ textAlign: 'center' }}>
-                            Capacity:{" "}
+                            Capacity of Lined Ladle:{" "}
                             {(
                               outputlining1 *
                               ((outputlining2 * outputlining2 +
@@ -1592,22 +1708,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </TableRow>
 
 
-                      <TableRow hover role="checkbox" tabIndex={-1}>
 
-                        <TableCell>
-                          <p style={{ textAlign: 'center' }}>
-                            Volumn:{" "}
-                            {(
-                              outputlining1 *
-                              ((outputlining2 * outputlining2 +
-                                outputlining2 * outputlining3 +
-                                outputlining3 * outputlining3) /
-                                1000000)
-                            ).toFixed(2)}{" "}
-                            cu.M
-                          </p>
-                        </TableCell>
-                      </TableRow>
                     </TableBody>
                   </Table>
                 </TableContainer>
@@ -1618,7 +1719,7 @@ const Ladlecalculator = ({ authtoken }) => {
           {/* fabrication_output */}
 
           <div className="containerfab_ladle flex-all" style={{ marginTop: '10vh' }}>
-            <Paper sx={{ width: "67%", overflow: "hidden" }} >
+            <Paper sx={{ width: "100%", overflow: "hidden" }} >
               <TableContainer sx={{ maxHeight: 1200 }} style={{ backgroundColor: "#f9fbfc" }}>
                 <Table stickyHeader aria-label="sticky table">
                   <TableHead>
@@ -1811,7 +1912,7 @@ const Ladlecalculator = ({ authtoken }) => {
             {/* yaha hu */}
           </div>
           <div className="fab_weight flex-all">
-            <p style={{ fontSize: '25px', marginTop:'5vh' }}>Fabrication Weight: {Math.ceil(total_weight)} Kgs</p>
+            <p style={{ fontSize: '25px', marginTop: '5vh' }}>Fabrication Weight: {Math.ceil(total_weight)} Kgs</p>
           </div>
 
           {/* Diagrams */}

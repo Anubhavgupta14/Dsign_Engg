@@ -16,6 +16,7 @@
     .body_card{
         flex-direction: column;
         gap: 50px;
+        margin-top: 43vh;
     }
     .heading{
         font-size: 28px;

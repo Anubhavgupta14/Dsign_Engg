@@ -51,7 +51,7 @@ const Faqs = () => {
 
   return (
     <>
-      <div className="faq-bg">
+      <div className="faq-bg" >
         <div className="faqs-cont">
           <div className="faqs-title ha-title">
             <div

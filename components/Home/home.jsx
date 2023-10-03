@@ -38,6 +38,7 @@ const page = ({authtoken}) => {
               </div> */}
               <div style={{ height: "372px" }}>
                 <Image
+                className="img_home"
                   src="/image.svg"
                   width={500}
                   height={350}
@@ -79,7 +80,7 @@ const page = ({authtoken}) => {
 
       <About />
       <Cards />
-      <div id='faq' ref={aboutRef}><Faqs /></div>
+      <div id='faq' ref={aboutRef} className="home_faq"><Faqs /></div>
       <Footer />
     </div>
   );

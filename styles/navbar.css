@@ -43,6 +43,7 @@
     font-weight: 600;
     align-items: center;
     transition: all 0.5s ease-in-out;
+    
 }
 
 .navrel {
@@ -128,11 +129,11 @@
  .navbar-right {
         width: 100%;
         height: 200vh;
-        background-color: white;
+        background-color: #f9fbfc;
         transition: all 0.5s ease-in-out;
         left: 0%;
         right: 2vw;
-        bottom: -900px;
+        margin-top: 100vh;
     }
     .display-none{
         /* display: none; */
@@ -420,6 +421,19 @@
     .drop-details{
         padding: 1px 20px 0px 30px;
     }
+    .navbar{
+        display: flex;
+    }
+    .mobile_btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 3vh;
+    }
+    .nav{
+        margin: 0px 0px;
+    }
   }
 
   .arrow-cont2 {
@@ -476,3 +490,4 @@
     background-color: black;
     color: white;
 }
+
