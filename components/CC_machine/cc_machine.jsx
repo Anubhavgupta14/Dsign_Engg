@@ -695,7 +695,7 @@ const CC_machine = ({ authtoken }) => {
                   </TableCell>
                   <TableCell component="th" scope="row">
                   <div className="ok">
-                    <label className="label o">Casting Speed(Mtr/Min)</label>
+                    <label className="label o1">Casting Speed(Mtr/Min)</label>
                     <FormControl
                       sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                       size="small"

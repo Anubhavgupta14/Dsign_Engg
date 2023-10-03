@@ -248,6 +248,11 @@ p {
 
   .o{
     visibility: hidden;
+    
+  }
+  .o1{
+    visibility: hidden;
+    font-size: 10px;
   }
   .zone{
     font-size: 12px;
@@ -273,12 +278,22 @@ p {
       padding: 0 0 0 2px;
     }
     .label{
-      padding: 0px 0px 0px 11px;
+      padding: 0px 0px 0px 0px;
       margin-bottom: -5px;
       color: rgb(100, 100, 100);
       position: relative;
       top: -5px;
     }
+    .ccm_desc{
+      width: 44vh;
+    }
+    .tab_container_output {
+      margin-inline: 18px;
+      margin-bottom: 5px;
+  }
+  .tab_container_main {
+    margin-inline: 18px;
+}
   }
 
   .btn_state{

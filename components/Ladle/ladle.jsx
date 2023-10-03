@@ -3,7 +3,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import Footer from "../Footer/footer";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -653,6 +653,30 @@ const Ladlecalculator = ({ authtoken }) => {
     window.location.reload();
   }
 
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  // Function to update window width
+  const updateWindowWidth = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  // Add an event listener to update the window width when the component mounts
+  useLayoutEffect(() => {
+    updateWindowWidth();
+    window.addEventListener('resize', updateWindowWidth);
+    return () => {
+      window.removeEventListener('resize', updateWindowWidth);
+    };
+  }, []);
+
+  // Calculate the image width based on screen size
+  const imageWidth = windowWidth < 768 ? 300 : 1100;
+  const imageWidth2 = windowWidth < 768 ? 50 : 1100;
+  const imageWidth3 = windowWidth < 768 ? 50 : 1100;
+  const imageheight1 = windowWidth < 768 ? 50 : 300;
+  const imageheight2 = windowWidth < 768 ? 50 : 300;
+  const imageheight3 = windowWidth < 768 ? 50 : 300;
+
   return (
     <div className="body_ladle" style={{ backgroundColor: "#f9fbfc" }}>
       <Navbar moveIndex={0} authtoken={authtoken} />
@@ -704,6 +728,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             required
                             className="textfield_ladle"
                             id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             label="Top ID"
                             variant="outlined"
                             type="number"
@@ -721,6 +746,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             className="textfield_ladle"
                             id="outlined-number"
                             label="Bottom ID"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             variant="outlined"
                             type="number"
                             defaultValue="Small"
@@ -740,6 +766,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             label="Height"
                             variant="outlined"
                             type="number"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             defaultValue="Small"
                             size="small"
                             error={error_show.height && !height}
@@ -755,6 +782,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             id="outlined-number"
                             label="Bottom Lining"
                             variant="outlined"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             type="number"
                             defaultValue="Small"
                             error={error_show.bottomlining && !bottomlining}
@@ -775,6 +803,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             label="Side Lining"
                             variant="outlined"
                             type="number"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             defaultValue="Small"
                             error={error_show.sidelining && !sidelining}
                             size="small"
@@ -789,6 +818,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             className="textfield_ladle"
                             id="outlined-number"
                             label="Free Board"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             variant="outlined"
                             type="number"
                             defaultValue="Small"
@@ -807,6 +837,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             label="Density"
                             variant="outlined"
                             defaultValue="Small"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             error={error_show.density && !density}
                             size="small"
                             type="number"
@@ -837,6 +868,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             label="Top ID"
                             defaultValue="Small"
                             size="small"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             variant="outlined"
                             error={error_show.input1 && !input1}
                             type="number"
@@ -851,6 +883,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             className="textfield_ladle"
                             id="outlined-number"
                             label="Bottom ID"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             variant="outlined"
                             defaultValue="Small"
                             size="small"
@@ -866,6 +899,7 @@ const Ladlecalculator = ({ authtoken }) => {
                           <TextField
                             required
                             className="textfield_ladle"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             id="outlined-number"
                             label="Height"
                             variant="outlined"
@@ -884,6 +918,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             className="textfield_ladle"
                             id="outlined-number"
                             label="Bottom Lining"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             variant="outlined"
                             defaultValue="Small"
                             size="small"
@@ -902,6 +937,7 @@ const Ladlecalculator = ({ authtoken }) => {
                           <TextField
                             required
                             className="textfield_ladle"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             id="outlined-number"
                             label="Side Lining"
                             defaultValue="Small"
@@ -923,6 +959,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             defaultValue="Small"
                             size="small"
                             variant="outlined"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             error={error_show.input6 && !input6}
                             type="number"
                             onChange={(e) => setInput6(e.target.value)}
@@ -947,7 +984,7 @@ const Ladlecalculator = ({ authtoken }) => {
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={error_show.thickness1 && !thickness1}
                       >
@@ -983,7 +1020,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={error_show.thickness3 && !thickness3}
                       >
@@ -1018,7 +1055,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={error_show.thickness4 && !thickness4}
                       >
@@ -1053,7 +1090,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={error_show.thickness5 && !thickness5}
                       >
@@ -1092,7 +1129,7 @@ const Ladlecalculator = ({ authtoken }) => {
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={error_show.thickness7 && !thickness7}
                       >
@@ -1127,7 +1164,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={error_show.thickness11 && !thickness11}
                       >
@@ -1160,7 +1197,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={thickness14==0?(false):(error_show.thickness14 && !thickness14)}
                       >
@@ -1196,7 +1233,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={error_show.thickness2 && !thickness2}
                       >
@@ -1235,7 +1272,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={error_show.thickness15 && !thickness15}
                       >
@@ -1267,7 +1304,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={error_show.thickness8 && !thickness8}
                       >
@@ -1302,7 +1339,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={error_show.thickness9 && !thickness9}
                       >
@@ -1337,7 +1374,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={error_show.thickness10 && !thickness10}
                       >
@@ -1374,7 +1411,7 @@ const Ladlecalculator = ({ authtoken }) => {
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={error_show.thickness13 && !thickness13}
                       >
@@ -1409,7 +1446,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
                     <TableCell sx={{ textAlign: 'center' }}>
                       <FormControl
-                        sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                        sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={error_show.thickness12 && !thickness12}
                       >
@@ -1453,7 +1490,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <TextField
                           required
                           className="textfield_ladle"
-                          sx={{ m: 0, minWidth: isMobile ? 175 : 60,textAlign: 'center' }}
+                          sx={{ m: 0, minWidth: isMobile ? 175 : 100,textAlign: 'center' }}
                           id="outlined-number"
                           label="Tru. Box V1"
                           variant="outlined"
@@ -1475,7 +1512,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         autoComplete="off"
                       >
                         <TextField
-                          sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                          sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                           required
                           className="textfield_ladle"
                           id="outlined-number"
@@ -1503,7 +1540,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       >
                         <TextField
                           required
-                          sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                          sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                           className="textfield_ladle"
                           id="outlined-number"
                           label="Resting Box H"
@@ -1527,7 +1564,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       >
                         <TextField
                           required
-                          sx={{ m: 0, minWidth: isMobile ? 175 : 60 }}
+                          sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                           className="textfield_ladle"
                           id="outlined-number"
                           label="Rest Box V"
@@ -1922,12 +1959,12 @@ const Ladlecalculator = ({ authtoken }) => {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>DEVELOPMENT OF LADLE SHELL PLATE</h3>
               <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>Vertical Division 200 mm from Centre____Nos.</h5>
-              <div>
+              <div className="img_main_ladle">
                 <Image
                   src="/ladle_main.jpeg"
                   alt="My Image"
-                  width={1100}
-                  height={300}
+                  width={imageWidth}
+                  height={imageheight1}
                   loading="eager"   // Options: "eager", "lazy", or "auto"
                   priority          // Preload this image
                   quality={80}      // Set the image quality (0-100)
@@ -1951,8 +1988,8 @@ const Ladlecalculator = ({ authtoken }) => {
 
                   src="/top_rim.jpeg"
                   alt="My Image"
-                  width={300}
-                  height={300}
+                  width={imageWidth2}
+                  height={imageheight2}
                   loading="eager"   // Options: "eager", "lazy", or "auto"
                   priority          // Preload this image
                   quality={80}      // Set the image quality (0-100)
@@ -1973,8 +2010,8 @@ const Ladlecalculator = ({ authtoken }) => {
 
                   src="/bottom_plate.jpeg"
                   alt="My Image"
-                  width={300}
-                  height={300}
+                  width={imageWidth2}
+                  height={imageheight2}
                   loading="eager"   // Options: "eager", "lazy", or "auto"
                   priority          // Preload this image
                   quality={80}      // Set the image quality (0-100)
@@ -1996,8 +2033,8 @@ const Ladlecalculator = ({ authtoken }) => {
 
                   src="/lr.jpeg"
                   alt="My Image"
-                  width={300}
-                  height={300}
+                  width={imageWidth3}
+                  height={imageheight3}
                   loading="eager"   // Options: "eager", "lazy", or "auto"
                   priority          // Preload this image
                   quality={80}      // Set the image quality (0-100)
@@ -2013,8 +2050,8 @@ const Ladlecalculator = ({ authtoken }) => {
 
                   src="/lr.jpeg"
                   alt="My Image"
-                  width={300}
-                  height={300}
+                  width={imageWidth3}
+                  height={imageheight3}
                   loading="eager"   // Options: "eager", "lazy", or "auto"
                   priority          // Preload this image
                   quality={80}      // Set the image quality (0-100)
@@ -2030,8 +2067,8 @@ const Ladlecalculator = ({ authtoken }) => {
 
                   src="/lr.jpeg"
                   alt="My Image"
-                  width={300}
-                  height={300}
+                  width={imageWidth2}
+                  height={imageheight3}
                   loading="eager"   // Options: "eager", "lazy", or "auto"
                   priority          // Preload this image
                   quality={80}      // Set the image quality (0-100)
@@ -2052,8 +2089,8 @@ const Ladlecalculator = ({ authtoken }) => {
 
                   src="/Trunion.jpeg"
                   alt="My Image"
-                  width={300}
-                  height={300}
+                  width={imageWidth2}
+                  height={imageheight3}
                   loading="eager"   // Options: "eager", "lazy", or "auto"
                   priority          // Preload this image
                   quality={80}      // Set the image quality (0-100)
@@ -2069,8 +2106,8 @@ const Ladlecalculator = ({ authtoken }) => {
 
                   src="/Trunion.jpeg"
                   alt="My Image"
-                  width={300}
-                  height={300}
+                  width={imageWidth2}
+                  height={imageheight3}
                   loading="eager"   // Options: "eager", "lazy", or "auto"
                   priority          // Preload this image
                   quality={80}      // Set the image quality (0-100)
@@ -2090,8 +2127,8 @@ const Ladlecalculator = ({ authtoken }) => {
 
                   src="/gola.jpeg"
                   alt="My Image"
-                  width={300}
-                  height={300}
+                  width={imageWidth2}
+                  height={imageheight3}
                   loading="eager"   // Options: "eager", "lazy", or "auto"
                   priority          // Preload this image
                   quality={80}      // Set the image quality (0-100)

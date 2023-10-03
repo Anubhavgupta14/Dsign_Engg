@@ -276,8 +276,17 @@ p {
 
 
 @media screen and (max-width: 900px) {
-  .containerfab_ladle {
-    margin: 10px;
+  
+}
+@media screen and (max-width: 600px) {
+  .ladle_desc{
+    width: 44vh;
+  }
+  .p_1{
+    left: 44vh;
+  }
+  .p_4{
+    left: 44vh;
   }
 }
 
