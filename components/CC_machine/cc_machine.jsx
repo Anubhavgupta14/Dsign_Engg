@@ -437,214 +437,6 @@ const CC_machine = ({ authtoken }) => {
         </div>
         <h2 className="head_cc">Concast Data</h2>
 
-        {/* <div className="tab_container_output">
-          <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
-            <Table sx={{ minWidth: 100 }} aria-label="simple table">
-              <TableBody>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">C%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="C%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setC(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">Si%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="Si%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setSi(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">Mn%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="Mn%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setMn(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">P%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="P%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setP(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">S%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="S%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setS(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
-
-                </TableRow>
-
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">Nb%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="Nb%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setNb(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">Ca%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="Ca%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setCa(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">Ni%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="Ni%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setNi(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">Cu%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="Cu%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setCu(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">Mo%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="Mo%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setMo(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
-
-                </TableRow>
-
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-                  <TableCell component="th" scope="row">
-                    <div className="ok">
-                      <label className="label o">Cr%</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        label="Cr%"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setCr(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
-
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </div> */}
-
-
-
-
         <div className="tab_container_main">
           <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
             <Table sx={{ minWidth: 100 }} aria-label="simple table">
@@ -1065,7 +857,7 @@ const CC_machine = ({ authtoken }) => {
         </div>
 
 
-        <h2 className="head_cc">Tundish Nozzle Calculations</h2>
+        <h2 className="head_cc">Secondary Spray Nozzle Calculations</h2>
         <div className="tundish">
           <div className="ok">
             <label className="label o">Nozzle Dia(mm)</label>
@@ -1116,73 +908,8 @@ const CC_machine = ({ authtoken }) => {
             />
           </div>
         </div>
-        {/* <div className="tab_container_output">
-          <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
-            <Table sx={{ minWidth: 150 }} aria-label="simple table">
-              <TableBody>
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  hover
-                >
-
-
-                  <TableCell>
-                    <div className="ok">
-                      <label className="label o">Nozzle Dia(mm)</label>
-                      <FormControl
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        size="small"
-                      >
-                        <InputLabel id="demo-select-small-label">
-                          Nozzle Dia(mm)
-                        </InputLabel>
-                        <Select
-                          labelId="demo-select-small-label"
-                          id="demo-select-small"
-                          value={nozzle_dia}
-                          label="Nozzle Model"
-                          onChange={(e) => setNozzle_dia(e.target.value)}
-                        >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
-                          <MenuItem value={12}>12</MenuItem>
-                          <MenuItem value={12.5}>12.5</MenuItem>
-                          <MenuItem value={13}>13</MenuItem>
-                          <MenuItem value={13.5}>13.5</MenuItem>
-                          <MenuItem value={14}>14</MenuItem>
-                          <MenuItem value={14.5}>14.5</MenuItem>
-                          <MenuItem value={15}>15</MenuItem>
-                          <MenuItem value={15.5}>15.5</MenuItem>
-                          <MenuItem value={16}>16</MenuItem>
-                        </Select>
-                      </FormControl>
-                    </div>
-                  </TableCell>
-
-                  <TableCell>
-                    <div className="ok">
-                      <label className="label">Ferostatic Height(mm)</label>
-                      <TextField
-                        required
-                        sx={{ m: 1, minWidth: isMobile ? 160 : 100 }}
-                        className="textfield"
-                        id="outlined-number"
-                        // label="Ferostatic Height"
-                        size="small"
-                        variant="outlined"
-                        type="number"
-                        defaultValue={600}
-                        onChange={(e) => setferostatic_height(e.target.value)}
-                      />
-                    </div>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </div> */}
-        <h2 className="head_cc">CE Ratio Calculations</h2>
+        
+        <h2 className="head_cc">Tundish Nozzle, CE Ratio & Liquidus Temp. Calculations</h2>
         <div className="tab_container_output">
           <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
             <Table sx={{ minWidth: 100 }} aria-label="simple table">
@@ -1628,7 +1355,7 @@ const CC_machine = ({ authtoken }) => {
               </Table>
             </TableContainer>
           </div>
-          <h2 className="head_cc">Tundish Nozzle Calculation</h2>
+          <h2 className="head_cc">Secondary Spray Nozzle Calculations</h2>
           <div className="tab_container_output">
             <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
               <Table sx={{ minWidth: 100 }} aria-label="simple table">
@@ -1839,7 +1566,7 @@ const CC_machine = ({ authtoken }) => {
               </Table>
             </TableContainer>
           </div>
-          <h2 className="head_cc">CE Ratio Calculation</h2>
+          <h2 className="head_cc">Tundish Nozzle, CE Ratio & Liquidus Temp. Calculations</h2>
           <div className= "tab_container_output">
             <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
               <Table sx={{ minWidth: 150 }} aria-label="simple table">

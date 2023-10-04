@@ -126,15 +126,15 @@ const page = ({authtoken}) => {
                 <td />
                 <td>
                   Basic
-                  <br /><small style={{ fontSize: 12, fontWeight: 400 }}>Plan</small>
+                  <br /><small className="plan" >Plan</small>
                 </td>
                 <td>
                   Standard
-                  <br /><small style={{ fontSize: 12, fontWeight: 400 }}>Plan</small>
+                  <br /><small className="plan" >Plan</small>
                 </td>
                 <td className="green-width">
                   Premium
-                  <br /><small style={{ fontSize: 12, fontWeight: 400 }}>Plan</small>
+                  <br /><small className="plan" >Plan</small>
                 </td>
               </tr>
               <tr>

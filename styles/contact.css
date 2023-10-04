@@ -226,11 +226,26 @@
   @media screen and (max-width:600px){
     .container{
         flex-direction: column;
-        padding-inline: 0px;
+        align-items: center;
     }
     form{
         width: 25vh;
         padding: 20px 60px 20px 60px;
 
+    }
+    .details_contact{
+      width: 309px;
+    }
+    .head_contact2{
+      font-size: 29px;
+    }
+    .contact_p{
+      width: 325px;
+    }
+    .form{
+      width: 44vh;
+    padding: 5px;
+    position: relative;
+    left: -3vh;
     }
   }

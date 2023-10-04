@@ -115,3 +115,44 @@ td.price a:hover{
     width: 90px;
     fill: rgb(16,129,252);
 }
+.plan{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+@media screen and (max-width:600px){
+    .price-table svg{
+        width: 50px;
+    }
+    .price-table tr td {
+        padding: 7px 4px;
+        font-size: 8px;
+    }
+    .price-table tr td:nth-child(3) {
+        /* background-color: rgba(16,129,252, 0.15); */
+        padding: 8px 5px;
+    }
+    .price-table td.price {
+        
+        padding: 11px 2px;
+        font-size: 14px;
+        
+    }
+    
+    .btn_pricing{
+        background-color: rgb(16,129,252);
+        margin-top: 15px;
+        padding: 10px 5px;
+        font-size: 10px;
+    }
+    .price-table tr.price-table-head td {
+        font-size: 11px;
+    }
+    .plan{
+        font-size: 8px;
+    }
+    .main{
+        margin-top: 3vh;
+        top: 12vh;
+    }
+}

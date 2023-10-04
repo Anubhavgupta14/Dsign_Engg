@@ -671,9 +671,9 @@ const Ladlecalculator = ({ authtoken }) => {
 
   // Calculate the image width based on screen size
   const imageWidth = windowWidth < 768 ? 300 : 1100;
-  const imageWidth2 = windowWidth < 768 ? 50 : 1100;
-  const imageWidth3 = windowWidth < 768 ? 50 : 1100;
-  const imageheight1 = windowWidth < 768 ? 50 : 300;
+  const imageWidth2 = windowWidth < 768 ? 50 : 300;
+  const imageWidth3 = windowWidth < 768 ? 50 : 300;
+  const imageheight1 = windowWidth < 768 ? 50 : 400;
   const imageheight2 = windowWidth < 768 ? 50 : 300;
   const imageheight3 = windowWidth < 768 ? 50 : 300;
 
