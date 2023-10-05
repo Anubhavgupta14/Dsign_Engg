@@ -41,7 +41,7 @@ export default function AccountMenu() {
 
   const getUserData = async () => {
     const token = localStorage.getItem('JWT');
-    if(token=="") return;
+    if(token==null) return;
     try {
       const data = await fetchCurrentUser(token);
       console.log(data, 'data fetched');
