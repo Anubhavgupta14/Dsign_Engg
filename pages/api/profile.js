@@ -8,7 +8,7 @@ const handler = async (req, res) => {
   if (req.method === "POST") {
     const { token } = req.body;
 
-    if(token==null) return;
+    if(token==null) return res.status(200).json({});
 
     try {
 
