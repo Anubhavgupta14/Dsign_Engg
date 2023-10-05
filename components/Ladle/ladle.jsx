@@ -623,6 +623,7 @@ const Ladlecalculator = ({ authtoken }) => {
   };
 
   const validate_ticket = async () => {
+    const token = localStorage.getItem('JWT');
     try {
       const response = await fetch('/api/ladle_ticket', {
         method: 'POST',
