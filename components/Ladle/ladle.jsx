@@ -341,13 +341,13 @@ const Ladlecalculator = ({ authtoken }) => {
   const result3 = async (event) => {
     // event.preventDefault();
 
-    // const result_ticket = await validate_ticket();
-    // if (result_ticket === -1) {
-    //   toast.error("You don't have tickets");
-    //   setOpen(false)
-    //   getUserData();
-    //   return;
-    // }
+     const result_ticket = await validate_ticket();
+     if (result_ticket === -1) {
+       toast.error("You don't have tickets");
+       setOpen(false)
+       getUserData();
+       return;
+     }
 
 
     result();
