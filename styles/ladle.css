@@ -94,7 +94,7 @@ p {
   justify-content: center;
   align-items: center;
   padding-top: 5px;
-  gap: 5vh;
+  gap: 15vh;
 }
 
 .box_ladle {
@@ -232,46 +232,125 @@ p {
 .img_ladle{
   gap: 15vh;
 }
-.p_1{
-  position: absolute;
-  left: 76vh;
-  margin-top: -4vh;
+.dia{
+  position: relative;
 }
-.p_2{
+
+.dia1{
   position: absolute;
-  left: 62vh;
-  margin-top: -4vh;
+  top: -15%;
+  
 }
-.p_3{
+.dia2{
   position: absolute;
-  left: 96vh;
-  margin-top: 21vh;
+  top: -15%;
+  right: 23px;
 }
-.p_4{
+
+.dia3{
   position: absolute;
-  left: 71vh;
-  margin-top: 41vh;
+  top: -15%;
+  left: 50%;
 }
-.p_5{
+
+.dia4{
   position: absolute;
-  left: 139vh;
-  margin-top: -4vh;
+  top: 5%;
+  left: -34px;
 }
-.p_6{
+.dia5{
   position: absolute;
-    left: 113vh;
-    margin-top: 21vh;
+  right: -15px;
+  top: 5%;
+  
 }
-.p_7{
+.dia6{
   position: absolute;
-  left: 186vh;
-  margin-top: 17vh;
+  top: 50%;
+  left: -34px;
 }
-.p_8{
+
+.dia7{
   position: absolute;
-  left: 162vh;
-  margin-top: 41vh;
+  top: 100%;
+  left: 35px;
 }
+
+.dia8{
+  position: absolute;
+  top: 100%;
+  left: 25%;  
+}
+.dia9{
+  position: absolute;
+  top: 100%;
+  left: 75%;  
+}
+.dia10{
+  position: absolute;
+  top: 100%;
+  left: 95%;
+}
+.dia11{
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-top: 3vh;
+}
+.dia12{
+  position: absolute;
+  top: -8%;
+  left: 45%;
+}
+
+.dia_p_1{
+  position: absolute;
+  top: 0;
+  right: 25%;
+  top: -19px;
+}
+.dia_p_2{
+    position: absolute;
+    top: 0;
+    left: 25%;
+    top: -19px;
+}
+.dia_p_3{
+  position: absolute;
+  right: -37px;
+  top: 50%;
+}
+.dia_p_4{
+  position: absolute;
+  top: 100%;
+  left: 50%;
+}
+
+.dia_p_5{
+  position: absolute;
+  top: 0;
+  right: 50%;
+  margin: -25px;
+}
+.dia_p_6{
+  position: absolute;
+  top: 50%;
+  margin: -31px;
+}
+.dia_p_7{
+  position: absolute;
+    right: -31px;
+    top: 50%;
+
+}
+.dia_p_8{
+  position: absolute;
+    top: 100%;
+    left: 50%;
+}
+
+
+
 
 
 
@@ -282,11 +361,61 @@ p {
   .ladle_desc{
     width: 44vh;
   }
-  .p_1{
-    left: 44vh;
+  .img_ladle{
+    gap: 0vh;
   }
-  .p_4{
-    left: 44vh;
+  .p1{
+    font-size: 8px;
+  }
+  .dia_p_1{
+    position: absolute;
+    top: 0;
+    right: 25%;
+    top: -19px;
+  }
+  .dia_p_2{
+      position: absolute;
+      top: 0;
+      left: 25%;
+      top: -19px;
+  }
+  .dia_p_3{
+    right: -19px;
+  }
+  .dia_p_4{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+  }
+  
+  .dia_p_5{
+    margin: -13px;
+  }
+  .dia_p_6{
+    margin: -18px;
+  }
+  .dia_p_7{
+    right: -14px;
+  
+  }
+  .dia_p_8{
+    position: absolute;
+      top: 100%;
+      left: 50%;
+  }
+  .dia1{
+    top: -31%;
+  }
+  .dia2{
+    top: -31%;
+  }
+  
+  .dia3{
+    top: -31%;
+  }
+  .dia12{
+    top: -17%;
+    left: 41%;
   }
 }
 
@@ -308,6 +437,9 @@ p {
     padding: 40px 0 0 0;
     height: 25px;
     width: 10px;
+  }
+  .main-box_ladle_output{
+    gap: 2vh;
   }
 
   p {

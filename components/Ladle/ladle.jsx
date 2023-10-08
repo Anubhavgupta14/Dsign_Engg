@@ -156,43 +156,52 @@ const Ladlecalculator = ({ authtoken }) => {
   const [d5, setd5] = useState(null);
   const [d6, setd6] = useState(null);
   const [d7, setd7] = useState(null);
+  const [d8, setd8] = useState(null);
+  const [d9, setd9] = useState(null);
+  const [d10, setd10] = useState(null);
+  const [d11, setd11] = useState(null);
+  const [d12, setd12] = useState(null);
+  const [d13, setd13] = useState(null);
+  const [d14, setd14] = useState(null);
+  const [d15, setd15] = useState(null);
+  const [d16, setd16] = useState(null);
   const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
-  const [error_show,seterror_show] = useState({
-    topdiameter:false,
-    bottomdiameter:false,
+  const [error_show, seterror_show] = useState({
+    topdiameter: false,
+    bottomdiameter: false,
     height: false,
     bottomlining: false,
-    sidelining:false,
-    freeboard:false,
-    density:false,
+    sidelining: false,
+    freeboard: false,
+    density: false,
     input1: false,
     input2: false,
     input3: false,
     input4: false,
     input5: false,
     input6: false,
-    thickness1:false,
-    thickness2:false,
-    thickness3:false,
-    thickness4:false,
-    thickness5:false,
-    thickness6:false,
-    thickness7:false,
-    thickness8:false,
-    thickness9:false,
-    thickness8:false,
-    thickness9:false,
-    thickness10:false,
-    thickness11:false,
-    thickness12:false,
-    thickness13:false,
-    thickness14:false,
-    thickness15:false,
+    thickness1: false,
+    thickness2: false,
+    thickness3: false,
+    thickness4: false,
+    thickness5: false,
+    thickness6: false,
+    thickness7: false,
+    thickness8: false,
+    thickness9: false,
+    thickness8: false,
+    thickness9: false,
+    thickness10: false,
+    thickness11: false,
+    thickness12: false,
+    thickness13: false,
+    thickness14: false,
+    thickness15: false,
     tru_box_v1: false,
     tru_box_v2: false,
-    rest_box_h:false,
-    rest_box_v:false,
+    rest_box_h: false,
+    rest_box_v: false,
 
   })
   const handleOpen = () => {
@@ -211,39 +220,41 @@ const Ladlecalculator = ({ authtoken }) => {
     // let v = document.querySelector(".error_ccm")
     // v.style.visibility = "initial"
     toast.error("Error : Enter the required values")
-    seterror_show({...error_show, topdiameter:true, bottomdiameter:true, height:true,
+    seterror_show({
+      ...error_show, topdiameter: true, bottomdiameter: true, height: true,
       bottomlining: true,
-      sidelining:true,
-      freeboard:true,
-      density:true,
+      sidelining: true,
+      freeboard: true,
+      density: true,
       input1: true,
       input2: true,
       input3: true,
       input4: true,
       input5: true,
       input6: true,
-      thickness1:true,
-      thickness2:true,
-      thickness3:true,
-      thickness4:true,
-      thickness5:true,
-      thickness6:true,
-      thickness7:true,
-      thickness8:true,
-      thickness9:true,
-      thickness8:true,
-      thickness9:true,
-      thickness10:true,
-      thickness11:true,
-      thickness12:true,
-      thickness13:true,
-      thickness14:true,
-      thickness15:true,
+      thickness1: true,
+      thickness2: true,
+      thickness3: true,
+      thickness4: true,
+      thickness5: true,
+      thickness6: true,
+      thickness7: true,
+      thickness8: true,
+      thickness9: true,
+      thickness8: true,
+      thickness9: true,
+      thickness10: true,
+      thickness11: true,
+      thickness12: true,
+      thickness13: true,
+      thickness14: true,
+      thickness15: true,
       tru_box_v1: true,
       tru_box_v2: true,
-      rest_box_h:true,
-      rest_box_v:true,})
-    
+      rest_box_h: true,
+      rest_box_v: true,
+    })
+
   }
 
   const [userData, setUserData] = useState({
@@ -330,13 +341,13 @@ const Ladlecalculator = ({ authtoken }) => {
   const result3 = async (event) => {
     // event.preventDefault();
 
-    const result_ticket = await validate_ticket();
-    if (result_ticket === -1) {
-      toast.error("You don't have tickets");
-      setOpen(false)
-      getUserData();
-      return;
-    }
+    // const result_ticket = await validate_ticket();
+    // if (result_ticket === -1) {
+    //   toast.error("You don't have tickets");
+    //   setOpen(false)
+    //   getUserData();
+    //   return;
+    // }
 
 
     result();
@@ -563,6 +574,34 @@ const Ladlecalculator = ({ authtoken }) => {
     const d7 = parseFloat(tru_box_v2) - parseFloat(thickness5) - parseFloat(thickness5)
     setd7(d7)
 
+    const Q931 = Math.floor(((R2*dev_sin*2)/2)/200)
+    const d8 = ((R2*dev_sin*2)/2) - (200*Q931)
+    setd8(Math.round(d8))
+
+
+    const d9 = (((R2*dev_sin*2)/2)*2)-(2*d8)
+    setd9(d9)
+
+    const d10 = R2-Math.sqrt((R2*R2)-(((R2*dev_sin*2)/2)*((R2*dev_sin*2)/2)))
+    setd10(Math.round(d10))
+
+    const d11 = slant_height + (r2-F959)
+    setd11(Math.round(d11))
+
+    const d13 = (r2*dev_sin*2)/2
+    setd13(Math.round(d13))
+
+    const d12 = ((((R2*dev_sin*2)/2)*2)/2)-d13
+    setd12(Math.round(d12))
+
+    const d14 = ((R2*dev_sin*2)/2)*2
+    setd14(Math.round(d14))
+
+    setd15(Math.round(R2))
+
+    const d16 = ((R2*dev_sin*2)/2/200)*2
+    setd16(Math.floor(d16))
+
     setOpen(false)
     getUserData();
     setdownload(true);
@@ -623,7 +662,7 @@ const Ladlecalculator = ({ authtoken }) => {
   };
 
   const validate_ticket = async () => {
-    const token = localStorage.getItem('JWT');
+    
     try {
       const response = await fetch('/api/ladle_ticket', {
         method: 'POST',
@@ -671,12 +710,12 @@ const Ladlecalculator = ({ authtoken }) => {
   }, []);
 
   // Calculate the image width based on screen size
-  const imageWidth = windowWidth < 768 ? 300 : 1100;
-  const imageWidth2 = windowWidth < 768 ? 50 : 300;
-  const imageWidth3 = windowWidth < 768 ? 50 : 300;
-  const imageheight1 = windowWidth < 768 ? 50 : 400;
-  const imageheight2 = windowWidth < 768 ? 50 : 300;
-  const imageheight3 = windowWidth < 768 ? 50 : 300;
+  const imageWidth = windowWidth < 900 ? 300 : 1100;
+  const imageWidth2 = windowWidth < 900 ? 100 : 300;
+  const imageWidth3 = windowWidth < 900 ? 100 : 300;
+  const imageheight1 = windowWidth < 900 ? 100 : 400;
+  const imageheight2 = windowWidth < 900 ? 100 : 300;
+  const imageheight3 = windowWidth < 900 ? 100 : 300;
 
   return (
     <div className="body_ladle" style={{ backgroundColor: "#f9fbfc" }}>
@@ -1200,7 +1239,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
-                        error={thickness14==0?(false):(error_show.thickness14 && !thickness14)}
+                        error={thickness14 == 0 ? (false) : (error_show.thickness14 && !thickness14)}
                       >
                         <InputLabel id="demo-select-small-label">
                           Stiffners
@@ -1491,7 +1530,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <TextField
                           required
                           className="textfield_ladle"
-                          sx={{ m: 0, minWidth: isMobile ? 175 : 100,textAlign: 'center' }}
+                          sx={{ m: 0, minWidth: isMobile ? 175 : 100, textAlign: 'center' }}
                           id="outlined-number"
                           label="Tru. Box V1"
                           variant="outlined"
@@ -1611,11 +1650,11 @@ const Ladlecalculator = ({ authtoken }) => {
 
 
         {/* Output screen */}
-        
+
         <div className={output_show ? "output_ladle" : "output_ladle dis"}>
           <h2 className="head_output" style={{ marginBottom: '6vh' }}>Output</h2>
 
-          <div className="main-box_ladle_output" style={{ gap: '15vh' }}>
+          <div className="main-box_ladle_output">
             <div className="ladle_first_output">
               <Paper sx={{ width: "100%", overflow: "hidden" }}>
                 <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
@@ -1956,11 +1995,47 @@ const Ladlecalculator = ({ authtoken }) => {
           {/* Diagrams */}
           <h2 className="head_cc" style={{ marginBottom: '5vh' }}>Graphical Models</h2>
 
-          <div className="flex-all img_ladle" style={{ marginBottom: '10vh' }}>
+          <div className="flex-all img_ladle" style={{ marginBottom: '15vh' }}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>DEVELOPMENT OF LADLE SHELL PLATE</h3>
-              <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>Vertical Division 200 mm from Centre____Nos.</h5>
-              <div className="img_main_ladle">
+              <h5 style={{ textAlign: 'center', marginBottom: '15vh' }}>Vertical Division 200 mm from Centre {d16} Nos.</h5>
+              <div className="dia">
+                <div className="dia1">
+                  <p>{d8}</p>
+                </div>
+                <div className="dia2">
+                  <p>{d8}</p>
+                </div>
+                <div className="dia3">
+                  <p>{d9}</p>
+                </div>
+                <div className="dia4">
+                  <p>{d10}</p>
+                </div>
+                <div className="dia5">
+                  <p>{d10}</p>
+                </div>
+                <div className="dia6">
+                  <p>{d11}</p>
+                </div>
+                <div className="dia7">
+                  <p>{d12}</p>
+                </div>
+                <div className="dia8">
+                  <p>{d13}</p>
+                </div>
+                <div className="dia9">
+                  <p>{d13}</p>
+                </div>
+                <div className="dia10">
+                  <p>{d12}</p>
+                </div>
+                <div className="dia11">
+                  <p>{d14}</p>
+                </div>
+                <div className="dia12">
+                  <p>Radius R -{d15}</p>
+                </div>
                 <Image
                   src="/ladle_main.jpeg"
                   alt="My Image"
@@ -1978,15 +2053,20 @@ const Ladlecalculator = ({ authtoken }) => {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>DEVELOPMENT OF LADLE TOP RIM PLATE</h3>
               <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>SIX SECTOR PLATE @ 60 DEGREE EACH</h5>
-              <div>
-                <div>
-                  <p className="p_1">R {d2}</p>
-                  <p className="p_2">{d1}</p>
-                  <p className="p_3">{d3}</p>
-                  <p className="p_4">r {d4}</p>
+              <div className="dia">
+                <div className="dia_p_1">
+                  <p className="p1"> R {d2}</p>
+                </div>
+                <div className="dia_p_2">
+                  <p className="p1">{d1}</p>
+                </div>
+                <div className="dia_p_3">
+                  <p className="p1" >{d3}</p>
+                </div>
+                <div className="dia_p_4">
+                  <p className="p1">r {d4}</p>
                 </div>
                 <Image
-
                   src="/top_rim.jpeg"
                   alt="My Image"
                   width={imageWidth2}
@@ -2000,22 +2080,23 @@ const Ladlecalculator = ({ authtoken }) => {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>DEVELOPMENT OF LADLE BOTTOM PLATE</h3>
               <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>GIVEN SQUARE PLATE DIMENSIONS</h5>
-              <div>
-                <div>
-                  <p className="p_5">{d5}</p>
-
-                  <p className="p_6">{d6}</p>
-
+              <div className="dia">
+                <div className="dia_p_5">
+                  <p className="p1">{d5}</p>
                 </div>
-                <Image
 
+                <div className="dia_p_6">
+                  <p className="p1">{d6}</p>
+                </div>
+
+                <Image
                   src="/bottom_plate.jpeg"
                   alt="My Image"
                   width={imageWidth2}
                   height={imageheight2}
-                  loading="eager"   // Options: "eager", "lazy", or "auto"
-                  priority          // Preload this image
-                  quality={80}      // Set the image quality (0-100)
+                  loading="eager"
+                  priority
+                  quality={80}
                 />
               </div>
             </div>
@@ -2118,10 +2199,12 @@ const Ladlecalculator = ({ authtoken }) => {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>CENTRE PLATE TRUNION PIN HOLD</h3>
               <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>2 Nos</h5>
-              <div>
-                <div>
-                  <p className="p_7">{d7}</p>
-                  <p className="p_8">{d7}</p>
+              <div className="dia">
+                <div className="dia_p_7">
+                  <p className="p1">{d7}</p>
+                </div>
+                <div className="dia_p_8">
+                  <p className="p1">{d7}</p>
                 </div>
 
                 <Image
