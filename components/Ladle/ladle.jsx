@@ -42,6 +42,9 @@ const style = {
 
 const Ladlecalculator = ({ authtoken }) => {
   const pdfRef = useRef();
+  const div1Ref = useRef();
+  const div2Ref = useRef();
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.up("sm"));
   const [topdiameter, setTopdiameter] = useState(null);
@@ -341,13 +344,13 @@ const Ladlecalculator = ({ authtoken }) => {
   const result3 = async (event) => {
     // event.preventDefault();
 
-     const result_ticket = await validate_ticket();
-     if (result_ticket === -1) {
-       toast.error("You don't have tickets");
-       setOpen(false)
-       getUserData();
-       return;
-     }
+    const result_ticket = await validate_ticket();
+    if (result_ticket === -1) {
+      toast.error("You don't have tickets");
+      setOpen(false)
+      getUserData();
+      return;
+    }
 
 
     result();
@@ -574,32 +577,32 @@ const Ladlecalculator = ({ authtoken }) => {
     const d7 = parseFloat(tru_box_v2) - parseFloat(thickness5) - parseFloat(thickness5)
     setd7(d7)
 
-    const Q931 = Math.floor(((R2*dev_sin*2)/2)/200)
-    const d8 = ((R2*dev_sin*2)/2) - (200*Q931)
+    const Q931 = Math.floor(((R2 * dev_sin * 2) / 2) / 200)
+    const d8 = ((R2 * dev_sin * 2) / 2) - (200 * Q931)
     setd8(Math.round(d8))
 
 
-    const d9 = (((R2*dev_sin*2)/2)*2)-(2*d8)
+    const d9 = (((R2 * dev_sin * 2) / 2) * 2) - (2 * d8)
     setd9(d9)
 
-    const d10 = R2-Math.sqrt((R2*R2)-(((R2*dev_sin*2)/2)*((R2*dev_sin*2)/2)))
+    const d10 = R2 - Math.sqrt((R2 * R2) - (((R2 * dev_sin * 2) / 2) * ((R2 * dev_sin * 2) / 2)))
     setd10(Math.round(d10))
 
-    const d11 = slant_height + (r2-F959)
+    const d11 = slant_height + (r2 - F959)
     setd11(Math.round(d11))
 
-    const d13 = (r2*dev_sin*2)/2
+    const d13 = (r2 * dev_sin * 2) / 2
     setd13(Math.round(d13))
 
-    const d12 = ((((R2*dev_sin*2)/2)*2)/2)-d13
+    const d12 = ((((R2 * dev_sin * 2) / 2) * 2) / 2) - d13
     setd12(Math.round(d12))
 
-    const d14 = ((R2*dev_sin*2)/2)*2
+    const d14 = ((R2 * dev_sin * 2) / 2) * 2
     setd14(Math.round(d14))
 
     setd15(Math.round(R2))
 
-    const d16 = ((R2*dev_sin*2)/2/200)*2
+    const d16 = ((R2 * dev_sin * 2) / 2 / 200) * 2
     setd16(Math.floor(d16))
 
     setOpen(false)
@@ -643,26 +646,32 @@ const Ladlecalculator = ({ authtoken }) => {
       return;
     }
 
-    const input = pdfRef.current;
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4', true);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      const imgWidth = canvas.width * 2;
-      const imgHeight = canvas.height * 2;
-      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-      const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 0;
-      pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
-      pdf.save('ladle.pdf')
-      toast.success("Successfully Downloaded")
-    });
+    // Capture the first div to an image
+    const div1ImageData = await html2canvas(div1Ref.current);
 
+    // Capture the second div to an image
+    const div2ImageData = await html2canvas(div2Ref.current);
+
+    // Create a new PDF document
+    const pdf = new jsPDF('p', 'mm', 'a4', true);
+
+    // Add the first image to the PDF document
+    pdf.addImage(div1ImageData, 'PNG', 25, 0, pdf.internal.pageSize.getWidth()-50, pdf.internal.pageSize.getHeight());
+
+    // Add a new page to the PDF document
+    pdf.addPage();
+
+    // Add the second image to the PDF document
+    pdf.addImage(div2ImageData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+
+    // Save the PDF document
+    pdf.save('ladle.pdf');
+
+    toast.success("Successfully Downloaded")
   };
 
   const validate_ticket = async () => {
-    
+
     try {
       const response = await fetch('/api/ladle_ticket', {
         method: 'POST',
@@ -747,7 +756,7 @@ const Ladlecalculator = ({ authtoken }) => {
           <button className={userData.ladle_ticket == 0 ? "dis" : "btn_cal"} onClick={result3}>Calculate</button>
         </Box>
       </Modal>
-      <div ref={pdfRef} id="pdf">
+      <div ref={div1Ref}>
         <h2 className="head" style={{ fontSize: '33px' }}>Ladle Calculator</h2>
         <div className="ladle_desc" style={{ marginBottom: '10vh' }}>
           <p className="ccm_para">
@@ -1991,238 +2000,240 @@ const Ladlecalculator = ({ authtoken }) => {
           <div className="fab_weight flex-all">
             <p style={{ fontSize: '25px', marginTop: '5vh' }}>Fabrication Weight: {Math.ceil(total_weight)} Kgs</p>
           </div>
+        </div>
+      </div>
+      <div ref={div2Ref} id="pdf">
+        {/* Diagrams */}
+        <h2 className="head_cc" style={{ marginBottom: '5vh' }}>Graphical Models</h2>
 
-          {/* Diagrams */}
-          <h2 className="head_cc" style={{ marginBottom: '5vh' }}>Graphical Models</h2>
-
-          <div className="flex-all img_ladle" style={{ marginBottom: '15vh' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>DEVELOPMENT OF LADLE SHELL PLATE</h3>
-              <h5 style={{ textAlign: 'center', marginBottom: '15vh' }}>Vertical Division 200 mm from Centre {d16} Nos.</h5>
-              <div className="dia">
-                <div className="dia1">
-                  <p>{d8}</p>
-                </div>
-                <div className="dia2">
-                  <p>{d8}</p>
-                </div>
-                <div className="dia3">
-                  <p>{d9}</p>
-                </div>
-                <div className="dia4">
-                  <p>{d10}</p>
-                </div>
-                <div className="dia5">
-                  <p>{d10}</p>
-                </div>
-                <div className="dia6">
-                  <p>{d11}</p>
-                </div>
-                <div className="dia7">
-                  <p>{d12}</p>
-                </div>
-                <div className="dia8">
-                  <p>{d13}</p>
-                </div>
-                <div className="dia9">
-                  <p>{d13}</p>
-                </div>
-                <div className="dia10">
-                  <p>{d12}</p>
-                </div>
-                <div className="dia11">
-                  <p>{d14}</p>
-                </div>
-                <div className="dia12">
-                  <p>Radius R -{d15}</p>
-                </div>
-                <Image
-                  src="/ladle_main.jpeg"
-                  alt="My Image"
-                  width={imageWidth}
-                  height={imageheight1}
-                  loading="eager"   // Options: "eager", "lazy", or "auto"
-                  priority          // Preload this image
-                  quality={80}      // Set the image quality (0-100)
-                />
+        <div className="flex-all img_ladle" style={{ marginBottom: '15vh' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>DEVELOPMENT OF LADLE SHELL PLATE</h3>
+            <h5 style={{ textAlign: 'center', marginBottom: '15vh' }}>Vertical Division 200 mm from Centre {d16} Nos.</h5>
+            <div className="dia">
+              <div className="dia1">
+                <p>{d8}</p>
               </div>
-            </div>
-
-          </div>
-          <div className="flex-all img_ladle">
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>DEVELOPMENT OF LADLE TOP RIM PLATE</h3>
-              <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>SIX SECTOR PLATE @ 60 DEGREE EACH</h5>
-              <div className="dia">
-                <div className="dia_p_1">
-                  <p className="p1"> R {d2}</p>
-                </div>
-                <div className="dia_p_2">
-                  <p className="p1">{d1}</p>
-                </div>
-                <div className="dia_p_3">
-                  <p className="p1" >{d3}</p>
-                </div>
-                <div className="dia_p_4">
-                  <p className="p1">r {d4}</p>
-                </div>
-                <Image
-                  src="/top_rim.jpeg"
-                  alt="My Image"
-                  width={imageWidth2}
-                  height={imageheight2}
-                  loading="eager"   // Options: "eager", "lazy", or "auto"
-                  priority          // Preload this image
-                  quality={80}      // Set the image quality (0-100)
-                />
+              <div className="dia2">
+                <p>{d8}</p>
               </div>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>DEVELOPMENT OF LADLE BOTTOM PLATE</h3>
-              <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>GIVEN SQUARE PLATE DIMENSIONS</h5>
-              <div className="dia">
-                <div className="dia_p_5">
-                  <p className="p1">{d5}</p>
-                </div>
-
-                <div className="dia_p_6">
-                  <p className="p1">{d6}</p>
-                </div>
-
-                <Image
-                  src="/bottom_plate.jpeg"
-                  alt="My Image"
-                  width={imageWidth2}
-                  height={imageheight2}
-                  loading="eager"
-                  priority
-                  quality={80}
-                />
+              <div className="dia3">
+                <p>{d9}</p>
               </div>
-            </div>
-          </div>
-
-
-          <h3 style={{ textAlign: 'center', marginTop: '10vh' }}>DEVELOPMENT OF LADLE BOX HORIZONTAL PLATE</h3>
-          <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>TRUNION BOX AND RESTING BOX</h5>
-          <div className="flex-all img_ladle" style={{ marginTop: '5vh' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Trunion Box Top Plate</h3>
-              <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>2 Nos</h5>
-              <div>
-
-                <Image
-
-                  src="/lr.jpeg"
-                  alt="My Image"
-                  width={imageWidth3}
-                  height={imageheight3}
-                  loading="eager"   // Options: "eager", "lazy", or "auto"
-                  priority          // Preload this image
-                  quality={80}      // Set the image quality (0-100)
-                />
+              <div className="dia4">
+                <p>{d10}</p>
               </div>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Trunion Box Bottom Plate</h3>
-              <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>2 Nos</h5>
-              <div>
-
-                <Image
-
-                  src="/lr.jpeg"
-                  alt="My Image"
-                  width={imageWidth3}
-                  height={imageheight3}
-                  loading="eager"   // Options: "eager", "lazy", or "auto"
-                  priority          // Preload this image
-                  quality={80}      // Set the image quality (0-100)
-                />
+              <div className="dia5">
+                <p>{d10}</p>
               </div>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Resting Box Bottom Plate</h3>
-              <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>2 Nos</h5>
-              <div>
-
-                <Image
-
-                  src="/lr.jpeg"
-                  alt="My Image"
-                  width={imageWidth2}
-                  height={imageheight3}
-                  loading="eager"   // Options: "eager", "lazy", or "auto"
-                  priority          // Preload this image
-                  quality={80}      // Set the image quality (0-100)
-                />
+              <div className="dia6">
+                <p>{d11}</p>
               </div>
-            </div>
-          </div>
-
-          <h3 style={{ textAlign: 'center', marginTop: '10vh' }}>DEVELOPMENT OF LADLE BOX VERTICAL PLATE</h3>
-          <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>TRUNION BOX AND RESTING BOX</h5>
-          <div className="flex-all img_ladle" style={{ marginTop: '5vh' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Trunion Box Vertical Plates</h3>
-              <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>4 Nos</h5>
-              <div>
-
-                <Image
-
-                  src="/Trunion.jpeg"
-                  alt="My Image"
-                  width={imageWidth2}
-                  height={imageheight3}
-                  loading="eager"   // Options: "eager", "lazy", or "auto"
-                  priority          // Preload this image
-                  quality={80}      // Set the image quality (0-100)
-                />
+              <div className="dia7">
+                <p>{d12}</p>
               </div>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Resting Box Vertical Plates</h3>
-              <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>4 Nos</h5>
-              <div>
-
-                <Image
-
-                  src="/Trunion.jpeg"
-                  alt="My Image"
-                  width={imageWidth2}
-                  height={imageheight3}
-                  loading="eager"   // Options: "eager", "lazy", or "auto"
-                  priority          // Preload this image
-                  quality={80}      // Set the image quality (0-100)
-                />
+              <div className="dia8">
+                <p>{d13}</p>
               </div>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>CENTRE PLATE TRUNION PIN HOLD</h3>
-              <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>2 Nos</h5>
-              <div className="dia">
-                <div className="dia_p_7">
-                  <p className="p1">{d7}</p>
-                </div>
-                <div className="dia_p_8">
-                  <p className="p1">{d7}</p>
-                </div>
-
-                <Image
-
-                  src="/gola.jpeg"
-                  alt="My Image"
-                  width={imageWidth2}
-                  height={imageheight3}
-                  loading="eager"   // Options: "eager", "lazy", or "auto"
-                  priority          // Preload this image
-                  quality={80}      // Set the image quality (0-100)
-                />
+              <div className="dia9">
+                <p>{d13}</p>
               </div>
+              <div className="dia10">
+                <p>{d12}</p>
+              </div>
+              <div className="dia11">
+                <p>{d14}</p>
+              </div>
+              <div className="dia12">
+                <p>Radius R -{d15}</p>
+              </div>
+              <Image
+                src="/ladle_main.jpeg"
+                alt="My Image"
+                width={imageWidth}
+                height={imageheight1}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
             </div>
           </div>
 
         </div>
+        <div className="flex-all img_ladle">
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>DEVELOPMENT OF LADLE TOP RIM PLATE</h3>
+            <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>SIX SECTOR PLATE @ 60 DEGREE EACH</h5>
+            <div className="dia">
+              <div className="dia_p_1">
+                <p className="p1"> R {d2}</p>
+              </div>
+              <div className="dia_p_2">
+                <p className="p1">{d1}</p>
+              </div>
+              <div className="dia_p_3">
+                <p className="p1" >{d3}</p>
+              </div>
+              <div className="dia_p_4">
+                <p className="p1">r {d4}</p>
+              </div>
+              <Image
+                src="/top_rim.jpeg"
+                alt="My Image"
+                width={imageWidth2}
+                height={imageheight2}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+            </div>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>DEVELOPMENT OF LADLE BOTTOM PLATE</h3>
+            <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>GIVEN SQUARE PLATE DIMENSIONS</h5>
+            <div className="dia">
+              <div className="dia_p_5">
+                <p className="p1">{d5}</p>
+              </div>
+
+              <div className="dia_p_6">
+                <p className="p1">{d6}</p>
+              </div>
+
+              <Image
+                src="/bottom_plate.jpeg"
+                alt="My Image"
+                width={imageWidth2}
+                height={imageheight2}
+                loading="eager"
+                priority
+                quality={80}
+              />
+            </div>
+          </div>
+        </div>
+
+
+        <h3 style={{ textAlign: 'center', marginTop: '10vh' }}>DEVELOPMENT OF LADLE BOX HORIZONTAL PLATE</h3>
+        <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>TRUNION BOX AND RESTING BOX</h5>
+        <div className="flex-all img_ladle" style={{ marginTop: '5vh' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Trunion Box Top Plate</h3>
+            <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>2 Nos</h5>
+            <div>
+
+              <Image
+
+                src="/lr.jpeg"
+                alt="My Image"
+                width={imageWidth3}
+                height={imageheight3}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+            </div>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Trunion Box Bottom Plate</h3>
+            <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>2 Nos</h5>
+            <div>
+
+              <Image
+
+                src="/lr.jpeg"
+                alt="My Image"
+                width={imageWidth3}
+                height={imageheight3}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+            </div>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Resting Box Bottom Plate</h3>
+            <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>2 Nos</h5>
+            <div>
+
+              <Image
+
+                src="/lr.jpeg"
+                alt="My Image"
+                width={imageWidth2}
+                height={imageheight3}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+            </div>
+          </div>
+        </div>
+
+        <h3 style={{ textAlign: 'center', marginTop: '10vh' }}>DEVELOPMENT OF LADLE BOX VERTICAL PLATE</h3>
+        <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>TRUNION BOX AND RESTING BOX</h5>
+        <div className="flex-all img_ladle" style={{ marginTop: '5vh' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Trunion Box Vertical Plates</h3>
+            <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>4 Nos</h5>
+            <div>
+
+              <Image
+
+                src="/Trunion.jpeg"
+                alt="My Image"
+                width={imageWidth2}
+                height={imageheight3}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+            </div>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Resting Box Vertical Plates</h3>
+            <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>4 Nos</h5>
+            <div>
+
+              <Image
+
+                src="/Trunion.jpeg"
+                alt="My Image"
+                width={imageWidth2}
+                height={imageheight3}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+            </div>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>CENTRE PLATE TRUNION PIN HOLD</h3>
+            <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>2 Nos</h5>
+            <div className="dia">
+              <div className="dia_p_7">
+                <p className="p1">{d7}</p>
+              </div>
+              <div className="dia_p_8">
+                <p className="p1">{d7}</p>
+              </div>
+
+              <Image
+
+                src="/gola.jpeg"
+                alt="My Image"
+                width={imageWidth2}
+                height={imageheight3}
+                loading="eager"   // Options: "eager", "lazy", or "auto"
+                priority          // Preload this image
+                quality={80}      // Set the image quality (0-100)
+              />
+            </div>
+          </div>
+        </div>
       </div>
+
+
       <div className="flex-all" style={{ flexDirection: 'column' }}>
         <div className={output_show ? "flex-all" : "dis"} style={{ marginBottom: '1vh' }}><button onClick={handleDownloadPDF} className="download_btn">Download PDF</button></div>
         <div className={output_show ? "flex-all" : "dis"} style={{ marginBottom: '8vh' }}><button onClick={reset} className="download_btn">Reset</button></div>

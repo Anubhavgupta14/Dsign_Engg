@@ -25,6 +25,7 @@ import { toast } from "react-toastify"
 
 const CC_machine = ({ authtoken }) => {
   const pdfRef = useRef();
+  const pdfRef2 = useRef();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.up("sm"));
   const [section, setSection] = useState("");
@@ -100,7 +101,7 @@ const CC_machine = ({ authtoken }) => {
   const [Ce, setCe] = useState(0);
   const [error_show, setError_show] = useState({
     section: false,
-    casting_speed:false,
+    casting_speed: false,
     oscl_stroke: false,
     viscosity_powder: false,
     heat_size: false,
@@ -135,8 +136,9 @@ const CC_machine = ({ authtoken }) => {
     // let v = document.querySelector(".error_ccm")
     // v.style.visibility = "initial"
     toast.error("Enter the required value")
-    setError_show({...error_show,section: true,
-      casting_speed:true,
+    setError_show({
+      ...error_show, section: true,
+      casting_speed: true,
       oscl_stroke: true,
       viscosity_powder: true,
       heat_size: true,
@@ -158,7 +160,8 @@ const CC_machine = ({ authtoken }) => {
       Ni: true,
       Cu: true,
       Mo: true,
-      Cr: true, })
+      Cr: true,
+    })
   }
 
   const fun2 = () => {
@@ -406,22 +409,30 @@ const CC_machine = ({ authtoken }) => {
   };
 
 
-  const handleDownloadPDF = () => {
-    const input = pdfRef.current;
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4', true);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      const imgWidth = canvas.width * 2;
-      const imgHeight = canvas.height * 2;
-      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-      const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 0;
-      pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
-      pdf.save('ccm.pdf')
-    });
-    toast.success("Successfully Calculated")
+  const handleDownloadPDF = async () => {
+
+    // Capture the first div to an image
+    const div1ImageData = await html2canvas(pdfRef.current);
+
+    // Capture the second div to an image
+    const div2ImageData = await html2canvas(pdfRef2.current);
+
+    // Create a new PDF document
+    const pdf = new jsPDF('p', 'mm', 'a4', true);
+
+    // Add the first image to the PDF document
+    pdf.addImage(div1ImageData, 'PNG', -20, 0, pdf.internal.pageSize.getWidth() + 40, pdf.internal.pageSize.getHeight());
+
+    // Add a new page to the PDF document
+    pdf.addPage();
+
+    // Add the second image to the PDF document
+    pdf.addImage(div2ImageData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+
+    // Save the PDF document
+    pdf.save('ccm.pdf');
+
+    toast.success("Successfully Downloaded")
   };
 
 
@@ -429,7 +440,7 @@ const CC_machine = ({ authtoken }) => {
     <div className="body_ccm" >
       <Navbar moveIndex={0} authtoken={authtoken} />
       <div ref={pdfRef} id="pdf">
-        <h2 className="head" style={{fontSize:'33px'}}>CCM Complete Solution</h2>
+        <h2 className="head" style={{ fontSize: '33px' }}>CCM Complete Solution</h2>
         <div className="ccm_desc">
           <p className="ccm_para">
             <span style={{ color: "#1081fc" }}>A Continuous Casting Machine (CCM)</span> is a state-of-the-art industrial apparatus integral to the metallurgical and manufacturing sectors. It transforms the production of metals, especially steel and non-ferrous alloys, by enabling a continuous and seamless casting process. Unlike traditional methods, CCMs do away with the need for multiple mold changes and reheating steps. Instead, molten metal is poured into a tundish and flows through a water-cooled mold, emerging as perfectly shaped products like slabs, billets, and blooms.
@@ -447,173 +458,173 @@ const CC_machine = ({ authtoken }) => {
                 >
                   <TableCell component="th" scope="row">
                     <div className="ok">
-                    <label className="label o">Section</label>
-                    <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      size="small"
-                      error={error_show.section && !section}
-                    >
-                      <InputLabel id="demo-select-small-label">
-                        Section
-                      </InputLabel>
-                      <Select
-                        labelId="demo-select-small-label"
-                        id="demo-select-small"
-                        value={section}
-                        label="Section"
-                        onChange={(e) => setSection(e.target.value)}
+                      <label className="label o">Section</label>
+                      <FormControl
+                        sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                        size="small"
+                        error={error_show.section && !section}
                       >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={"100x100"}>100x100</MenuItem>
-                        <MenuItem value={"110x110"}>110x110</MenuItem>
-                        <MenuItem value={"80x80"}>80x80</MenuItem>
-                        <MenuItem value={"120x120"}>120x120</MenuItem>
-                        <MenuItem value={"125x125"}>125x125</MenuItem>
-                        <MenuItem value={"130x130"}>130x130</MenuItem>
-                        <MenuItem value={"140x140"}>140x140</MenuItem>
-                        <MenuItem value={"150x150"}>150x150</MenuItem>
-                        <MenuItem value={"160x160"}>160x160</MenuItem>
-                        <MenuItem value={"200x200"}>200x200</MenuItem>
-                        <MenuItem value={"200x250"}>200x250</MenuItem>
-                        <MenuItem value={"250x250"}>250x250</MenuItem>
-                        <MenuItem value={"300x200"}>300x200</MenuItem>
-                        <MenuItem value={"400x200"}>400x200</MenuItem>
-                        <MenuItem value={"400x400"}>400x400</MenuItem>
-                      </Select>
-                    </FormControl>
+                        <InputLabel id="demo-select-small-label">
+                          Section
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={section}
+                          label="Section"
+                          onChange={(e) => setSection(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={"100x100"}>100x100</MenuItem>
+                          <MenuItem value={"110x110"}>110x110</MenuItem>
+                          <MenuItem value={"80x80"}>80x80</MenuItem>
+                          <MenuItem value={"120x120"}>120x120</MenuItem>
+                          <MenuItem value={"125x125"}>125x125</MenuItem>
+                          <MenuItem value={"130x130"}>130x130</MenuItem>
+                          <MenuItem value={"140x140"}>140x140</MenuItem>
+                          <MenuItem value={"150x150"}>150x150</MenuItem>
+                          <MenuItem value={"160x160"}>160x160</MenuItem>
+                          <MenuItem value={"200x200"}>200x200</MenuItem>
+                          <MenuItem value={"200x250"}>200x250</MenuItem>
+                          <MenuItem value={"250x250"}>250x250</MenuItem>
+                          <MenuItem value={"300x200"}>300x200</MenuItem>
+                          <MenuItem value={"400x200"}>400x200</MenuItem>
+                          <MenuItem value={"400x400"}>400x400</MenuItem>
+                        </Select>
+                      </FormControl>
                     </div>
                   </TableCell>
                   <TableCell component="th" scope="row">
-                  <div className="ok">
-                    <label className="label o1">Casting Speed(Mtr/Min)</label>
-                    <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      size="small"
-                      error={error_show.casting_speed && !casting_speed}
-                    >
-                      <InputLabel id="demo-select-small-label">
-                        Casting Speed
-                      </InputLabel>
-                      <Select
-                        labelId="demo-select-small-label"
-                        id="demo-select-small"
-                        value={casting_speed}
-                        label="Casting Speed"
-                        onChange={(e) => setCasting_speed(e.target.value)}
+                    <div className="ok">
+                      <label className="label o1">Casting Speed(Mtr/Min)</label>
+                      <FormControl
+                        sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                        size="small"
+                        error={error_show.casting_speed && !casting_speed}
                       >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={0.5}>0.5</MenuItem>
-                        <MenuItem value={0.6}>0.6</MenuItem>
-                        <MenuItem value={0.7}>0.7</MenuItem>
-                        <MenuItem value={0.8}>0.8</MenuItem>
-                        <MenuItem value={0.9}>0.9</MenuItem>
-                        <MenuItem value={1}>1</MenuItem>
-                        <MenuItem value={1.1}>1.1</MenuItem>
-                        <MenuItem value={1.2}>1.2</MenuItem>
-                        <MenuItem value={1.3}>1.3</MenuItem>
-                        <MenuItem value={1.4}>1.4</MenuItem>
-                        <MenuItem value={1.5}>1.5</MenuItem>
-                        <MenuItem value={1.6}>1.6</MenuItem>
-                        <MenuItem value={1.7}>1.7</MenuItem>
-                        <MenuItem value={1.8}>1.8</MenuItem>
-                        <MenuItem value={1.9}>1.9</MenuItem>
-                        <MenuItem value={2}>2</MenuItem>
-                        <MenuItem value={2.1}>2.1</MenuItem>
-                        <MenuItem value={2.2}>2.2</MenuItem>
-                        <MenuItem value={2.3}>2.3</MenuItem>
-                        <MenuItem value={2.4}>2.4</MenuItem>
-                        <MenuItem value={2.5}>2.5</MenuItem>
-                        <MenuItem value={2.6}>2.6</MenuItem>
-                        <MenuItem value={2.7}>2.7</MenuItem>
-                        <MenuItem value={2.8}>2.8</MenuItem>
-                        <MenuItem value={2.9}>2.9</MenuItem>
-                        <MenuItem value={3}>3</MenuItem>
-                        <MenuItem value={3.2}>3.2</MenuItem>
-                        <MenuItem value={3.6}>3.6</MenuItem>
-                        <MenuItem value={3.8}>3.8</MenuItem>
-                        <MenuItem value={4}>4</MenuItem>
-                      </Select>
-                    </FormControl>
+                        <InputLabel id="demo-select-small-label">
+                          Casting Speed
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={casting_speed}
+                          label="Casting Speed"
+                          onChange={(e) => setCasting_speed(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={0.5}>0.5</MenuItem>
+                          <MenuItem value={0.6}>0.6</MenuItem>
+                          <MenuItem value={0.7}>0.7</MenuItem>
+                          <MenuItem value={0.8}>0.8</MenuItem>
+                          <MenuItem value={0.9}>0.9</MenuItem>
+                          <MenuItem value={1}>1</MenuItem>
+                          <MenuItem value={1.1}>1.1</MenuItem>
+                          <MenuItem value={1.2}>1.2</MenuItem>
+                          <MenuItem value={1.3}>1.3</MenuItem>
+                          <MenuItem value={1.4}>1.4</MenuItem>
+                          <MenuItem value={1.5}>1.5</MenuItem>
+                          <MenuItem value={1.6}>1.6</MenuItem>
+                          <MenuItem value={1.7}>1.7</MenuItem>
+                          <MenuItem value={1.8}>1.8</MenuItem>
+                          <MenuItem value={1.9}>1.9</MenuItem>
+                          <MenuItem value={2}>2</MenuItem>
+                          <MenuItem value={2.1}>2.1</MenuItem>
+                          <MenuItem value={2.2}>2.2</MenuItem>
+                          <MenuItem value={2.3}>2.3</MenuItem>
+                          <MenuItem value={2.4}>2.4</MenuItem>
+                          <MenuItem value={2.5}>2.5</MenuItem>
+                          <MenuItem value={2.6}>2.6</MenuItem>
+                          <MenuItem value={2.7}>2.7</MenuItem>
+                          <MenuItem value={2.8}>2.8</MenuItem>
+                          <MenuItem value={2.9}>2.9</MenuItem>
+                          <MenuItem value={3}>3</MenuItem>
+                          <MenuItem value={3.2}>3.2</MenuItem>
+                          <MenuItem value={3.6}>3.6</MenuItem>
+                          <MenuItem value={3.8}>3.8</MenuItem>
+                          <MenuItem value={4}>4</MenuItem>
+                        </Select>
+                      </FormControl>
                     </div>
                   </TableCell>
 
                   <TableCell component="th" scope="row">
-                  <div className="ok">
-                    <label className="label o">Oscl. Stroke(MM)</label>
-                    <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      size="small"
-                      error={error_show.oscl_stroke && !oscl_stroke}
-                    >
-                      <InputLabel id="demo-select-small-label">
-                        Oscl. Stroke
-                      </InputLabel>
-                      <Select
-                        labelId="demo-select-small-label"
-                        id="demo-select-small"
-                        value={oscl_stroke}
-                        label="Oscl. Stroke"
-                        onChange={(e) => setOscl_stroke(e.target.value)}
+                    <div className="ok">
+                      <label className="label o">Oscl. Stroke(MM)</label>
+                      <FormControl
+                        sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                        size="small"
+                        error={error_show.oscl_stroke && !oscl_stroke}
                       >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={6}>6</MenuItem>
-                        <MenuItem value={7}>7</MenuItem>
-                        <MenuItem value={8}>8</MenuItem>
-                        <MenuItem value={9}>9</MenuItem>
-                        <MenuItem value={10}>10</MenuItem>
-                        <MenuItem value={11}>11</MenuItem>
-                        <MenuItem value={12}>12</MenuItem>
-                        <MenuItem value={13}>13</MenuItem>
-                        <MenuItem value={14}>14</MenuItem>
-                        <MenuItem value={15}>15</MenuItem>
-                        <MenuItem value={16}>16</MenuItem>
-                        <MenuItem value={17}>17</MenuItem>
-                        <MenuItem value={18}>18</MenuItem>
-                      </Select>
-                    </FormControl>
+                        <InputLabel id="demo-select-small-label">
+                          Oscl. Stroke
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={oscl_stroke}
+                          label="Oscl. Stroke"
+                          onChange={(e) => setOscl_stroke(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={6}>6</MenuItem>
+                          <MenuItem value={7}>7</MenuItem>
+                          <MenuItem value={8}>8</MenuItem>
+                          <MenuItem value={9}>9</MenuItem>
+                          <MenuItem value={10}>10</MenuItem>
+                          <MenuItem value={11}>11</MenuItem>
+                          <MenuItem value={12}>12</MenuItem>
+                          <MenuItem value={13}>13</MenuItem>
+                          <MenuItem value={14}>14</MenuItem>
+                          <MenuItem value={15}>15</MenuItem>
+                          <MenuItem value={16}>16</MenuItem>
+                          <MenuItem value={17}>17</MenuItem>
+                          <MenuItem value={18}>18</MenuItem>
+                        </Select>
+                      </FormControl>
                     </div>
                   </TableCell>
 
                   <TableCell align="left">
-                  <div className="ok">
-                    <label className="label">(dpa.s)</label>
-                    <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      size="small"
-                      error={error_show.viscosity_powder && !viscosity_powder}
-                    >
-                      <InputLabel id="demo-select-small-label">
-                        Viscosity Powder
-                      </InputLabel>
-                      <Select
-                        labelId="demo-select-small-label"
-                        id="demo-select-small"
-                        value={viscosity_powder}
-                        label="Viscosity Powder"
-                        onChange={(e) => setViscosity_powder(e.target.value)}
+                    <div className="ok">
+                      <label className="label">(dpa.s)</label>
+                      <FormControl
+                        sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                        size="small"
+                        error={error_show.viscosity_powder && !viscosity_powder}
                       >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={0.94}>0.94</MenuItem>
-                        <MenuItem value={0.27}>0.27</MenuItem>
-                        <MenuItem value={0.1}>0.1</MenuItem>
-                        <MenuItem value={0.15}>0.15</MenuItem>
-                        <MenuItem value={0.24}>0.24</MenuItem>
-                        <MenuItem value={1.3}>1.3</MenuItem>
-                        <MenuItem value={0.99}>0.99</MenuItem>
-                      </Select>
-                    </FormControl>
+                        <InputLabel id="demo-select-small-label">
+                          Viscosity Powder
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={viscosity_powder}
+                          label="Viscosity Powder"
+                          onChange={(e) => setViscosity_powder(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={0.94}>0.94</MenuItem>
+                          <MenuItem value={0.27}>0.27</MenuItem>
+                          <MenuItem value={0.1}>0.1</MenuItem>
+                          <MenuItem value={0.15}>0.15</MenuItem>
+                          <MenuItem value={0.24}>0.24</MenuItem>
+                          <MenuItem value={1.3}>1.3</MenuItem>
+                          <MenuItem value={0.99}>0.99</MenuItem>
+                        </Select>
+                      </FormControl>
                     </div>
                   </TableCell>
-                  
-                  
+
+
 
 
                 </TableRow>
@@ -623,119 +634,119 @@ const CC_machine = ({ authtoken }) => {
                 >
                   <TableCell component="th" scope="row">
                     <div className="ok">
-                    <label className="label o">Heat Size(MT)</label>
-                    <TextField
-                      required
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      className="textfield"
-                      id="outlined-number"
-                      label="Heat Size"
-                      size="small"
-                      variant="outlined"
-                      error={error_show.heat_size && !heat_size}
-                      type="number"
-                      onChange={(e) => setHeat_size(e.target.value)}
-                    />
+                      <label className="label o">Heat Size(MT)</label>
+                      <TextField
+                        required
+                        sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                        className="textfield"
+                        id="outlined-number"
+                        label="Heat Size"
+                        size="small"
+                        variant="outlined"
+                        error={error_show.heat_size && !heat_size}
+                        type="number"
+                        onChange={(e) => setHeat_size(e.target.value)}
+                      />
                     </div>
                   </TableCell>
                   <TableCell align="left">
-                  <div className="ok">
-                    <label className="label o">Nos. of Strand</label>
-                    <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      size="small"
-                      error={error_show.no_of_strands && !no_of_strands}
-                    >
-                      <InputLabel id="demo-select-small-label">
-                        Nos. of Strands
-                      </InputLabel>
-                      <Select
-                        labelId="demo-select-small-label"
-                        id="demo-select-small"
-                        value={no_of_strands}
-                        label="Nos. of Strands"
-                        onChange={(e) => setNo_of_strands(e.target.value)}
+                    <div className="ok">
+                      <label className="label o">Nos. of Strand</label>
+                      <FormControl
+                        sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                        size="small"
+                        error={error_show.no_of_strands && !no_of_strands}
                       >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={1}>1</MenuItem>
-                        <MenuItem value={2}>2</MenuItem>
-                        <MenuItem value={3}>3</MenuItem>
-                        <MenuItem value={4}>4</MenuItem>
-                      </Select>
-                    </FormControl>
+                        <InputLabel id="demo-select-small-label">
+                          Nos. of Strands
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={no_of_strands}
+                          label="Nos. of Strands"
+                          onChange={(e) => setNo_of_strands(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={1}>1</MenuItem>
+                          <MenuItem value={2}>2</MenuItem>
+                          <MenuItem value={3}>3</MenuItem>
+                          <MenuItem value={4}>4</MenuItem>
+                        </Select>
+                      </FormControl>
                     </div>
                   </TableCell>
                   <TableCell component="th" scope="row">
-                  <div className="ok">
-                    <label className="label o">Negative Strip(%)</label>
-                    <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      size="small"
-                      error={error_show.negative_strip && !negative_strip}
-                    >
-                      <InputLabel id="demo-select-small-label">
-                        Negative Strip(%)
-                      </InputLabel>
-                      <Select
-                        labelId="demo-select-small-label"
-                        id="demo-select-small"
-                        value={negative_strip}
-                        label="Negative Strip"
-                        onChange={(e) => setNegative_strip(e.target.value)}
+                    <div className="ok">
+                      <label className="label o">Negative Strip(%)</label>
+                      <FormControl
+                        sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                        size="small"
+                        error={error_show.negative_strip && !negative_strip}
                       >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={0.26}>0.26</MenuItem>
-                        <MenuItem value={0.27}>0.27</MenuItem>
-                        <MenuItem value={0.28}>0.28</MenuItem>
-                        <MenuItem value={0.29}>0.29</MenuItem>
-                        <MenuItem value={0.3}>0.3</MenuItem>
-                        <MenuItem value={0.31}>0.31</MenuItem>
-                        <MenuItem value={0.32}>0.32</MenuItem>
-                        <MenuItem value={0.33}>0.33</MenuItem>
-                      </Select>
-                    </FormControl>
+                        <InputLabel id="demo-select-small-label">
+                          Negative Strip(%)
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={negative_strip}
+                          label="Negative Strip"
+                          onChange={(e) => setNegative_strip(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={0.26}>0.26</MenuItem>
+                          <MenuItem value={0.27}>0.27</MenuItem>
+                          <MenuItem value={0.28}>0.28</MenuItem>
+                          <MenuItem value={0.29}>0.29</MenuItem>
+                          <MenuItem value={0.3}>0.3</MenuItem>
+                          <MenuItem value={0.31}>0.31</MenuItem>
+                          <MenuItem value={0.32}>0.32</MenuItem>
+                          <MenuItem value={0.33}>0.33</MenuItem>
+                        </Select>
+                      </FormControl>
                     </div>
                   </TableCell>
-                  
+
                   <TableCell component="th" scope="row">
-                  <div className="ok">
-                    <label className="label o">Metal Density</label>
-                    <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      size="small"
-                      error={error_show.specific_value2 && !specific_value2}
-                    >
-                      <InputLabel id="demo-select-small-label">
-                        Metal Density
-                      </InputLabel>
-                      <Select
-                        labelId="demo-select-small-label"
-                        id="demo-select-small"
-                        value={specific_value2}
-                        label="Metal Density"
-                        onChange={(e) => setSpecific_value2(e.target.value)}
+                    <div className="ok">
+                      <label className="label o">Metal Density</label>
+                      <FormControl
+                        sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                        size="small"
+                        error={error_show.specific_value2 && !specific_value2}
                       >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={7.65}>7.65</MenuItem>
-                        <MenuItem value={7.66}>7.66</MenuItem>
-                        <MenuItem value={7.68}>7.68</MenuItem>
-                        <MenuItem value={7.7}>7.70</MenuItem>
-                        <MenuItem value={7.72}>7.72</MenuItem>
-                        <MenuItem value={7.74}>7.74</MenuItem>
-                        <MenuItem value={7.76}>7.76</MenuItem>
-                        <MenuItem value={7.78}>7.78</MenuItem>
-                        <MenuItem value={7.8}>7.80</MenuItem>
-                        <MenuItem value={7.82}>7.82</MenuItem>
-                        <MenuItem value={7.84}>7.84</MenuItem>
-                        <MenuItem value={7.86}>7.86</MenuItem>
-                      </Select>
-                    </FormControl>
+                        <InputLabel id="demo-select-small-label">
+                          Metal Density
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={specific_value2}
+                          label="Metal Density"
+                          onChange={(e) => setSpecific_value2(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={7.65}>7.65</MenuItem>
+                          <MenuItem value={7.66}>7.66</MenuItem>
+                          <MenuItem value={7.68}>7.68</MenuItem>
+                          <MenuItem value={7.7}>7.70</MenuItem>
+                          <MenuItem value={7.72}>7.72</MenuItem>
+                          <MenuItem value={7.74}>7.74</MenuItem>
+                          <MenuItem value={7.76}>7.76</MenuItem>
+                          <MenuItem value={7.78}>7.78</MenuItem>
+                          <MenuItem value={7.8}>7.80</MenuItem>
+                          <MenuItem value={7.82}>7.82</MenuItem>
+                          <MenuItem value={7.84}>7.84</MenuItem>
+                          <MenuItem value={7.86}>7.86</MenuItem>
+                        </Select>
+                      </FormControl>
                     </div>
                   </TableCell>
 
@@ -744,39 +755,39 @@ const CC_machine = ({ authtoken }) => {
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   hover
                 >
-                  
+
                   <TableCell component="th" scope="row">
-                  <div className="ok">
-                    <label className="label o">Constant</label>
-                    <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      size="small"
-                      error={error_show.constant && !constant}
-                    >
-                      <InputLabel id="demo-select-small-label">
-                        Constant
-                      </InputLabel>
-                      <Select
-                        labelId="demo-select-small-label"
-                        id="demo-select-small"
-                        value={constant}
-                        label="Constant"
-                        onChange={(e) => setConstant(e.target.value)}
+                    <div className="ok">
+                      <label className="label o">Constant</label>
+                      <FormControl
+                        sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                        size="small"
+                        error={error_show.constant && !constant}
                       >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={22}>22</MenuItem>
-                        <MenuItem value={23}>23</MenuItem>
-                        <MenuItem value={24}>24</MenuItem>
-                        <MenuItem value={25}>25</MenuItem>
-                        <MenuItem value={26}>26</MenuItem>
-                        <MenuItem value={27}>27</MenuItem>
-                        <MenuItem value={28}>28</MenuItem>
-                        <MenuItem value={29}>29</MenuItem>
-                        <MenuItem value={30}>30</MenuItem>
-                      </Select>
-                    </FormControl>
+                        <InputLabel id="demo-select-small-label">
+                          Constant
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={constant}
+                          label="Constant"
+                          onChange={(e) => setConstant(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={22}>22</MenuItem>
+                          <MenuItem value={23}>23</MenuItem>
+                          <MenuItem value={24}>24</MenuItem>
+                          <MenuItem value={25}>25</MenuItem>
+                          <MenuItem value={26}>26</MenuItem>
+                          <MenuItem value={27}>27</MenuItem>
+                          <MenuItem value={28}>28</MenuItem>
+                          <MenuItem value={29}>29</MenuItem>
+                          <MenuItem value={30}>30</MenuItem>
+                        </Select>
+                      </FormControl>
                     </div>
                   </TableCell>
                   <TableCell component="th" scope="row">
@@ -823,31 +834,31 @@ const CC_machine = ({ authtoken }) => {
                     </div>
                   </TableCell>
                   <TableCell component="th" scope="row">
-                  <div className="ok">
-                    <label className="label o">Nozzle Degree</label>
-                    <FormControl
-                      sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                      size="small"
-                      error={error_show.nozzle_degree && !nozzle_degree}
-                    >
-                      <InputLabel id="demo-select-small-label">
-                        Nozzle Degree
-                      </InputLabel>
-                      <Select
-                        labelId="demo-select-small-label"
-                        id="demo-select-small"
-                        value={nozzle_degree}
-                        label="Nozzle Degree"
-                        onChange={(e) => setNozzle_degree(e.target.value)}
+                    <div className="ok">
+                      <label className="label o">Nozzle Degree</label>
+                      <FormControl
+                        sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                        size="small"
+                        error={error_show.nozzle_degree && !nozzle_degree}
                       >
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={65}>65</MenuItem>
-                        <MenuItem value={80}>80</MenuItem>
-                        <MenuItem value={110}>110</MenuItem>
-                      </Select>
-                    </FormControl>
+                        <InputLabel id="demo-select-small-label">
+                          Nozzle Degree
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={nozzle_degree}
+                          label="Nozzle Degree"
+                          onChange={(e) => setNozzle_degree(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={65}>65</MenuItem>
+                          <MenuItem value={80}>80</MenuItem>
+                          <MenuItem value={110}>110</MenuItem>
+                        </Select>
+                      </FormControl>
                     </div>
                   </TableCell>
                 </TableRow>
@@ -908,7 +919,7 @@ const CC_machine = ({ authtoken }) => {
             />
           </div>
         </div>
-        
+
         <h2 className="head_cc">Tundish Nozzle, CE Ratio & Liquidus Temp. Calculations</h2>
         <div className="tab_container_output">
           <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
@@ -986,7 +997,7 @@ const CC_machine = ({ authtoken }) => {
                       />
                     </div>
                   </TableCell>
-                  
+
 
                 </TableRow>
 
@@ -1125,32 +1136,35 @@ const CC_machine = ({ authtoken }) => {
             </Table>
           </TableContainer>
         </div>
+      </div>
 
-        <div className="main_btn">
-          <Stack spacing={2} direction="row">
-            <button
-              onClick={() => {
-                if (isdisable) {
-                  fun();
-                }
-                else {
-                  result();
-                }
-              }}
-              className="button btn_res"
+      <div className="main_btn">
+        <Stack spacing={2} direction="row">
+          <button
+            onClick={() => {
+              if (isdisable) {
+                fun();
+              }
+              else {
+                result();
+              }
+            }}
+            className="button btn_res"
 
-            >
-              Calculate
-            </button>
+          >
+            Calculate
+          </button>
 
-          </Stack>
-          {/* <p className="error_ccm">{error}</p> */}
+        </Stack>
+        {/* <p className="error_ccm">{error}</p> */}
 
 
-        </div>
+      </div>
+
+      <div ref={pdfRef2}>
         {/* output */}
         <div className={showoutput ? "" : "dis"}>
-          <h2 className="head_cc" style={{fontSize:'33px'}}>Output</h2>
+          <h2 className="head_cc" style={{ fontSize: '33px' }}>Output</h2>
           <h2 className="head_cc">Concast Data</h2>
           <div className="tab_container_main">
             <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
@@ -1200,7 +1214,7 @@ const CC_machine = ({ authtoken }) => {
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     hover
                   >
-                    
+
                     <TableCell align="left">
                       <label className="label">Throughput(kg/Min)</label>
                       <div className="out_box">
@@ -1233,13 +1247,13 @@ const CC_machine = ({ authtoken }) => {
                         </p>
                       </div>
                     </TableCell>
-                    
+
                   </TableRow>
 
                   <TableRow
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     hover
-                  >                  
+                  >
                     <TableCell align="left">
                       <label className="label">Secondary Water(Lpm)</label>
                       <div className="out_box">
@@ -1275,10 +1289,10 @@ const CC_machine = ({ authtoken }) => {
                         <label className="zone">Zone 3</label>
                       </div>
                     </TableCell>
-                    
+
                   </TableRow>
-                  
-                  
+
+
 
                   <TableRow
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -1318,8 +1332,8 @@ const CC_machine = ({ authtoken }) => {
                       </div>
                     </TableCell>
 
-                    
-                    
+
+
                   </TableRow>
                   <TableRow
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -1567,7 +1581,7 @@ const CC_machine = ({ authtoken }) => {
             </TableContainer>
           </div>
           <h2 className="head_cc">Tundish Nozzle, CE Ratio & Liquidus Temp. Calculations</h2>
-          <div className= "tab_container_output">
+          <div className="tab_container_output">
             <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
               <Table sx={{ minWidth: 150 }} aria-label="simple table">
                 <TableBody>
@@ -1577,7 +1591,7 @@ const CC_machine = ({ authtoken }) => {
                   >
 
                     <TableCell align="left">
-                    <label className="label">Max. Flow</label>
+                      <label className="label">Max. Flow</label>
                       <div className="out_box">
                         <p style={{ color: "rgb(100,100,100)", padding: "10px" }}>
                           {out_kgpermin}Kg/Min
@@ -1606,7 +1620,7 @@ const CC_machine = ({ authtoken }) => {
                   </TableRow>
                   <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     hover>
-                  <TableCell component="th" scope="row">
+                    <TableCell component="th" scope="row">
                       <div className="ok">
                         <label className="label">CE%</label>
                         <div className="out_box">
@@ -1631,9 +1645,10 @@ const CC_machine = ({ authtoken }) => {
               </Table>
             </TableContainer>
           </div>
-          
+
         </div>
       </div>
+
       <div style={{ textAlign: 'center', marginBottom: '1vh' }} className={showoutput ? "" : "dis"}><button onClick={handleDownloadPDF} className="download_btn">Download PDF</button></div>
       <div style={{ textAlign: 'center', marginBottom: '5vh' }} className={showoutput ? "" : "dis"}><button onClick={fun2} className="download_btn">Reset</button></div>
       <Footer />
