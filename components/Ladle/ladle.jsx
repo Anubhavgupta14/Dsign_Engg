@@ -33,7 +33,6 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -168,6 +167,10 @@ const Ladlecalculator = ({ authtoken }) => {
   const [d14, setd14] = useState(null);
   const [d15, setd15] = useState(null);
   const [d16, setd16] = useState(null);
+  const [k,setK] = useState(25);
+  const [k2,setK2] = useState(50);
+  const [k3,setK3] = useState(0);
+  const [k4,setK4] = useState(0);
   const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
   const [error_show, seterror_show] = useState({
@@ -656,13 +659,27 @@ const Ladlecalculator = ({ authtoken }) => {
     const pdf = new jsPDF('p', 'mm', 'a4', true);
 
     // Add the first image to the PDF document
-    pdf.addImage(div1ImageData, 'PNG', 25, 0, pdf.internal.pageSize.getWidth()-50, pdf.internal.pageSize.getHeight());
+    if(!isMobile){
+      setK(80);
+      setK2(140);
+      setK3(80);
+      setK4(150)
+      console.log(k,k2,k3,k4)
+    }
+    else{
+      setK(25)
+      setK2(50)
+      setK3(0)
+      setK4(0)
+      console.log(k,k2,k3,k4)
+    }
+    pdf.addImage(div1ImageData, 'PNG', k, 0, pdf.internal.pageSize.getWidth()-k2, pdf.internal.pageSize.getHeight());
 
     // Add a new page to the PDF document
     pdf.addPage();
 
     // Add the second image to the PDF document
-    pdf.addImage(div2ImageData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+    pdf.addImage(div2ImageData, 'PNG', k3, 0, pdf.internal.pageSize.getWidth()-k4, pdf.internal.pageSize.getHeight());
 
     // Save the PDF document
     pdf.save('ladle.pdf');
@@ -735,7 +752,7 @@ const Ladlecalculator = ({ authtoken }) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} className="cal_width">
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Are you sure ?
           </Typography>

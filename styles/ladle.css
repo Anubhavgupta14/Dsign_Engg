@@ -348,7 +348,9 @@ p {
     top: 100%;
     left: 50%;
 }
-
+.cal_width{
+  width: 400;
+}
 
 
 
@@ -416,6 +418,9 @@ p {
   .dia12{
     top: -17%;
     left: 41%;
+  }
+  .cal_width{
+    width: 200;
   }
 }
 
