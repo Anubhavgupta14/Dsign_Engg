@@ -129,7 +129,7 @@
  .navbar-right {
         width: 100%;
         height: 200vh;
-        background-color: #008dd4;
+        background-color: #f9fbfc;
         transition: all 0.5s ease-in-out;
         left: 0%;
         /* right: 2vw; */
@@ -143,7 +143,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        /* width: 100%; */
         /* height: 100vh; */
         /* background: rgb(202 202 202 / 90%); */
         position: absolute;

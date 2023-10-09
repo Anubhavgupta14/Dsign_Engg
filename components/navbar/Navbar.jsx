@@ -131,7 +131,7 @@ const Navbar = ({ authtoken }) => {
 
 
         <div className={click ? "navbar-right" : "navbar-right display-none"}>
-          <div className="navrel pos-rel res" style={{backgroundColor:'#f9fbfc'}}>
+          <div className="navrel pos-rel res" style={{backgroundColor:'#f9fbfc', width:'100%'}}>
             <Link href={"/"}>
               <div className="nav nav1" style={{backgroundColor:'#f9fbfc'}}>Home</div>
             </Link>
