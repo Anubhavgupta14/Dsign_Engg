@@ -2002,7 +2002,7 @@ const Ladlecalculator = ({ authtoken }) => {
           </div>
         </div>
       </div>
-      <div ref={div2Ref} id="pdf">
+      <div ref={div2Ref} id="pdf" className={output_show?"":"dis"}>
         {/* Diagrams */}
         <h2 className="head_cc" style={{ marginBottom: '5vh' }}>Graphical Models</h2>
 
