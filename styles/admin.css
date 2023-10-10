@@ -8,6 +8,17 @@
     background-color: #f9fbfc;
     padding-bottom: 10vh;
 }
+.notfound{
+    padding-top: 40vh;
+    background-color: #f9fbfc;
+}
+.notfound_h{
+    padding-bottom: 1vh;
+    text-align: center;
+}
+.notfound_p{
+    padding-bottom: 50vh;
+}
 .expanded-row {
     height: auto !important;
     overflow: visible !important;
