@@ -43,6 +43,7 @@ const Ladlecalculator = ({ authtoken }) => {
   const pdfRef = useRef();
   const div1Ref = useRef();
   const div2Ref = useRef();
+  const div3Ref = useRef();
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.up("sm"));
@@ -167,10 +168,10 @@ const Ladlecalculator = ({ authtoken }) => {
   const [d14, setd14] = useState(null);
   const [d15, setd15] = useState(null);
   const [d16, setd16] = useState(null);
-  const [k,setK] = useState(25);
-  const [k2,setK2] = useState(50);
-  const [k3,setK3] = useState(0);
-  const [k4,setK4] = useState(0);
+  const [k, setK] = useState(25);
+  const [k2, setK2] = useState(50);
+  const [k3, setK3] = useState(0);
+  const [k4, setK4] = useState(0);
   const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
   const [error_show, seterror_show] = useState({
@@ -654,32 +655,35 @@ const Ladlecalculator = ({ authtoken }) => {
 
     // Capture the second div to an image
     const div2ImageData = await html2canvas(div2Ref.current);
+    const div3ImageData = await html2canvas(div3Ref.current);
 
     // Create a new PDF document
     const pdf = new jsPDF('p', 'mm', 'a4', true);
 
     // Add the first image to the PDF document
-    if(!isMobile){
+    if (!isMobile) {
       setK(80);
       setK2(140);
       setK3(80);
       setK4(150)
-      console.log(k,k2,k3,k4)
+      console.log(k, k2, k3, k4)
     }
-    else{
-      setK(25)
-      setK2(50)
+    else {
+      setK(5)
+      setK2(0)
       setK3(0)
       setK4(0)
-      console.log(k,k2,k3,k4)
+      console.log(k, k2, k3, k4)
     }
-    pdf.addImage(div1ImageData, 'PNG', k, 0, pdf.internal.pageSize.getWidth()-k2, pdf.internal.pageSize.getHeight());
+    pdf.addImage(div1ImageData, 'PNG', k, 0, pdf.internal.pageSize.getWidth() - k2, pdf.internal.pageSize.getHeight());
 
     // Add a new page to the PDF document
     pdf.addPage();
 
     // Add the second image to the PDF document
-    pdf.addImage(div2ImageData, 'PNG', k3, 0, pdf.internal.pageSize.getWidth()-k4, pdf.internal.pageSize.getHeight());
+    pdf.addImage(div2ImageData, 'PNG', k3, 0, pdf.internal.pageSize.getWidth() - k4, pdf.internal.pageSize.getHeight());
+    pdf.addPage();
+    pdf.addImage(div3ImageData, 'PNG', k3, 0, pdf.internal.pageSize.getWidth() - k4, pdf.internal.pageSize.getHeight());
 
     // Save the PDF document
     pdf.save('ladle.pdf');
@@ -1651,28 +1655,32 @@ const Ladlecalculator = ({ authtoken }) => {
         </div>
         <br />
         <br />
+      </div>
 
-        <div className="btns_ladle">
-          <div className="row4_ladle">
-            <Stack spacing={2} direction="row">
-              <button
-                onClick={() => {
-                  if (isdisabled) {
-                    fun();
-                  }
-                  else {
-                    handleOpen();
-                  }
-                }}
-                className="button_ladle"
-              >
-                Calculate
-              </button>
-            </Stack>
-            <p className="error_ccm">{error}</p>
-          </div>
-
+      <div className="btns_ladle">
+        <div className="row4_ladle">
+          <Stack spacing={2} direction="row">
+            <button
+              onClick={() => {
+                if (isdisabled) {
+                  fun();
+                }
+                else {
+                  handleOpen();
+                }
+              }}
+              className="button_ladle"
+            >
+              Calculate
+            </button>
+          </Stack>
+          <p className="error_ccm">{error}</p>
         </div>
+
+      </div>
+
+
+      <div ref={div2Ref}>
 
 
         {/* Output screen */}
@@ -2019,7 +2027,8 @@ const Ladlecalculator = ({ authtoken }) => {
           </div>
         </div>
       </div>
-      <div ref={div2Ref} id="pdf" className={output_show?"":"dis"}>
+
+      <div ref={div3Ref} id="pdf" className={output_show ? "" : "dis"}>
         {/* Diagrams */}
         <h2 className="head_cc" style={{ marginBottom: '5vh' }}>Graphical Models</h2>
 

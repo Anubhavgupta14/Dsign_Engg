@@ -868,7 +868,7 @@ const CC_machine = ({ authtoken }) => {
         </div>
 
 
-        <h2 className="head_cc">Secondary Spray Nozzle Calculations</h2>
+        <h2 className="head_cc">Tundish Nozzle Calculations</h2>
         <div className="tundish">
           <div className="ok">
             <label className="label o">Nozzle Dia(mm)</label>
