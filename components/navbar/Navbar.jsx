@@ -243,7 +243,7 @@ const Navbar = ({ authtoken }) => {
         <div className="drop-details">
           <h2>AOD Vessel Calculator</h2>
           <p>Our AOD Converter Calculator is a vital asset for professionals in the stainless steel refining industry.</p>
-          <Link href="/"><button className="button">Try Now</button></Link>
+          <Link href="/Aod"><button className="button">Try Now</button></Link>
         </div>
       </div>
     </nav>
