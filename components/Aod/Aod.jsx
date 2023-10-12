@@ -77,6 +77,33 @@ const Ladlecalculator = ({ authtoken }) => {
     useState(null);
   const [vessel_flanges_distance, Setvessel_flanges_distance] = useState(null);
   const [width_of_trunion_flange, Setwidth_of_trunion_flange] = useState(null);
+  const [size1_t, Setsize1_t] = useState(null);
+  const [size1_s, Setsize1_s] = useState(null);
+  const [size1_l, Setsize1_l] = useState(null);
+  const [size2_t, Setsize2_t] = useState(null);
+  const [size2_s, Setsize2_s] = useState(null);
+  const [size2_l, Setsize2_l] = useState(null);
+  const [size3_t, Setsize3_t] = useState(null);
+  const [size3_s, Setsize3_s] = useState(null);
+  const [size3_l, Setsize3_l] = useState(null);
+  const [size4_t, Setsize4_t] = useState(null);
+  const [size4_s, Setsize4_s] = useState(null);
+  const [size4_l, Setsize4_l] = useState(null);
+  const [safety_lining_length_t, Setsafety_lining_length_t] = useState(null);
+  const [safety_lining_length_s, Setsafety_lining_length_s] = useState(null);
+  const [degree_lining_for_trapping_t, Setdegree_lining_for_trapping_t] = useState(null);
+  const [top_cone_lining, Settop_cone_lining] = useState(null);
+  const [bottom_cone_side_lining_brick_length, Setbottom_cone_side_lining_brick_length] = useState(null);
+  const [bottom_cone_bottom_lining_brick_length, Setbottom_cone_bottom_lining_brick_length] = useState(null);
+  const [bottom_cone_safety_lining_brick_length, Setbottom_cone_safety_lining_brick_length] = useState(null);
+  const [bricks_std_width, Setbricks_std_width] = useState(null);
+  const [bricks_std_height, Setbricks_std_height] = useState(null);
+  const [density_of_bricks, Setdensity_of_bricks] = useState(null);
+  const [safety_bricks_width, Setsafety_bricks_width] = useState(null)
+  const [safety_bricks_height, Setsafety_bricks_height] = useState(null)
+
+
+
 
   const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
@@ -611,7 +638,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Vessel Cylindrical Shell
@@ -648,7 +675,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Vessel Top Cone
@@ -683,7 +710,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Vessel Bottom Cone
@@ -720,7 +747,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Cylindrical Shell Flange
@@ -763,7 +790,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Top Cone Flange
@@ -798,7 +825,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Top Cone Protection Flange
@@ -835,7 +862,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Disc End
@@ -866,41 +893,22 @@ const Ladlecalculator = ({ authtoken }) => {
                         </FormControl>
                       </TableCell>
 
-                      <TableCell sx={{ textAlign: "center" }}>
-                        <FormControl
-                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
-                          size="small"
-                          // error={error_show.thickness4 && !thickness4}
-                        >
-                          <InputLabel id="demo-select-small-label">
-                            Width of Vessel Flange
-                          </InputLabel>
-                          <Select
-                            labelId="demo-select-small-label"
-                            id="demo-select-small"
-                            value={width_of_vessel_flange}
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
                             label="Width of Vessel Flange"
-                            onChange={(e) =>
-                              Setwidth_of_vessel_flange(e.target.value)
-                            }
-                          >
-                            <MenuItem value="">
-                              <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
-                            <MenuItem value={16}>16</MenuItem>
-                            <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
-                            <MenuItem value={25}>25</MenuItem>
-                            <MenuItem value={32}>32</MenuItem>
-                            <MenuItem value={36}>36</MenuItem>
-                            <MenuItem value={40}>40</MenuItem>
-                            <MenuItem value={45}>45</MenuItem>
-                            <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
-                          </Select>
-                        </FormControl>
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setwidth_of_vessel_flange(e.target.value)}
+                          />
+                        </div>
                       </TableCell>
                     </TableRow>
 
@@ -910,48 +918,29 @@ const Ladlecalculator = ({ authtoken }) => {
                       tabIndex={-1}
                       sx={{ maxHeight: "10px" }}
                     >
-                      <TableCell sx={{ textAlign: "center" }}>
-                        <FormControl
-                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
-                          size="small"
-                          // error={error_show.thickness4 && !thickness4}
-                        >
-                          <InputLabel id="demo-select-small-label">
-                            Width of Cone Flange
-                          </InputLabel>
-                          <Select
-                            labelId="demo-select-small-label"
-                            id="demo-select-small"
-                            value={width_of_cone_flange}
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
                             label="Width of Cone Flange"
-                            onChange={(e) =>
-                              Setwidth_of_cone_flange(e.target.value)
-                            }
-                          >
-                            <MenuItem value="">
-                              <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
-                            <MenuItem value={16}>16</MenuItem>
-                            <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
-                            <MenuItem value={25}>25</MenuItem>
-                            <MenuItem value={32}>32</MenuItem>
-                            <MenuItem value={36}>36</MenuItem>
-                            <MenuItem value={40}>40</MenuItem>
-                            <MenuItem value={45}>45</MenuItem>
-                            <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
-                          </Select>
-                        </FormControl>
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setwidth_of_cone_flange(e.target.value)}
+                          />
+                        </div>
                       </TableCell>
 
                       <TableCell sx={{ textAlign: "center" }}>
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Stiffner Cyl. Flange
@@ -988,7 +977,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Stiffner Top Cone Flange
@@ -1025,7 +1014,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Lifting Hook
@@ -1063,13 +1052,13 @@ const Ladlecalculator = ({ authtoken }) => {
                       tabIndex={-1}
                       sx={{ maxHeight: "10px" }}
                     >
-                      
+
 
                       <TableCell sx={{ textAlign: "center" }}>
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Legs
@@ -1104,7 +1093,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Cone Top Rim
@@ -1139,7 +1128,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Pin Lifting Hook
@@ -1176,7 +1165,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Cylinder to Trunion Flange
@@ -1220,7 +1209,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Vessel Flanges Distance
@@ -1253,42 +1242,585 @@ const Ladlecalculator = ({ authtoken }) => {
                         </FormControl>
                       </TableCell>
 
-                      <TableCell sx={{ textAlign: "center" }}>
-                        <FormControl
-                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
-                          size="small"
-                          // error={error_show.thickness4 && !thickness4}
-                        >
-                          <InputLabel id="demo-select-small-label">
-                            Width of Trunion Flange
-                          </InputLabel>
-                          <Select
-                            labelId="demo-select-small-label"
-                            id="demo-select-small"
-                            value={width_of_trunion_flange}
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
                             label="Width of Trunion Flange"
-                            onChange={(e) =>
-                              Setwidth_of_trunion_flange(e.target.value)
-                            }
-                          >
-                            <MenuItem value="">
-                              <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
-                            <MenuItem value={16}>16</MenuItem>
-                            <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
-                            <MenuItem value={25}>25</MenuItem>
-                            <MenuItem value={32}>32</MenuItem>
-                            <MenuItem value={36}>36</MenuItem>
-                            <MenuItem value={40}>40</MenuItem>
-                            <MenuItem value={45}>45</MenuItem>
-                            <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
-                          </Select>
-                        </FormControl>
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setwidth_of_trunion_flange(e.target.value)}
+                          />
+                        </div>
                       </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Paper>
+          </div>
+        </div>
+
+        <h2 className="head_ladle" style={{ marginTop: '4vh' }}>Lining Bricks Details</h2>
+        <div className="containerfab_ladle flex-all" style={{ marginTop: '4vh' }}>
+          <Paper sx={{ width: "100%", overflow: "hidden" }} >
+            <TableContainer sx={{ maxHeight: 1200 }} style={{ backgroundColor: "#f9fbfc" }}>
+              <Table stickyHeader aria-label="sticky table">
+                <TableHead>
+                  <TableRow hover role="checkbox" tabIndex={-1} >
+                    <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                      <p>Vessel Cylindrical Bricks Length</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                      <p>Tapping Side</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                      <p>Sampling Side</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                      <p>Nos. of Layers</p>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+
+                <TableBody>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: 'center' }}>
+                      <p>Size1</p>
+                    </TableCell>
+                    <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Size1"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsize1_t(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Size1"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsize1_s(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Size1"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsize1_l(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                  </TableRow>
+
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: 'center' }}>
+                      <p>Size2</p>
+                    </TableCell>
+                    <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Size2"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsize2_t(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Size2"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsize2_s(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Size2"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsize2_l(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                  </TableRow>
+
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: 'center' }}>
+                      <p>Size3</p>
+                    </TableCell>
+                    <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Size3"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsize3_t(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Size3"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsize3_s(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Size3"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsize3_l(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                  </TableRow>
+
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: 'center' }}>
+                      <p>Size4</p>
+                    </TableCell>
+                    <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Size4"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsize4_t(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Size4"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsize4_s(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Size4"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsize4_l(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                  </TableRow>
+
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: 'center' }}>
+                      <p>Safety Lining Length</p>
+                    </TableCell>
+                    <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Safety Lining Length"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsafety_lining_length_t(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Safety Lining Length"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsafety_lining_length_s(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Safety Lining Length"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setsafety_lining_length_l(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                  </TableRow>
+
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: 'center' }}>
+                      <p>Degree Lining for Tapping/Sampling</p>
+                    </TableCell>
+                    <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Degree Lining for Tapping/Sampling"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setdegree_lining_for_trapping_t(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Degree Lining for Tapping/Sampling"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setdegree_lining_for_trapping_s(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Paper>
+          {/* yaha hu */}
+        </div>
+
+
+        <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
+          <div className="ladle_first">
+            {/* <h2 className="head_ladle">Vessel Dimensions</h2> */}
+            <Paper sx={{ overflow: "hidden" }}>
+              <TableContainer
+                sx={{ maxHeight: 1000 }}
+                style={{ backgroundColor: "#f9fbfc" }}
+              >
+                <Table stickyHeader aria-label="sticky table">
+                  <TableBody>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                            label="Top Cone Lining"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) =>
+                              Settop_cone_lining(e.target.value)
+                            }
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                            label="Bottom Cone Side Lining Brick Length"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) =>
+                              Setbottom_cone_side_lining_brick_length(e.target.value)
+                            }
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                            label="Bottom Code Bottom Lining Brick Length"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) =>
+                              Setbottom_cone_bottom_lining_brick_length(e.target.value)
+                            }
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                            label="Bottom Cone Safety Lining Brick Length"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setbottom_cone_safety_lining_brick_length(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                            label="Bricks Std. Width"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Setbricks_std_width(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                            label="Bricks Std. Height"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) =>
+                              Setbricks_std_height(e.target.value)
+                            }
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                            label="Density of Bricks"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) =>
+                              Setdensity_of_bricks(e.target.value)
+                            }
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                            label="Safety Bricks Width"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) =>
+                              Setsafety_bricks_width(e.target.value)
+                            }
+                          />
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                            label="Safety Bricks Height"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) =>
+                              Setsafety_bricks_height(e.target.value)
+                            }
+                          />
+                        </div>
+                      </TableCell>
+                      
                     </TableRow>
                   </TableBody>
                 </Table>

@@ -920,7 +920,7 @@ const CC_machine = ({ authtoken }) => {
           </div>
         </div>
 
-        <h2 className="head_cc">Tundish Nozzle, CE Ratio & Liquidus Temp. Calculations</h2>
+        <h2 className="head_cc">CE Ratio & Liquidus Temp. Calculations</h2>
         <div className="tab_container_output">
           <TableContainer component={Paper} style={{ backgroundColor: "#f9fbfc" }}>
             <Table sx={{ minWidth: 100 }} aria-label="simple table">
@@ -1645,7 +1645,7 @@ const CC_machine = ({ authtoken }) => {
               </Table>
             </TableContainer>
           </div>
-
+            <div className="hidden">Hello</div>
         </div>
       </div>
 

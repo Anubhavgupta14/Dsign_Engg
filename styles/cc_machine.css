@@ -101,6 +101,10 @@ p {
     height: 50px;
     width: 175px;
   }
+  .hidden{
+    visibility: hidden;
+    margin-bottom: 10vh;
+  }
   
   
   .textcentre {
@@ -112,11 +116,11 @@ p {
     margin-block: 50px;
   }
   .tab_container_output{
-    margin-inline: 241px;
+    margin-inline: 150px;
     margin-bottom: 5px;
   }
   .tab_container_main{
-    margin-inline: 241px;
+    margin-inline: 150px;
     margin-top: 24px;
     margin-bottom: 25px;
   }

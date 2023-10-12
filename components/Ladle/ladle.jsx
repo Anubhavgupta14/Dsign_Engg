@@ -1829,7 +1829,8 @@ const Ladlecalculator = ({ authtoken }) => {
 
           {/* fabrication_output */}
 
-          <div className="containerfab_ladle flex-all" style={{ marginTop: '10vh' }}>
+          <h2 className="head_ladle" style={{ marginTop: '4vh'}}>Bill of Material</h2>
+          <div className="containerfab_ladle flex-all" style={{ marginTop: '4vh' }}>
             <Paper sx={{ width: "100%", overflow: "hidden" }} >
               <TableContainer sx={{ maxHeight: 1200 }} style={{ backgroundColor: "#f9fbfc" }}>
                 <Table stickyHeader aria-label="sticky table">
@@ -1837,6 +1838,9 @@ const Ladlecalculator = ({ authtoken }) => {
                     <TableRow hover role="checkbox" tabIndex={-1} >
                       <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
                         <p>Particulars</p>
+                      </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                        <p>Thickness</p>
                       </TableCell>
                       <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
                         <p>Weight in Kgs</p>
@@ -1859,6 +1863,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Shell Plate</p>
                       </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness1}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight1}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length1}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width1}</TableCell>
@@ -1870,6 +1875,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Bottom Plate</p>
                       </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness2}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight2}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length2}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width2}</TableCell>
@@ -1881,6 +1887,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Top Rim Plate</p>
                       </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness3}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight3}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length3}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width3}</TableCell>
@@ -1892,6 +1899,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Trunion Box Hori. Plt. 1</p>
                       </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness4}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight4}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length4}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width4}</TableCell>
@@ -1903,6 +1911,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Trunion Box Hori. Plt. 2</p>
                       </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness5}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight5}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length5}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width5}</TableCell>
@@ -1914,6 +1923,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Trunion Box Vertical Plt.</p>
                       </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness5}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight6}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length6}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width6}</TableCell>
@@ -1924,6 +1934,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Trunion Box Side Plt.</p>
                       </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness7}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight7}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length7}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width7}</TableCell>
@@ -1935,6 +1946,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Resting Box Hori. Plt</p>
                       </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness8}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight8}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length8}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width8}</TableCell>
@@ -1945,7 +1957,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Resting Box Ver. Plt.</p>
                       </TableCell>
-
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness9}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight9}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length9}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width9}</TableCell>
@@ -1956,7 +1968,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Resting Box Side Plt.</p>
                       </TableCell>
-
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness10}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight10}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length10}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width10}</TableCell>
@@ -1968,6 +1980,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Legs</p>
                       </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness11}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight11}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length11}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width11}</TableCell>
@@ -1979,6 +1992,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Retaining RCS</p>
                       </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness12}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight12}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length12}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width12}</TableCell>
@@ -1990,6 +2004,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Lifting Hooks</p>
                       </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness13}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight13}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length13}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width13}</TableCell>
@@ -2000,6 +2015,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Stiffners</p>
                       </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness14}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight14}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length14}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width14}</TableCell>
@@ -2010,6 +2026,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell sx={{ textAlign: 'center' }}>
                         <p>Trunion Pin</p>
                       </TableCell>
+                      <TableCell sx={{ textAlign: 'center' }}>{thickness15}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{weight15}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{length15}</TableCell>
                       <TableCell sx={{ textAlign: 'center' }}>{width15}</TableCell>
