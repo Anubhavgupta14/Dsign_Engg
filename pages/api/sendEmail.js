@@ -8,7 +8,7 @@ export default async (req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: "anubhavgu2002@gmail.com",
+            user: "thedesignenggteam@gmail.com",
             pass: process.env.NODEMAILER,
         }
     });
@@ -17,7 +17,7 @@ export default async (req, res) => {
 
         await transporter.sendMail({
             from: email,
-            to: ["thedesignengg1@gmail.com","anubhavgu2002@gmail.com","venusenggbrc@gmail.com"],
+            to: ["thedesignenggteam@gmail.com"],
             subject: `Contact form submitted by ${firstname}`,
             html: `<!DOCTYPE html>
       <html>
