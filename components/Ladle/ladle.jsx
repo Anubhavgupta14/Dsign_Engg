@@ -644,16 +644,19 @@ const Ladlecalculator = ({ authtoken }) => {
 
     const T932 = ((R2*dev_sin*2)/2)
     const k932 = Math.round(r2 * dev_sin * 2)
+    let op=0
     const W932 = Math.round(r2 - Math.sqrt((r2 * r2) - ((k932 / 2) * (k932 / 2))))
     const A_bottom = (r2 * Math.cos((180 / Math.PI) * ((A_hori2 / r2)))) - (r2 - W932)
     SetA_bottom(A_bottom)
 
     if (d8 + 200 > ((R2 * dev_sin * 2) / 2)) {
       const B_hori = ((R2 * dev_sin * 2) / 2) - d8
+      op= B_hori
       SetB_hori1(Math.round(B_hori))
     }
     else {
       const B_hori = d8 + 200
+      op= B_hori
       SetB_hori1(Math.round(B_hori))
     }
 
@@ -663,30 +666,139 @@ const Ladlecalculator = ({ authtoken }) => {
 
     const Q932 = 0
     const X932 = 0
+    let b_hori2=0;
     if (200 * (Q932 + 1) > ((R2 * dev_sin * 2) / 2)) {
-      const B_hori2 = ((R2 * dev_sin * 2) / 2) - X932
-      SetB_hori2(B_hori2)
+      b_hori2 = ((R2 * dev_sin * 2) / 2) - X932
+      SetB_hori2(b_hori2)
     }
     else {
-      const B_hori2 = 200 * (Q932 + 1)
-      SetB_hori2(B_hori2)
+      b_hori2 = 200 * (Q932 + 1)
+      SetB_hori2(b_hori2)
     }
 
-    const B_bottom = (r2 * (Math.cos(B_hori2 / r2))) - (r2 - W932)
+    const B_bottom = (r2 * (Math.cos(b_hori2 / r2))) - (r2 - W932)
     SetB_bottom(Math.round(B_bottom))
 
-
+    let c_hori1=0
     if(B_hori1+200>T932){
-      const C_hori1 = (((R2*dev_sin*2)/2)-200)-B_hori1
-      SetC_hori1(C_hori1)
+      const C_hori1 = (((R2*dev_sin*2)/2)-200)-op
+      c_hori1=C_hori1
+      SetC_hori1(Math.round(C_hori1))
     }
     else{
-      const C_hori1 = B_hori1+200
-      SetC_hori1(C_hori1)
+      const C_hori1 = op+200
+      c_hori1=C_hori1
+      SetC_hori1(Math.round(C_hori1))
     }
 
     const C_top =R2-Math.sqrt((R2*R2)-((((((R2*dev_sin*2)/2)-200))-d8)*(((((R2*dev_sin*2)/2)-200))-d8)))
     SetC_top(Math.round(C_top))
+
+
+const Q934 = 2
+let X933 = 0
+const Q933 = 1
+if(200*Q933>T932){
+	X933 = T932-X932
+}
+else{
+	X933 = 200*Q933
+}
+let c_hori2=0
+
+if(200*Q934>T932){
+	c_hori2 = T932-X933
+  SetC_hori2(c_hori2)
+}
+else{
+	c_hori2 = 200*Q934
+  SetC_hori2(c_hori2)
+}
+
+const Z935 = Math.cos((c_hori2/r2))
+const c_bottom = (r2*Z935) - (r2-W932)
+SetC_bottom(Math.round(c_bottom))
+
+
+let d_hori1=0;
+if(C_hori1+200>((R2*dev_sin*2)/2)){
+  const D_hori1 = ((R2*dev_sin*2)/2)-200-200-c_hori1
+  d_hori1=D_hori1
+  SetD_hori1(Math.round(D_hori1))
+}
+else{
+  const D_hori1 = c_hori1+200
+  d_hori1=D_hori1
+  SetD_hori1(Math.round(D_hori1))
+ }
+
+ const N935 = ((R2*dev_sin*2)/2)-200-200 - d8
+ const d_top = R2 - Math.sqrt((R2*R2)-(N935*N935))
+ SetD_top(Math.round(d_top))
+
+let d_hori2=0
+if(200*(Q932+3)>((r2*dev_sin*2)/2)){
+ const D_hori2 = ((r2*dev_sin*2)/2)-C_hori2
+ d_hori2=D_hori2
+ SetD_hori2(D_hori2)
+}
+else{
+  const D_hori2 = 200*3
+  d_hori2=D_hori2
+  SetD_hori2(D_hori2)
+}
+
+const d_bottom = (r2*Math.cos((d_hori2/r2)))-(r2-A_bottom)
+SetD_bottom(Math.round(d_bottom))
+
+let e_hori1=0
+if(d_hori1+200>(((R2*dev_sin*2)/2)/2)){
+  const E_hori1 = ((R2*dev_sin*2)/2)-200-200-200-d_hori1
+  e_hori1=E_hori1
+  SetE_hori1(Math.round(E_hori1))
+}
+else{
+  const E_hori1 = d_hori1+200
+  e_hori1=E_hori1
+  SetE_hori1(Math.round(E_hori1))
+ }
+
+ const N936 = ((R2*dev_sin*2)/2)-200-200-200-d8
+const e_top = R2 - Math.sqrt((R2*R2)-(N936*N936))
+SetE_top(Math.round(e_top))
+
+let e_hori2=0
+if(200*4>((r2*dev_sin*2)/2)){
+  const E_hori2 = ((r2*dev_sin*2)/2)-d_hori2
+  e_hori2=E_hori2
+  SetE_hori2(E_hori2)
+}
+else{
+  const E_hori2 = 200*4
+  e_hori2=E_hori2
+  SetE_hori2(E_hori2)
+ }
+
+ const e_bottom = (r2*Math.cos(e_hori2/r2))-(r2-A_bottom)
+ SetE_bottom(Math.round(e_bottom))
+
+ let P937 
+ if(E_hori1+200>(((R2*dev_sin*2)/2)/2)){
+  P937 = (((R2*dev_sin*2)/2)/2)-200-200-200-200-e_hori1
+ }
+ else{
+  P937 = e_hori1+200
+ }
+
+ const O932 = ((R2*dev_sin*2)/2)/2
+if(P937+200>O932){
+ const f_hori1 = (((R2*dev_sin*2)/2)/2)-200-200-200-200-200-P937
+ SetF_hori1(Math.round(f_hori1))
+}
+else{
+  const f_hori1 = P937+200
+  SetF_hori1(Math.round(f_hori1))
+}
 
     setOpen(false)
     getUserData();
@@ -2240,38 +2352,32 @@ const Ladlecalculator = ({ authtoken }) => {
                   <TableRow hover role="checkbox" tabIndex={-1}>
 
                     <TableCell sx={{ textAlign: 'center' }}>
-                      <p>Trunion Box Hori. Plt. 1</p>
+                      <p>D</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{thickness4}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{weight4}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{length4}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{width4}</TableCell>
-
-                    <TableCell sx={{ textAlign: 'center' }}>{qty4}</TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>{D_hori1}</TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>{D_top}</TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>{D_hori2}</TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>{D_bottom}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
 
                     <TableCell sx={{ textAlign: 'center' }}>
-                      <p>Trunion Box Hori. Plt. 2</p>
+                      <p>E</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{thickness5}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{weight5}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{length5}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{width5}</TableCell>
-
-                    <TableCell sx={{ textAlign: 'center' }}>{qty5}</TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>{E_hori1}</TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>{E_top}</TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>{E_hori2}</TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>{E_bottom}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
 
                     <TableCell sx={{ textAlign: 'center' }}>
-                      <p>Trunion Box Vertical Plt.</p>
+                      <p>F</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{thickness5}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{weight6}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{length6}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{width6}</TableCell>
-
-                    <TableCell sx={{ textAlign: 'center' }}>{qty6}</TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>{F_hori1}</TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>{F_top}</TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>{F_hori2}</TableCell>
+                    <TableCell sx={{ textAlign: 'center' }}>{F_bottom}</TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell sx={{ textAlign: 'center' }}>
