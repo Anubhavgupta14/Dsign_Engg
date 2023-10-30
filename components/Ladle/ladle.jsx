@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -22,19 +21,19 @@ import TableRow from "@mui/material/TableRow";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import { toast } from "react-toastify";
-import { fetchCurrentUser } from '../../libs/fetchUser'
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import { fetchCurrentUser } from "../../libs/fetchUser";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 import Link from "next/link";
 import Image from "next/image";
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "background.paper",
+  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
 };
@@ -44,6 +43,8 @@ const Ladlecalculator = ({ authtoken }) => {
   const div1Ref = useRef();
   const div2Ref = useRef();
   const div3Ref = useRef();
+  const div4Ref = useRef();
+  const div5Ref = useRef();
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.up("sm"));
@@ -172,38 +173,92 @@ const Ladlecalculator = ({ authtoken }) => {
   const [k2, setK2] = useState(50);
   const [k3, setK3] = useState(0);
   const [k4, setK4] = useState(0);
-  const [A_hori2, SetA_hori2] = useState(0)
-  const [A_bottom, SetA_bottom] = useState(0)
+  const [A_hori2, SetA_hori2] = useState(0);
+  const [A_bottom, SetA_bottom] = useState(0);
 
-  const [B_hori1, SetB_hori1] = useState(0)
-  const [B_hori2, SetB_hori2] = useState(0)
-  const [B_bottom, SetB_bottom] = useState(0)
-  const [B_top, SetB_top] = useState(0)
-  const [C_hori1, SetC_hori1] = useState(0)
-  const [C_hori2, SetC_hori2] = useState(0)
-  const [C_bottom, SetC_bottom] = useState(0)
-  const [C_top, SetC_top] = useState(0)
-  const [D_hori1, SetD_hori1] = useState(0)
-  const [D_hori2, SetD_hori2] = useState(0)
-  const [D_bottom, SetD_bottom] = useState(0)
-  const [D_top, SetD_top] = useState(0)
-  const [E_hori1, SetE_hori1] = useState(0)
-  const [E_hori2, SetE_hori2] = useState(0)
-  const [E_bottom, SetE_bottom] = useState(0)
-  const [E_top, SetE_top] = useState(0)
-  const [F_hori1, SetF_hori1] = useState(0)
-  const [F_hori2, SetF_hori2] = useState(0)
-  const [F_bottom, SetF_bottom] = useState(0)
-  const [F_top, SetF_top] = useState(0)
-  const [G_hori1, SetG_hori1] = useState(0)
-  const [G_hori2, SetG_hori2] = useState(0)
-  const [G_bottom, SetG_bottom] = useState(0)
-  const [G_top, SetG_top] = useState(0)
-  const [H_hori1, SetH_hori1] = useState(0)
-  const [H_hori2, SetH_hori2] = useState(0)
-  const [H_bottom, SetH_bottom] = useState(0)
-  const [H_top, SetH_top] = useState(0)
-
+  const [B_hori1, SetB_hori1] = useState(0);
+  const [B_hori2, SetB_hori2] = useState(0);
+  const [B_bottom, SetB_bottom] = useState(0);
+  const [B_top, SetB_top] = useState(0);
+  const [C_hori1, SetC_hori1] = useState(0);
+  const [C_hori2, SetC_hori2] = useState(0);
+  const [C_bottom, SetC_bottom] = useState(0);
+  const [C_top, SetC_top] = useState(0);
+  const [D_hori1, SetD_hori1] = useState(0);
+  const [D_hori2, SetD_hori2] = useState(0);
+  const [D_bottom, SetD_bottom] = useState(0);
+  const [D_top, SetD_top] = useState(0);
+  const [E_hori1, SetE_hori1] = useState(0);
+  const [E_hori2, SetE_hori2] = useState(0);
+  const [E_bottom, SetE_bottom] = useState(0);
+  const [E_top, SetE_top] = useState(0);
+  const [F_hori1, SetF_hori1] = useState(0);
+  const [F_hori2, SetF_hori2] = useState(0);
+  const [F_bottom, SetF_bottom] = useState(0);
+  const [F_top, SetF_top] = useState(0);
+  const [G_hori1, SetG_hori1] = useState(0);
+  const [G_hori2, SetG_hori2] = useState(0);
+  const [G_bottom, SetG_bottom] = useState(0);
+  const [G_top, SetG_top] = useState(0);
+  const [H_hori1, SetH_hori1] = useState(0);
+  const [H_hori2, SetH_hori2] = useState(0);
+  const [H_bottom, SetH_bottom] = useState(0);
+  const [H_top, SetH_top] = useState(0);
+  const [I_hori1, SetI_hori1] = useState(0);
+  const [I_hori2, SetI_hori2] = useState(0);
+  const [I_bottom, SetI_bottom] = useState(0);
+  const [I_top, SetI_top] = useState(0);
+  const [J_hori1, SetJ_hori1] = useState(0);
+  const [J_hori2, SetJ_hori2] = useState(0);
+  const [J_bottom, SetJ_bottom] = useState(0);
+  const [J_top, SetJ_top] = useState(0);
+  const [K_hori1, SetK_hori1] = useState(0);
+  const [K_hori2, SetK_hori2] = useState(0);
+  const [K_bottom, SetK_bottom] = useState(0);
+  const [K_top, SetK_top] = useState(0);
+  const [L_hori1, SetL_hori1] = useState(0);
+  const [L_hori2, SetL_hori2] = useState(0);
+  const [L_bottom, SetL_bottom] = useState(0);
+  const [L_top, SetL_top] = useState(0);
+  const [M_hori1, SetM_hori1] = useState(0);
+  const [M_hori2, SetM_hori2] = useState(0);
+  const [M_bottom, SetM_bottom] = useState(0);
+  const [M_top, SetM_top] = useState(0);
+  const [N_hori1, SetN_hori1] = useState(0);
+  const [N_hori2, SetN_hori2] = useState(0);
+  const [N_bottom, SetN_bottom] = useState(0);
+  const [N_top, SetN_top] = useState(0);
+  const [O_hori1, SetO_hori1] = useState(0);
+  const [O_hori2, SetO_hori2] = useState(0);
+  const [O_bottom, SetO_bottom] = useState(0);
+  const [O_top, SetO_top] = useState(0);
+  const [P_hori1, SetP_hori1] = useState(0);
+  const [P_hori2, SetP_hori2] = useState(0);
+  const [P_bottom, SetP_bottom] = useState(0);
+  const [P_top, SetP_top] = useState(0);
+  const [Q_hori1, SetQ_hori1] = useState(0);
+  const [Q_hori2, SetQ_hori2] = useState(0);
+  const [Q_bottom, SetQ_bottom] = useState(0);
+  const [Q_top, SetQ_top] = useState(0);
+  const [Top_Rim_length, SetTop_Rim_length] = useState(0);
+  const [Top_Rim_Width, SetTop_Rim_width] = useState(0);
+  const [Top_Rim_Thickness, SetTop_Rim_thickness] = useState(0);
+  const [Top_Rim_R, SetTop_Rim_R] = useState(0);
+  const [Top_Rim_r, SetTop_Rim_r] = useState(0);
+  const [Top_Rim_Angle, SetTop_Rim_Angle] = useState(0);
+  const [Bottom_width, SetBottom_width] = useState(0);
+  const [Bottom_length, SetBottom_length] = useState(0);
+  const [Bottom_thickness, SetBottom_thickness] = useState(0);
+  const [Trunion_Top_width, SetTrunion_Top_width] = useState(0);
+  const [Trunion_Top_length, SetTrunion_Top_length] = useState(0);
+  const [Trunion_Top_thickness, SetTrunion_Top_thickness] = useState(0);
+  const [Trunion_Top_R, SetTrunion_Top_R] = useState(0);
+  const [Trunion_bottom_width, SetTrunion_bottom_width] = useState(0);
+  const [Trunion_bottom_length, SetTrunion_bottom_length] = useState(0);
+  const [Trunion_bottom_R, SetTrunion_bottom_R] = useState(0);
+  const [Resting_bottom_width, SetResting_bottom_width] = useState(0);
+  const [Resting_bottom_length, SetResting_bottom_length] = useState(0);
+  const [Resting_bottom_R, SetResting_bottom_R] = useState(0);
 
   const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
@@ -242,26 +297,59 @@ const Ladlecalculator = ({ authtoken }) => {
     tru_box_v2: false,
     rest_box_h: false,
     rest_box_v: false,
-
-  })
+  });
   const handleOpen = () => {
-    seterror("")
-    let v = document.querySelector(".error_ccm")
-    v.style.visibility = "hidden"
+    seterror("");
+    let v = document.querySelector(".error_ccm");
+    v.style.visibility = "hidden";
     setOpen(true);
-  }
+  };
   const handleClose = () => setOpen(false);
   const [download, setdownload] = useState(false);
   const [error, seterror] = useState("");
-  const isdisabled = !(topdiameter && bottomdiameter && height && bottomlining && sidelining && freeboard && density && input1 && input2 && input3 && input4 && input5 && input6 && thickness1 && thickness4 && thickness8 && tru_box_v2 && thickness2 && thickness5 && thickness9 && tru_box_v1 && thickness3 && thickness7 && thickness10 && rest_box_v && thickness15 && thickness11 && thickness12 && rest_box_h && thickness13)
+  const isdisabled = !(
+    topdiameter &&
+    bottomdiameter &&
+    height &&
+    bottomlining &&
+    sidelining &&
+    freeboard &&
+    density &&
+    input1 &&
+    input2 &&
+    input3 &&
+    input4 &&
+    input5 &&
+    input6 &&
+    thickness1 &&
+    thickness4 &&
+    thickness8 &&
+    tru_box_v2 &&
+    thickness2 &&
+    thickness5 &&
+    thickness9 &&
+    tru_box_v1 &&
+    thickness3 &&
+    thickness7 &&
+    thickness10 &&
+    rest_box_v &&
+    thickness15 &&
+    thickness11 &&
+    thickness12 &&
+    rest_box_h &&
+    thickness13
+  );
 
   const fun = () => {
     // seterror("Error : Enter the required values")
     // let v = document.querySelector(".error_ccm")
     // v.style.visibility = "initial"
-    toast.error("Error : Enter the required values")
+    toast.error("Error : Enter the required values");
     seterror_show({
-      ...error_show, topdiameter: true, bottomdiameter: true, height: true,
+      ...error_show,
+      topdiameter: true,
+      bottomdiameter: true,
+      height: true,
       bottomlining: true,
       sidelining: true,
       freeboard: true,
@@ -293,31 +381,30 @@ const Ladlecalculator = ({ authtoken }) => {
       tru_box_v2: true,
       rest_box_h: true,
       rest_box_v: true,
-    })
-
-  }
+    });
+  };
 
   const [userData, setUserData] = useState({
-    name: '',
-    email: '',
-    phone: '',
+    name: "",
+    email: "",
+    phone: "",
     state: "",
     city: "",
     pincode: "",
-    dob: '',
+    dob: "",
     gender: "",
-    addressLine1: '',
-    addressLine2: '',
-    basicProfile: '',
+    addressLine1: "",
+    addressLine2: "",
+    basicProfile: "",
     ladle_ticket: 0,
   });
 
   const top_dia_mean = parseInt(topdiameter) + parseInt(thickness1);
   const degree_tan =
     (parseInt(topdiameter) - parseInt(bottomdiameter)) / (2 * parseInt(height));
-  const cos_A = (Math.cos(
-    (3.1416 / 180) * (Math.atan(degree_tan) * (3.1416 / 180))
-  )) - 0.0013821705717152
+  const cos_A =
+    Math.cos((3.1416 / 180) * (Math.atan(degree_tan) * (3.1416 / 180))) -
+    0.0013821705717152;
 
   const R2 = top_dia_mean / 2 / degree_tan / cos_A;
   const develop_angle = (top_dia_mean * 3.1416 * 360) / (3.1416 * R2 * 4);
@@ -333,9 +420,8 @@ const Ladlecalculator = ({ authtoken }) => {
   const tan_30 = Math.tan((3.1416 / 180) * 30);
   const cos_30 = Math.cos((3.1416 / 180) * 30);
   const I964 = parseFloat(Radius_r) - parseFloat(cos_30 * Radius_r);
-  const J964 = ((Radius_R) - Math.sqrt((Radius_R * Radius_R) - ((Radius_r / 2) * (Radius_r / 2))))
-
-
+  const J964 =
+    Radius_R - Math.sqrt(Radius_R * Radius_R - (Radius_r / 2) * (Radius_r / 2));
 
   const result = async (event) => {
     // event.preventDefault();
@@ -384,11 +470,10 @@ const Ladlecalculator = ({ authtoken }) => {
     const result_ticket = await validate_ticket();
     if (result_ticket === -1) {
       toast.error("You don't have tickets");
-      setOpen(false)
+      setOpen(false);
       getUserData();
       return;
     }
-
 
     result();
     result2();
@@ -406,7 +491,7 @@ const Ladlecalculator = ({ authtoken }) => {
       (thickness2 * length2 * width2 * 1 * 7.864) / 1000000
     );
 
-    const width3 = Math.round(((Radius_R - Radius_r + (I964 - J964)) * 6) + J964);
+    const width3 = Math.round((Radius_R - Radius_r + (I964 - J964)) * 6 + J964);
 
     const length3 = Radius_R;
     setqty3(1);
@@ -429,7 +514,6 @@ const Ladlecalculator = ({ authtoken }) => {
     const weight3 = Math.round(
       (thickness3 * length3 * width3 * q3 * 7.864) / 1000000
     );
-
 
     const N972 = topdiameter / 2 + thickness1;
     const H972 = (topdiameter - bottomdiameter) / (2 * height);
@@ -516,7 +600,8 @@ const Ladlecalculator = ({ authtoken }) => {
       parseInt(((R2 * dev_sin * 2) / 2) * 2 * 2) + parseInt(8 * U100)
     );
     const weight12 =
-      Math.floor((thickness12 * length12 * width12 * q12 * 7.864) / 1000000) + 1;
+      Math.floor((thickness12 * length12 * width12 * q12 * 7.864) / 1000000) +
+      1;
 
     const q13 = 1;
     const width13 = (3.1416 / 4) * thickness13;
@@ -584,260 +669,658 @@ const Ladlecalculator = ({ authtoken }) => {
     setLength5(length5);
     setTotal_weight(
       weight1 +
-      weight2 +
-      weight3 +
-      weight4 +
-      weight5 +
-      weight6 +
-      weight7 +
-      weight8 +
-      weight9 +
-      weight10 +
-      weight11 +
-      weight12 +
-      weight13 +
-      weight14 +
-      weight15
+        weight2 +
+        weight3 +
+        weight4 +
+        weight5 +
+        weight6 +
+        weight7 +
+        weight8 +
+        weight9 +
+        weight10 +
+        weight11 +
+        weight12 +
+        weight13 +
+        weight14 +
+        weight15
     );
 
-    const d1 = (parseFloat(topdiameter) + 2 * parseFloat(thickness1) + 100) / 2
+    const d1 = (parseFloat(topdiameter) + 2 * parseFloat(thickness1) + 100) / 2;
     setd1(d1);
     setd2(d1);
-    const E968 = ((parseFloat(top_dia_mean) + parseFloat(thickness1) + 100) - (2 * sidelining)) / 2
+    const E968 =
+      (parseFloat(top_dia_mean) +
+        parseFloat(thickness1) +
+        100 -
+        2 * sidelining) /
+      2;
     // const J964 = d1-Math.sqrt((d1*d1)-((E968/2)*(E968/2)))
-    const d3 = ((d1 - E968 + ((E968 - (cos_30 * E968)) - J964)) * 6) + J964
-    setd3(Math.round(d3))
-    const d4 = ((parseFloat(top_dia_mean) + parseFloat(thickness1) + 100) - (2 * sidelining)) / 2
+    const d3 = (d1 - E968 + (E968 - cos_30 * E968 - J964)) * 6 + J964;
+    setd3(Math.round(d3));
+    const d4 =
+      (parseFloat(top_dia_mean) +
+        parseFloat(thickness1) +
+        100 -
+        2 * sidelining) /
+      2;
     setd4(d4);
-    setd5(bottomdiameter)
-    setd6(bottomdiameter)
-    const d7 = parseFloat(tru_box_v2) - parseFloat(thickness5) - parseFloat(thickness5)
-    setd7(d7)
+    setd5(bottomdiameter);
+    setd6(bottomdiameter);
+    const d7 =
+      parseFloat(tru_box_v2) - parseFloat(thickness5) - parseFloat(thickness5);
+    setd7(d7);
 
-    const Q931 = Math.floor(((R2 * dev_sin * 2) / 2) / 200)
-    const d8 = ((R2 * dev_sin * 2) / 2) - (200 * Q931)
-    setd8(Math.round(d8))
+    const Q931 = Math.floor((R2 * dev_sin * 2) / 2 / 200);
+    const d8 = (R2 * dev_sin * 2) / 2 - 200 * Q931;
+    setd8(Math.round(d8));
 
+    const d9 = ((R2 * dev_sin * 2) / 2) * 2 - 2 * d8;
+    setd9(d9);
 
-    const d9 = (((R2 * dev_sin * 2) / 2) * 2) - (2 * d8)
-    setd9(d9)
+    const d10 =
+      R2 -
+      Math.sqrt(R2 * R2 - ((R2 * dev_sin * 2) / 2) * ((R2 * dev_sin * 2) / 2));
+    setd10(Math.round(d10));
 
-    const d10 = R2 - Math.sqrt((R2 * R2) - (((R2 * dev_sin * 2) / 2) * ((R2 * dev_sin * 2) / 2)))
-    setd10(Math.round(d10))
+    const d11 = slant_height + (r2 - F959);
+    setd11(Math.round(d11));
 
-    const d11 = slant_height + (r2 - F959)
-    setd11(Math.round(d11))
+    const d13 = (r2 * dev_sin * 2) / 2;
+    setd13(Math.round(d13));
 
-    const d13 = (r2 * dev_sin * 2) / 2
-    setd13(Math.round(d13))
+    const d12 = (((R2 * dev_sin * 2) / 2) * 2) / 2 - d13;
+    setd12(Math.round(d12));
 
-    const d12 = ((((R2 * dev_sin * 2) / 2) * 2) / 2) - d13
-    setd12(Math.round(d12))
+    const d14 = ((R2 * dev_sin * 2) / 2) * 2;
+    setd14(Math.round(d14));
 
-    const d14 = ((R2 * dev_sin * 2) / 2) * 2
-    setd14(Math.round(d14))
+    setd15(Math.round(R2));
 
-    setd15(Math.round(R2))
+    const d16 = ((R2 * dev_sin * 2) / 2 / 200) * 2;
+    setd16(Math.floor(d16));
 
-    const d16 = ((R2 * dev_sin * 2) / 2 / 200) * 2
-    setd16(Math.floor(d16))
+    const T932 = (R2 * dev_sin * 2) / 2;
+    const k932 = Math.round(r2 * dev_sin * 2);
+    let op = 0;
+    const W932 = Math.round(r2 - Math.sqrt(r2 * r2 - (k932 / 2) * (k932 / 2)));
+    const A_bottom =
+      r2 * Math.cos((180 / Math.PI) * (A_hori2 / r2)) - (r2 - W932);
+    SetA_bottom(A_bottom);
 
-    const T932 = ((R2*dev_sin*2)/2)
-    const k932 = Math.round(r2 * dev_sin * 2)
-    let op=0
-    const W932 = Math.round(r2 - Math.sqrt((r2 * r2) - ((k932 / 2) * (k932 / 2))))
-    const A_bottom = (r2 * Math.cos((180 / Math.PI) * ((A_hori2 / r2)))) - (r2 - W932)
-    SetA_bottom(A_bottom)
-
-    if (d8 + 200 > ((R2 * dev_sin * 2) / 2)) {
-      const B_hori = ((R2 * dev_sin * 2) / 2) - d8
-      op= B_hori
-      SetB_hori1(Math.round(B_hori))
-    }
-    else {
-      const B_hori = d8 + 200
-      op= B_hori
-      SetB_hori1(Math.round(B_hori))
-    }
-
-    const N933 = ((R2 * dev_sin * 2) / 2) - (((R2 * dev_sin * 2) / 2) - (200 * Math.floor((((R2 * dev_sin * 2) / 2)) / 200)))
-    const B_top = R2 - Math.sqrt((R2 * R2) - (N933 * N933))
-    SetB_top(Math.round(B_top))
-
-    const Q932 = 0
-    const X932 = 0
-    let b_hori2=0;
-    if (200 * (Q932 + 1) > ((R2 * dev_sin * 2) / 2)) {
-      b_hori2 = ((R2 * dev_sin * 2) / 2) - X932
-      SetB_hori2(b_hori2)
-    }
-    else {
-      b_hori2 = 200 * (Q932 + 1)
-      SetB_hori2(b_hori2)
+    if (d8 + 200 > (R2 * dev_sin * 2) / 2) {
+      const B_hori = (R2 * dev_sin * 2) / 2 - d8;
+      op = B_hori;
+      SetB_hori1(Math.round(B_hori));
+    } else {
+      const B_hori = d8 + 200;
+      op = B_hori;
+      SetB_hori1(Math.round(B_hori));
     }
 
-    const B_bottom = (r2 * (Math.cos(b_hori2 / r2))) - (r2 - W932)
-    SetB_bottom(Math.round(B_bottom))
+    const N933 =
+      (R2 * dev_sin * 2) / 2 -
+      ((R2 * dev_sin * 2) / 2 - 200 * Math.floor((R2 * dev_sin * 2) / 2 / 200));
+    const B_top = R2 - Math.sqrt(R2 * R2 - N933 * N933);
+    SetB_top(Math.round(B_top));
 
-    let c_hori1=0
-    if(B_hori1+200>T932){
-      const C_hori1 = (((R2*dev_sin*2)/2)-200)-op
-      c_hori1=C_hori1
-      SetC_hori1(Math.round(C_hori1))
+    const Q932 = 0;
+    const X932 = 0;
+    let b_hori2 = 0;
+    if (200 * (Q932 + 1) > (R2 * dev_sin * 2) / 2) {
+      b_hori2 = (R2 * dev_sin * 2) / 2 - X932;
+      SetB_hori2(b_hori2);
+    } else {
+      b_hori2 = 200 * (Q932 + 1);
+      SetB_hori2(b_hori2);
     }
-    else{
-      const C_hori1 = op+200
-      c_hori1=C_hori1
-      SetC_hori1(Math.round(C_hori1))
+
+    const B_bottom = r2 * Math.cos(b_hori2 / r2) - (r2 - W932);
+    SetB_bottom(Math.round(B_bottom));
+
+    let c_hori1 = 0;
+    if (B_hori1 + 200 > T932) {
+      const C_hori1 = (R2 * dev_sin * 2) / 2 - 200 - op;
+      c_hori1 = C_hori1;
+      SetC_hori1(Math.round(C_hori1));
+    } else {
+      const C_hori1 = op + 200;
+      c_hori1 = C_hori1;
+      SetC_hori1(Math.round(C_hori1));
     }
 
-    const C_top =R2-Math.sqrt((R2*R2)-((((((R2*dev_sin*2)/2)-200))-d8)*(((((R2*dev_sin*2)/2)-200))-d8)))
-    SetC_top(Math.round(C_top))
+    const C_top =
+      R2 -
+      Math.sqrt(
+        R2 * R2 -
+          ((R2 * dev_sin * 2) / 2 - 200 - d8) *
+            ((R2 * dev_sin * 2) / 2 - 200 - d8)
+      );
+    SetC_top(Math.round(C_top));
 
+    const Q934 = 2;
+    let X933 = 0;
+    const Q933 = 1;
+    if (200 * Q933 > T932) {
+      X933 = T932 - X932;
+    } else {
+      X933 = 200 * Q933;
+    }
+    let c_hori2 = 0;
 
-const Q934 = 2
-let X933 = 0
-const Q933 = 1
-if(200*Q933>T932){
-	X933 = T932-X932
-}
-else{
-	X933 = 200*Q933
-}
-let c_hori2=0
+    if (200 * Q934 > T932) {
+      c_hori2 = T932 - X933;
+      SetC_hori2(c_hori2);
+    } else {
+      c_hori2 = 200 * Q934;
+      SetC_hori2(c_hori2);
+    }
 
-if(200*Q934>T932){
-	c_hori2 = T932-X933
-  SetC_hori2(c_hori2)
-}
-else{
-	c_hori2 = 200*Q934
-  SetC_hori2(c_hori2)
-}
+    const Z935 = Math.cos(c_hori2 / r2);
+    const c_bottom = r2 * Z935 - (r2 - W932);
+    SetC_bottom(Math.round(c_bottom));
 
-const Z935 = Math.cos((c_hori2/r2))
-const c_bottom = (r2*Z935) - (r2-W932)
-SetC_bottom(Math.round(c_bottom))
+    let d_hori1 = 0;
+    if (C_hori1 + 200 > (R2 * dev_sin * 2) / 2) {
+      const D_hori1 = (R2 * dev_sin * 2) / 2 - 200 - 200 - c_hori1;
+      d_hori1 = D_hori1;
+      SetD_hori1(Math.round(D_hori1));
+    } else {
+      const D_hori1 = c_hori1 + 200;
+      d_hori1 = D_hori1;
+      SetD_hori1(Math.round(D_hori1));
+    }
 
+    const N935 = (R2 * dev_sin * 2) / 2 - 200 - 200 - d8;
+    const d_top = R2 - Math.sqrt(R2 * R2 - N935 * N935);
+    SetD_top(Math.round(d_top));
 
-let d_hori1=0;
-if(C_hori1+200>((R2*dev_sin*2)/2)){
-  const D_hori1 = ((R2*dev_sin*2)/2)-200-200-c_hori1
-  d_hori1=D_hori1
-  SetD_hori1(Math.round(D_hori1))
-}
-else{
-  const D_hori1 = c_hori1+200
-  d_hori1=D_hori1
-  SetD_hori1(Math.round(D_hori1))
- }
+    let d_hori2 = 0;
+    if (200 * (Q932 + 3) > (r2 * dev_sin * 2) / 2) {
+      const D_hori2 = (r2 * dev_sin * 2) / 2 - C_hori2;
+      d_hori2 = D_hori2;
+      SetD_hori2(D_hori2);
+    } else {
+      const D_hori2 = 200 * 3;
+      d_hori2 = D_hori2;
+      SetD_hori2(D_hori2);
+    }
 
- const N935 = ((R2*dev_sin*2)/2)-200-200 - d8
- const d_top = R2 - Math.sqrt((R2*R2)-(N935*N935))
- SetD_top(Math.round(d_top))
+    const d_bottom = r2 * Math.cos(d_hori2 / r2) - (r2 - A_bottom);
+    SetD_bottom(Math.round(d_bottom));
 
-let d_hori2=0
-if(200*(Q932+3)>((r2*dev_sin*2)/2)){
- const D_hori2 = ((r2*dev_sin*2)/2)-C_hori2
- d_hori2=D_hori2
- SetD_hori2(D_hori2)
-}
-else{
-  const D_hori2 = 200*3
-  d_hori2=D_hori2
-  SetD_hori2(D_hori2)
-}
+    let e_hori1 = 0;
+    if (d_hori1 + 200 > (R2 * dev_sin * 2) / 2 / 2) {
+      const E_hori1 = (R2 * dev_sin * 2) / 2 - 200 - 200 - 200 - d_hori1;
+      e_hori1 = E_hori1;
+      SetE_hori1(Math.round(E_hori1));
+    } else {
+      const E_hori1 = d_hori1 + 200;
+      e_hori1 = E_hori1;
+      SetE_hori1(Math.round(E_hori1));
+    }
 
-const d_bottom = (r2*Math.cos((d_hori2/r2)))-(r2-A_bottom)
-SetD_bottom(Math.round(d_bottom))
+    const N936 = (R2 * dev_sin * 2) / 2 - 200 - 200 - 200 - d8;
+    const e_top = R2 - Math.sqrt(R2 * R2 - N936 * N936);
+    SetE_top(Math.round(e_top));
 
-let e_hori1=0
-if(d_hori1+200>(((R2*dev_sin*2)/2)/2)){
-  const E_hori1 = ((R2*dev_sin*2)/2)-200-200-200-d_hori1
-  e_hori1=E_hori1
-  SetE_hori1(Math.round(E_hori1))
-}
-else{
-  const E_hori1 = d_hori1+200
-  e_hori1=E_hori1
-  SetE_hori1(Math.round(E_hori1))
- }
+    let e_hori2 = 0;
+    if (200 * 4 > (r2 * dev_sin * 2) / 2) {
+      const E_hori2 = (r2 * dev_sin * 2) / 2 - d_hori2;
+      e_hori2 = E_hori2;
+      SetE_hori2(E_hori2);
+    } else {
+      const E_hori2 = 200 * 4;
+      e_hori2 = E_hori2;
+      SetE_hori2(E_hori2);
+    }
 
- const N936 = ((R2*dev_sin*2)/2)-200-200-200-d8
-const e_top = R2 - Math.sqrt((R2*R2)-(N936*N936))
-SetE_top(Math.round(e_top))
+    const e_bottom = r2 * Math.cos(e_hori2 / r2) - (r2 - A_bottom);
+    SetE_bottom(Math.round(e_bottom));
 
-let e_hori2=0
-if(200*4>((r2*dev_sin*2)/2)){
-  const E_hori2 = ((r2*dev_sin*2)/2)-d_hori2
-  e_hori2=E_hori2
-  SetE_hori2(E_hori2)
-}
-else{
-  const E_hori2 = 200*4
-  e_hori2=E_hori2
-  SetE_hori2(E_hori2)
- }
+    let P937;
+    if (E_hori1 + 200 > (R2 * dev_sin * 2) / 2 / 2) {
+      P937 = (R2 * dev_sin * 2) / 2 / 2 - 200 - 200 - 200 - 200 - e_hori1;
+    } else {
+      P937 = e_hori1 + 200;
+    }
 
- const e_bottom = (r2*Math.cos(e_hori2/r2))-(r2-A_bottom)
- SetE_bottom(Math.round(e_bottom))
+    const O932 = (R2 * dev_sin * 2) / 2 / 2;
+    let f_hori1;
+    if (P937 + 200 > O932) {
+      const F_hori1 =
+        (R2 * dev_sin * 2) / 2 / 2 - 200 - 200 - 200 - 200 - 200 - P937;
+      f_hori1 = F_hori1;
+      SetF_hori1(Math.round(F_hori1));
+    } else {
+      const F_hori1 = P937 + 200;
+      f_hori1 = F_hori1;
+      SetF_hori1(Math.round(F_hori1));
+    }
 
- let P937 
- if(E_hori1+200>(((R2*dev_sin*2)/2)/2)){
-  P937 = (((R2*dev_sin*2)/2)/2)-200-200-200-200-e_hori1
- }
- else{
-  P937 = e_hori1+200
- }
+    const N938 = (R2 * dev_sin * 2) / 2 - 1000 - d8;
+    const F_top = R2 - Math.sqrt(R2 * R2 - N938 * N938);
+    SetF_top(Math.round(F_top));
 
- const O932 = ((R2*dev_sin*2)/2)/2
-if(P937+200>O932){
- const f_hori1 = (((R2*dev_sin*2)/2)/2)-200-200-200-200-200-P937
- SetF_hori1(Math.round(f_hori1))
-}
-else{
-  const f_hori1 = P937+200
-  SetF_hori1(Math.round(f_hori1))
-}
+    let X937;
+    if (200 * 5 > T932) {
+      X937 = T932 - e_hori2;
+    } else {
+      X937 = 200 * 5;
+    }
 
-    setOpen(false)
+    let f_hori2;
+    if (200 * 6 > T932) {
+      const F_hori2 = T932 - X937;
+      f_hori2 = F_hori2;
+      SetF_hori2(F_hori2);
+    } else {
+      const F_hori2 = 200 * 6;
+      f_hori2 = F_hori2;
+      SetF_hori2(F_hori2);
+    }
+
+    const F_bottom = r2 * Math.cos(f_hori2 / r2) - (r2 - A_bottom);
+    SetF_bottom(Math.round(F_bottom));
+
+    let g_hori1 = 0;
+    if (f_hori1 + 200 > (R2 * dev_sin * 2) / 2) {
+      const G_hori1 = (R2 * dev_sin * 2) / 2 - 200 - 200 - 200 - f_hori1;
+      g_hori1 = G_hori1;
+      SetG_hori1(Math.round(G_hori1));
+    } else {
+      const G_hori1 = f_hori1 + 200;
+      g_hori1 = G_hori1;
+      SetG_hori1(Math.round(G_hori1));
+    }
+
+    const N937 = (R2 * dev_sin * 2) / 2 - 1200 - d8;
+    const g_top = R2 - Math.sqrt(R2 * R2 - N937 * N937);
+    SetG_top(Math.round(g_top));
+
+    let g_hori2 = 0;
+    if (200 * 7 > (r2 * dev_sin * 2) / 2) {
+      const G_hori2 = (r2 * dev_sin * 2) / 2 - f_hori2;
+      g_hori2 = G_hori2;
+      SetG_hori2(G_hori2);
+    } else {
+      const G_hori2 = 200 * 7;
+      g_hori2 = G_hori2;
+      SetG_hori2(G_hori2);
+    }
+
+    const G_bottom = r2 * Math.cos(g_hori2 / r2) - (r2 - A_bottom);
+    SetG_bottom(Math.floor(G_bottom));
+
+    let h_hori1 = 0;
+    if (g_hori1 + 200 > (R2 * dev_sin * 2) / 2) {
+      const H_hori1 = (R2 * dev_sin * 2) / 2 - 1600 - g_hori1;
+      h_hori1 = H_hori1;
+      SetH_hori1(Math.round(H_hori1));
+    } else {
+      const H_hori1 = g_hori1 + 200;
+      h_hori1 = H_hori1;
+      SetH_hori1(Math.round(H_hori1));
+    }
+
+    const N939 = (R2 * dev_sin * 2) / 2 - 1400 - d8;
+    const h_top = R2 - Math.sqrt(R2 * R2 - N939 * N939);
+    SetH_top(Math.round(h_top));
+
+    let h_hori2 = 0;
+    if (200 * 8 > (r2 * dev_sin * 2) / 2) {
+      const H_hori2 = (r2 * dev_sin * 2) / 2 - g_hori2;
+      h_hori2 = H_hori2;
+      SetH_hori2(H_hori2);
+    } else {
+      const H_hori2 = 200 * 8;
+      h_hori2 = H_hori2;
+      SetH_hori2(H_hori2);
+    }
+
+    const H_bottom = r2 * Math.cos(h_hori2 / r2) - (r2 - A_bottom);
+    SetH_bottom(Math.floor(H_bottom));
+
+    let i_hori1 = 0;
+    if (h_hori1 + 200 > (R2 * dev_sin * 2) / 2) {
+      const I_hori1 = (R2 * dev_sin * 2) / 2 - 1800 - h_hori1;
+      i_hori1 = I_hori1;
+      SetI_hori1(Math.round(I_hori1));
+    } else {
+      const I_hori1 = h_hori1 + 200;
+      i_hori1 = I_hori1;
+      SetI_hori1(Math.round(I_hori1));
+    }
+
+    let j_hori1 = 0;
+    if (i_hori1 + 200 > (R2 * dev_sin * 2) / 2) {
+      const J_hori1 = (R2 * dev_sin * 2) / 2 - 2000 - i_hori1;
+      j_hori1 = J_hori1;
+      SetJ_hori1(Math.round(J_hori1));
+    } else {
+      const J_hori1 = i_hori1 + 200;
+      j_hori1 = J_hori1;
+      SetJ_hori1(Math.round(J_hori1));
+    }
+
+    let k_hori1 = 0;
+    if (j_hori1 + 200 > (R2 * dev_sin * 2) / 2) {
+      const K_hori1 = (R2 * dev_sin * 2) / 2 - 2200 - j_hori1;
+      k_hori1 = K_hori1;
+      SetK_hori1(Math.round(K_hori1));
+    } else {
+      const K_hori1 = j_hori1 + 200;
+      k_hori1 = K_hori1;
+      SetK_hori1(Math.round(K_hori1));
+    }
+
+    let l_hori1 = 0;
+    if (k_hori1 + 200 > (R2 * dev_sin * 2) / 2) {
+      const L_hori1 = (R2 * dev_sin * 2) / 2 - 2400 - k_hori1;
+      l_hori1 = L_hori1;
+      SetL_hori1(Math.round(L_hori1));
+    } else {
+      const L_hori1 = k_hori1 + 200;
+      l_hori1 = L_hori1;
+      SetL_hori1(Math.round(L_hori1));
+    }
+
+    let m_hori1 = 0;
+    if (l_hori1 + 200 > (R2 * dev_sin * 2) / 2) {
+      const M_hori1 = (R2 * dev_sin * 2) / 2 - 2600 - l_hori1;
+      m_hori1 = M_hori1;
+      SetM_hori1(Math.round(M_hori1));
+    } else {
+      const M_hori1 = l_hori1 + 200;
+      m_hori1 = M_hori1;
+      SetM_hori1(Math.round(M_hori1));
+    }
+
+    let n_hori1 = 0;
+    if (m_hori1 + 200 > (R2 * dev_sin * 2) / 2) {
+      const N_hori1 = (R2 * dev_sin * 2) / 2 - 2800 - m_hori1;
+      n_hori1 = N_hori1;
+      SetN_hori1(Math.round(N_hori1));
+    } else {
+      const N_hori1 = m_hori1 + 200;
+      n_hori1 = N_hori1;
+      SetN_hori1(Math.round(N_hori1));
+    }
+
+    let o_hori1 = 0;
+    if (n_hori1 + 200 > (R2 * dev_sin * 2) / 2) {
+      const O_hori1 = (R2 * dev_sin * 2) / 2 - 3000 - n_hori1;
+      o_hori1 = O_hori1;
+      SetO_hori1(Math.round(O_hori1));
+    } else {
+      const O_hori1 = n_hori1 + 200;
+      o_hori1 = O_hori1;
+      SetO_hori1(Math.round(O_hori1));
+    }
+
+    let p_hori1 = 0;
+    if (o_hori1 + 200 > (R2 * dev_sin * 2) / 2) {
+      const P_hori1 = (R2 * dev_sin * 2) / 2 - 3200 - o_hori1;
+      p_hori1 = P_hori1;
+      SetP_hori1(Math.round(P_hori1));
+    } else {
+      const P_hori1 = o_hori1 + 200;
+      p_hori1 = P_hori1;
+      SetP_hori1(Math.round(P_hori1));
+    }
+
+    let q_hori1 = 0;
+    if (p_hori1 + 200 > (R2 * dev_sin * 2) / 2) {
+      const Q_hori1 = (R2 * dev_sin * 2) / 2 - 3400 - p_hori1;
+      q_hori1 = Q_hori1;
+      SetQ_hori1(Math.round(Q_hori1));
+    } else {
+      const Q_hori1 = p_hori1 + 200;
+      q_hori1 = Q_hori1;
+      SetQ_hori1(Math.round(Q_hori1));
+    }
+
+    const N940 = (R2 * dev_sin * 2) / 2 - 1600 - d8;
+    const i_top = R2 - Math.sqrt(R2 * R2 - N940 * N940);
+    SetI_top(Math.round(i_top));
+
+    const N941 = (R2 * dev_sin * 2) / 2 - 1800 - d8;
+    const j_top = R2 - Math.sqrt(R2 * R2 - N941 * N941);
+    SetJ_top(Math.round(j_top));
+
+    const N942 = (R2 * dev_sin * 2) / 2 - 2000 - d8;
+    const k_top = R2 - Math.sqrt(R2 * R2 - N942 * N942);
+    SetK_top(Math.round(k_top));
+
+    const N943 = (R2 * dev_sin * 2) / 2 - 2200 - d8;
+    const l_top = R2 - Math.sqrt(R2 * R2 - N943 * N943);
+    SetL_top(Math.round(l_top));
+
+    const N944 = (R2 * dev_sin * 2) / 2 - 2400 - d8;
+    const m_top = R2 - Math.sqrt(R2 * R2 - N944 * N944);
+    SetM_top(Math.round(m_top));
+
+    const N945 = (R2 * dev_sin * 2) / 2 - 2600 - d8;
+    const N_top = R2 - Math.sqrt(R2 * R2 - N945 * N945);
+    SetN_top(Math.round(N_top));
+
+    const N946 = (R2 * dev_sin * 2) / 2 - 2800 - d8;
+    const O_top = R2 - Math.sqrt(R2 * R2 - N946 * N946);
+    SetO_top(Math.round(O_top));
+
+    const N947 = (R2 * dev_sin * 2) / 2 - 3000 - d8;
+    const P_top = R2 - Math.sqrt(R2 * R2 - N947 * N947);
+    SetP_top(Math.round(P_top));
+
+    const N948 = (R2 * dev_sin * 2) / 2 - 3200 - d8;
+    const Q_top = R2 - Math.sqrt(R2 * R2 - N948 * N948);
+    SetQ_top(Math.round(Q_top));
+
+    let i_hori2 = 0;
+    if (200 * 9 > (r2 * dev_sin * 2) / 2) {
+      const I_hori2 = (r2 * dev_sin * 2) / 2 - h_hori2;
+      i_hori2 = I_hori2;
+      SetI_hori2(I_hori2);
+    } else {
+      const I_hori2 = 200 * 9;
+      i_hori2 = I_hori2;
+      SetI_hori2(I_hori2);
+    }
+
+    let j_hori2 = 0;
+    if (200 * 10 > (r2 * dev_sin * 2) / 2) {
+      const J_hori2 = (r2 * dev_sin * 2) / 2 - i_hori2;
+      j_hori2 = J_hori2;
+      SetJ_hori2(J_hori2);
+    } else {
+      const J_hori2 = 200 * 10;
+      j_hori2 = J_hori2;
+      SetJ_hori2(J_hori2);
+    }
+
+    let k_hori2 = 0;
+    if (200 * 11 > (r2 * dev_sin * 2) / 2) {
+      const K_hori2 = (r2 * dev_sin * 2) / 2 - j_hori2;
+      k_hori2 = K_hori2;
+      SetK_hori2(K_hori2);
+    } else {
+      const K_hori2 = 200 * 11;
+      k_hori2 = K_hori2;
+      SetK_hori2(K_hori2);
+    }
+
+    let l_hori2 = 0;
+    if (200 * 12 > (r2 * dev_sin * 2) / 2) {
+      const L_hori2 = (r2 * dev_sin * 2) / 2 - k_hori2;
+      l_hori2 = L_hori2;
+      SetL_hori2(L_hori2);
+    } else {
+      const L_hori2 = 200 * 12;
+      l_hori2 = L_hori2;
+      SetL_hori2(L_hori2);
+    }
+
+    let m_hori2 = 0;
+    if (200 * 13 > (r2 * dev_sin * 2) / 2) {
+      const M_hori2 = (r2 * dev_sin * 2) / 2 - l_hori2;
+      m_hori2 = M_hori2;
+      SetM_hori2(M_hori2);
+    } else {
+      const M_hori2 = 200 * 13;
+      m_hori2 = M_hori2;
+      SetM_hori2(M_hori2);
+    }
+
+    let n_hori2 = 0;
+    if (200 * 14 > (r2 * dev_sin * 2) / 2) {
+      const N_hori2 = (r2 * dev_sin * 2) / 2 - m_hori2;
+      n_hori2 = N_hori2;
+      SetN_hori2(N_hori2);
+    } else {
+      const N_hori2 = 200 * 14;
+      n_hori2 = N_hori2;
+      SetN_hori2(N_hori2);
+    }
+
+    let o_hori2 = 0;
+    if (200 * 15 > (r2 * dev_sin * 2) / 2) {
+      const O_hori2 = (r2 * dev_sin * 2) / 2 - n_hori2;
+      o_hori2 = O_hori2;
+      SetO_hori2(O_hori2);
+    } else {
+      const O_hori2 = 200 * 15;
+      o_hori2 = O_hori2;
+      SetO_hori2(O_hori2);
+    }
+
+    let p_hori2 = 0;
+    if (200 * 16 > (r2 * dev_sin * 2) / 2) {
+      const P_hori2 = (r2 * dev_sin * 2) / 2 - o_hori2;
+      p_hori2 = P_hori2;
+      SetP_hori2(Math.round(P_hori2));
+    } else {
+      const P_hori2 = 200 * 16;
+      p_hori2 = P_hori2;
+      SetP_hori2(P_hori2);
+    }
+
+    let q_hori2 = 0;
+    if (200 * 17 > (r2 * dev_sin * 2) / 2) {
+      const Q_hori2 = (r2 * dev_sin * 2) / 2 - p_hori2;
+      q_hori2 = Q_hori2;
+      SetQ_hori2(Math.round(Q_hori2));
+    } else {
+      const Q_hori2 = 200 * 17;
+      q_hori2 = Q_hori2;
+      SetQ_hori2(Q_hori2);
+    }
+
+    const I_bottom = r2 * Math.cos(i_hori2 / r2) - (r2 - A_bottom);
+    SetI_bottom(Math.floor(I_bottom));
+
+    const J_bottom = r2 * Math.cos(j_hori2 / r2) - (r2 - A_bottom);
+    SetJ_bottom(Math.floor(J_bottom));
+
+    const K_bottom = r2 * Math.cos(k_hori2 / r2) - (r2 - A_bottom);
+    SetK_bottom(Math.floor(K_bottom));
+
+    const L_bottom = r2 * Math.cos(l_hori2 / r2) - (r2 - A_bottom);
+    SetL_bottom(Math.floor(L_bottom));
+
+    const M_bottom = r2 * Math.cos(m_hori2 / r2) - (r2 - A_bottom);
+    SetM_bottom(Math.floor(M_bottom));
+
+    const N_bottom = r2 * Math.cos(n_hori2 / r2) - (r2 - A_bottom);
+    SetN_bottom(Math.floor(N_bottom));
+
+    const O_bottom = r2 * Math.cos(o_hori2 / r2) - (r2 - A_bottom);
+    SetO_bottom(Math.floor(O_bottom));
+
+    const P_bottom = r2 * Math.cos(p_hori2 / r2) - (r2 - A_bottom);
+    SetP_bottom(Math.floor(P_bottom));
+
+    const Q_bottom = r2 * Math.cos(q_hori2 / r2) - (r2 - A_bottom);
+    SetQ_bottom(Math.floor(Q_bottom));
+
+    const top_R = (top_dia_mean + thickness1 + 100) / 2;
+    const top_r = (top_dia_mean + thickness1 + 100 - 2 * sidelining) / 2;
+    const M963 = (top_r / 2) * (top_r / 2);
+    const top_length =
+      (top_R -
+        top_r +
+        (top_r -
+          Math.cos((3.1417 / 180) * 30) * top_r -
+          (top_R - Math.sqrt(top_R * top_R - M963)))) *
+        6 +
+      (top_R - Math.sqrt(top_R * top_R - M963));
+    SetTop_Rim_length(Math.round(top_length));
+
+    SetTop_Rim_width(top_R);
+    SetTop_Rim_thickness(thickness1);
+    SetTop_Rim_R(top_R);
+    SetTop_Rim_r(top_r);
+    SetTop_Rim_Angle(60);
+    SetBottom_width(bottomdiameter);
+    SetBottom_length(bottomdiameter);
+    SetBottom_thickness(thickness2);
+
+    SetTrunion_Top_width(width4);
+    SetTrunion_Top_length(length4);
+    SetTrunion_Top_thickness(thickness4);
+
+    const tru_r = (J972 + H972 * F972 * 2) / 2;
+    SetTrunion_Top_R(Math.round(tru_r));
+
+    SetTrunion_bottom_width(width5);
+    SetTrunion_bottom_length(length4);
+
+    const tru_r_bottom =
+      (J972 + H972 * (F972 - tru_box_v2 + thickness6) * 2) / 2;
+    SetTrunion_bottom_R(Math.ceil(tru_r_bottom));
+
+    SetResting_bottom_width(width8);
+    SetResting_bottom_length(length4);
+
+    const F973 = F972 - tru_box_v2 + thickness5;
+    const resting_r = (J972 + H972 * (F973 - rest_box_v + thickness6) * 2) / 2;
+    SetResting_bottom_R(Math.round(resting_r));
+
+    setOpen(false);
     getUserData();
     setdownload(true);
     setOutput_show(true);
   };
 
   const getUserData = async () => {
-    const token = localStorage.getItem('JWT');
+    const token = localStorage.getItem("JWT");
     try {
-
       const data = await fetchCurrentUser(token);
       console.log(data, "data fetched");
       const { error } = data;
       console.log(error, "error getting user data");
       if (error) {
-        toast.error(error)
+        toast.error(error);
         return;
       }
       let user = data;
       const convertedUser = {
         ...user,
-        dob: user.dob ? user.dob.split('T')[0] : '',
+        dob: user.dob ? user.dob.split("T")[0] : "",
       };
       setUserData(convertedUser);
     } catch (error) {
-      toast.error(error.message + "op" || "Some error occurred while fetching data");
+      toast.error(
+        error.message + "op" || "Some error occurred while fetching data"
+      );
     }
   };
-
 
   useEffect(() => {
     getUserData();
   }, []);
 
   const handleDownloadPDF = async () => {
-
     if (!download) {
-      toast.error("Calculate First")
+      toast.error("Calculate First");
       return;
     }
 
@@ -847,49 +1330,89 @@ else{
     // Capture the second div to an image
     const div2ImageData = await html2canvas(div2Ref.current);
     const div3ImageData = await html2canvas(div3Ref.current);
+    const div4ImageData = await html2canvas(div4Ref.current);
+    const div5ImageData = await html2canvas(div5Ref.current);
 
     // Create a new PDF document
-    const pdf = new jsPDF('p', 'mm', 'a4', true);
+    const pdf = new jsPDF("p", "mm", "a4", true);
 
     // Add the first image to the PDF document
     if (!isMobile) {
       setK(80);
       setK2(140);
       setK3(80);
-      setK4(150)
-      console.log(k, k2, k3, k4)
+      setK4(150);
+      console.log(k, k2, k3, k4);
+    } else {
+      setK(5);
+      setK2(0);
+      setK3(0);
+      setK4(0);
+      console.log(k, k2, k3, k4);
     }
-    else {
-      setK(5)
-      setK2(0)
-      setK3(0)
-      setK4(0)
-      console.log(k, k2, k3, k4)
-    }
-    pdf.addImage(div1ImageData, 'PNG', k, 0, pdf.internal.pageSize.getWidth() - k2, pdf.internal.pageSize.getHeight());
+    pdf.addImage(
+      div1ImageData,
+      "PNG",
+      k,
+      0,
+      pdf.internal.pageSize.getWidth() - k2,
+      pdf.internal.pageSize.getHeight()
+    );
 
     // Add a new page to the PDF document
     pdf.addPage();
 
     // Add the second image to the PDF document
-    pdf.addImage(div2ImageData, 'PNG', k3, 0, pdf.internal.pageSize.getWidth() - k4, pdf.internal.pageSize.getHeight());
+    pdf.addImage(
+      div2ImageData,
+      "PNG",
+      k3,
+      0,
+      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getHeight()
+    );
     pdf.addPage();
-    pdf.addImage(div3ImageData, 'PNG', k3, 0, pdf.internal.pageSize.getWidth() - k4, pdf.internal.pageSize.getHeight());
+    pdf.addImage(
+      div3ImageData,
+      "PNG",
+      k3,
+      0,
+      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getHeight()
+    );
+    pdf.addPage();
+    pdf.addImage(
+      div4ImageData,
+      "PNG",
+      k3,
+      0,
+      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getHeight()
+    );
+    pdf.addPage();
+    pdf.addImage(
+      div5ImageData,
+      "PNG",
+      k3,
+      0,
+      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getHeight()
+    );
+
 
     // Save the PDF document
-    pdf.save('ladle.pdf');
+    pdf.save("ladle.pdf");
 
-    toast.success("Successfully Downloaded")
+    toast.success("Successfully Downloaded");
   };
 
   const validate_ticket = async () => {
-
     try {
-      const response = await fetch('/api/ladle_ticket', {
-        method: 'POST',
+      const response = await fetch("/api/ladle_ticket", {
+        method: "POST",
         body: JSON.stringify(userData.email),
         headers: {
-          'Content-type': 'application/json',
+          "Content-type": "application/json",
         },
       });
 
@@ -912,7 +1435,7 @@ else{
 
   const reset = () => {
     window.location.reload();
-  }
+  };
 
   const [windowWidth, setWindowWidth] = useState(0);
 
@@ -924,9 +1447,9 @@ else{
   // Add an event listener to update the window width when the component mounts
   useLayoutEffect(() => {
     updateWindowWidth();
-    window.addEventListener('resize', updateWindowWidth);
+    window.addEventListener("resize", updateWindowWidth);
     return () => {
-      window.removeEventListener('resize', updateWindowWidth);
+      window.removeEventListener("resize", updateWindowWidth);
     };
   }, []);
 
@@ -951,38 +1474,77 @@ else{
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Are you sure ?
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2, marginBottom: '17px' }}>
+          <Typography
+            id="modal-modal-description"
+            sx={{ mt: 2, marginBottom: "17px" }}
+          >
             You have {userData.ladle_ticket} Tickets left !
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2, marginBottom: '17px' }}>
-            {userData.ladle_ticket == 0 ?
+          <Typography
+            id="modal-modal-description"
+            sx={{ mt: 2, marginBottom: "17px" }}
+          >
+            {userData.ladle_ticket == 0 ? (
               <div>
-                <p>You Can Purchase Plans or Continue with <Link href="/ccm" className="plan_head">Free Plan</Link></p>
+                <p>
+                  You Can Purchase Plans or Continue with{" "}
+                  <Link href="/ccm" className="plan_head">
+                    Free Plan
+                  </Link>
+                </p>
                 <div className="btn_div">
-                  <Link href="/pricing"><button>Purchase</button></Link>
+                  <Link href="/pricing">
+                    <button>Purchase</button>
+                  </Link>
                   {/* <button onClick={result3}>Calculate</button> */}
                 </div>
               </div>
-              : ""}
+            ) : (
+              ""
+            )}
           </Typography>
-          <button className={userData.ladle_ticket == 0 ? "dis" : "btn_cal"} onClick={result3}>Calculate</button>
+          <button
+            className={userData.ladle_ticket == 0 ? "dis" : "btn_cal"}
+            onClick={result3}
+          >
+            Calculate
+          </button>
         </Box>
       </Modal>
       <div ref={div1Ref}>
-        <h2 className="head" style={{ fontSize: '33px' }}>Ladle Calculator</h2>
-        <div className="ladle_desc" style={{ marginBottom: '10vh' }}>
+        <h2 className="head" style={{ fontSize: "33px" }}>
+          Ladle Calculator
+        </h2>
+        <div className="ladle_desc" style={{ marginBottom: "10vh" }}>
           <p className="ccm_para">
-            <span style={{ color: "#1081fc" }}>Ladle Calculator </span>is an indispensable tool for professionals in the field of metallurgy, particularly in the realm of metal casting. This specialized calculator streamlines the process of determining the precise amount of molten metal required for casting operations. With its user-friendly interface, metallurgists and foundry workers can input essential parameters such as casting dimensions, metal type, and desired specifications. The calculator then generates accurate measurements, ensuring that the correct amount of molten metal is utilized, minimizing waste, and optimizing production efficiency.
+            <span style={{ color: "#1081fc" }}>Ladle Calculator </span>is an
+            indispensable tool for professionals in the field of metallurgy,
+            particularly in the realm of metal casting. This specialized
+            calculator streamlines the process of determining the precise amount
+            of molten metal required for casting operations. With its
+            user-friendly interface, metallurgists and foundry workers can input
+            essential parameters such as casting dimensions, metal type, and
+            desired specifications. The calculator then generates accurate
+            measurements, ensuring that the correct amount of molten metal is
+            utilized, minimizing waste, and optimizing production efficiency.
           </p>
         </div>
         <div className="main-box_ladle">
           <div className="ladle_first">
             <h2 className="head_ladle">Fabricated Dimensions</h2>
             <Paper sx={{ overflow: "hidden" }}>
-              <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
-                <Table stickyHeader aria-label="sticky table" >
+              <TableContainer
+                sx={{ maxHeight: 1000 }}
+                style={{ backgroundColor: "#f9fbfc" }}
+              >
+                <Table stickyHeader aria-label="sticky table">
                   <TableBody>
-                    <TableRow hover role="checkbox" tabIndex={-1} sx={{ maxHeight: '10px' }}>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
                       <TableCell>
                         <div className="row_ladle flex-all">
                           <TextField
@@ -1052,9 +1614,13 @@ else{
                           />
                         </div>
                       </TableCell>
-
                     </TableRow>
-                    <TableRow hover role="checkbox" tabIndex={-1} sx={{ maxHeight: '10px' }}>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
                       <TableCell>
                         <div className="row_ladle  flex-all">
                           <TextField
@@ -1116,10 +1682,18 @@ else{
           <div className="ladle_second">
             <h2 className="head_ladle">After Lining</h2>
             <Paper sx={{ overflow: "hidden" }}>
-              <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
+              <TableContainer
+                sx={{ maxHeight: 1000 }}
+                style={{ backgroundColor: "#f9fbfc" }}
+              >
                 <Table stickyHeader aria-label="sticky table">
                   <TableBody>
-                    <TableRow hover role="checkbox" tabIndex={-1} className="cell">
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      className="cell"
+                    >
                       <TableCell>
                         <div className="row_ladle flex-all flex-all">
                           <TextField
@@ -1189,10 +1763,13 @@ else{
                           />
                         </div>
                       </TableCell>
-
-
                     </TableRow>
-                    <TableRow hover role="checkbox" tabIndex={-1} sx={{ maxHeight: '10px' }}>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
                       <TableCell>
                         <div className="row_ladle flex-all">
                           <TextField
@@ -1235,15 +1812,19 @@ else{
           </div>
         </div>
 
-
         <div className="containerfab_ladle">
-          <h2 className="head_ladle" style={{ marginTop: '10vh' }}>Plate Thickness for Ladle Fabrication</h2>
+          <h2 className="head_ladle" style={{ marginTop: "10vh" }}>
+            Plate Thickness for Ladle Fabrication
+          </h2>
           <Paper sx={{ width: "100%", overflow: "hidden" }}>
-            <TableContainer sx={{ maxHeight: 500 }} style={{ backgroundColor: "#f9fbfc" }}>
+            <TableContainer
+              sx={{ maxHeight: 500 }}
+              style={{ backgroundColor: "#f9fbfc" }}
+            >
               <Table stickyHeader aria-label="sticky table">
                 <TableBody>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
@@ -1258,7 +1839,9 @@ else{
                           value={thickness1}
                           label="Nozzle Model"
                           onChange={(e) => setThickness1(e.target.value)}
-                          sx={{ '& .MuiSelect-select': { overflowY: 'scroll' } }}
+                          sx={{
+                            "& .MuiSelect-select": { overflowY: "scroll" },
+                          }}
                         >
                           <MenuItem value="">
                             <em>None</em>
@@ -1279,7 +1862,7 @@ else{
                       </FormControl>
                     </TableCell>
 
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
@@ -1314,7 +1897,7 @@ else{
                       </FormControl>
                     </TableCell>
 
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
@@ -1349,7 +1932,7 @@ else{
                       </FormControl>
                     </TableCell>
 
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
@@ -1383,12 +1966,10 @@ else{
                         </Select>
                       </FormControl>
                     </TableCell>
-
-
                   </TableRow>
 
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
@@ -1423,13 +2004,15 @@ else{
                       </FormControl>
                     </TableCell>
 
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
                         error={error_show.thickness11 && !thickness11}
                       >
-                        <InputLabel id="demo-select-small-label">Legs</InputLabel>
+                        <InputLabel id="demo-select-small-label">
+                          Legs
+                        </InputLabel>
                         <Select
                           labelId="demo-select-small-label"
                           id="demo-select-small"
@@ -1456,11 +2039,15 @@ else{
                       </FormControl>
                     </TableCell>
 
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
-                        error={thickness14 == 0 ? (false) : (error_show.thickness14 && !thickness14)}
+                        error={
+                          thickness14 == 0
+                            ? false
+                            : error_show.thickness14 && !thickness14
+                        }
                       >
                         <InputLabel id="demo-select-small-label">
                           Stiffners
@@ -1492,7 +2079,7 @@ else{
                       </FormControl>
                     </TableCell>
 
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
@@ -1526,12 +2113,10 @@ else{
                         </Select>
                       </FormControl>
                     </TableCell>
-
                   </TableRow>
 
                   <TableRow hover role="checkbox" tabIndex={-1}>
-
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
@@ -1563,7 +2148,7 @@ else{
                       </FormControl>
                     </TableCell>
 
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
@@ -1598,7 +2183,7 @@ else{
                       </FormControl>
                     </TableCell>
 
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
@@ -1633,7 +2218,7 @@ else{
                       </FormControl>
                     </TableCell>
 
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
@@ -1670,7 +2255,7 @@ else{
                   </TableRow>
 
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
@@ -1705,7 +2290,7 @@ else{
                       </FormControl>
                     </TableCell>
 
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <FormControl
                         sx={{ m: 0, minWidth: isMobile ? 175 : 100 }}
                         size="small"
@@ -1739,11 +2324,11 @@ else{
                         </Select>
                       </FormControl>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <Box
                         component="form"
                         sx={{
-                          '& .MuiTextField-root': { m: 0, width: '13ch' },
+                          "& .MuiTextField-root": { m: 0, width: "13ch" },
                         }}
                         noValidate
                         autoComplete="off"
@@ -1751,7 +2336,11 @@ else{
                         <TextField
                           required
                           className="textfield_ladle"
-                          sx={{ m: 0, minWidth: isMobile ? 175 : 100, textAlign: 'center' }}
+                          sx={{
+                            m: 0,
+                            minWidth: isMobile ? 175 : 100,
+                            textAlign: "center",
+                          }}
                           id="outlined-number"
                           label="Tru. Box V1"
                           variant="outlined"
@@ -1763,11 +2352,11 @@ else{
                         />
                       </Box>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <Box
                         component="form"
                         sx={{
-                          '& .MuiTextField-root': { m: 1, width: '13ch' },
+                          "& .MuiTextField-root": { m: 1, width: "13ch" },
                         }}
                         noValidate
                         autoComplete="off"
@@ -1790,11 +2379,11 @@ else{
                   </TableRow>
 
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <Box
                         component="form"
                         sx={{
-                          '& .MuiTextField-root': { m: 1, width: '13ch' },
+                          "& .MuiTextField-root": { m: 1, width: "13ch" },
                         }}
                         noValidate
                         autoComplete="off"
@@ -1814,11 +2403,11 @@ else{
                         />
                       </Box>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <Box
                         component="form"
                         sx={{
-                          '& .MuiTextField-root': { m: 1, width: '13ch' },
+                          "& .MuiTextField-root": { m: 1, width: "13ch" },
                         }}
                         noValidate
                         autoComplete="off"
@@ -1855,8 +2444,7 @@ else{
               onClick={() => {
                 if (isdisabled) {
                   fun();
-                }
-                else {
+                } else {
                   handleOpen();
                 }
               }}
@@ -1867,67 +2455,82 @@ else{
           </Stack>
           <p className="error_ccm">{error}</p>
         </div>
-
       </div>
 
-
       <div ref={div2Ref}>
-
-
         {/* Output screen */}
 
         <div className={output_show ? "output_ladle" : "output_ladle dis"}>
-          <h2 className="head_output" style={{ marginBottom: '6vh' }}>Output</h2>
+          <h2 className="head_output" style={{ marginBottom: "6vh" }}>
+            Output
+          </h2>
 
           <div className="main-box_ladle_output">
             <div className="ladle_first_output">
               <Paper sx={{ width: "100%", overflow: "hidden" }}>
-                <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
-                  <Table stickyHeader aria-label="sticky table" >
+                <TableContainer
+                  sx={{ maxHeight: 1000 }}
+                  style={{ backgroundColor: "#f9fbfc" }}
+                >
+                  <Table stickyHeader aria-label="sticky table">
                     <TableBody>
-                      <TableRow role="checkbox" tabIndex={-1} sx={{ maxHeight: '10px' }}>
-
+                      <TableRow
+                        role="checkbox"
+                        tabIndex={-1}
+                        sx={{ maxHeight: "10px" }}
+                      >
                         <TableCell>
-                          <h2 className="head_ladle" style={{ textAlign: 'center' }}>After Lining Dimensions & Capacity of Fabrication Ladle</h2>
+                          <h2
+                            className="head_ladle"
+                            style={{ textAlign: "center" }}
+                          >
+                            After Lining Dimensions & Capacity of Fabrication
+                            Ladle
+                          </h2>
                         </TableCell>
                       </TableRow>
 
-
                       <TableRow hover role="checkbox" tabIndex={-1}>
-
                         <TableCell>
-                          <p className="textcentre_ladle">Free Board Level Diameter(mm) : {freeboardleveldiameter}</p>
+                          <p className="textcentre_ladle">
+                            Free Board Level Diameter(mm) :{" "}
+                            {freeboardleveldiameter}
+                          </p>
                         </TableCell>
                       </TableRow>
 
                       <TableRow hover role="checkbox" tabIndex={-1}>
-
                         <TableCell>
-                          <p className="textcentre_ladle">Bottom Lining Level Diameter(mm) : {bottomliningleveldiameter}</p>
+                          <p className="textcentre_ladle">
+                            Bottom Lining Level Diameter(mm) :{" "}
+                            {bottomliningleveldiameter}
+                          </p>
                         </TableCell>
                       </TableRow>
 
-
                       <TableRow hover role="checkbox" tabIndex={-1}>
-
                         <TableCell>
-                          <p className="textcentre_ladle">In Between Height(mm) : {inbetweenheight}</p>
+                          <p className="textcentre_ladle">
+                            In Between Height(mm) : {inbetweenheight}
+                          </p>
                         </TableCell>
                       </TableRow>
 
-
                       <TableRow hover role="checkbox" tabIndex={-1}>
-
                         <TableCell>
-                          <p className="textcentre_ladle">Volumn of Ladle after Lining(Cu.Mtr) : {(pieHby3 * temp).toFixed(2)} cu.M</p>
+                          <p className="textcentre_ladle">
+                            Volumn of Ladle after Lining(Cu.Mtr) :{" "}
+                            {(pieHby3 * temp).toFixed(2)} cu.M
+                          </p>
                         </TableCell>
                       </TableRow>
 
-
                       <TableRow hover role="checkbox" tabIndex={-1}>
-
                         <TableCell>
-                          <p className="textcentre_ladle">Capacity of Ladle(MT) : {(pieHby3 * temp * density).toFixed(2)} MT</p>
+                          <p className="textcentre_ladle">
+                            Capacity of Ladle(MT) :{" "}
+                            {(pieHby3 * temp * density).toFixed(2)} MT
+                          </p>
                         </TableCell>
                       </TableRow>
                     </TableBody>
@@ -1942,42 +2545,49 @@ else{
 
             <div className="ladle_second_output">
               <Paper sx={{ width: "100%", overflow: "hidden" }}>
-                <TableContainer sx={{ maxHeight: 1000 }} style={{ backgroundColor: "#f9fbfc" }}>
+                <TableContainer
+                  sx={{ maxHeight: 1000 }}
+                  style={{ backgroundColor: "#f9fbfc" }}
+                >
                   <Table stickyHeader aria-label="sticky table">
                     <TableBody>
                       <TableRow role="checkbox" tabIndex={-1} className="cell">
-
                         <TableCell>
-                          <h2 className="head_ladle" style={{ textAlign: 'center' }}>Fabrication Dimensions & Capacity of Linined Ladle</h2>
-                        </TableCell>
-                      </TableRow>
-
-
-                      <TableRow hover role="checkbox" tabIndex={-1}>
-
-                        <TableCell>
-                          <p className="textcentre_ladle">Top ID for Fabrication of Ladle: {output1}</p>
+                          <h2
+                            className="head_ladle"
+                            style={{ textAlign: "center" }}
+                          >
+                            Fabrication Dimensions & Capacity of Linined Ladle
+                          </h2>
                         </TableCell>
                       </TableRow>
 
                       <TableRow hover role="checkbox" tabIndex={-1}>
-
                         <TableCell>
-                          <p className="textcentre_ladle">Bottom ID for Fabrication of Ladle: {output2}</p>
+                          <p className="textcentre_ladle">
+                            Top ID for Fabrication of Ladle: {output1}
+                          </p>
                         </TableCell>
                       </TableRow>
 
+                      <TableRow hover role="checkbox" tabIndex={-1}>
+                        <TableCell>
+                          <p className="textcentre_ladle">
+                            Bottom ID for Fabrication of Ladle: {output2}
+                          </p>
+                        </TableCell>
+                      </TableRow>
 
                       <TableRow hover role="checkbox" tabIndex={-1}>
-
                         <TableCell>
-                          <p className="textcentre_ladle">Height for Fabrication of Ladle: {output3}</p>
+                          <p className="textcentre_ladle">
+                            Height for Fabrication of Ladle: {output3}
+                          </p>
                         </TableCell>
                       </TableRow>
                       <TableRow hover role="checkbox" tabIndex={-1}>
-
                         <TableCell>
-                          <p style={{ textAlign: 'center' }}>
+                          <p style={{ textAlign: "center" }}>
                             Volumn of Lined Ladle(Cu.Mtr):{" "}
                             {(
                               outputlining1 *
@@ -1992,9 +2602,8 @@ else{
                       </TableRow>
 
                       <TableRow hover role="checkbox" tabIndex={-1}>
-
                         <TableCell>
-                          <p style={{ textAlign: 'center' }}>
+                          <p style={{ textAlign: "center" }}>
                             Capacity of Lined Ladle:{" "}
                             {(
                               outputlining1 *
@@ -2008,9 +2617,6 @@ else{
                           </p>
                         </TableCell>
                       </TableRow>
-
-
-
                     </TableBody>
                   </Table>
                 </TableContainer>
@@ -2020,30 +2626,56 @@ else{
 
           {/* fabrication_output */}
 
-          <h2 className="head_ladle" style={{ marginTop: '4vh' }}>Bill of Material</h2>
-          <div className="containerfab_ladle flex-all" style={{ marginTop: '4vh' }}>
-            <Paper sx={{ width: "100%", overflow: "hidden" }} >
-              <TableContainer sx={{ maxHeight: 1200 }} style={{ backgroundColor: "#f9fbfc" }}>
+          <h2 className="head_ladle" style={{ marginTop: "4vh" }}>
+            Bill of Material
+          </h2>
+          <div
+            className="containerfab_ladle flex-all"
+            style={{ marginTop: "4vh" }}
+          >
+            <Paper sx={{ width: "100%", overflow: "hidden" }}>
+              <TableContainer
+                sx={{ maxHeight: 1200 }}
+                style={{ backgroundColor: "#f9fbfc" }}
+              >
                 <Table stickyHeader aria-label="sticky table">
                   <TableHead>
-                    <TableRow hover role="checkbox" tabIndex={-1} >
-                      <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+                      <TableCell
+                        sx={{ textAlign: "center" }}
+                        style={{ backgroundColor: "#c8c8c8" }}
+                      >
                         <p>Particulars</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                      <TableCell
+                        sx={{ textAlign: "center" }}
+                        style={{ backgroundColor: "#c8c8c8" }}
+                      >
                         <p>Thickness</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                      <TableCell
+                        sx={{ textAlign: "center" }}
+                        style={{ backgroundColor: "#c8c8c8" }}
+                      >
                         <p>Weight in Kgs</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                      <TableCell
+                        sx={{ textAlign: "center" }}
+                        style={{ backgroundColor: "#c8c8c8" }}
+                      >
                         <p>Length</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                      <TableCell
+                        sx={{ textAlign: "center" }}
+                        style={{ backgroundColor: "#c8c8c8" }}
+                      >
                         <p>Width</p>
                       </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                      <TableCell
+                        sx={{ textAlign: "center" }}
+                        style={{ backgroundColor: "#c8c8c8" }}
+                      >
                         <p>Qty</p>
                       </TableCell>
                     </TableRow>
@@ -2051,178 +2683,302 @@ else{
 
                   <TableBody>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Shell Plate</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness1}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight1}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length1}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width1}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness1}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight1}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length1}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width1}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}>{qty1}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>{qty1}</TableCell>
                     </TableRow>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Bottom Plate</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness2}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight2}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length2}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width2}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness2}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight2}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length2}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width2}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}>{qty2}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>{qty2}</TableCell>
                     </TableRow>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Top Rim Plate</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness3}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight3}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length3}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width3}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness3}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight3}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length3}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width3}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}>{qty3}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>{qty3}</TableCell>
                     </TableRow>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Trunion Box Hori. Plt. 1</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness4}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight4}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length4}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width4}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness4}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight4}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length4}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width4}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}>{qty4}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>{qty4}</TableCell>
                     </TableRow>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Trunion Box Hori. Plt. 2</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness5}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight5}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length5}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width5}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness5}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight5}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length5}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width5}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}>{qty5}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>{qty5}</TableCell>
                     </TableRow>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Trunion Box Vertical Plt.</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness5}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight6}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length6}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width6}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness5}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight6}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length6}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width6}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}>{qty6}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>{qty6}</TableCell>
                     </TableRow>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Trunion Box Side Plt.</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness7}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight7}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length7}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width7}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness7}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight7}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length7}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width7}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}>{qty7}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>{qty7}</TableCell>
                     </TableRow>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Resting Box Hori. Plt</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness8}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight8}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length8}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width8}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness8}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight8}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length8}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width8}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}>{qty8}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>{qty8}</TableCell>
                     </TableRow>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Resting Box Ver. Plt.</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness9}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight9}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length9}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width9}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness9}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight9}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length9}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width9}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}>{qty9}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>{qty9}</TableCell>
                     </TableRow>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Resting Box Side Plt.</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness10}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight10}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length10}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width10}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness10}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight10}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length10}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width10}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}>{qty10}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {qty10}
+                      </TableCell>
                     </TableRow>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Legs</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness11}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight11}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length11}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width11}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness11}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight11}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length11}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width11}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}>{qty11}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {qty11}
+                      </TableCell>
                     </TableRow>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Retaining RCS</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness12}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight12}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length12}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width12}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness12}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight12}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length12}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width12}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}>{qty12}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {qty12}
+                      </TableCell>
                     </TableRow>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Lifting Hooks</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness13}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight13}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length13}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width13}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness13}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight13}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length13}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width13}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}>{qty13}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {qty13}
+                      </TableCell>
                     </TableRow>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Stiffners</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness14}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight14}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length14}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width14}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness14}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight14}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length14}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width14}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}> {qty14}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {" "}
+                        {qty14}
+                      </TableCell>
                     </TableRow>
                     <TableRow hover role="checkbox" tabIndex={-1}>
-                      <TableCell sx={{ textAlign: 'center' }}>
+                      <TableCell sx={{ textAlign: "center" }}>
                         <p>Trunion Pin</p>
                       </TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{thickness15}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{weight15}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{length15}</TableCell>
-                      <TableCell sx={{ textAlign: 'center' }}>{width15}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {thickness15}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {weight15}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {length15}
+                      </TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {width15}
+                      </TableCell>
 
-                      <TableCell sx={{ textAlign: 'center' }}>{qty15}</TableCell>
+                      <TableCell sx={{ textAlign: "center" }}>
+                        {qty15}
+                      </TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>
@@ -2231,19 +2987,33 @@ else{
             {/* yaha hu */}
           </div>
           <div className="fab_weight flex-all">
-            <p style={{ fontSize: '25px', marginTop: '5vh' }}>Fabrication Weight: {Math.ceil(total_weight)} Kgs</p>
+            <p style={{ fontSize: "25px", marginTop: "5vh" }}>
+              Fabrication Weight: {Math.ceil(total_weight)} Kgs
+            </p>
           </div>
         </div>
       </div>
 
       <div ref={div3Ref} id="pdf" className={output_show ? "" : "dis"}>
         {/* Diagrams */}
-        <h2 className="head_cc" style={{ marginBottom: '5vh' }}>Graphical Models</h2>
+        <h2 className="head_cc" style={{ marginBottom: "5vh" }}>
+          Graphical Models
+        </h2>
 
-        <div className="flex-all img_ladle" style={{ marginBottom: '15vh' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>DEVELOPMENT OF LADLE SHELL PLATE</h3>
-            <h5 style={{ textAlign: 'center', marginBottom: '15vh' }}>Vertical Division 200 mm from Centre {d16} Nos.</h5>
+        <div className="flex-all img_ladle" style={{ marginBottom: "15vh" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <h3 style={{ textAlign: "center", marginBottom: "1vh" }}>
+              DEVELOPMENT OF LADLE SHELL PLATE
+            </h3>
+            <h5 style={{ textAlign: "center", marginBottom: "15vh" }}>
+              Vertical Division 200 mm from Centre {d16} Nos.
+            </h5>
             <div className="dia">
               <div className="dia1">
                 <p>{d8}</p>
@@ -2286,34 +3056,54 @@ else{
                 alt="My Image"
                 width={imageWidth}
                 height={imageheight1}
-                loading="eager"   // Options: "eager", "lazy", or "auto"
-                priority          // Preload this image
-                quality={80}      // Set the image quality (0-100)
+                loading="eager" // Options: "eager", "lazy", or "auto"
+                priority // Preload this image
+                quality={80} // Set the image quality (0-100)
               />
             </div>
           </div>
-
         </div>
 
-        <div className="containerfab_ladle flex-all" style={{ marginTop: '4vh' }}>
-          <Paper sx={{ width: "100%", overflow: "hidden" }} >
-            <TableContainer sx={{ maxHeight: 1200 }} style={{ backgroundColor: "#f9fbfc" }}>
+        <div
+          className="containerfab_ladle flex-all"
+          style={{ marginTop: "4vh", marginBottom: "4vh" }}
+        >
+          <Paper sx={{ width: "100%", overflow: "hidden" }}>
+            <TableContainer
+              sx={{ maxHeight: 1400 }}
+              style={{ backgroundColor: "#f9fbfc" }}
+            >
               <Table stickyHeader aria-label="sticky table">
                 <TableHead>
-                  <TableRow hover role="checkbox" tabIndex={-1} >
-                    <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
                       <p>Section</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
                       <p>Hori. Dt.</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
                       <p>Top</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
                       <p>Hori. Dt.</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
                       <p>Bottom</p>
                     </TableCell>
                   </TableRow>
@@ -2321,166 +3111,257 @@ else{
 
                 <TableBody>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <p>A</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{d8}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{d10}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{A_hori2}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{A_bottom}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{d8}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{d10}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {A_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {A_bottom}
+                    </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <p>B</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{B_hori1}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{B_top}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{B_hori2}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{B_bottom}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {B_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{B_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {B_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {B_bottom}
+                    </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <p>C</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{C_hori1}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{C_top}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{C_hori2}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{C_bottom}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {C_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{C_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {C_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {C_bottom}
+                    </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <p>D</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{D_hori1}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{D_top}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{D_hori2}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{D_bottom}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {D_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{D_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {D_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {D_bottom}
+                    </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <p>E</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{E_hori1}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{E_top}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{E_hori2}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{E_bottom}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {E_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{E_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {E_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {E_bottom}
+                    </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <p>F</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{F_hori1}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{F_top}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{F_hori2}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{F_bottom}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {F_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{F_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {F_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {F_bottom}
+                    </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <p>Trunion Box Side Plt.</p>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>G</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{thickness7}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{weight7}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{length7}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{width7}</TableCell>
-
-                    <TableCell sx={{ textAlign: 'center' }}>{qty7}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {G_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{G_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {G_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {G_bottom}
+                    </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <p>Resting Box Hori. Plt</p>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>H</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{thickness8}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{weight8}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{length8}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{width8}</TableCell>
-
-                    <TableCell sx={{ textAlign: 'center' }}>{qty8}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {H_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{H_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {H_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {H_bottom}
+                    </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <p>Resting Box Ver. Plt.</p>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>I</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{thickness9}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{weight9}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{length9}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{width9}</TableCell>
-
-                    <TableCell sx={{ textAlign: 'center' }}>{qty9}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {I_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{I_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {I_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {I_bottom}
+                    </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <p>Resting Box Side Plt.</p>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>J</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{thickness10}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{weight10}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{length10}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{width10}</TableCell>
-
-                    <TableCell sx={{ textAlign: 'center' }}>{qty10}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {J_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{J_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {J_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {J_bottom}
+                    </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <p>Legs</p>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>K</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{thickness11}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{weight11}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{length11}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{width11}</TableCell>
-
-                    <TableCell sx={{ textAlign: 'center' }}>{qty11}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {K_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{K_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {K_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {K_bottom}
+                    </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <p>Retaining RCS</p>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>L</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{thickness12}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{weight12}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{length12}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{width12}</TableCell>
-
-                    <TableCell sx={{ textAlign: 'center' }}>{qty12}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {L_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{L_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {L_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {L_bottom}
+                    </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <p>Lifting Hooks</p>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>M</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{thickness13}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{weight13}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{length13}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{width13}</TableCell>
-
-                    <TableCell sx={{ textAlign: 'center' }}>{qty13}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {M_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{M_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {M_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {M_bottom}
+                    </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <p>Stiffners</p>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>N</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{thickness14}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{weight14}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{length14}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{width14}</TableCell>
-
-                    <TableCell sx={{ textAlign: 'center' }}> {qty14}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {N_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{N_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {N_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {N_bottom}
+                    </TableCell>
                   </TableRow>
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
-                      <p>Trunion Pin</p>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>O</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{thickness15}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{weight15}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{length15}</TableCell>
-                    <TableCell sx={{ textAlign: 'center' }}>{width15}</TableCell>
-
-                    <TableCell sx={{ textAlign: 'center' }}>{qty15}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {O_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{O_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {O_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {O_bottom}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>P</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {P_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{P_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {P_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {P_bottom}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Q</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Q_hori1}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>{Q_top}</TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Q_hori2}
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Q_bottom}
+                    </TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -2488,10 +3369,23 @@ else{
           </Paper>
           {/* yaha hu */}
         </div>
+      </div>
+
+      <div ref={div4Ref} id="pdf" className={output_show ? "" : "dis"}>
         <div className="flex-all img_ladle">
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>DEVELOPMENT OF LADLE TOP RIM PLATE</h3>
-            <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>SIX SECTOR PLATE @ 60 DEGREE EACH</h5>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <h3 style={{ textAlign: "center", marginBottom: "1vh" }}>
+              DEVELOPMENT OF LADLE TOP RIM PLATE
+            </h3>
+            <h5 style={{ textAlign: "center", marginBottom: "10vh" }}>
+              SIX SECTOR PLATE @ 60 DEGREE EACH
+            </h5>
             <div className="dia">
               <div className="dia_p_1">
                 <p className="p1"> R {d2}</p>
@@ -2500,7 +3394,7 @@ else{
                 <p className="p1">{d1}</p>
               </div>
               <div className="dia_p_3">
-                <p className="p1" >{d3}</p>
+                <p className="p1">{d3}</p>
               </div>
               <div className="dia_p_4">
                 <p className="p1">r {d4}</p>
@@ -2510,15 +3404,26 @@ else{
                 alt="My Image"
                 width={imageWidth2}
                 height={imageheight2}
-                loading="eager"   // Options: "eager", "lazy", or "auto"
-                priority          // Preload this image
-                quality={80}      // Set the image quality (0-100)
+                loading="eager" // Options: "eager", "lazy", or "auto"
+                priority // Preload this image
+                quality={80} // Set the image quality (0-100)
               />
             </div>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>DEVELOPMENT OF LADLE BOTTOM PLATE</h3>
-            <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>GIVEN SQUARE PLATE DIMENSIONS</h5>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <h3 style={{ textAlign: "center", marginBottom: "1vh" }}>
+              DEVELOPMENT OF LADLE BOTTOM PLATE
+            </h3>
+            <h5 style={{ textAlign: "center", marginBottom: "10vh" }}>
+              GIVEN SQUARE PLATE DIMENSIONS
+            </h5>
             <div className="dia">
               <div className="dia_p_5">
                 <p className="p1">{d5}</p>
@@ -2541,130 +3446,638 @@ else{
           </div>
         </div>
 
+        <div
+          className="containerfab_ladle flex-all"
+          style={{ marginTop: "4vh", marginBottom: "4vh" }}
+        >
+          <Paper sx={{ width: "100%", overflow: "hidden" }}>
+            <TableContainer
+              sx={{ maxHeight: 1200 }}
+              style={{ backgroundColor: "#f9fbfc" }}
+            >
+              <Table stickyHeader aria-label="sticky table">
+                <TableHead>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
+                      <p>Dimensions of Top Rim Plt.</p>
+                    </TableCell>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
+                      <p>in MM</p>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
 
-        <h3 style={{ textAlign: 'center', marginTop: '10vh' }}>DEVELOPMENT OF LADLE BOX HORIZONTAL PLATE</h3>
-        <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>TRUNION BOX AND RESTING BOX</h5>
-        <div className="flex-all img_ladle" style={{ marginTop: '5vh' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Trunion Box Top Plate</h3>
-            <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>2 Nos</h5>
+                <TableBody>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Length</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Top_Rim_length}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Width</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Top_Rim_Width}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Thickness</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Top_Rim_Thickness}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Radius-R</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Top_Rim_R}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Radius-r</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Top_Rim_r}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Angle-Degree</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Top_Rim_Angle}
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Paper>
+          {/* yaha hu */}
+        </div>
+        <div
+          className="containerfab_ladle flex-all"
+          style={{ marginTop: "4vh", marginBottom: "4vh" }}
+        >
+          <Paper sx={{ width: "100%", overflow: "hidden" }}>
+            <TableContainer
+              sx={{ maxHeight: 1200 }}
+              style={{ backgroundColor: "#f9fbfc" }}
+            >
+              <Table stickyHeader aria-label="sticky table">
+                <TableHead>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
+                      <p>Dimensions of Bottom Plt.</p>
+                    </TableCell>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
+                      <p>in MM</p>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+
+                <TableBody>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Width</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Bottom_width}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Length</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Bottom_length}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Thickness</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Bottom_thickness}
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Paper>
+          {/* yaha hu */}
+        </div>
+
+        <h3 style={{ textAlign: "center", marginTop: "10vh" }}>
+          DEVELOPMENT OF LADLE BOX HORIZONTAL PLATE
+        </h3>
+        <h5 style={{ textAlign: "center", marginBottom: "10vh" }}>
+          TRUNION BOX AND RESTING BOX
+        </h5>
+        <div className="flex-all img_ladle" style={{ marginTop: "5vh" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <h3 style={{ textAlign: "center", marginBottom: "1vh" }}>
+              Trunion Box Top Plate
+            </h3>
+            <h5 style={{ textAlign: "center", marginBottom: "5vh" }}>2 Nos</h5>
             <div>
-
               <Image
-
                 src="/lr.jpeg"
                 alt="My Image"
                 width={imageWidth3}
                 height={imageheight3}
-                loading="eager"   // Options: "eager", "lazy", or "auto"
-                priority          // Preload this image
-                quality={80}      // Set the image quality (0-100)
+                loading="eager" // Options: "eager", "lazy", or "auto"
+                priority // Preload this image
+                quality={80} // Set the image quality (0-100)
               />
             </div>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Trunion Box Bottom Plate</h3>
-            <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>2 Nos</h5>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <h3 style={{ textAlign: "center", marginBottom: "1vh" }}>
+              Trunion Box Bottom Plate
+            </h3>
+            <h5 style={{ textAlign: "center", marginBottom: "5vh" }}>2 Nos</h5>
             <div>
-
               <Image
-
                 src="/lr.jpeg"
                 alt="My Image"
                 width={imageWidth3}
                 height={imageheight3}
-                loading="eager"   // Options: "eager", "lazy", or "auto"
-                priority          // Preload this image
-                quality={80}      // Set the image quality (0-100)
+                loading="eager" // Options: "eager", "lazy", or "auto"
+                priority // Preload this image
+                quality={80} // Set the image quality (0-100)
               />
             </div>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Resting Box Bottom Plate</h3>
-            <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>2 Nos</h5>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <h3 style={{ textAlign: "center", marginBottom: "1vh" }}>
+              Resting Box Bottom Plate
+            </h3>
+            <h5 style={{ textAlign: "center", marginBottom: "5vh" }}>2 Nos</h5>
             <div>
-
               <Image
-
                 src="/lr.jpeg"
                 alt="My Image"
                 width={imageWidth2}
                 height={imageheight3}
-                loading="eager"   // Options: "eager", "lazy", or "auto"
-                priority          // Preload this image
-                quality={80}      // Set the image quality (0-100)
+                loading="eager" // Options: "eager", "lazy", or "auto"
+                priority // Preload this image
+                quality={80} // Set the image quality (0-100)
               />
             </div>
           </div>
         </div>
 
-        <h3 style={{ textAlign: 'center', marginTop: '10vh' }}>DEVELOPMENT OF LADLE BOX VERTICAL PLATE</h3>
-        <h5 style={{ textAlign: 'center', marginBottom: '10vh' }}>TRUNION BOX AND RESTING BOX</h5>
-        <div className="flex-all img_ladle" style={{ marginTop: '5vh' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Trunion Box Vertical Plates</h3>
-            <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>4 Nos</h5>
-            <div>
+        <div
+          className="containerfab_ladle flex-all"
+          style={{ marginTop: "4vh", marginBottom: "4vh" }}
+        >
+          <Paper sx={{ width: "100%", overflow: "hidden" }}>
+            <TableContainer
+              sx={{ maxHeight: 1200 }}
+              style={{ backgroundColor: "#f9fbfc" }}
+            >
+              <Table stickyHeader aria-label="sticky table">
+                <TableHead>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
+                      <p>Trunion Box Horizontal Top Plate</p>
+                    </TableCell>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
+                      <p>in MM</p>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
 
-              <Image
+                <TableBody>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Width</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Trunion_Top_width}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Length</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Trunion_Top_length}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Thickness for all</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Trunion_Top_thickness}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Radius-R</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Trunion_Top_R}
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Paper>
+          {/* yaha hu */}
+        </div>
 
-                src="/Trunion.jpeg"
-                alt="My Image"
-                width={imageWidth2}
-                height={imageheight3}
-                loading="eager"   // Options: "eager", "lazy", or "auto"
-                priority          // Preload this image
-                quality={80}      // Set the image quality (0-100)
-              />
-            </div>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>Resting Box Vertical Plates</h3>
-            <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>4 Nos</h5>
-            <div>
+        <div
+          className="containerfab_ladle flex-all"
+          style={{ marginTop: "4vh", marginBottom: "4vh" }}
+        >
+          <Paper sx={{ width: "100%", overflow: "hidden" }}>
+            <TableContainer
+              sx={{ maxHeight: 1200 }}
+              style={{ backgroundColor: "#f9fbfc" }}
+            >
+              <Table stickyHeader aria-label="sticky table">
+                <TableHead>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
+                      <p>Trunion Box Horizontal Bottom Plate</p>
+                    </TableCell>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
+                      <p>in MM</p>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
 
-              <Image
+                <TableBody>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Width</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Trunion_bottom_width}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Length</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Trunion_bottom_length}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Radius-R</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Trunion_bottom_R}
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Paper>
+          {/* yaha hu */}
+        </div>
 
-                src="/Trunion.jpeg"
-                alt="My Image"
-                width={imageWidth2}
-                height={imageheight3}
-                loading="eager"   // Options: "eager", "lazy", or "auto"
-                priority          // Preload this image
-                quality={80}      // Set the image quality (0-100)
-              />
-            </div>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h3 style={{ textAlign: 'center', marginBottom: '1vh' }}>CENTRE PLATE TRUNION PIN HOLD</h3>
-            <h5 style={{ textAlign: 'center', marginBottom: '5vh' }}>2 Nos</h5>
-            <div className="dia">
-              <div className="dia_p_7">
-                <p className="p1">{d7}</p>
-              </div>
-              <div className="dia_p_8">
-                <p className="p1">{d7}</p>
-              </div>
+        <div
+          className="containerfab_ladle flex-all"
+          style={{ marginTop: "4vh", marginBottom: "4vh" }}
+        >
+          <Paper sx={{ width: "100%", overflow: "hidden" }}>
+            <TableContainer
+              sx={{ maxHeight: 1200 }}
+              style={{ backgroundColor: "#f9fbfc" }}
+            >
+              <Table stickyHeader aria-label="sticky table">
+                <TableHead>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
+                      <p>Resting Box Horizontal Bottom Plate</p>
+                    </TableCell>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
+                      <p>in MM</p>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
 
-              <Image
-
-                src="/gola.jpeg"
-                alt="My Image"
-                width={imageWidth2}
-                height={imageheight3}
-                loading="eager"   // Options: "eager", "lazy", or "auto"
-                priority          // Preload this image
-                quality={80}      // Set the image quality (0-100)
-              />
-            </div>
-          </div>
+                <TableBody>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Width</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Resting_bottom_width}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Length</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Resting_bottom_length}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      <p>Radius-R</p>
+                    </TableCell>
+                    <TableCell sx={{ textAlign: "center" }}>
+                      {Resting_bottom_R}
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Paper>
+          {/* yaha hu */}
         </div>
       </div>
 
+      <div ref={div5Ref} id="pdf" className={output_show ? "" : "dis"}>
+      <h3 style={{ textAlign: "center", marginTop: "10vh" }}>
+        DEVELOPMENT OF LADLE BOX VERTICAL PLATE
+      </h3>
+      <h5 style={{ textAlign: "center", marginBottom: "10vh" }}>
+        TRUNION BOX AND RESTING BOX
+      </h5>
+      <div className="flex-all img_ladle" style={{ marginTop: "5vh" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <h3 style={{ textAlign: "center", marginBottom: "1vh" }}>
+            Trunion Box Vertical Plates
+          </h3>
+          <h5 style={{ textAlign: "center", marginBottom: "5vh" }}>4 Nos</h5>
+          <div>
+            <Image
+              src="/Trunion.jpeg"
+              alt="My Image"
+              width={imageWidth2}
+              height={imageheight3}
+              loading="eager" // Options: "eager", "lazy", or "auto"
+              priority // Preload this image
+              quality={80} // Set the image quality (0-100)
+            />
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <h3 style={{ textAlign: "center", marginBottom: "1vh" }}>
+            Resting Box Vertical Plates
+          </h3>
+          <h5 style={{ textAlign: "center", marginBottom: "5vh" }}>4 Nos</h5>
+          <div>
+            <Image
+              src="/Trunion.jpeg"
+              alt="My Image"
+              width={imageWidth2}
+              height={imageheight3}
+              loading="eager" // Options: "eager", "lazy", or "auto"
+              priority // Preload this image
+              quality={80} // Set the image quality (0-100)
+            />
+          </div>
+        </div>
 
-      <div className="flex-all" style={{ flexDirection: 'column' }}>
-        <div className={output_show ? "flex-all" : "dis"} style={{ marginBottom: '1vh' }}><button onClick={handleDownloadPDF} className="download_btn">Download PDF</button></div>
-        <div className={output_show ? "flex-all" : "dis"} style={{ marginBottom: '8vh' }}><button onClick={reset} className="download_btn">Reset</button></div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <h3 style={{ textAlign: "center", marginBottom: "1vh" }}>
+            CENTRE PLATE TRUNION PIN HOLD
+          </h3>
+          <h5 style={{ textAlign: "center", marginBottom: "5vh" }}>2 Nos</h5>
+          <div className="dia">
+            <div className="dia_p_7">
+              <p className="p1">{d7}</p>
+            </div>
+            <div className="dia_p_8">
+              <p className="p1">{d7}</p>
+            </div>
+
+            <Image
+              src="/gola.jpeg"
+              alt="My Image"
+              width={imageWidth2}
+              height={imageheight3}
+              loading="eager" // Options: "eager", "lazy", or "auto"
+              priority // Preload this image
+              quality={80} // Set the image quality (0-100)
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="containerfab_ladle flex-all"
+        style={{ marginTop: "4vh", marginBottom: "4vh" }}
+      >
+        <Paper sx={{ width: "100%", overflow: "hidden" }}>
+          <TableContainer
+            sx={{ maxHeight: 1200 }}
+            style={{ backgroundColor: "#f9fbfc" }}
+          >
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell
+                    sx={{ textAlign: "center" }}
+                    style={{ backgroundColor: "#c8c8c8" }}
+                  >
+                    <p>Trunion Box Verticle Plate</p>
+                  </TableCell>
+                  <TableCell
+                    sx={{ textAlign: "center" }}
+                    style={{ backgroundColor: "#c8c8c8" }}
+                  >
+                    <p>in MM</p>
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+
+              <TableBody>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    <p>Width-1</p>
+                  </TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>{width5}</TableCell>
+                </TableRow>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    <p>Width-2</p>
+                  </TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>{width4}</TableCell>
+                </TableRow>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    <p>Length</p>
+                  </TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>{length6}</TableCell>
+                </TableRow>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    <p>Thickness</p>
+                  </TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    {thickness5}
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Paper>
+        {/* yaha hu */}
+      </div>
+
+      <div
+        className="containerfab_ladle flex-all"
+        style={{ marginTop: "4vh", marginBottom: "4vh" }}
+      >
+        <Paper sx={{ width: "100%", overflow: "hidden" }}>
+          <TableContainer
+            sx={{ maxHeight: 1200 }}
+            style={{ backgroundColor: "#f9fbfc" }}
+          >
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell
+                    sx={{ textAlign: "center" }}
+                    style={{ backgroundColor: "#c8c8c8" }}
+                  >
+                    <p>Resting Box Verticle Plate</p>
+                  </TableCell>
+                  <TableCell
+                    sx={{ textAlign: "center" }}
+                    style={{ backgroundColor: "#c8c8c8" }}
+                  >
+                    <p>in MM</p>
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+
+              <TableBody>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    <p>Width-1</p>
+                  </TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>{width8}</TableCell>
+                </TableRow>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    <p>Width-2</p>
+                  </TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>{width5}</TableCell>
+                </TableRow>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    <p>Length</p>
+                  </TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>{length9}</TableCell>
+                </TableRow>
+                <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    <p>Thickness</p>
+                  </TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    {thickness5}
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Paper>
+        {/* yaha hu */}
+      </div>
+      </div>
+
+      <div className="flex-all" style={{ flexDirection: "column" }}>
+        <div
+          className={output_show ? "flex-all" : "dis"}
+          style={{ marginBottom: "1vh" }}
+        >
+          <button onClick={handleDownloadPDF} className="download_btn">
+            Download PDF
+          </button>
+        </div>
+        <div
+          className={output_show ? "flex-all" : "dis"}
+          style={{ marginBottom: "8vh" }}
+        >
+          <button onClick={reset} className="download_btn">
+            Reset
+          </button>
+        </div>
       </div>
       <Footer />
     </div>
