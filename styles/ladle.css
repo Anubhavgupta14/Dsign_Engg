@@ -352,6 +352,43 @@ p {
   width: 400;
 }
 
+.dia_p_t1{
+  position: absolute;
+  top: 0;
+  left: 45%;
+  top: -10px;
+}
+.dia_p_t2{
+  position: absolute;
+  top: 0;
+  left: 0%;
+  top: 50%;
+}
+.dia_p_t3{
+  position: absolute;
+  top: 0;
+  left: 80%;
+  top: 50%;
+}
+.dia_p_t4{
+  position: absolute;
+  top: 0;
+  left: 45%;
+  top: -10px;
+}
+.dia_p_t5{
+  position: absolute;
+  top: 0;
+  left: 0%;
+  top: 50%;
+}
+.dia_p_t6{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  top: 100%;
+}
+
 
 
 
