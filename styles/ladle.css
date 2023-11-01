@@ -294,7 +294,7 @@ p {
 }
 .dia11{
   position: absolute;
-  top: 100%;
+  top: 90%;
   left: 50%;
 }
 .dia12{
@@ -408,7 +408,10 @@ p {
 }
 
 
-
+.head_lad{
+  text-align: center;
+  padding-block: 4px;
+}
 
 
 @media screen and (max-width: 900px) {

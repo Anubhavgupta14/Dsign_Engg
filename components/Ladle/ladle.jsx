@@ -346,12 +346,12 @@ const Ladlecalculator = ({ authtoken }) => {
     sidelining &&
     freeboard &&
     density &&
-    input1 &&
-    input2 &&
-    input3 &&
-    input4 &&
-    input5 &&
-    input6 &&
+    // input1 &&
+    // input2 &&
+    // input3 &&
+    // input4 &&
+    // input5 &&
+    // input6 &&
     thickness1 &&
     thickness4 &&
     thickness8 &&
@@ -1770,9 +1770,9 @@ const Ladlecalculator = ({ authtoken }) => {
     pdf.addImage(
       div3ImageData,
       "PNG",
-      k3,
-      0,
-      pdf.internal.pageSize.getWidth()-20,
+      k3+25,
+      10,
+      pdf.internal.pageSize.getWidth()-50,
       pdf.internal.pageSize.getHeight()
     );
     pdf.addPage();
@@ -3393,7 +3393,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
       <div ref={div3Ref} id="myDiv" className={output_show ? "" : "dis"}>
         {/* Diagrams */}
-        <h2 className="head_cc" style={{ marginBottom: "5vh" }}>
+        <h2 className="head_lad" style={{ marginBottom: "2vh" }}>
           Graphical Models
         </h2>
 
@@ -3408,7 +3408,7 @@ const Ladlecalculator = ({ authtoken }) => {
             <h3 style={{ textAlign: "center", marginBottom: "1vh" }}>
               DEVELOPMENT OF LADLE SHELL PLATE
             </h3>
-            <h5 style={{ textAlign: "center", marginBottom: "15vh" }}>
+            <h5 style={{ textAlign: "center", marginBottom: "10vh" }}>
               Vertical Division 200 mm from Centre {d16} Nos.
             </h5>
             <div className="dia">
