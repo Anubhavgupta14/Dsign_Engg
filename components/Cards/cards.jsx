@@ -11,7 +11,7 @@ const CardComponent = () => {
     {
       text: "CCM Solutions",
       altText:
-        "CCM Solutions presents an innovative CCM Calculator designed to simplify your customer communication management. FREE",
+        "CCM Solutions presents an innovative Continuous Casting Machine Calculator designed to simplify your problem. FREE",
       backgroundImg:
         "url(https://res.cloudinary.com/dhlsvwpny/image/upload/v1693247285/video_image-2i_onzzlv_1_p7ybkj.jpg)",
         price: "FREE",

@@ -237,7 +237,7 @@ const Navbar = ({ authtoken }) => {
         </div>
         <div className="drop-details">
           <h2>Ladle Calculator</h2>
-          <p>Ladle Calculator is an indispensable tool for professionals in the field of metallurgy, particularly in the realm of metal casting.</p>
+          <p>Ladle Calculator is an indispensable tool for professionals in the field of metallurgy, Download Fabrication Diagram</p>
           <Link href="/ladle"><button className="button">Try Now</button></Link>
         </div>
         <div className="drop-details">

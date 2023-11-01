@@ -63,7 +63,7 @@ const page = ({authtoken}) => {
 
       <div className="home_data">
         <div className="home_datas">
-          <h2>1M+</h2>
+          <h2>1L+</h2>
           <p>community members</p>
         </div>
 
