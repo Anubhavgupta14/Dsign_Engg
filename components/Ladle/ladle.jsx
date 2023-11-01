@@ -1748,7 +1748,7 @@ const Ladlecalculator = ({ authtoken }) => {
       "PNG",
       k,
       0,
-      pdf.internal.pageSize.getWidth() - k2,
+      pdf.internal.pageSize.getWidth() - k2+20,
       pdf.internal.pageSize.getHeight()
     );
 
@@ -1760,9 +1760,9 @@ const Ladlecalculator = ({ authtoken }) => {
       div2ImageData,
       "PNG",
       k3,
-      0,
+      10,
       pdf.internal.pageSize.getWidth() - k4,
-      pdf.internal.pageSize.getHeight()
+      pdf.internal.pageSize.getHeight()-20
     );
     
     
@@ -1780,18 +1780,18 @@ const Ladlecalculator = ({ authtoken }) => {
       div4ImageData,
       "PNG",
       k3,
-      0,
+      10,
       pdf.internal.pageSize.getWidth() - k4,
-      pdf.internal.pageSize.getHeight()
+      pdf.internal.pageSize.getHeight()-20
     );
     pdf.addPage();
     pdf.addImage(
       div5ImageData,
       "PNG",
       k3,
-      0,
+      10,
       pdf.internal.pageSize.getWidth() - k4,
-      pdf.internal.pageSize.getHeight()
+      pdf.internal.pageSize.getHeight()-20
     );
 
     
