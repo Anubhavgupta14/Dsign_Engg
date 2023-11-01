@@ -8,7 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
-import { useMediaQuery } from "@mui/material";
+import { Hidden, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Navbar from "../navbar/Navbar";
 import Paper from "@mui/material/Paper";
@@ -288,6 +288,8 @@ const Ladlecalculator = ({ authtoken }) => {
   const [X_hori2, SetX_hori2] = useState(0);
   const [X_bottom, SetX_bottom] = useState(0);
   const [X_top, SetX_top] = useState(0);
+  const [dia_R, Setdia_R] = useState(0);
+  const [dia_r, Setdia_r] = useState(0);
 
   const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
@@ -1660,6 +1662,10 @@ const Ladlecalculator = ({ authtoken }) => {
       SetX_bottom(0);
     }
 
+
+    Setdia_R(R2)
+    Setdia_r(r2)
+
     setOpen(false);
     getUserData();
     setdownload(true);
@@ -1694,11 +1700,22 @@ const Ladlecalculator = ({ authtoken }) => {
     getUserData();
   }, []);
 
+  const rotate1 = async()=>{
+    var div = document.getElementById("myDiv");
+    div.style.transform = "rotate(90deg)";
+  }
+  const rotate2 = async()=>{
+    var div = document.getElementById("myDiv");
+    div.style.transform = "rotate(360deg)";
+  }
+
   const handleDownloadPDF = async () => {
     if (!download) {
       toast.error("Calculate First");
       return;
     }
+
+    await rotate1();
 
     // Capture the first div to an image
     const div1ImageData = await html2canvas(div1Ref.current);
@@ -1747,14 +1764,16 @@ const Ladlecalculator = ({ authtoken }) => {
       pdf.internal.pageSize.getWidth() - k4,
       pdf.internal.pageSize.getHeight()
     );
+    
+    
     pdf.addPage();
     pdf.addImage(
       div3ImageData,
       "PNG",
       k3,
       0,
-      pdf.internal.pageSize.getWidth() - k4,
-      pdf.internal.pageSize.getHeight()-500
+      pdf.internal.pageSize.getWidth()-20,
+      pdf.internal.pageSize.getHeight()
     );
     pdf.addPage();
     pdf.addImage(
@@ -1775,10 +1794,13 @@ const Ladlecalculator = ({ authtoken }) => {
       pdf.internal.pageSize.getHeight()
     );
 
+    
+
     // Save the PDF document
     pdf.save("ladle.pdf");
 
     toast.success("Successfully Downloaded");
+    await rotate2()
   };
 
   const validate_ticket = async () => {
@@ -3369,7 +3391,7 @@ const Ladlecalculator = ({ authtoken }) => {
         </div>
       </div>
 
-      <div ref={div3Ref} id="pdf" className={output_show ? "" : "dis"}>
+      <div ref={div3Ref} id="myDiv" className={output_show ? "" : "dis"}>
         {/* Diagrams */}
         <h2 className="head_cc" style={{ marginBottom: "5vh" }}>
           Graphical Models
@@ -3424,10 +3446,13 @@ const Ladlecalculator = ({ authtoken }) => {
                 <p>{d14}</p>
               </div>
               <div className="dia12">
-                <p>Radius R -{d15}</p>
+                <p>Radius R -{Math.round(R2)}</p>
+              </div>
+              <div className="dia13">
+                <p>Radius r -{Math.round(r2)}</p>
               </div>
               <Image
-                src="/ladle_main.jpeg"
+                src="/ladledia.png"
                 alt="My Image"
                 width={imageWidth}
                 height={imageheight1}
@@ -3812,10 +3837,10 @@ const Ladlecalculator = ({ authtoken }) => {
               <div className="dia_p_t1">
                 <p className="p1">{Trunion_Top_width}</p>
               </div>
-              <div className="dia_p_t2">
+              <div className="dia_p_t3">
                 <p className="p1">{Trunion_Top_R}</p>
               </div>
-              <div className="dia_p_t3">
+              <div className="dia_p_t2">
                 <p className="p1">{Trunion_Top_length}</p>
               </div>
               <Image
@@ -3844,10 +3869,10 @@ const Ladlecalculator = ({ authtoken }) => {
               <div className="dia_p_t1">
                 <p className="p1">{Trunion_bottom_width}</p>
               </div>
-              <div className="dia_p_t2">
+              <div className="dia_p_t3">
                 <p className="p1">{Trunion_bottom_R}</p>
               </div>
-              <div className="dia_p_t3">
+              <div className="dia_p_t2">
                 <p className="p1">{Trunion_bottom_length}</p>
               </div>
               <Image

@@ -238,30 +238,31 @@ p {
 
 .dia1{
   position: absolute;
-  top: -15%;
+  top: -5%;
+  left: 6%;
   
 }
 .dia2{
   position: absolute;
-  top: -15%;
-  right: 23px;
+  top: -5%;
+  right: 4%;
 }
 
 .dia3{
   position: absolute;
-  top: -15%;
+  top: -5%;
   left: 50%;
 }
 
 .dia4{
   position: absolute;
-  top: 5%;
-  left: -34px;
+  top: 15%;
+  left: 1%;
 }
 .dia5{
   position: absolute;
-  right: -15px;
-  top: 5%;
+  right: 1%;
+  top: 15%;
   
 }
 .dia6{
@@ -272,35 +273,39 @@ p {
 
 .dia7{
   position: absolute;
-  top: 100%;
-  left: 35px;
+  top: 86%;
+  left: 10%;
 }
 
 .dia8{
   position: absolute;
-  top: 100%;
-  left: 25%;  
+  top: 86%;
+  left: 28%;  
 }
 .dia9{
   position: absolute;
-  top: 100%;
+  top: 86%;
   left: 75%;  
 }
 .dia10{
   position: absolute;
-  top: 100%;
-  left: 95%;
+  top: 86%;
+  left: 92%;
 }
 .dia11{
   position: absolute;
   top: 100%;
   left: 50%;
-  margin-top: 3vh;
 }
 .dia12{
   position: absolute;
   top: -8%;
-  left: 45%;
+  left: 22%;
+}
+.dia13{
+  position: absolute;
+  top: -8%;
+  left: 67%;
 }
 
 .dia_p_1{
@@ -387,6 +392,19 @@ p {
   top: 0;
   left: 50%;
   top: 100%;
+}
+
+.rad{
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10vh;
+}
+
+.visi{
+  visibility: hidden;
 }
 
 
