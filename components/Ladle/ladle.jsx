@@ -1853,7 +1853,7 @@ const Ladlecalculator = ({ authtoken }) => {
   // Calculate the image width based on screen size
   const imageWidth = windowWidth < 900 ? 300 : 1100;
   const imageWidth2 = windowWidth < 900 ? 100 : 300;
-  const imageWidth3 = windowWidth < 900 ? 100 : 300;
+  const imageWidth3 = windowWidth < 900 ? 100 : 250;
   const imageheight1 = windowWidth < 900 ? 100 : 400;
   const imageheight2 = windowWidth < 900 ? 100 : 300;
   const imageheight3 = windowWidth < 900 ? 100 : 300;
@@ -3838,13 +3838,13 @@ const Ladlecalculator = ({ authtoken }) => {
                 <p className="p1">{Trunion_Top_width}</p>
               </div>
               <div className="dia_p_t3">
-                <p className="p1">{Trunion_Top_R}</p>
+                <p className="p1">R - {Trunion_Top_R}</p>
               </div>
               <div className="dia_p_t2">
                 <p className="p1">{Trunion_Top_length}</p>
               </div>
               <Image
-                src="/newLR.png"
+                src="/LR1.png"
                 alt="My Image"
                 width={imageWidth3}
                 height={imageheight3}
@@ -3870,13 +3870,13 @@ const Ladlecalculator = ({ authtoken }) => {
                 <p className="p1">{Trunion_bottom_width}</p>
               </div>
               <div className="dia_p_t3">
-                <p className="p1">{Trunion_bottom_R}</p>
+                <p className="p1">R - {Trunion_bottom_R}</p>
               </div>
               <div className="dia_p_t2">
                 <p className="p1">{Trunion_bottom_length}</p>
               </div>
               <Image
-                src="/newLR.png"
+                src="/LR1.png"
                 alt="My Image"
                 width={imageWidth3}
                 height={imageheight3}
@@ -3906,12 +3906,12 @@ const Ladlecalculator = ({ authtoken }) => {
                 <p className="p1">{Resting_bottom_length}</p>
               </div>
               <div className="dia_p_t3">
-                <p className="p1">{Resting_bottom_R}</p>
+                <p className="p1">R - {Resting_bottom_R}</p>
               </div>
               <Image
-                src="/newLR.png"
+                src="/LR1.png"
                 alt="My Image"
-                width={imageWidth2}
+                width={imageWidth3}
                 height={imageheight3}
                 loading="eager" // Options: "eager", "lazy", or "auto"
                 priority // Preload this image
@@ -3949,9 +3949,9 @@ const Ladlecalculator = ({ authtoken }) => {
                 <p className="p1">{width4}</p>
               </div>
               <Image
-                src="/resting1.png"
+                src="/restingnew.png"
                 alt="My Image"
-                width={imageWidth2}
+                width={imageWidth3}
                 height={imageheight3}
                 loading="eager" // Options: "eager", "lazy", or "auto"
                 priority // Preload this image
@@ -3981,9 +3981,9 @@ const Ladlecalculator = ({ authtoken }) => {
                 <p className="p1">{width5}</p>
               </div>
               <Image
-                src="/resting1.png"
+                src="/restingnew.png"
                 alt="My Image"
-                width={imageWidth2}
+                width={imageWidth3}
                 height={imageheight3}
                 loading="eager" // Options: "eager", "lazy", or "auto"
                 priority // Preload this image
@@ -4012,7 +4012,7 @@ const Ladlecalculator = ({ authtoken }) => {
               </div>
 
               <Image
-                src="/gola.jpeg"
+                src="/golanew.png"
                 alt="My Image"
                 width={imageWidth2}
                 height={imageheight3}

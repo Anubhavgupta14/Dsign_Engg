@@ -345,13 +345,13 @@ p {
 .dia_p_7{
   position: absolute;
     right: -31px;
-    top: 50%;
+    top: 45%;
 
 }
 .dia_p_8{
   position: absolute;
     top: 100%;
-    left: 50%;
+    left: 45%;
 }
 .cal_width{
   width: 400;
@@ -360,31 +360,32 @@ p {
 .dia_p_t1{
   position: absolute;
   top: 0;
-  left: 45%;
-  top: -10px;
+  left: 50%;
+  top: -8%;
 }
 .dia_p_t2{
   position: absolute;
   top: 0;
-  left: 0%;
+  left: -10%;
   top: 50%;
 }
 .dia_p_t3{
   position: absolute;
   top: 0;
-  left: 80%;
+  left: 90%;
   top: 50%;
+  width: 100%;
 }
 .dia_p_t4{
   position: absolute;
   top: 0;
-  left: 45%;
-  top: -10px;
+  left: 50%;
+  top: -8%;
 }
 .dia_p_t5{
   position: absolute;
   top: 0;
-  left: 0%;
+  left: -10%;
   top: 50%;
 }
 .dia_p_t6{
