@@ -213,7 +213,7 @@ const page = ({authtoken}) => {
                   <br />&#8377;900
                   <br />
                   <button onClick={submit} className="btn_pricing">Get started</button>
-                  <p>For International Payment</p>
+                  <p>For International Payments</p>
                   <div className="paypal-button-container">
                     <PaypalCheckoutButton product={product} />
                   </div>
@@ -228,7 +228,7 @@ const page = ({authtoken}) => {
                   <br />&#8377;2400
                   <br />
                   <button onClick={submit2} className="btn_pricing">Get started</button>
-                  <p>For International Payment</p>
+                  <p>For International Payments</p>
                   <div className="paypal-button-container">
                     <PaypalCheckoutButton2 product2={product2} />
                   </div>
