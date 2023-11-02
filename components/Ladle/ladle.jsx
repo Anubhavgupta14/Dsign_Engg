@@ -2077,7 +2077,7 @@ const Ladlecalculator = ({ authtoken }) => {
           </div>
 
           <div className="ladle_second">
-            <h2 className="head_ladle">After Lining</h2>
+            <h2 className="head_ladle">After Lining(Optional)</h2>
             <Paper sx={{ overflow: "hidden" }}>
               <TableContainer
                 sx={{ maxHeight: 1000 }}
@@ -3818,7 +3818,7 @@ const Ladlecalculator = ({ authtoken }) => {
         <h3 style={{ textAlign: "center", marginTop: "10vh" }}>
           DEVELOPMENT OF LADLE BOX HORIZONTAL PLATE
         </h3>
-        <h5 style={{ textAlign: "center", marginBottom: "10vh" }}>
+        <h5 style={{ textAlign: "center", marginBottom: "6vh" }}>
           TRUNION BOX AND RESTING BOX
         </h5>
         <div className="flex-all img_ladle" style={{ marginTop: "5vh" }}>
@@ -3920,10 +3920,10 @@ const Ladlecalculator = ({ authtoken }) => {
             </div>
           </div>
         </div>
-        <h3 style={{ textAlign: "center", marginTop: "10vh" }}>
+        <h3 style={{ textAlign: "center", marginTop: "7vh" }}>
           DEVELOPMENT OF LADLE BOX VERTICAL PLATE
         </h3>
-        <h5 style={{ textAlign: "center", marginBottom: "10vh" }}>
+        <h5 style={{ textAlign: "center", marginBottom: "4vh" }}>
           TRUNION BOX AND RESTING BOX
         </h5>
         <div className="flex-all img_ladle" style={{ marginTop: "5vh" }}>
@@ -3952,7 +3952,7 @@ const Ladlecalculator = ({ authtoken }) => {
                 src="/restingnew.png"
                 alt="My Image"
                 width={imageWidth3}
-                height={imageheight3}
+                height={imageheight3-50}
                 loading="eager" // Options: "eager", "lazy", or "auto"
                 priority // Preload this image
                 quality={80} // Set the image quality (0-100)
@@ -3984,7 +3984,7 @@ const Ladlecalculator = ({ authtoken }) => {
                 src="/restingnew.png"
                 alt="My Image"
                 width={imageWidth3}
-                height={imageheight3}
+                height={imageheight3-50}
                 loading="eager" // Options: "eager", "lazy", or "auto"
                 priority // Preload this image
                 quality={80} // Set the image quality (0-100)
@@ -4015,7 +4015,7 @@ const Ladlecalculator = ({ authtoken }) => {
                 src="/golanew.png"
                 alt="My Image"
                 width={imageWidth2}
-                height={imageheight3}
+                height={imageheight3-50}
                 loading="eager" // Options: "eager", "lazy", or "auto"
                 priority // Preload this image
                 quality={80} // Set the image quality (0-100)

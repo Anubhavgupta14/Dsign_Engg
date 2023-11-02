@@ -1,16 +1,60 @@
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/footer";
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/navigation'
+import { toast } from 'react-toastify';
+import { fetchCurrentUser } from '../../libs/fetchUser';
+import PaypalCheckoutButton from "../paypal";
+import PaypalCheckoutButton2 from "../paypal2";
 
 
 const page = ({authtoken}) => {
 
   const router = useRouter();
+  const [userData, setUserData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    state: '',
+    city: '',
+    pincode: '',
+    dob: '',
+    gender: '',
+    addressLine1: '',
+    addressLine2: '',
+    basicProfile: '',
+    role: 'user', // Default role
+  });
+  const getUserData = async () => {
+    const token = localStorage.getItem('JWT');
+    // toast.success(token)
+    if(token==null) return;
+    try {
+      const data = await fetchCurrentUser(token);
+      console.log(data, 'data fetchedok');
+      // toast.success(userData.name)
+      const { error } = data;
+      console.log(error, 'error getting user data');
+      if (error) {
+        toast.error(error);
+        return;
+      }
+      let user = data;
+      const convertedUser = {
+        ...user,
+        dob: user.dob ? user.dob.split('T')[0] : '',
+      };
+      setUserData(convertedUser);
+    } catch (error) {
+      toast.error(error.message + 'op' || 'Some error occurred while fetching data');
+    }
+  };
+  useEffect(() => {
+    getUserData();
+  }, []);
 
   const submit = async () => {
 
@@ -109,6 +153,16 @@ const page = ({authtoken}) => {
     const free =()=>{
       router.push('/ccm')
     }
+    const product = {
+      description: "payment",
+      price: 900,
+      email: userData.email
+    };
+    const product2 = {
+      description: "payment",
+      price: 2400,
+      email: userData.email
+    };
 
 
   return (
@@ -147,7 +201,8 @@ const page = ({authtoken}) => {
                   </svg>
                   <br />Free
                   <br />
-                  <button className="btn_pricing" onClick={free}>Get started</button>
+                 <button className="btn_pricing" onClick={free}>Get started</button>
+                  
                 </td>
                 <td className="price">
                   <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 128 128">
@@ -158,6 +213,10 @@ const page = ({authtoken}) => {
                   <br />&#8377;900
                   <br />
                   <button onClick={submit} className="btn_pricing">Get started</button>
+                  <p>For International Payment</p>
+                  <div className="paypal-button-container">
+                    <PaypalCheckoutButton product={product} />
+                  </div>
                 </td>
                 <td className="price">
                   <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 128 128">
@@ -169,6 +228,10 @@ const page = ({authtoken}) => {
                   <br />&#8377;2400
                   <br />
                   <button onClick={submit2} className="btn_pricing">Get started</button>
+                  <p>For International Payment</p>
+                  <div className="paypal-button-container">
+                    <PaypalCheckoutButton2 product2={product2} />
+                  </div>
                 </td>
               </tr>
               <tr>

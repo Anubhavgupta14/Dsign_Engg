@@ -21,12 +21,15 @@ import '@/styles/profile.css'
 import '@/styles/admin.css'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer} from 'react-toastify';
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <PayPalScriptProvider options={{ "client-id": "AaFKKLd_MGqMO-QLbbDO6grwnyXzmxn4w6t0Mm5T58Zy7vWhu6D1yJX9aNNzq0aV3SnliVViVrc9sWK5" }}>
       <ToastContainer />
       <Component {...pageProps} />
+      </PayPalScriptProvider>
     </>
   );
 }

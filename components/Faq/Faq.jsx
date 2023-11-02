@@ -28,7 +28,7 @@ const Faqs = () => {
     },
     {
       ques: " What is the difference between free and paid content?",
-      ans: "Free content includes basic resources designed to introduce you to metallurgical concepts. Paid content within the Premium Pack offers a deeper exploration of Ladle Calculations and Continuous Casting Machine (CCM) Solutions. Premium content includes in-depth articles, tutorials, case studies, and access to specialized tools for a comprehensive learning experience.",
+      ans: "Free content includes basic resources designed to introduce you to metallurgical concepts. Paid content within the Premium Pack offers a deeper exploration of Ladle Calculations ,Continuous Casting Machine (CCM) & AOD Calculation. Premium content includes in-depth articles, tutorials, case studies, and access to specialized tools for a comprehensive learning experience.",
     },
     {
       ques: "How can I get in touch with your team?",

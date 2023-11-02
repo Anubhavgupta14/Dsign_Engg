@@ -350,7 +350,7 @@ p {
 }
 .dia_p_8{
   position: absolute;
-    top: 100%;
+    top: 90%;
     left: 45%;
 }
 .cal_width{
@@ -390,9 +390,9 @@ p {
 }
 .dia_p_t6{
   position: absolute;
-  top: 0;
+  /* top: 0; */
   left: 50%;
-  top: 100%;
+  top: 90%;
 }
 
 .rad{

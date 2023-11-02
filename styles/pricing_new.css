@@ -119,6 +119,11 @@ td.price a:hover{
     font-size: 12px;
     font-weight: 400;
 }
+.paypal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 @media screen and (max-width:600px){
     .price-table svg{
