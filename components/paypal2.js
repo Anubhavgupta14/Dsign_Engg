@@ -30,7 +30,7 @@ const PaypalCheckoutButton = (props) => {
     try{
       await fetch('/api/updateticketpaypal2', {
         method: 'POST',
-        body: JSON.stringify(email),
+        body: JSON.stringify(product2.email),
         headers: {
           'Content-type': 'application/json',
         },
