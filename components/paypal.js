@@ -12,14 +12,14 @@ const PaypalCheckoutButton = (props) => {
 // </script>
   const { product } = props;
 
-  const email = product.email
+  // const email = product.email
 
   const [error, setError] = useState(null);
   const [paidFor, setPaidFor] = useState(false);
 
-  const postData = {
-    email: product.email,
-  };
+  // const postData = {
+  //   email: product.email,
+  // };
 
   const handleApprove = async(orderId) => {
     // Simulating the backend function call

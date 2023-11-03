@@ -12,7 +12,7 @@ const PaypalCheckoutButton = (props) => {
 // </script>
   const { product2 } = props;
 
-  const email = product2.email
+  // const email = product2.email
 
   const [error, setError] = useState(null);
   const [paidFor, setPaidFor] = useState(false);

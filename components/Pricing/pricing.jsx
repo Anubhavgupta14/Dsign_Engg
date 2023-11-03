@@ -155,14 +155,18 @@ const page = ({authtoken}) => {
     }
     const product = {
       description: "payment",
-      price: 900,
+      price: 11.25,
       email: userData.email
     };
     const product2 = {
       description: "payment",
-      price: 2400,
+      price: 30,
       email: userData.email
     };
+
+    const login = ()=>{
+      router.push('/signin')
+    }
 
 
   return (
@@ -212,11 +216,13 @@ const page = ({authtoken}) => {
                   </svg>
                   <br />&#8377;900
                   <br />
-                  <button onClick={submit} className="btn_pricing">Get started</button>
-                  <p>For International Payment</p>
-                  <div className="paypal-button-container">
+                  {authtoken && 
+                  <button onClick={submit} className="btn_pricing">Get started</button>}
+                  {authtoken && <p>For International Payment</p>}
+                  {authtoken && <div className="paypal-button-container">
                     <PaypalCheckoutButton product={product} />
-                  </div>
+                  </div>}
+                  {!authtoken && <button onClick={login} className="btn_pricing">Get started</button>}
                 </td>
                 <td className="price">
                   <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 128 128">
@@ -227,11 +233,13 @@ const page = ({authtoken}) => {
                   </svg>
                   <br />&#8377;2400
                   <br />
-                  <button onClick={submit2} className="btn_pricing">Get started</button>
-                  <p>For International Payment</p>
-                  <div className="paypal-button-container">
-                    <PaypalCheckoutButton2 product2={product2} />
-                  </div>
+                  {authtoken && 
+                  <button onClick={submit2} className="btn_pricing">Get started</button>}
+                  {authtoken && <p>For International Payment</p>}
+                  {authtoken && <div className="paypal-button-container">
+                    <PaypalCheckoutButton product2={product2} />
+                  </div>}
+                  {!authtoken && <button onClick={login} className="btn_pricing">Get started</button>}
                 </td>
               </tr>
               <tr>
