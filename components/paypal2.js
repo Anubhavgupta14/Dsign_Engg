@@ -19,37 +19,40 @@ const PaypalCheckoutButton = (props) => {
 
   const handleApprove = async(orderId) => {
     // Simulating the backend function call
-    setTimeout(() => {
-      // if response is success
-      setPaidFor(true);
-      
-      // Refresh user's account or subscription status
-    }, 1000);
+    
+    setPaidFor(true);
     const token = localStorage.getItem('JWT');
-    if(token==null) return;
-    try{
-      await fetch('/api/updateticketpaypal2', {
+    // if(token==null){
+    //   console.log("yaya")
+    // }
+    try {
+      const response = await fetch('/api/updateticketpaypal2', {
         method: 'POST',
-        body: JSON.stringify(product2.email),
         headers: {
-          'Content-type': 'application/json',
+          'Content-Type': 'application/json',
         },
-      }).then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json(); // Parse the response JSON
-      }).then(() => {
-        toast.success("Payment Done")
-        // You can use the token for further actions, such as storing it in local storage or cookies.
-      }).catch((error) => {
-        toast.error("Server Error")
-        // toast.success(product2.email)
+        body: JSON.stringify({token}),
       });
-      
-    }catch{
-
-      toast.error("Server Error")
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        console.log(data.message); // Success message
+        toast.success(data.message)
+        // Perform other actions or UI updates here
+      } else if (response.status === 404) {
+        console.log(data.message); // User not found
+        toast.success(data.message)
+        // Perform other actions or UI updates here
+      } else {
+        console.log('Error:', data.error); // Internal server error
+        toast.warning(data.error)
+        // Perform other actions or UI updates here
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      toast.warning(error)
+      // Perform other actions or UI updates for error handling here
     }
   };
 

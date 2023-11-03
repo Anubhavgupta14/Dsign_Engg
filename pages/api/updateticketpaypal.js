@@ -1,13 +1,16 @@
 import dbConnect from "../dbConfig/dbConfig";
 import Member from "../../userModel/userModel";
-// import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
-    const { email } = req.body;
+    // const { email } = req.body;
     // const { email, amount } = req.body;
-    console.log("From API", req.body);
+    // console.log("From API", email);
     // console.log("From API amount", amount);
+    const { token } = req.body;
+
+    if(token==null) return res.status(200).json({});
 
     try {
     //   const decodedToken = jwt.verify(token, 'your_secret_key');
@@ -15,8 +18,14 @@ const handler = async (req, res) => {
     //    console.log(decodedToken);
     //    const email = decodedToken.email;
         //    Correctly query the database using an object for filtering by email
-      let user;
-      user = await Member.findOne({ email: req.body});
+        const decodedToken = jwt.verify(token, 'your_secret_key');
+        // Email milega
+        console.log("paypal se token",decodedToken);
+  
+  
+        const email = decodedToken.email;
+        let user;
+        user = await Member.findOne({ email });
 
       if (user) {
         console.log("User Name", user.name);
@@ -36,7 +45,7 @@ const handler = async (req, res) => {
         await user.save();
         return res.status(201).json({ message: "Thank You for Purchasing" });
       } else {
-        console.log("okokokoko")
+        console.log("User not found")
         return res.status(404).json({ message: "User not found" });
       }
     } catch (error) {
