@@ -101,7 +101,24 @@ const Ladlecalculator = ({ authtoken }) => {
   const [density_of_bricks, Setdensity_of_bricks] = useState(null);
   const [safety_bricks_width, Setsafety_bricks_width] = useState(null)
   const [safety_bricks_height, Setsafety_bricks_height] = useState(null)
-
+  const [safety_cyl1,Setsafety_cyl1] = useState(0)
+  const [safety_cyl2,Setsafety_cyl2] = useState(0)
+  const [safety_cyl3,Setsafety_cyl3] = useState(0)
+  const [safety_top_cone1,Setsafety_top_cone1] = useState(0)
+  const [safety_top_cone2,Setsafety_top_cone2] = useState(0)
+  const [safety_top_cone3,Setsafety_top_cone3] = useState(0)
+  const [safety_bot_cone1,Setsafety_bot_cone1] = useState(0)
+  const [safety_bot_cone2,Setsafety_bot_cone2] = useState(0)
+  const [safety_bot_cone3,Setsafety_bot_cone3] = useState(0)
+  const [safety_bottom1,Setsafety_bottom1] = useState(0)
+  const [safety_bottom2,Setsafety_bottom2] = useState(0)
+  const [safety_bottom3,Setsafety_bottom3] = useState(0)
+  const [safety_bottom4,Setsafety_bottom4] = useState(0)
+  const [safety_bottom5,Setsafety_bottom5] = useState(0)
+  const [safety_bottom6,Setsafety_bottom6] = useState(0)
+  const [safety_bottom7,Setsafety_bottom7] = useState(0)
+  const [safety_bottom8,Setsafety_bottom8] = useState(0)
+  const [safety_bottom9,Setsafety_bottom9] = useState(0)
 
 
 
@@ -1821,6 +1838,135 @@ const Ladlecalculator = ({ authtoken }) => {
                         </div>
                       </TableCell>
                       
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Paper>
+          </div>
+        </div>
+      </div>
+
+      {/* outputs */}
+      <div ref={div2Ref}>
+      <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
+          <div className="ladle_first">
+            <h2 className="head_ladle">Output</h2>
+            <Paper sx={{ overflow: "hidden" }}>
+              <TableContainer
+                sx={{ maxHeight: 1000 }}
+                style={{ backgroundColor: "#f9fbfc" }}
+              >
+                <Table stickyHeader aria-label="sticky table">
+                  <TableBody>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                      </TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>

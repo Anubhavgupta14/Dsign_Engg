@@ -944,7 +944,7 @@ const Ladlecalculator = ({ authtoken }) => {
     const F1_bottom = r2 * Math.cos(f1_hori2 / r2) - (r2 - A_bottom);
     Setf1_bottom(Math.floor(F1_bottom));
 
-    const O932 = (R2 * dev_sin * 2) / 2 / 2;
+    const O932 = (R2 * dev_sin * 2) / 2;
     let f_hori1;
     if (P937 + 200 > O932) {
       const F_hori1 =
@@ -1302,33 +1302,33 @@ const Ladlecalculator = ({ authtoken }) => {
     if (200 * 12 > (r2 * dev_sin * 2) / 2) {
       const L_hori2 = (r2 * dev_sin * 2) / 2 - k_hori2;
       l_hori2 = L_hori2;
-      SetL_hori2(L_hori2);
+      SetL_hori2(Math.round(L_hori2));
     } else {
       const L_hori2 = 200 * 12;
       l_hori2 = L_hori2;
-      SetL_hori2(L_hori2);
+      SetL_hori2(Math.round(L_hori2));
     }
 
     let m_hori2 = 0;
     if (200 * 13 > (r2 * dev_sin * 2) / 2) {
       const M_hori2 = (r2 * dev_sin * 2) / 2 - l_hori2;
       m_hori2 = M_hori2;
-      SetM_hori2(M_hori2);
+      SetM_hori2(Math.round(M_hori2));
     } else {
       const M_hori2 = 200 * 13;
       m_hori2 = M_hori2;
-      SetM_hori2(M_hori2);
+      SetM_hori2(Math.round(M_hori2));
     }
 
     let n_hori2 = 0;
     if (200 * 14 > (r2 * dev_sin * 2) / 2) {
       const N_hori2 = (r2 * dev_sin * 2) / 2 - m_hori2;
       n_hori2 = N_hori2;
-      SetN_hori2(N_hori2);
+      SetN_hori2(Math.round(N_hori2));
     } else {
       const N_hori2 = 200 * 14;
       n_hori2 = N_hori2;
-      SetN_hori2(N_hori2);
+      SetN_hori2(Math.round(N_hori2));
     }
 
     let o_hori2 = 0;
