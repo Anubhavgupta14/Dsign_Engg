@@ -92,6 +92,7 @@ const Ladlecalculator = ({ authtoken }) => {
   const [safety_lining_length_t, Setsafety_lining_length_t] = useState(null);
   const [safety_lining_length_s, Setsafety_lining_length_s] = useState(null);
   const [degree_lining_for_trapping_t, Setdegree_lining_for_trapping_t] = useState(null);
+  const [degree_lining_for_trapping_s, Setdegree_lining_for_trapping_s] = useState(null);
   const [top_cone_lining, Settop_cone_lining] = useState(null);
   const [bottom_cone_side_lining_brick_length, Setbottom_cone_side_lining_brick_length] = useState(null);
   const [bottom_cone_bottom_lining_brick_length, Setbottom_cone_bottom_lining_brick_length] = useState(null);
@@ -101,6 +102,7 @@ const Ladlecalculator = ({ authtoken }) => {
   const [density_of_bricks, Setdensity_of_bricks] = useState(null);
   const [safety_bricks_width, Setsafety_bricks_width] = useState(null)
   const [safety_bricks_height, Setsafety_bricks_height] = useState(null)
+  const [safety_bricks_length, Setsafety_bricks_length] = useState(null)
   const [safety_cyl1,Setsafety_cyl1] = useState(0)
   const [safety_cyl2,Setsafety_cyl2] = useState(0)
   const [safety_cyl3,Setsafety_cyl3] = useState(0)
@@ -159,13 +161,35 @@ const Ladlecalculator = ({ authtoken }) => {
   });
 
   const result = async (event) => {
-    const result_ticket = await validate_ticket();
-    if (result_ticket === -1) {
-      toast.error("You don't have tickets");
-      setOpen(false);
-      getUserData();
-      return;
-    }
+    // const result_ticket = await validate_ticket();
+    // if (result_ticket === -1) {
+    //   toast.error("You don't have tickets");
+    //   setOpen(false);
+    //   getUserData();
+    //   return;
+    // }
+
+    const F14 = Math.ceil(0.52 * vessel_cylindrical_height / 100) * 100;
+    const F15 = Math.ceil(0.14 * vessel_cylindrical_height / 100) * 100;
+    const F16 = Math.ceil(0.23 * vessel_cylindrical_height / 100) * 100;
+    const F17 = vessel_cylindrical_height-(F14+F15+F16)
+    const P19 = (F14/100)+(F15/100)+(F16/100)+(F17/100)
+    const O19 = vessel_cylindrical_id*3.1416*P19*100
+    const N19 = safety_bricks_width*safety_bricks_length
+    const safety_cyl = Math.ceil(O19/N19)
+    Setsafety_cyl1(safety_cyl)
+    Setsafety_cyl2(size4_s)
+
+    const M17 = vessel_cylindrical_id-size4_t-safety_lining_length_t-(size4_s+safety_lining_length_t)
+    const O17 = 3.1416*M17
+    const P17 = F17/100
+    const L12 = 360-degree_lining_for_trapping_t
+    const L13 = L12/360
+    const K13 = degree_lining_for_trapping_t/360
+    const K17 = Math.ceil(O17/bricks_std_width*(degree_lining_for_trapping_t/360))*P17
+    const L17 = K17/K13*L13
+    const safety_cyl3 = K17+L17
+    Setsafety_cyl3(M17)
 
     // event.preventDefault();
     setOpen(false);
@@ -1837,6 +1861,25 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                            label="Safety Bricks Length"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) =>
+                              Setsafety_bricks_length(e.target.value)
+                            }
+                          />
+                        </div>
+                      </TableCell>
                       
                     </TableRow>
                   </TableBody>
@@ -1858,8 +1901,7 @@ const Ladlecalculator = ({ authtoken }) => {
                 style={{ backgroundColor: "#f9fbfc" }}
               >
                 <Table stickyHeader aria-label="sticky table">
-                  <TableBody>
-                    <TableRow
+                <TableRow
                       hover
                       role="checkbox"
                       tabIndex={-1}
@@ -1872,17 +1914,45 @@ const Ladlecalculator = ({ authtoken }) => {
                       </TableCell>
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>{safety_cyl1}</p>
                       </div>
                       </TableCell>
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>{safety_cyl2}</p>
                       </div>
                       </TableCell>
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>{safety_cyl3}</p>
+                      </div>
+                      </TableCell>
+                    </TableRow>
+                  <TableBody>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Top Cone</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_top_cone1}</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_top_cone2}</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_top_cone3}</p>
                       </div>
                       </TableCell>
                     </TableRow>
@@ -1894,22 +1964,22 @@ const Ladlecalculator = ({ authtoken }) => {
                     >
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>Safety Bot. Cone</p>
                       </div>
                       </TableCell>
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>{safety_bot_cone1}</p>
                       </div>
                       </TableCell>
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>{safety_bot_cone2}</p>
                       </div>
                       </TableCell>
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>{safety_bot_cone3}</p>
                       </div>
                       </TableCell>
                     </TableRow>
@@ -1922,22 +1992,50 @@ const Ladlecalculator = ({ authtoken }) => {
                     >
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>Safety Bottom</p>
                       </div>
                       </TableCell>
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>{safety_bottom1}</p>
                       </div>
                       </TableCell>
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>{safety_bottom2}</p>
                       </div>
                       </TableCell>
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>{safety_bottom3}</p>
+                      </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p></p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p></p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_bottom4}</p>
+                      </div>
+                      </TableCell>
+                      <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_bottom5}</p>
                       </div>
                       </TableCell>
                     </TableRow>
@@ -1949,22 +2047,22 @@ const Ladlecalculator = ({ authtoken }) => {
                     >
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>{safety_bottom6}</p>
                       </div>
                       </TableCell>
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>{safety_bottom7}</p>
                       </div>
                       </TableCell>
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>{safety_bottom8}</p>
                       </div>
                       </TableCell>
                       <TableCell>
                       <div className="row_ladle flex-all">
-                        <p>Safety Cyl.</p>
+                        <p>{safety_bottom9}</p>
                       </div>
                       </TableCell>
                     </TableRow>
