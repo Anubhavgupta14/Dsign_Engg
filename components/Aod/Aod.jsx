@@ -180,7 +180,7 @@ const Ladlecalculator = ({ authtoken }) => {
     Setsafety_cyl1(safety_cyl)
     Setsafety_cyl2(size4_s)
 
-    const M17 = vessel_cylindrical_id-size4_t-safety_lining_length_t-(size4_s+safety_lining_length_t)
+    const M17 = vessel_cylindrical_id-(parseFloat(size4_t) + parseFloat(safety_lining_length_t))-(parseFloat(size4_s) + parseFloat(safety_lining_length_t))
     const O17 = 3.1416*M17
     const P17 = F17/100
     const L12 = 360-degree_lining_for_trapping_t
@@ -189,7 +189,36 @@ const Ladlecalculator = ({ authtoken }) => {
     const K17 = Math.ceil(O17/bricks_std_width*(degree_lining_for_trapping_t/360))*P17
     const L17 = K17/K13*L13
     const safety_cyl3 = K17+L17
-    Setsafety_cyl3(M17)
+    Setsafety_cyl3(safety_cyl3)
+
+    const N67 = safety_bricks_width*safety_bricks_length
+    const D20 = vessel_cylindrical_id-(Math.tan(3.1416*top_cone_angle/180)*2*top_cone_height)
+    const safety_top_cone1 = (3.1416*(parseFloat(vessel_cylindrical_id)+parseFloat(D20))*top_cone_height/2)/N67
+    Setsafety_top_cone1(Math.round(safety_top_cone1))
+
+    const safety_top_cone2 = size3_s
+    Setsafety_top_cone2(safety_top_cone2)
+
+    const M14 = vessel_cylindrical_id-(parseFloat(size1_t) + parseFloat(safety_lining_length_t))-(parseFloat(size1_s)+parseFloat(safety_lining_length_s))
+    const K14 = Math.ceil((3.1416*M14)/bricks_std_width*K13)*(F14/100)
+    const M16 = vessel_cylindrical_id-(parseFloat(size3_t)+parseFloat(safety_lining_length_t))-(parseFloat(size3_s)+parseFloat(safety_lining_length_s))
+    const K16 = Math.ceil((3.1416*M16)/bricks_std_width*K13)*(F16/100)
+    
+    const M15 = vessel_cylindrical_id-(parseFloat(size2_t) + parseFloat(safety_lining_length_t))-(parseFloat(size2_s) + parseFloat(safety_lining_length_t))
+    const K15 = Math.ceil((3.1416*M15)/bricks_std_width*K13)*(F15/100)
+    const L16 = ((K14+K15+K16)/K13*L13)
+    const safety_top_cone3 = K16+L16
+    Setsafety_top_cone3(safety_top_cone3)
+
+    const M68 = 3.1416*(parseFloat(vessel_cylindrical_id)+parseFloat(parseFloat(vessel_cylindrical_id)-parseFloat(Math.tan((3.1416*bottom_cone_angle/180))*2*bottom_cone_height)))*(parseFloat(bottom_cone_height)-parseFloat(parseFloat(bottom_cone_bottom_lining_brick_length)+parseFloat(bottom_cone_safety_lining_brick_length)))/2
+    const N68 = safety_bricks_width*safety_bricks_length
+    const safety_bot_cone1 = M68/N68
+    Setsafety_bot_cone1(Math.round(safety_bot_cone1))
+
+    const safety_bot_cone2 = size2_s
+    Setsafety_bot_cone2(safety_bot_cone2)
+    Setsafety_bot_cone3(K15)
+    
 
     // event.preventDefault();
     setOpen(false);
