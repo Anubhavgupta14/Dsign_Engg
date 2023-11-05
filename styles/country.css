@@ -1,0 +1,22 @@
+.country_btn{
+    gap: 2vh;
+}
+.country_main{
+    padding: 5vh;
+}
+.btn_country{
+    width: 24vh;
+    height: 6vh;
+    font-size: 18px;
+}
+.temp_btn:hover{
+    color: white;
+    background-color: #0482d6;
+}
+.temp_btn{
+    padding: 8px;
+    background-color: #0070ba;
+    margin-top: 0;
+    font-weight: 700;
+    border-radius: 4px;
+}

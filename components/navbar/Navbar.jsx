@@ -96,7 +96,7 @@ const Navbar = ({ authtoken }) => {
             </div>
 
 
-            <Link href={"/pricing"}>
+            <Link href={"/country"}>
               <div className="nav nav3">Pricing</div>
             </Link>
 
@@ -142,7 +142,7 @@ const Navbar = ({ authtoken }) => {
             </div>
 
 
-            <Link href={"/pricing"}>
+            <Link href={"/country"}>
               <div className="nav nav3" style={{backgroundColor:'#f9fbfc'}}>Pricing</div>
             </Link>
 
