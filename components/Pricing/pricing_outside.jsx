@@ -219,7 +219,7 @@ const page = ({authtoken}) => {
                   {authtoken && <div className="paypal-button-container">
                     <PaypalCheckoutButton product={product} />
                   </div>}
-                  {!authtoken && <button onClick={login} className="btn_pricing">Get started</button>}
+                  {!authtoken && <button onClick={login} className="btn_pricing temp_btn">Get started</button>}
                 </td>
                 <td className="price">
                   <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 128 128">
@@ -233,7 +233,7 @@ const page = ({authtoken}) => {
                   {authtoken && <div className="paypal-button-container">
                     <PaypalCheckoutButton product2={product2} />
                   </div>}
-                  {!authtoken && <button onClick={login} className="btn_pricing">Get started</button>}
+                  {!authtoken && <button onClick={login} className="btn_pricing temp_btn">Get started</button>}
                 </td>
               </tr>
               <tr>

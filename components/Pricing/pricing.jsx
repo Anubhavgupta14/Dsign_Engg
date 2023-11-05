@@ -206,7 +206,7 @@ const page = ({authtoken}) => {
                   <br />
                   {authtoken && 
                   <button onClick={submit} className="btn_pricing temp_btn">Get started</button>}
-                  {!authtoken && <button onClick={login} className="btn_pricing">Get started</button>}
+                  {!authtoken && <button onClick={login} className="btn_pricing temp_btn">Get started</button>}
                 </td>
                 <td className="price">
                   <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 128 128">
@@ -219,7 +219,7 @@ const page = ({authtoken}) => {
                   <br />
                   {authtoken && 
                   <button onClick={submit2} className="btn_pricing temp_btn">Get started</button>}
-                  {!authtoken && <button onClick={login} className="btn_pricing">Get started</button>}
+                  {!authtoken && <button onClick={login} className="btn_pricing temp_btn">Get started</button>}
                 </td>
               </tr>
               <tr>
