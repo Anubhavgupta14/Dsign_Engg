@@ -7,8 +7,8 @@ export default async function handler(req, res) {
   
   const paymentDetails = req.body; // Assuming the payment details object is passed in the request body
   console.log(paymentDetails, " payment details received in server");
-  const workingKey = process.env.CCAVENUEWORKINGID; // Replace with your actual working key
-  const accessCode = process.env.CCAVENUEACCESSCODE; // Replace with your actual access code
+  const workingKey = "BF175DDE59AF4B0988BF025F94F3DCB2" // Replace with your actual working key
+  const accessCode = "AVVL05KH14CC75LVCC" // Replace with your actual access code
 
   const md5 = crypto.createHash('md5').update(workingKey).digest();
   const keyBase64 = Buffer.from(md5).toString('base64');
