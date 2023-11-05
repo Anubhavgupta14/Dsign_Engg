@@ -4,11 +4,13 @@ import Footer from "../Footer/footer";
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import { v4 as uuidv4 } from 'uuid';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { toast } from 'react-toastify';
 import { fetchCurrentUser } from '../../libs/fetchUser';
 
 const page = ({authtoken}) => {
+
 
   const router = useRouter();
   const [userData, setUserData] = useState({
@@ -25,6 +27,8 @@ const page = ({authtoken}) => {
     basicProfile: '',
     role: 'user', // Default role
   });
+  
+  
   const getUserData = async () => {
     const token = localStorage.getItem('JWT');
     // toast.success(token)
@@ -49,7 +53,16 @@ const page = ({authtoken}) => {
       toast.error(error.message + 'op' || 'Some error occurred while fetching data');
     }
   };
+
   useEffect(() => {
+    localStorage.removeItem('currentUrl2');
+    const currentUrl = router.asPath;
+    if(!authtoken){
+      localStorage.setItem('currentUrl', currentUrl);
+    }
+    else{
+      localStorage.removeItem('currentUrl');
+    }
     getUserData();
   }, []);
 

@@ -12,9 +12,9 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
 
-const LoginPage = ({authtoken}) => {
+const LoginPage = ({ authtoken }) => {
   const router = useRouter();
-  
+
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [timer, setTimer] = useState(null);
   // const [email, setemail] = useState("");
@@ -25,10 +25,8 @@ const LoginPage = ({authtoken}) => {
   // const [cnfpassword, setcnfpassword] = useState("");
   const [matchpass, setmatchpass] = useState(true);
   const [token, setToken] = useState('');
-  const [user,setuser] = useState({email:"",password:""})
-  const [load,setload] = useState(false);
-
-
+  const [user, setuser] = useState({ email: "", password: "" })
+  const [load, setload] = useState(false);
 
   const handleLogin = () => {
     setload(true);
@@ -39,7 +37,7 @@ const LoginPage = ({authtoken}) => {
 
     clearTimeout(timer);
     setTimer(setTimeout(reset, 1500));
-    
+
   };
 
 
@@ -65,7 +63,7 @@ const LoginPage = ({authtoken}) => {
           const { token } = data;
           localStorage.setItem('JWT', token);
           console.log('Received token:', token);
-          if(token){
+          if (token) {
             toast.success('Logged In', {
               position: "top-right",
               autoClose: 5000,
@@ -75,11 +73,30 @@ const LoginPage = ({authtoken}) => {
               draggable: true,
               progress: undefined,
               theme: "light",
-              });
-            router.push("/dashboard")
-            window.location.reload();
+            });
+            const currentUrl = localStorage.getItem('currentUrl');
+            const currentUrl2 = localStorage.getItem('currentUrl2');
+
+            // Check if the current URL is /pricing
+            
+            if(currentUrl2=='/pricing_outside'){
+              localStorage.removeItem('currentUrl2');
+              router.push('/pricing_outside');
+            }
+            else if (currentUrl == '/pricing') {
+              // Redirect to home
+              localStorage.removeItem('currentUrl');
+
+              router.push('/pricing');
+            }
+            else {
+              // Redirect to /profile
+              router.push('/dashboard');
+            }
+            // router.push("/dashboard")
+            // window.location.reload();
           }
-          else{
+          else {
             setload(false)
             toast.error('Invalid Email or Password', {
               position: "top-right",
@@ -105,12 +122,12 @@ const LoginPage = ({authtoken}) => {
             draggable: true,
             progress: undefined,
             theme: "light",
-            });
+          });
           console.error('Error:', error);
         });
 
       // Check if response.data exists before accessing the token property
-      
+
 
       // if (response.data && response.data.token) {
       //   setToken(response.data.token);
@@ -134,7 +151,7 @@ const LoginPage = ({authtoken}) => {
         draggable: true,
         progress: undefined,
         theme: "light",
-        });
+      });
     }
 
   };
@@ -165,7 +182,7 @@ const LoginPage = ({authtoken}) => {
     const value = e.target.value;
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
     setIsEmailValid(isValidEmail || value === ""); // Update email validity
-    setuser({...user, email: value}); // Update email value in the state
+    setuser({ ...user, email: value }); // Update email value in the state
     // console.log(isEmailValid);
   };
 
@@ -173,6 +190,7 @@ const LoginPage = ({authtoken}) => {
   const forget = () => {
     settoggle_form(!toggle_form);
   }
+
 
   useEffect(() => {
     // Initialize on component mount
@@ -201,7 +219,7 @@ const LoginPage = ({authtoken}) => {
   return (
     <div>
       <Navbar authtoken={authtoken} />
-      <div className="body_login_log" style={{backgroundColor:"#f9fbfc"}}>
+      <div className="body_login_log" style={{ backgroundColor: "#f9fbfc" }}>
         <main className="login_log">
           <div className="login__col_log">
             <form className="login__form_log" method="post" action="">
@@ -234,7 +252,7 @@ const LoginPage = ({authtoken}) => {
                     type="password"
                     name="pass"
                     value={user.password}
-                    onChange={(e) => setuser({...user, password: e.target.value})}
+                    onChange={(e) => setuser({ ...user, password: e.target.value })}
                   />
                 </div>
                 <div className="login__field-group_log login__field-group--horz_log">
@@ -255,9 +273,9 @@ const LoginPage = ({authtoken}) => {
                 </div>
                 <button className="login__btn_log" type="button" data-login="false" onClick={loginhandle}>
                   <span className="login__btn-label_log">Sign in</span>
-                  
+
                 </button>
-                <div className={load ? "loader_load":"loader_load dis_none"}><div><CircularProgress className="CircularProgress" color="inherit"/></div></div>
+                <div className={load ? "loader_load" : "loader_load dis_none"}><div><CircularProgress className="CircularProgress" color="inherit" /></div></div>
                 <p className="login__sign-up_log">
                   Don’t have an account?{" "}
                   <Link className="a_log forget_log" href="/signup">
@@ -267,7 +285,7 @@ const LoginPage = ({authtoken}) => {
               </div>
             </form>
           </div>
-          
+
         </main>
       </div>
       <Footer />

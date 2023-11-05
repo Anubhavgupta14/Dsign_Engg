@@ -20,6 +20,8 @@ const page = ({authtoken}) => {
   const scrollToAbout = () => {
     aboutRef.current.scrollIntoView({ behavior: 'smooth' });
   };
+  localStorage.removeItem('currentUrl');
+  localStorage.removeItem('currentUrl2');
 
   return (
     <div style={{ backgroundColor: "#f9fbfc" }}>
