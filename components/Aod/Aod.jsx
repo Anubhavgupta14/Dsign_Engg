@@ -91,38 +91,47 @@ const Ladlecalculator = ({ authtoken }) => {
   const [size4_l, Setsize4_l] = useState(null);
   const [safety_lining_length_t, Setsafety_lining_length_t] = useState(null);
   const [safety_lining_length_s, Setsafety_lining_length_s] = useState(null);
-  const [degree_lining_for_trapping_t, Setdegree_lining_for_trapping_t] = useState(null);
-  const [degree_lining_for_trapping_s, Setdegree_lining_for_trapping_s] = useState(null);
+  const [degree_lining_for_trapping_t, Setdegree_lining_for_trapping_t] =
+    useState(null);
+  const [degree_lining_for_trapping_s, Setdegree_lining_for_trapping_s] =
+    useState(null);
   const [top_cone_lining, Settop_cone_lining] = useState(null);
-  const [bottom_cone_side_lining_brick_length, Setbottom_cone_side_lining_brick_length] = useState(null);
-  const [bottom_cone_bottom_lining_brick_length, Setbottom_cone_bottom_lining_brick_length] = useState(null);
-  const [bottom_cone_safety_lining_brick_length, Setbottom_cone_safety_lining_brick_length] = useState(null);
+  const [
+    bottom_cone_side_lining_brick_length,
+    Setbottom_cone_side_lining_brick_length,
+  ] = useState(null);
+  const [
+    bottom_cone_bottom_lining_brick_length,
+    Setbottom_cone_bottom_lining_brick_length,
+  ] = useState(null);
+  const [
+    bottom_cone_safety_lining_brick_length,
+    Setbottom_cone_safety_lining_brick_length,
+  ] = useState(null);
   const [bricks_std_width, Setbricks_std_width] = useState(null);
   const [bricks_std_height, Setbricks_std_height] = useState(null);
   const [density_of_bricks, Setdensity_of_bricks] = useState(null);
-  const [safety_bricks_width, Setsafety_bricks_width] = useState(null)
-  const [safety_bricks_height, Setsafety_bricks_height] = useState(null)
-  const [safety_bricks_length, Setsafety_bricks_length] = useState(null)
-  const [safety_cyl1,Setsafety_cyl1] = useState(0)
-  const [safety_cyl2,Setsafety_cyl2] = useState(0)
-  const [safety_cyl3,Setsafety_cyl3] = useState(0)
-  const [safety_top_cone1,Setsafety_top_cone1] = useState(0)
-  const [safety_top_cone2,Setsafety_top_cone2] = useState(0)
-  const [safety_top_cone3,Setsafety_top_cone3] = useState(0)
-  const [safety_bot_cone1,Setsafety_bot_cone1] = useState(0)
-  const [safety_bot_cone2,Setsafety_bot_cone2] = useState(0)
-  const [safety_bot_cone3,Setsafety_bot_cone3] = useState(0)
-  const [safety_bottom1,Setsafety_bottom1] = useState(0)
-  const [safety_bottom2,Setsafety_bottom2] = useState(0)
-  const [safety_bottom3,Setsafety_bottom3] = useState(0)
-  const [safety_bottom4,Setsafety_bottom4] = useState(0)
-  const [safety_bottom5,Setsafety_bottom5] = useState(0)
-  const [safety_bottom6,Setsafety_bottom6] = useState(0)
-  const [safety_bottom7,Setsafety_bottom7] = useState(0)
-  const [safety_bottom8,Setsafety_bottom8] = useState(0)
-  const [safety_bottom9,Setsafety_bottom9] = useState(0)
-
-
+  const [safety_bricks_width, Setsafety_bricks_width] = useState(null);
+  const [safety_bricks_height, Setsafety_bricks_height] = useState(null);
+  const [safety_bricks_length, Setsafety_bricks_length] = useState(null);
+  const [safety_cyl1, Setsafety_cyl1] = useState(0);
+  const [safety_cyl2, Setsafety_cyl2] = useState(0);
+  const [safety_cyl3, Setsafety_cyl3] = useState(0);
+  const [safety_top_cone1, Setsafety_top_cone1] = useState(0);
+  const [safety_top_cone2, Setsafety_top_cone2] = useState(0);
+  const [safety_top_cone3, Setsafety_top_cone3] = useState(0);
+  const [safety_bot_cone1, Setsafety_bot_cone1] = useState(0);
+  const [safety_bot_cone2, Setsafety_bot_cone2] = useState(0);
+  const [safety_bot_cone3, Setsafety_bot_cone3] = useState(0);
+  const [safety_bottom1, Setsafety_bottom1] = useState(0);
+  const [safety_bottom2, Setsafety_bottom2] = useState(0);
+  const [safety_bottom3, Setsafety_bottom3] = useState(0);
+  const [safety_bottom4, Setsafety_bottom4] = useState(0);
+  const [safety_bottom5, Setsafety_bottom5] = useState(0);
+  const [safety_bottom6, Setsafety_bottom6] = useState(0);
+  const [safety_bottom7, Setsafety_bottom7] = useState(0);
+  const [safety_bottom8, Setsafety_bottom8] = useState(0);
+  const [safety_bottom9, Setsafety_bottom9] = useState(0);
 
   const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
@@ -169,56 +178,127 @@ const Ladlecalculator = ({ authtoken }) => {
     //   return;
     // }
 
-    const F14 = Math.ceil(0.52 * vessel_cylindrical_height / 100) * 100;
-    const F15 = Math.ceil(0.14 * vessel_cylindrical_height / 100) * 100;
-    const F16 = Math.ceil(0.23 * vessel_cylindrical_height / 100) * 100;
-    const F17 = vessel_cylindrical_height-(F14+F15+F16)
-    const P19 = (F14/100)+(F15/100)+(F16/100)+(F17/100)
-    const O19 = vessel_cylindrical_id*3.1416*P19*100
-    const N19 = safety_bricks_width*safety_bricks_length
-    const safety_cyl = Math.ceil(O19/N19)
-    Setsafety_cyl1(safety_cyl)
-    Setsafety_cyl2(size4_s)
+    const F14 = Math.ceil((0.52 * vessel_cylindrical_height) / 100) * 100;
+    const F15 = Math.ceil((0.14 * vessel_cylindrical_height) / 100) * 100;
+    const F16 = Math.ceil((0.23 * vessel_cylindrical_height) / 100) * 100;
+    const F17 = vessel_cylindrical_height - (F14 + F15 + F16);
+    const P19 = F14 / 100 + F15 / 100 + F16 / 100 + F17 / 100;
+    const O19 = vessel_cylindrical_id * 3.1416 * P19 * 100;
+    const N19 = safety_bricks_width * safety_bricks_length;
+    const safety_cyl = Math.ceil(O19 / N19);
+    Setsafety_cyl1(safety_cyl);
+    Setsafety_cyl2(size4_s);
 
-    const M17 = vessel_cylindrical_id-(parseFloat(size4_t) + parseFloat(safety_lining_length_t))-(parseFloat(size4_s) + parseFloat(safety_lining_length_t))
-    const O17 = 3.1416*M17
-    const P17 = F17/100
-    const L12 = 360-degree_lining_for_trapping_t
-    const L13 = L12/360
-    const K13 = degree_lining_for_trapping_t/360
-    const K17 = Math.ceil(O17/bricks_std_width*(degree_lining_for_trapping_t/360))*P17
-    const L17 = K17/K13*L13
-    const safety_cyl3 = K17+L17
-    Setsafety_cyl3(safety_cyl3)
+    const M17 =
+      vessel_cylindrical_id -
+      (parseFloat(size4_t) + parseFloat(safety_lining_length_t)) -
+      (parseFloat(size4_s) + parseFloat(safety_lining_length_t));
+    const O17 = 3.1416 * M17;
+    const P17 = F17 / 100;
+    const L12 = 360 - degree_lining_for_trapping_t;
+    const L13 = L12 / 360;
+    const K13 = degree_lining_for_trapping_t / 360;
+    const K17 =
+      Math.ceil(
+        (O17 / bricks_std_width) * (degree_lining_for_trapping_t / 360)
+      ) * P17;
+    const L17 = (K17 / K13) * L13;
+    const safety_cyl3 = K17 + L17;
+    Setsafety_cyl3(safety_cyl3);
 
-    const N67 = safety_bricks_width*safety_bricks_length
-    const D20 = vessel_cylindrical_id-(Math.tan(3.1416*top_cone_angle/180)*2*top_cone_height)
-    const safety_top_cone1 = (3.1416*(parseFloat(vessel_cylindrical_id)+parseFloat(D20))*top_cone_height/2)/N67
-    Setsafety_top_cone1(Math.round(safety_top_cone1))
+    const N67 = safety_bricks_width * safety_bricks_length;
+    const D20 =
+      vessel_cylindrical_id -
+      Math.tan((3.1416 * top_cone_angle) / 180) * 2 * top_cone_height;
+    const safety_top_cone1 =
+      (3.1416 *
+        (parseFloat(vessel_cylindrical_id) + parseFloat(D20)) *
+        top_cone_height) /
+      2 /
+      N67;
+    Setsafety_top_cone1(Math.round(safety_top_cone1));
 
-    const safety_top_cone2 = size3_s
-    Setsafety_top_cone2(safety_top_cone2)
+    const safety_top_cone2 = size3_s;
+    Setsafety_top_cone2(safety_top_cone2);
 
-    const M14 = vessel_cylindrical_id-(parseFloat(size1_t) + parseFloat(safety_lining_length_t))-(parseFloat(size1_s)+parseFloat(safety_lining_length_s))
-    const K14 = Math.ceil((3.1416*M14)/bricks_std_width*K13)*(F14/100)
-    const M16 = vessel_cylindrical_id-(parseFloat(size3_t)+parseFloat(safety_lining_length_t))-(parseFloat(size3_s)+parseFloat(safety_lining_length_s))
-    const K16 = Math.ceil((3.1416*M16)/bricks_std_width*K13)*(F16/100)
-    
-    const M15 = vessel_cylindrical_id-(parseFloat(size2_t) + parseFloat(safety_lining_length_t))-(parseFloat(size2_s) + parseFloat(safety_lining_length_t))
-    const K15 = Math.ceil((3.1416*M15)/bricks_std_width*K13)*(F15/100)
-    const L16 = ((K14+K15+K16)/K13*L13)
-    const safety_top_cone3 = K16+L16
-    Setsafety_top_cone3(safety_top_cone3)
+    const M14 =
+      vessel_cylindrical_id -
+      (parseFloat(size1_t) + parseFloat(safety_lining_length_t)) -
+      (parseFloat(size1_s) + parseFloat(safety_lining_length_s));
+    const K14 =
+      Math.ceil(((3.1416 * M14) / bricks_std_width) * K13) * (F14 / 100);
+    const M16 =
+      vessel_cylindrical_id -
+      (parseFloat(size3_t) + parseFloat(safety_lining_length_t)) -
+      (parseFloat(size3_s) + parseFloat(safety_lining_length_s));
+    const K16 =
+      Math.ceil(((3.1416 * M16) / bricks_std_width) * K13) * (F16 / 100);
 
-    const M68 = 3.1416*(parseFloat(vessel_cylindrical_id)+parseFloat(parseFloat(vessel_cylindrical_id)-parseFloat(Math.tan((3.1416*bottom_cone_angle/180))*2*bottom_cone_height)))*(parseFloat(bottom_cone_height)-parseFloat(parseFloat(bottom_cone_bottom_lining_brick_length)+parseFloat(bottom_cone_safety_lining_brick_length)))/2
-    const N68 = safety_bricks_width*safety_bricks_length
-    const safety_bot_cone1 = M68/N68
-    Setsafety_bot_cone1(Math.round(safety_bot_cone1))
+    const M15 =
+      vessel_cylindrical_id -
+      (parseFloat(size2_t) + parseFloat(safety_lining_length_t)) -
+      (parseFloat(size2_s) + parseFloat(safety_lining_length_t));
+    const K15 =
+      Math.ceil(((3.1416 * M15) / bricks_std_width) * K13) * (F15 / 100);
+    const L16 = ((K14 + K15 + K16) / K13) * L13;
+    const safety_top_cone3 = K16 + L16;
+    Setsafety_top_cone3(safety_top_cone3);
 
-    const safety_bot_cone2 = size2_s
-    Setsafety_bot_cone2(safety_bot_cone2)
-    Setsafety_bot_cone3(K15)
-    
+    const M68 =
+      (3.1416 *
+        (parseFloat(vessel_cylindrical_id) +
+          parseFloat(
+            parseFloat(vessel_cylindrical_id) -
+              parseFloat(
+                Math.tan((3.1416 * bottom_cone_angle) / 180) *
+                  2 *
+                  bottom_cone_height
+              )
+          )) *
+        (parseFloat(bottom_cone_height) -
+          parseFloat(
+            parseFloat(bottom_cone_bottom_lining_brick_length) +
+              parseFloat(bottom_cone_safety_lining_brick_length)
+          ))) /
+      2;
+    const N68 = safety_bricks_width * safety_bricks_length;
+    const safety_bot_cone1 = M68 / N68;
+    Setsafety_bot_cone1(Math.round(safety_bot_cone1));
+
+    const safety_bot_cone2 = size2_s;
+    Setsafety_bot_cone2(safety_bot_cone2);
+    Setsafety_bot_cone3(K15);
+
+    const E27 =
+      parseFloat(
+        parseFloat(vessel_cylindrical_id) -
+          parseFloat(
+            Math.tan((3.1416 * bottom_cone_angle) / 180) *
+              2 *
+              bottom_cone_height
+          )
+      ) -
+      2 * bottom_cone_safety_lining_brick_length;
+    const M69 =
+      (3.1416 / 4) *
+      (parseFloat(E27) + parseFloat(bottom_cone_bottom_lining_brick_length)) *
+      (parseFloat(E27) + parseFloat(bottom_cone_bottom_lining_brick_length));
+    const N69 = safety_bricks_width * safety_bricks_length;
+    const K69 = M69 / N69;
+    Setsafety_bottom1(Math.round(K69));
+
+    Setsafety_bottom2(size1_s);
+    Setsafety_bottom3(K14);
+
+    Setsafety_bottom4(top_cone_lining);
+    Setsafety_bottom6(bottom_cone_bottom_lining_brick_length);
+
+    const L64 = (3.1416 / 4) * E27 * E27;
+    const M64 = bricks_std_width * bricks_std_height;
+    const safety_bottom7 = L64 / M64;
+    Setsafety_bottom7(Math.round(safety_bottom7));
+
+    Setsafety_bottom8(bottom_cone_side_lining_brick_length);
 
     // event.preventDefault();
     setOpen(false);
@@ -708,7 +788,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Vessel Cylindrical Shell
@@ -745,7 +825,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Vessel Top Cone
@@ -780,7 +860,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Vessel Bottom Cone
@@ -817,7 +897,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Cylindrical Shell Flange
@@ -860,7 +940,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Top Cone Flange
@@ -895,7 +975,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Top Cone Protection Flange
@@ -932,7 +1012,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Disc End
@@ -976,7 +1056,9 @@ const Ladlecalculator = ({ authtoken }) => {
                             defaultValue="Small"
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
-                            onChange={(e) => Setwidth_of_vessel_flange(e.target.value)}
+                            onChange={(e) =>
+                              Setwidth_of_vessel_flange(e.target.value)
+                            }
                           />
                         </div>
                       </TableCell>
@@ -1001,7 +1083,9 @@ const Ladlecalculator = ({ authtoken }) => {
                             defaultValue="Small"
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
-                            onChange={(e) => Setwidth_of_cone_flange(e.target.value)}
+                            onChange={(e) =>
+                              Setwidth_of_cone_flange(e.target.value)
+                            }
                           />
                         </div>
                       </TableCell>
@@ -1010,7 +1094,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Stiffner Cyl. Flange
@@ -1047,7 +1131,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Stiffner Top Cone Flange
@@ -1084,7 +1168,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Lifting Hook
@@ -1122,13 +1206,11 @@ const Ladlecalculator = ({ authtoken }) => {
                       tabIndex={-1}
                       sx={{ maxHeight: "10px" }}
                     >
-
-
                       <TableCell sx={{ textAlign: "center" }}>
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Legs
@@ -1163,7 +1245,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Cone Top Rim
@@ -1198,7 +1280,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Pin Lifting Hook
@@ -1235,7 +1317,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Cylinder to Trunion Flange
@@ -1279,7 +1361,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                        // error={error_show.thickness4 && !thickness4}
+                          // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Vessel Flanges Distance
@@ -1325,7 +1407,9 @@ const Ladlecalculator = ({ authtoken }) => {
                             defaultValue="Small"
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
-                            onChange={(e) => Setwidth_of_trunion_flange(e.target.value)}
+                            onChange={(e) =>
+                              Setwidth_of_trunion_flange(e.target.value)
+                            }
                           />
                         </div>
                       </TableCell>
@@ -1337,352 +1421,382 @@ const Ladlecalculator = ({ authtoken }) => {
           </div>
         </div>
 
-        <h2 className="head_ladle" style={{ marginTop: '4vh' }}>Lining Bricks Details</h2>
-        <div className="containerfab_ladle flex-all" style={{ marginTop: '4vh' }}>
-          <Paper sx={{ width: "100%", overflow: "hidden" }} >
-            <TableContainer sx={{ maxHeight: 1200 }} style={{ backgroundColor: "#f9fbfc" }}>
+        <h2 className="head_ladle" style={{ marginTop: "4vh" }}>
+          Lining Bricks Details
+        </h2>
+        <div
+          className="containerfab_ladle flex-all"
+          style={{ marginTop: "4vh" }}
+        >
+          <Paper sx={{ width: "100%", overflow: "hidden" }}>
+            <TableContainer
+              sx={{ maxHeight: 1200 }}
+              style={{ backgroundColor: "#f9fbfc" }}
+            >
               <Table stickyHeader aria-label="sticky table">
                 <TableHead>
-                  <TableRow hover role="checkbox" tabIndex={-1} >
-                    <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
                       <p>Vessel Cylindrical Bricks Length</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
                       <p>Tapping Side</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
                       <p>Sampling Side</p>
                     </TableCell>
-                    <TableCell sx={{ textAlign: 'center' }} style={{ backgroundColor: "#c8c8c8" }}>
+                    <TableCell
+                      sx={{ textAlign: "center" }}
+                      style={{ backgroundColor: "#c8c8c8" }}
+                    >
                       <p>Nos. of Layers</p>
                     </TableCell>
                   </TableRow>
                 </TableHead>
 
                 <TableBody>
-                <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
+                  <TableRow hover role="checkbox" tabIndex={-1}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <p>Size1</p>
                     </TableCell>
                     <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Size1"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsize1_t(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Size1"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsize1_s(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Size1"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsize1_l(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Size1"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) => Setsize1_t(e.target.value)}
+                        />
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Size1"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) => Setsize1_s(e.target.value)}
+                        />
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Size1"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) => Setsize1_l(e.target.value)}
+                        />
+                      </div>
+                    </TableCell>
                   </TableRow>
 
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <p>Size2</p>
                     </TableCell>
                     <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Size2"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsize2_t(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Size2"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsize2_s(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Size2"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsize2_l(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Size2"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) => Setsize2_t(e.target.value)}
+                        />
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Size2"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) => Setsize2_s(e.target.value)}
+                        />
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Size2"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) => Setsize2_l(e.target.value)}
+                        />
+                      </div>
+                    </TableCell>
                   </TableRow>
 
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <p>Size3</p>
                     </TableCell>
                     <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Size3"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsize3_t(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Size3"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsize3_s(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Size3"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsize3_l(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Size3"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) => Setsize3_t(e.target.value)}
+                        />
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Size3"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) => Setsize3_s(e.target.value)}
+                        />
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Size3"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) => Setsize3_l(e.target.value)}
+                        />
+                      </div>
+                    </TableCell>
                   </TableRow>
 
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <p>Size4</p>
                     </TableCell>
                     <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Size4"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsize4_t(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Size4"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsize4_s(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Size4"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsize4_l(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Size4"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) => Setsize4_t(e.target.value)}
+                        />
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Size4"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) => Setsize4_s(e.target.value)}
+                        />
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Size4"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) => Setsize4_l(e.target.value)}
+                        />
+                      </div>
+                    </TableCell>
                   </TableRow>
 
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <p>Safety Lining Length</p>
                     </TableCell>
                     <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Safety Lining Length"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsafety_lining_length_t(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Safety Lining Length"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsafety_lining_length_s(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Safety Lining Length"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setsafety_lining_length_l(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Safety Lining Length"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) =>
+                            Setsafety_lining_length_t(e.target.value)
+                          }
+                        />
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Safety Lining Length"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) =>
+                            Setsafety_lining_length_s(e.target.value)
+                          }
+                        />
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Safety Lining Length"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) =>
+                            Setsafety_lining_length_l(e.target.value)
+                          }
+                        />
+                      </div>
+                    </TableCell>
                   </TableRow>
 
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell sx={{ textAlign: 'center' }}>
+                    <TableCell sx={{ textAlign: "center" }}>
                       <p>Degree Lining for Tapping/Sampling</p>
                     </TableCell>
                     <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Degree Lining for Tapping/Sampling"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setdegree_lining_for_trapping_t(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                            label="Degree Lining for Tapping/Sampling"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setdegree_lining_for_trapping_s(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Degree Lining for Tapping/Sampling"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) =>
+                            Setdegree_lining_for_trapping_t(e.target.value)
+                          }
+                        />
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <TextField
+                          required
+                          className="textfield_ladle"
+                          id="outlined-number"
+                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                          label="Degree Lining for Tapping/Sampling"
+                          variant="outlined"
+                          type="number"
+                          defaultValue="Small"
+                          // error={error_show.topdiameter && !topdiameter}
+                          size="small"
+                          onChange={(e) =>
+                            Setdegree_lining_for_trapping_s(e.target.value)
+                          }
+                        />
+                      </div>
+                    </TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -1690,7 +1804,6 @@ const Ladlecalculator = ({ authtoken }) => {
           </Paper>
           {/* yaha hu */}
         </div>
-
 
         <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
           <div className="ladle_first">
@@ -1721,9 +1834,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             defaultValue="Small"
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
-                            onChange={(e) =>
-                              Settop_cone_lining(e.target.value)
-                            }
+                            onChange={(e) => Settop_cone_lining(e.target.value)}
                           />
                         </div>
                       </TableCell>
@@ -1741,7 +1852,9 @@ const Ladlecalculator = ({ authtoken }) => {
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
                             onChange={(e) =>
-                              Setbottom_cone_side_lining_brick_length(e.target.value)
+                              Setbottom_cone_side_lining_brick_length(
+                                e.target.value
+                              )
                             }
                           />
                         </div>
@@ -1760,7 +1873,9 @@ const Ladlecalculator = ({ authtoken }) => {
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
                             onChange={(e) =>
-                              Setbottom_cone_bottom_lining_brick_length(e.target.value)
+                              Setbottom_cone_bottom_lining_brick_length(
+                                e.target.value
+                              )
                             }
                           />
                         </div>
@@ -1778,7 +1893,11 @@ const Ladlecalculator = ({ authtoken }) => {
                             defaultValue="Small"
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
-                            onChange={(e) => Setbottom_cone_safety_lining_brick_length(e.target.value)}
+                            onChange={(e) =>
+                              Setbottom_cone_safety_lining_brick_length(
+                                e.target.value
+                              )
+                            }
                           />
                         </div>
                       </TableCell>
@@ -1802,7 +1921,9 @@ const Ladlecalculator = ({ authtoken }) => {
                             defaultValue="Small"
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
-                            onChange={(e) => Setbricks_std_width(e.target.value)}
+                            onChange={(e) =>
+                              Setbricks_std_width(e.target.value)
+                            }
                           />
                         </div>
                       </TableCell>
@@ -1909,7 +2030,6 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      
                     </TableRow>
                   </TableBody>
                 </Table>
@@ -1921,7 +2041,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
       {/* outputs */}
       <div ref={div2Ref}>
-      <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
+        <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
           <div className="ladle_first">
             <h2 className="head_ladle">Output</h2>
             <Paper sx={{ overflow: "hidden" }}>
@@ -1930,33 +2050,33 @@ const Ladlecalculator = ({ authtoken }) => {
                 style={{ backgroundColor: "#f9fbfc" }}
               >
                 <Table stickyHeader aria-label="sticky table">
-                <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      sx={{ maxHeight: "10px" }}
-                    >
-                      <TableCell>
+                  <TableRow
+                    hover
+                    role="checkbox"
+                    tabIndex={-1}
+                    sx={{ maxHeight: "10px" }}
+                  >
+                    <TableCell>
                       <div className="row_ladle flex-all">
                         <p>Safety Cyl.</p>
                       </div>
-                      </TableCell>
-                      <TableCell>
+                    </TableCell>
+                    <TableCell>
                       <div className="row_ladle flex-all">
                         <p>{safety_cyl1}</p>
                       </div>
-                      </TableCell>
-                      <TableCell>
+                    </TableCell>
+                    <TableCell>
                       <div className="row_ladle flex-all">
                         <p>{safety_cyl2}</p>
                       </div>
-                      </TableCell>
-                      <TableCell>
+                    </TableCell>
+                    <TableCell>
                       <div className="row_ladle flex-all">
                         <p>{safety_cyl3}</p>
                       </div>
-                      </TableCell>
-                    </TableRow>
+                    </TableCell>
+                  </TableRow>
                   <TableBody>
                     <TableRow
                       hover
@@ -1965,24 +2085,24 @@ const Ladlecalculator = ({ authtoken }) => {
                       sx={{ maxHeight: "10px" }}
                     >
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>Safety Top Cone</p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>Safety Top Cone</p>
+                        </div>
                       </TableCell>
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_top_cone1}</p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_top_cone1}</p>
+                        </div>
                       </TableCell>
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_top_cone2}</p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_top_cone2}</p>
+                        </div>
                       </TableCell>
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_top_cone3}</p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_top_cone3}</p>
+                        </div>
                       </TableCell>
                     </TableRow>
                     <TableRow
@@ -1992,52 +2112,24 @@ const Ladlecalculator = ({ authtoken }) => {
                       sx={{ maxHeight: "10px" }}
                     >
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>Safety Bot. Cone</p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>Safety Bot. Cone</p>
+                        </div>
                       </TableCell>
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_bot_cone1}</p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_bot_cone1}</p>
+                        </div>
                       </TableCell>
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_bot_cone2}</p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_bot_cone2}</p>
+                        </div>
                       </TableCell>
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_bot_cone3}</p>
-                      </div>
-                      </TableCell>
-                    </TableRow>
-
-                    <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      sx={{ maxHeight: "10px" }}
-                    >
-                      <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>Safety Bottom</p>
-                      </div>
-                      </TableCell>
-                      <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_bottom1}</p>
-                      </div>
-                      </TableCell>
-                      <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_bottom2}</p>
-                      </div>
-                      </TableCell>
-                      <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_bottom3}</p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_bot_cone3}</p>
+                        </div>
                       </TableCell>
                     </TableRow>
 
@@ -2048,24 +2140,52 @@ const Ladlecalculator = ({ authtoken }) => {
                       sx={{ maxHeight: "10px" }}
                     >
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p></p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>Safety Bottom</p>
+                        </div>
                       </TableCell>
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p></p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_bottom1}</p>
+                        </div>
                       </TableCell>
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_bottom4}</p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_bottom2}</p>
+                        </div>
                       </TableCell>
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_bottom5}</p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_bottom3}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_bottom4}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_bottom5}</p>
+                        </div>
                       </TableCell>
                     </TableRow>
                     <TableRow
@@ -2075,24 +2195,24 @@ const Ladlecalculator = ({ authtoken }) => {
                       sx={{ maxHeight: "10px" }}
                     >
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_bottom6}</p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_bottom6}</p>
+                        </div>
                       </TableCell>
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_bottom7}</p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_bottom7}</p>
+                        </div>
                       </TableCell>
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_bottom8}</p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_bottom8}</p>
+                        </div>
                       </TableCell>
                       <TableCell>
-                      <div className="row_ladle flex-all">
-                        <p>{safety_bottom9}</p>
-                      </div>
+                        <div className="row_ladle flex-all">
+                          <p>{safety_bottom9}</p>
+                        </div>
                       </TableCell>
                     </TableRow>
                   </TableBody>
@@ -2101,6 +2221,481 @@ const Ladlecalculator = ({ authtoken }) => {
             </Paper>
           </div>
         </div>
+        <p className="aod_para">Bricks Quantity Total Weight of Bricks MT</p>
+      </div>
+
+      <div ref={div3Ref}>
+        <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
+          <div className="ladle_first">
+            <Paper sx={{ overflow: "hidden" }}>
+              <TableContainer
+                sx={{ maxHeight: 1000 }}
+                style={{ backgroundColor: "#f9fbfc" }}
+              >
+                <Table stickyHeader aria-label="sticky table">
+                  <TableRow
+                    hover
+                    role="checkbox"
+                    tabIndex={-1}
+                    sx={{ maxHeight: "10px" }}
+                  >
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Bricks</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Std.W</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Std. Ht</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Tapping side (degree)</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Sampling Side</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Dia on</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Area/Brick</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Area/Layer</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Nos. of Layer</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Weight of Bricks</p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    hover
+                    role="checkbox"
+                    tabIndex={-1}
+                    sx={{ maxHeight: "10px" }}
+                  >
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p></p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{bricks_std_width}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{bricks_std_height}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{degree_lining_for_trapping_t}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    hover
+                    role="checkbox"
+                    tabIndex={-1}
+                    sx={{ maxHeight: "10px" }}
+                  >
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl1}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl2}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    hover
+                    role="checkbox"
+                    tabIndex={-1}
+                    sx={{ maxHeight: "10px" }}
+                  >
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl1}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl2}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    hover
+                    role="checkbox"
+                    tabIndex={-1}
+                    sx={{ maxHeight: "10px" }}
+                  >
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl1}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl2}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    hover
+                    role="checkbox"
+                    tabIndex={-1}
+                    sx={{ maxHeight: "10px" }}
+                  >
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl1}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl2}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    hover
+                    role="checkbox"
+                    tabIndex={-1}
+                    sx={{ maxHeight: "10px" }}
+                  >
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl1}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl2}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    hover
+                    role="checkbox"
+                    tabIndex={-1}
+                    sx={{ maxHeight: "10px" }}
+                  >
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>Safety Cyl.</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl1}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl2}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="row_ladle flex-all">
+                        <p>{safety_cyl3}</p>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  
+                </Table>
+              </TableContainer>
+            </Paper>
+          </div>
+        </div>
+        <p className="aod_para">Bricks Quantity Total Weight of Bricks MT</p>
       </div>
 
       <div className="btns_ladle">

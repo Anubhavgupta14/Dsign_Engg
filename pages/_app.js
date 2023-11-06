@@ -20,6 +20,7 @@ import '@/styles/failure.css'
 import '@/styles/profile.css'
 import '@/styles/admin.css'
 import '@/styles/country.css'
+import '@/styles/aod.css'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer} from 'react-toastify';
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
