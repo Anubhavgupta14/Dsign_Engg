@@ -3047,7 +3047,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
           <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
               <TableContainer
-                sx={{ maxHeight: 1000 }}
+                sx={{ maxHeight: 2500 }}
                 style={{ backgroundColor: "#f9fbfc" }}
               >
                 <Table stickyHeader aria-label="sticky table">
