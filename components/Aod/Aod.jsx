@@ -39,16 +39,18 @@ const style = {
 };
 
 const Ladlecalculator = ({ authtoken }) => {
-  const pdfRef = useRef();
   const div1Ref = useRef();
   const div2Ref = useRef();
   const div3Ref = useRef();
+  const div4Ref = useRef();
+  const div5Ref = useRef();
   const [vessel_cylindrical_id, setVessel_cylindrical_id] = useState(null);
   const [vessel_cylindrical_height, setVessel_cylindrical_height] =
     useState(null);
   const [top_cone_bottom_id, settop_cone_bottom_id] = useState(null);
   const [top_cone_height, Settop_cone_height] = useState(null);
   const [top_cone_angle, Settop_cone_angle] = useState(null);
+  const [top_safety, Settop_safety] = useState(null);
   const [density_of_liq_metal, Setdensity_of_liq_metal] = useState(null);
   const [bottom_cone_top_id, Setbottom_cone_top_id] = useState(null);
   const [bottom_cone_height, Setbottom_cone_height] = useState(null);
@@ -166,6 +168,70 @@ const Ladlecalculator = ({ authtoken }) => {
   const [safety_table_areaL,Setsafety_table_areaL] = useState(0)
   const [safety_table_nooflayer,Setsafety_table_nooflayer] = useState(0)
   const [safety_table_weight_bricks,Setsafety_table_weight_bricks] = useState(0)
+  const [top_cone_table_1_1,Settop_cone_table_1_1] = useState(0);
+  const [top_cone_table_1_2,Settop_cone_table_1_2] = useState(0);
+  const [top_cone_table_1_3,Settop_cone_table_1_3] = useState(0);
+  const [top_cone_table_1_4,Settop_cone_table_1_4] = useState(0);
+  const [top_cone_table_1_5,Settop_cone_table_1_5] = useState(0);
+  const [top_cone_table_1_6,Settop_cone_table_1_6] = useState(0);
+  const [top_cone_table_1_7,Settop_cone_table_1_7] = useState(0);
+  const [top_cone_table_1_8,Settop_cone_table_1_8] = useState(0);
+  const [top_cone_table_1_9,Settop_cone_table_1_9] = useState(0);
+  const [top_cone_table_1_10,Settop_cone_table_1_10] = useState(0);
+  const [top_cone_table_1_11,Settop_cone_table_1_11] = useState(0);
+  const [top_cone_table_1_12,Settop_cone_table_1_12] = useState(0);
+  const [top_cone_table_1_13,Settop_cone_table_1_13] = useState(0);
+  const [top_cone_table_2_1,Settop_cone_table_2_1] = useState(0);
+  const [top_cone_table_2_2,Settop_cone_table_2_2] = useState(0);
+  const [top_cone_table_2_3,Settop_cone_table_2_3] = useState(0);
+  const [top_cone_table_2_4,Settop_cone_table_2_4] = useState(0);
+  const [top_cone_table_2_5,Settop_cone_table_2_5] = useState(0);
+  const [top_cone_table_2_6,Settop_cone_table_2_6] = useState(0);
+  const [top_cone_table_2_7,Settop_cone_table_2_7] = useState(0);
+  const [top_cone_table_2_8,Settop_cone_table_2_8] = useState(0);
+  const [top_cone_table_2_9,Settop_cone_table_2_9] = useState(0);
+  const [top_cone_table_2_10,Settop_cone_table_2_10] = useState(0);
+  const [top_cone_table_2_11,Settop_cone_table_2_11] = useState(0);
+  const [top_cone_table_2_12,Settop_cone_table_2_12] = useState(0);
+  const [top_cone_table_2_13,Settop_cone_table_2_13] = useState(0);
+  const [top_cone_table_0_1,Settop_cone_table_0_1] = useState(0);
+  const [top_cone_table_0_2,Settop_cone_table_0_2] = useState(0);
+  const [top_cone_table_0_3,Settop_cone_table_0_3] = useState(0);
+  const [top_cone_table_0_4,Settop_cone_table_0_4] = useState(0);
+  const [top_cone_table_0_5,Settop_cone_table_0_5] = useState(0);
+  const [top_cone_table_0_6,Settop_cone_table_0_6] = useState(0);
+  const [top_cone_table_0_7,Settop_cone_table_0_7] = useState(0);
+  const [top_cone_table_0_8,Settop_cone_table_0_8] = useState(0);
+  const [top_cone_table_0_9,Settop_cone_table_0_9] = useState(0);
+  const [top_cone_table_0_10,Settop_cone_table_0_10] = useState(0);
+  const [top_cone_table_0_11,Settop_cone_table_0_11] = useState(0);
+  const [top_cone_table_0_12,Settop_cone_table_0_12] = useState(0);
+  const [top_cone_table_0_13,Settop_cone_table_0_13] = useState(0);
+  const [top_cone_table_3_1, setTop_cone_table_3_1] = useState(1);
+  const [top_cone_table_3_2, setTop_cone_table_3_2] = useState(2);
+  const [top_cone_table_3_3, setTop_cone_table_3_3] = useState(3);
+  const [top_cone_table_3_4, setTop_cone_table_3_4] = useState(4);
+  const [top_cone_table_3_5, setTop_cone_table_3_5] = useState(5);
+  const [top_cone_table_3_6, setTop_cone_table_3_6] = useState(6);
+  const [top_cone_table_3_7, setTop_cone_table_3_7] = useState(7);
+  const [top_cone_table_3_8, setTop_cone_table_3_8] = useState(8);
+  const [top_cone_table_3_9, setTop_cone_table_3_9] = useState(9);
+  const [top_cone_table_3_10, setTop_cone_table_3_10] = useState(10);
+  const [top_cone_table_3_11, setTop_cone_table_3_11] = useState(11);
+  const [top_cone_table_3_12, setTop_cone_table_3_12] = useState(12);
+  const [top_cone_table_3_13, setTop_cone_table_3_13] = useState(13);
+  const [top_cone_table_3_14, setTop_cone_table_3_14] = useState(14);
+  const [top_cone_table_3_15, setTop_cone_table_3_15] = useState(15);
+  const [top_cone_table_3_16, setTop_cone_table_3_16] = useState(16);
+  const [top_cone_table_3_17, setTop_cone_table_3_17] = useState(17);
+  const [top_cone_table_3_18, setTop_cone_table_3_18] = useState(18);
+  const [top_cone_table_3_19, setTop_cone_table_3_19] = useState(19);
+  const [top_cone_table_3_20, setTop_cone_table_3_20] = useState(20);
+  const [top_cone_table_3_21, setTop_cone_table_3_21] = useState(21);
+  const [top_cone_table_3_22, setTop_cone_table_3_22] = useState(22);
+  const [top_cone_table_3_23, setTop_cone_table_3_23] = useState(23);
+  
+
   const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
 
@@ -202,6 +268,7 @@ const Ladlecalculator = ({ authtoken }) => {
     aod_ticket: 0,
   });
   const K13 = degree_lining_for_trapping_t / 360;
+  const H21 = Math.tan(3.1416*top_cone_angle/180)
   const result = async (event) => {
     // const result_ticket = await validate_ticket();
     // if (result_ticket === -1) {
@@ -385,7 +452,164 @@ const Ladlecalculator = ({ authtoken }) => {
     Setsafety_table_nooflayer(parseFloat(F17/100)+parseFloat(F16/100)+parseFloat(F15/100)+parseFloat(F14/100))
     const safety_table_sum =safety_lining_length_t*safety_bricks_width*safety_bricks_length*(Math.ceil(O19/N19))*density_of_bricks/1000000000
     Setsafety_table_weight_bricks((safety_table_sum).toFixed(3))
+    const top_cone_table_1_1 = vessel_cylindrical_id-2*(parseFloat(top_cone_lining)+parseFloat(top_safety))
+    Settop_cone_table_1_1(top_cone_table_1_1)
+
+    const top_cone_table_1_2 = (parseFloat(top_cone_table_1_1)-parseFloat(H21*2*bricks_std_height))
+    Settop_cone_table_1_2(Math.round(top_cone_table_1_2))
     // event.preventDefault();
+
+    const top_cone_table_2_1 = top_cone_table_1_2*3.1416
+    Settop_cone_table_2_1((top_cone_table_2_1).toFixed(6))
+    const top_cone_table_0_2 = Math.ceil(top_cone_table_2_1/bricks_std_width)
+    Settop_cone_table_0_2(top_cone_table_0_2)
+
+    const top_cone_table_1_3 = (top_cone_table_1_2-(H21*2*bricks_std_height))
+    Settop_cone_table_1_3(Math.round(top_cone_table_1_3))
+    const top_cone_table_2_2 = top_cone_table_1_3 * 3.1416
+    Settop_cone_table_2_2((top_cone_table_2_2).toFixed(6))
+    const top_cone_table_0_3 = Math.ceil(top_cone_table_2_2/bricks_std_width)
+    Settop_cone_table_0_3(top_cone_table_0_3)
+
+    const top_cone_table_1_4 = (top_cone_table_1_3-(H21*2*bricks_std_height))
+    Settop_cone_table_1_4(Math.round(top_cone_table_1_4))
+    const top_cone_table_2_3 = top_cone_table_1_4 * 3.1416
+    Settop_cone_table_2_3((top_cone_table_2_3).toFixed(6))
+    const top_cone_table_0_4 = Math.ceil(top_cone_table_2_3/bricks_std_width)
+    Settop_cone_table_0_4(top_cone_table_0_4)
+
+    const top_cone_table_1_5 = (top_cone_table_1_4-(H21*2*bricks_std_height))
+    Settop_cone_table_1_5(Math.round(top_cone_table_1_5))
+    const top_cone_table_2_4 = top_cone_table_1_5 * 3.1416
+    Settop_cone_table_2_4((top_cone_table_2_4).toFixed(6))
+    const top_cone_table_0_5 = Math.ceil(top_cone_table_2_4/bricks_std_width)
+    Settop_cone_table_0_5(top_cone_table_0_5)
+
+    const top_cone_table_1_6 = (top_cone_table_1_5-(H21*2*bricks_std_height))
+    Settop_cone_table_1_6(Math.round(top_cone_table_1_6))
+    const top_cone_table_2_5 = top_cone_table_1_6 * 3.1416
+    Settop_cone_table_2_5((top_cone_table_2_5).toFixed(6))
+    const top_cone_table_0_6 = Math.ceil(top_cone_table_2_5/bricks_std_width)
+    Settop_cone_table_0_6(top_cone_table_0_6)
+
+    const top_cone_table_1_7 = (top_cone_table_1_6-(H21*2*bricks_std_height))
+    Settop_cone_table_1_7(Math.round(top_cone_table_1_7))
+    const top_cone_table_2_6 = top_cone_table_1_7 * 3.1416
+    Settop_cone_table_2_6((top_cone_table_2_6).toFixed(6))
+    const top_cone_table_0_7 = Math.ceil(top_cone_table_2_6/bricks_std_width)
+    Settop_cone_table_0_7(top_cone_table_0_7)
+
+    const top_cone_table_1_8 = (top_cone_table_1_7-(H21*2*bricks_std_height))
+    Settop_cone_table_1_8(Math.round(top_cone_table_1_8))
+    const top_cone_table_2_7 = top_cone_table_1_8 * 3.1416
+    Settop_cone_table_2_7((top_cone_table_2_7).toFixed(6))
+    const top_cone_table_0_8 = Math.ceil(top_cone_table_2_7/bricks_std_width)
+    Settop_cone_table_0_8(top_cone_table_0_8)
+
+    const top_cone_table_1_9 = (top_cone_table_1_8-(H21*2*bricks_std_height))
+    Settop_cone_table_1_9(Math.round(top_cone_table_1_9))
+    const top_cone_table_2_8 = top_cone_table_1_9 * 3.1416
+    Settop_cone_table_2_8((top_cone_table_2_8).toFixed(6))
+    const top_cone_table_0_9 = Math.ceil(top_cone_table_2_8/bricks_std_width)
+    Settop_cone_table_0_9(top_cone_table_0_9)
+
+    const top_cone_table_1_10 = (top_cone_table_1_9-(H21*2*bricks_std_height))
+    Settop_cone_table_1_10(Math.round(top_cone_table_1_10))
+    const top_cone_table_2_9 = top_cone_table_1_10 * 3.1416
+    Settop_cone_table_2_9((top_cone_table_2_9).toFixed(6))
+    const top_cone_table_0_10 = Math.ceil(top_cone_table_2_9/bricks_std_width)
+    Settop_cone_table_0_10(top_cone_table_0_10)
+
+    const top_cone_table_1_11 = (top_cone_table_1_10-(H21*2*bricks_std_height))
+    Settop_cone_table_1_11(Math.round(top_cone_table_1_11))
+    const top_cone_table_2_10 = top_cone_table_1_11 * 3.1416
+    Settop_cone_table_2_10((top_cone_table_2_10).toFixed(6))
+    const top_cone_table_0_11 = Math.ceil(top_cone_table_2_10/bricks_std_width)
+    Settop_cone_table_0_11(top_cone_table_0_11)
+
+    const top_cone_table_1_12 = (top_cone_table_1_11-(H21*2*bricks_std_height))
+    Settop_cone_table_1_12(Math.round(top_cone_table_1_12))
+    const top_cone_table_2_11 = top_cone_table_1_12 * 3.1416
+    Settop_cone_table_2_11((top_cone_table_2_11).toFixed(6))
+    const top_cone_table_0_12 = Math.ceil(top_cone_table_2_11/bricks_std_width)
+    Settop_cone_table_0_12(top_cone_table_0_12)
+
+    const top_cone_table_1_13 = (top_cone_table_1_12-(H21*2*bricks_std_height))
+    Settop_cone_table_1_13(Math.round(top_cone_table_1_13))
+    const top_cone_table_2_12 = top_cone_table_1_13 * 3.1416
+    Settop_cone_table_2_12((top_cone_table_2_12).toFixed(6))
+    const top_cone_table_0_13 = Math.ceil(top_cone_table_2_12/bricks_std_width)
+    Settop_cone_table_0_13(top_cone_table_0_13)
+
+    const top_cone_table_3_1 = top_cone_lining*bricks_std_width*bricks_std_height*top_cone_table_0_2*density_of_bricks/1000000000
+    setTop_cone_table_3_1(top_cone_table_3_1)
+
+    const top_cone_table_3_2 = top_cone_lining*bricks_std_width*bricks_std_height*top_cone_table_0_3*density_of_bricks/1000000000
+    setTop_cone_table_3_2(top_cone_table_3_2)
+
+    const top_cone_table_3_3 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_4 * density_of_bricks / 1000000000;
+setTop_cone_table_3_3(top_cone_table_3_3);
+
+const top_cone_table_3_4 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_5 * density_of_bricks / 1000000000;
+setTop_cone_table_3_4(top_cone_table_3_4);
+
+const top_cone_table_3_5 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_6 * density_of_bricks / 1000000000;
+setTop_cone_table_3_5(top_cone_table_3_5);
+
+const top_cone_table_3_6 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_7 * density_of_bricks / 1000000000;
+setTop_cone_table_3_6(top_cone_table_3_6);
+
+const top_cone_table_3_7 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_8 * density_of_bricks / 1000000000;
+setTop_cone_table_3_7(top_cone_table_3_7);
+
+const top_cone_table_3_8 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_9 * density_of_bricks / 1000000000;
+setTop_cone_table_3_8(top_cone_table_3_8);
+
+const top_cone_table_3_9 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_10 * density_of_bricks / 1000000000;
+setTop_cone_table_3_9(top_cone_table_3_9);
+
+const top_cone_table_3_10 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_11 * density_of_bricks / 1000000000;
+setTop_cone_table_3_10(top_cone_table_3_10);
+
+const top_cone_table_3_11 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_12 * density_of_bricks / 1000000000;
+setTop_cone_table_3_11(top_cone_table_3_11);
+
+const top_cone_table_3_12 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_13 * density_of_bricks / 1000000000;
+setTop_cone_table_3_12(top_cone_table_3_12);
+
+// const top_cone_table_3_13 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_14 * density_of_bricks / 1000000000;
+// setTop_cone_table_3_13(top_cone_table_3_13);
+
+// const top_cone_table_3_14 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_15 * density_of_bricks / 1000000000;
+// setTop_cone_table_3_14(top_cone_table_3_14);
+
+// const top_cone_table_3_15 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_16 * density_of_bricks / 1000000000;
+// setTop_cone_table_3_15(top_cone_table_3_15);
+
+// const top_cone_table_3_16 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_17 * density_of_bricks / 1000000000;
+// setTop_cone_table_3_16(top_cone_table_3_16);
+
+// const top_cone_table_3_17 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_18 * density_of_bricks / 1000000000;
+// setTop_cone_table_3_17(top_cone_table_3_17);
+
+// const top_cone_table_3_18 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_19 * density_of_bricks / 1000000000;
+// setTop_cone_table_3_18(top_cone_table_3_18);
+
+// const top_cone_table_3_19 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_20 * density_of_bricks / 1000000000;
+// setTop_cone_table_3_19(top_cone_table_3_19);
+
+// const top_cone_table_3_20 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_21 * density_of_bricks / 1000000000;
+// setTop_cone_table_3_20(top_cone_table_3_20);
+
+// const top_cone_table_3_21 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_22 * density_of_bricks / 1000000000;
+// setTop_cone_table_3_21(top_cone_table_3_21);
+
+// const top_cone_table_3_22 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_23 * density_of_bricks / 1000000000;
+// setTop_cone_table_3_22(top_cone_table_3_22);
+
+// const top_cone_table_3_23 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_24 * density_of_bricks / 1000000000;
+// setTop_cone_table_3_23(top_cone_table_3_23);
+
     setOpen(false);
     getUserData();
     setdownload(true);
@@ -840,6 +1064,23 @@ const Ladlecalculator = ({ authtoken }) => {
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
                             onChange={(e) => Setdisc_end_height(e.target.value)}
+                          />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                            label="Safety"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
+                            onChange={(e) => Settop_safety(e.target.value)}
                           />
                         </div>
                       </TableCell>
@@ -1820,7 +2061,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </div>
                     </TableCell>
                     <TableCell>
-                      <div className="row_ladle flex-all">
+                      {/* <div className="row_ladle flex-all">
                         <TextField
                           required
                           className="textfield_ladle"
@@ -1836,7 +2077,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             Setsafety_lining_length_l(e.target.value)
                           }
                         />
-                      </div>
+                      </div> */}
                     </TableCell>
                   </TableRow>
 
@@ -2789,6 +3030,1393 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell>
                         <div className="row_ladle flex-all">
                           <p>{safety_table_weight_bricks}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Paper>
+          </div>
+        </div>
+      </div>
+
+      <div ref={div4Ref}>
+      <p className="aod_para">Top Cone Bricks Details</p>
+      <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
+          <div className="ladle_first">
+            <Paper sx={{ overflow: "hidden" }}>
+              <TableContainer
+                sx={{ maxHeight: 1000 }}
+                style={{ backgroundColor: "#f9fbfc" }}
+              >
+                <Table stickyHeader aria-label="sticky table">
+                  <TableBody>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_lining}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_0_1}pending</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_1_1}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>pending</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_lining}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_0_2}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_1_2}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_2_1}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_3_1}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_lining}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_0_3}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_1_3}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_2_2}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_3_2}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_lining}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_0_4}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_1_4}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_2_3}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_3_3}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_lining}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_0_5}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_1_5}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_2_4}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_3_4}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_lining}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_0_6}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_1_6}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_2_5}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_3_5}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_lining}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_0_7}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_1_7}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_2_6}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_3_6}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_lining}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_0_8}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_1_8}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_2_7}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_3_7}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_lining}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_0_9}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_1_9}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_2_8}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_3_8}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_lining}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_0_10}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_1_10}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_2_9}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_3_9}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_lining}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_0_11}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_1_11}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_2_10}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_3_10}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_lining}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_0_12}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_1_12}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_2_11}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_3_11}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_lining}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_0_13}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_1_13}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_2_12}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_3_12}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table_3_3}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>pending</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>pending</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>pending</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>pending</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>pending</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>pending</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>pending</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>pending</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>pending</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>pending</p>
                         </div>
                       </TableCell>
                     </TableRow>
