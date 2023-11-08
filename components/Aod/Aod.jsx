@@ -216,7 +216,6 @@ const Ladlecalculator = ({ authtoken }) => {
   const [top_cone_table_2_21, Settop_cone_table_2_21] = useState(0);
   const [top_cone_table_2_22, Settop_cone_table_2_22] = useState(0);
   const [top_cone_table_2_23, Settop_cone_table_2_23] = useState(0);
-  const [top_cone_table_2_24, Settop_cone_table_2_24] = useState(0);
   const [top_cone_table_0_1, Settop_cone_table_0_1] = useState(0);
   const [top_cone_table_0_2, Settop_cone_table_0_2] = useState(0);
   const [top_cone_table_0_3, Settop_cone_table_0_3] = useState(0);
@@ -264,6 +263,106 @@ const Ladlecalculator = ({ authtoken }) => {
   const [top_cone_table_3_21, setTop_cone_table_3_21] = useState(21);
   const [top_cone_table_3_22, setTop_cone_table_3_22] = useState(22);
   const [top_cone_table_3_23, setTop_cone_table_3_23] = useState(23);
+  const [top_cone_table_3_24, setTop_cone_table_3_24] = useState(23);
+
+
+
+
+  const [top_cone_table2_1_1, Settop_cone_table2_1_1] = useState(0);
+  const [top_cone_table2_1_2, Settop_cone_table2_1_2] = useState(0);
+  const [top_cone_table2_1_3, Settop_cone_table2_1_3] = useState(0);
+  const [top_cone_table2_1_4, Settop_cone_table2_1_4] = useState(0);
+  const [top_cone_table2_1_5, Settop_cone_table2_1_5] = useState(0);
+  const [top_cone_table2_1_6, Settop_cone_table2_1_6] = useState(0);
+  const [top_cone_table2_1_7, Settop_cone_table2_1_7] = useState(0);
+  const [top_cone_table2_1_8, Settop_cone_table2_1_8] = useState(0);
+  const [top_cone_table2_1_9, Settop_cone_table2_1_9] = useState(0);
+  const [top_cone_table2_1_10, Settop_cone_table2_1_10] = useState(0);
+  const [top_cone_table2_1_11, Settop_cone_table2_1_11] = useState(0);
+  const [top_cone_table2_1_12, Settop_cone_table2_1_12] = useState(0);
+  const [top_cone_table2_1_13, Settop_cone_table2_1_13] = useState(0);
+  const [top_cone_table2_1_14, Settop_cone_table2_1_14] = useState(0);
+  const [top_cone_table2_1_15, Settop_cone_table2_1_15] = useState(0);
+  const [top_cone_table2_1_16, Settop_cone_table2_1_16] = useState(0);
+  const [top_cone_table2_1_17, Settop_cone_table2_1_17] = useState(0);
+  const [top_cone_table2_1_18, Settop_cone_table2_1_18] = useState(0);
+  const [top_cone_table2_1_19, Settop_cone_table2_1_19] = useState(0);
+  const [top_cone_table2_1_20, Settop_cone_table2_1_20] = useState(0);
+  const [top_cone_table2_1_21, Settop_cone_table2_1_21] = useState(0);
+  const [top_cone_table2_1_22, Settop_cone_table2_1_22] = useState(0);
+  const [top_cone_table2_1_23, Settop_cone_table2_1_23] = useState(0);
+  const [top_cone_table2_1_24, Settop_cone_table2_1_24] = useState(0);
+  const [top_cone_table2_2_1, Settop_cone_table2_2_1] = useState(0);
+  const [top_cone_table2_2_2, Settop_cone_table2_2_2] = useState(0);
+  const [top_cone_table2_2_3, Settop_cone_table2_2_3] = useState(0);
+  const [top_cone_table2_2_4, Settop_cone_table2_2_4] = useState(0);
+  const [top_cone_table2_2_5, Settop_cone_table2_2_5] = useState(0);
+  const [top_cone_table2_2_6, Settop_cone_table2_2_6] = useState(0);
+  const [top_cone_table2_2_7, Settop_cone_table2_2_7] = useState(0);
+  const [top_cone_table2_2_8, Settop_cone_table2_2_8] = useState(0);
+  const [top_cone_table2_2_9, Settop_cone_table2_2_9] = useState(0);
+  const [top_cone_table2_2_10, Settop_cone_table2_2_10] = useState(0);
+  const [top_cone_table2_2_11, Settop_cone_table2_2_11] = useState(0);
+  const [top_cone_table2_2_12, Settop_cone_table2_2_12] = useState(0);
+  const [top_cone_table2_2_13, Settop_cone_table2_2_13] = useState(0);
+  const [top_cone_table2_2_14, Settop_cone_table2_2_14] = useState(0);
+  const [top_cone_table2_2_15, Settop_cone_table2_2_15] = useState(0);
+  const [top_cone_table2_2_16, Settop_cone_table2_2_16] = useState(0);
+  const [top_cone_table2_2_17, Settop_cone_table2_2_17] = useState(0);
+  const [top_cone_table2_2_18, Settop_cone_table2_2_18] = useState(0);
+  const [top_cone_table2_2_19, Settop_cone_table2_2_19] = useState(0);
+  const [top_cone_table2_2_20, Settop_cone_table2_2_20] = useState(0);
+  const [top_cone_table2_2_21, Settop_cone_table2_2_21] = useState(0);
+  const [top_cone_table2_2_22, Settop_cone_table2_2_22] = useState(0);
+  const [top_cone_table2_2_23, Settop_cone_table2_2_23] = useState(0);
+  const [top_cone_table2_0_1, Settop_cone_table2_0_1] = useState(0);
+  const [top_cone_table2_0_2, Settop_cone_table2_0_2] = useState(0);
+  const [top_cone_table2_0_3, Settop_cone_table2_0_3] = useState(0);
+  const [top_cone_table2_0_4, Settop_cone_table2_0_4] = useState(0);
+  const [top_cone_table2_0_5, Settop_cone_table2_0_5] = useState(0);
+  const [top_cone_table2_0_6, Settop_cone_table2_0_6] = useState(0);
+  const [top_cone_table2_0_7, Settop_cone_table2_0_7] = useState(0);
+  const [top_cone_table2_0_8, Settop_cone_table2_0_8] = useState(0);
+  const [top_cone_table2_0_9, Settop_cone_table2_0_9] = useState(0);
+  const [top_cone_table2_0_10, Settop_cone_table2_0_10] = useState(0);
+  const [top_cone_table2_0_11, Settop_cone_table2_0_11] = useState(0);
+  const [top_cone_table2_0_12, Settop_cone_table2_0_12] = useState(0);
+  const [top_cone_table2_0_13, Settop_cone_table2_0_13] = useState(0);
+  const [top_cone_table2_0_14, Settop_cone_table2_0_14] = useState(0);
+  const [top_cone_table2_0_15, Settop_cone_table2_0_15] = useState(0);
+  const [top_cone_table2_0_16, Settop_cone_table2_0_16] = useState(0);
+  const [top_cone_table2_0_17, Settop_cone_table2_0_17] = useState(0);
+  const [top_cone_table2_0_18, Settop_cone_table2_0_18] = useState(0);
+  const [top_cone_table2_0_19, Settop_cone_table2_0_19] = useState(0);
+  const [top_cone_table2_0_20, Settop_cone_table2_0_20] = useState(0);
+  const [top_cone_table2_0_21, Settop_cone_table2_0_21] = useState(0);
+  const [top_cone_table2_0_22, Settop_cone_table2_0_22] = useState(0);
+  const [top_cone_table2_0_23, Settop_cone_table2_0_23] = useState(0);
+  const [top_cone_table2_0_24, Settop_cone_table2_0_24] = useState(0);
+  const [top_cone_table2_3_1, setTop_cone_table2_3_1] = useState(1);
+  const [top_cone_table2_3_2, setTop_cone_table2_3_2] = useState(2);
+  const [top_cone_table2_3_3, setTop_cone_table2_3_3] = useState(3);
+  const [top_cone_table2_3_4, setTop_cone_table2_3_4] = useState(4);
+  const [top_cone_table2_3_5, setTop_cone_table2_3_5] = useState(5);
+  const [top_cone_table2_3_6, setTop_cone_table2_3_6] = useState(6);
+  const [top_cone_table2_3_7, setTop_cone_table2_3_7] = useState(7);
+  const [top_cone_table2_3_8, setTop_cone_table2_3_8] = useState(8);
+  const [top_cone_table2_3_9, setTop_cone_table2_3_9] = useState(9);
+  const [top_cone_table2_3_10, setTop_cone_table2_3_10] = useState(10);
+  const [top_cone_table2_3_11, setTop_cone_table2_3_11] = useState(11);
+  const [top_cone_table2_3_12, setTop_cone_table2_3_12] = useState(12);
+  const [top_cone_table2_3_13, setTop_cone_table2_3_13] = useState(13);
+  const [top_cone_table2_3_14, setTop_cone_table2_3_14] = useState(14);
+  const [top_cone_table2_3_15, setTop_cone_table2_3_15] = useState(15);
+  const [top_cone_table2_3_16, setTop_cone_table2_3_16] = useState(16);
+  const [top_cone_table2_3_17, setTop_cone_table2_3_17] = useState(17);
+  const [top_cone_table2_3_18, setTop_cone_table2_3_18] = useState(18);
+  const [top_cone_table2_3_19, setTop_cone_table2_3_19] = useState(19);
+  const [top_cone_table2_3_20, setTop_cone_table2_3_20] = useState(20);
+  const [top_cone_table2_3_21, setTop_cone_table2_3_21] = useState(21);
+  const [top_cone_table2_3_22, setTop_cone_table2_3_22] = useState(22);
+  const [top_cone_table2_3_23, setTop_cone_table2_3_23] = useState(23);
+  const [top_cone_table2_3_24, setTop_cone_table2_3_24] = useState(23);
 
   const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
@@ -302,8 +401,10 @@ const Ladlecalculator = ({ authtoken }) => {
   });
   const K13 = degree_lining_for_trapping_t / 360;
   const H21 = Math.tan((3.1416 * top_cone_angle) / 180);
+  const H26 = Math.tan(3.1416*bottom_cone_angle/180)
   const result = async (event) => {
     const I20 = top_cone_height / 100;
+    const I49 = bottom_cone_height / 100;
     // const result_ticket = await validate_ticket();
     // if (result_ticket === -1) {
     //   toast.error("You don't have tickets");
@@ -944,7 +1045,7 @@ const Ladlecalculator = ({ authtoken }) => {
       Settop_cone_table_0_24(null);
     }
 
-    const top_cone_table_3_1_t =
+    const top_cone_table_3_1t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
@@ -952,117 +1053,117 @@ const Ladlecalculator = ({ authtoken }) => {
         density_of_bricks) /
       1000000000;
       
-    setTop_cone_table_3_1(top_cone_table_3_1_t);
+    setTop_cone_table_3_1(top_cone_table_3_1t);
 
-    const top_cone_table_3_2 =
+    const top_cone_table_3_2t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_3_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_2(top_cone_table_3_2);
+    setTop_cone_table_3_2(top_cone_table_3_2t);
 
-    const top_cone_table_3_3 =
+    const top_cone_table_3_3t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_4_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_3(top_cone_table_3_3);
+    setTop_cone_table_3_3(top_cone_table_3_3t);
 
-    const top_cone_table_3_4 =
+    const top_cone_table_3_4t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_5_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_4(top_cone_table_3_4);
+    setTop_cone_table_3_4(top_cone_table_3_4t);
 
-    const top_cone_table_3_5 =
+    const top_cone_table_3_5t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_6_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_5(top_cone_table_3_5);
+    setTop_cone_table_3_5(top_cone_table_3_5t);
 
-    const top_cone_table_3_6 =
+    const top_cone_table_3_6t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_7_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_6(top_cone_table_3_6);
+    setTop_cone_table_3_6(top_cone_table_3_6t);
 
-    const top_cone_table_3_7 =
+    const top_cone_table_3_7t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_8_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_7(top_cone_table_3_7);
+    setTop_cone_table_3_7(top_cone_table_3_7t);
 
-    const top_cone_table_3_8 =
+    const top_cone_table_3_8t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_9_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_8(top_cone_table_3_8);
+    setTop_cone_table_3_8(top_cone_table_3_8t);
 
-    const top_cone_table_3_9 =
+    const top_cone_table_3_9t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_10_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_9(top_cone_table_3_9);
+    setTop_cone_table_3_9(top_cone_table_3_9t);
 
-    const top_cone_table_3_10 =
+    const top_cone_table_3_10t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_11_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_10(top_cone_table_3_10);
+    setTop_cone_table_3_10(top_cone_table_3_10t);
 
-    const top_cone_table_3_11 =
+    const top_cone_table_3_11t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_12_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_11(top_cone_table_3_11);
+    setTop_cone_table_3_11(top_cone_table_3_11t);
 
-    const top_cone_table_3_12 =
+    const top_cone_table_3_12t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_13_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_12(top_cone_table_3_12);
+    setTop_cone_table_3_12(top_cone_table_3_12t);
 
-    const top_cone_table_3_13 =
+    const top_cone_table_3_13t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_14_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_13(top_cone_table_3_13);
+    setTop_cone_table_3_13(top_cone_table_3_13t);
 
-    const top_cone_table_3_14 =
+    const top_cone_table_3_14t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
@@ -1072,89 +1173,486 @@ const Ladlecalculator = ({ authtoken }) => {
       if(top_cone_table_3_14==null)
       setTop_cone_table_3_14(0.00)
     else
-    setTop_cone_table_3_14(top_cone_table_3_14);
+    setTop_cone_table_3_14(top_cone_table_3_14t);
 
-    const top_cone_table_3_15 =
+    const top_cone_table_3_15t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_16_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_15(top_cone_table_3_15);
+    setTop_cone_table_3_15(top_cone_table_3_15t);
 
-    const top_cone_table_3_16 =
+    const top_cone_table_3_16t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_17_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_16(top_cone_table_3_16);
+    setTop_cone_table_3_16(top_cone_table_3_16t);
 
-    const top_cone_table_3_17 =
+    const top_cone_table_3_17t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_18_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_17(top_cone_table_3_17);
+    setTop_cone_table_3_17(top_cone_table_3_17t);
 
-    const top_cone_table_3_18 =
+    const top_cone_table_3_18t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_19_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_18(top_cone_table_3_18);
+    setTop_cone_table_3_18(top_cone_table_3_18t);
 
-    const top_cone_table_3_19 =
+    const top_cone_table_3_19t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_20_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_19(top_cone_table_3_19);
+    setTop_cone_table_3_19(top_cone_table_3_19t);
 
-    const top_cone_table_3_20 =
+    const top_cone_table_3_20t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_21_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_20(top_cone_table_3_20);
+    setTop_cone_table_3_20(top_cone_table_3_20t);
 
-    const top_cone_table_3_21 =
+    const top_cone_table_3_21t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_22_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_21(top_cone_table_3_21);
+    setTop_cone_table_3_21(top_cone_table_3_21t);
 
-    const top_cone_table_3_22 =
+    const top_cone_table_3_22t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_23_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_22(top_cone_table_3_22);
+    setTop_cone_table_3_22(top_cone_table_3_22t);
 
-    const top_cone_table_3_23 =
+    const top_cone_table_3_23t =
       (top_cone_lining *
         bricks_std_width *
         bricks_std_height *
         top_cone_table_0_24_t *
         density_of_bricks) /
       1000000000;
-    setTop_cone_table_3_23(top_cone_table_3_23);
+    setTop_cone_table_3_23(top_cone_table_3_23t);
 
+    const top_cone_table_0_1_t = parseFloat(top_cone_table_0_2_t) + parseFloat(top_cone_table_0_3_t)+ parseFloat(top_cone_table_0_4_t)+ parseFloat(top_cone_table_0_5_t)+ parseFloat(top_cone_table_0_6_t)+ parseFloat(top_cone_table_0_7_t)+ parseFloat(top_cone_table_0_8_t)+ parseFloat(top_cone_table_0_9_t)+ parseFloat(top_cone_table_0_10_t)+ parseFloat(top_cone_table_0_11_t)+ parseFloat(top_cone_table_0_12_t)+ parseFloat(top_cone_table_0_13_t)+ parseFloat(top_cone_table_0_14_t)+ parseFloat(top_cone_table_0_15_t)+ parseFloat(top_cone_table_0_16_t)
+    Settop_cone_table_0_1(top_cone_table_0_1_t)
+
+    const top_cone_table_3_24_t = parseFloat(top_cone_table_3_1t)+ parseFloat(top_cone_table_3_2t)+ parseFloat(top_cone_table_3_3t)+ parseFloat(top_cone_table_3_4t)+ parseFloat(top_cone_table_3_5t)+ parseFloat(top_cone_table_3_6t)+ parseFloat(top_cone_table_3_7t)+ parseFloat(top_cone_table_3_8t)+ parseFloat(top_cone_table_3_9t)+ parseFloat(top_cone_table_3_10t)+ parseFloat(top_cone_table_3_11t)+ parseFloat(top_cone_table_3_12t)+ parseFloat(top_cone_table_3_13t)+ parseFloat(top_cone_table_3_14t)+ parseFloat(top_cone_table_3_15t)
+    setTop_cone_table_3_24(top_cone_table_3_24_t)
+
+    const top_cone_table2_1_1_t =
+      vessel_cylindrical_id -
+      2 * (parseFloat(bottom_cone_side_lining_brick_length) + parseFloat(bottom_cone_safety_lining_brick_length));
+    Settop_cone_table2_1_1(top_cone_table2_1_1_t);
+
+    let top_cone_table2_1_2_t, top_cone_table2_2_1_t, top_cone_table2_0_2_t;
+    top_cone_table2_1_2_t = top_cone_table2_1_1_t - H26 * 2 * bricks_std_height;
+    Settop_cone_table2_1_2(Math.round(top_cone_table2_1_2_t));
+    if (I49 >= 1) {
+      top_cone_table2_2_1_t = top_cone_table2_1_2_t * 3.1416;
+      Settop_cone_table2_2_1(top_cone_table2_2_1_t.toFixed(6));
+      top_cone_table2_0_2_t = Math.ceil(top_cone_table2_2_1_t / bricks_std_width);
+      Settop_cone_table2_0_2(top_cone_table2_0_2_t);
+    } else {
+      top_cone_table2_0_2_t=0
+      // Settop_cone_table2_1_2(null);
+      Settop_cone_table2_2_1(null);
+      Settop_cone_table2_0_2(null);
+    }
+
+    let top_cone_table2_1_3_t, top_cone_table2_2_2_t, top_cone_table2_0_3_t;
+    top_cone_table2_1_3_t = top_cone_table2_1_2_t - H26 * 2 * bricks_std_height;
+    Settop_cone_table2_1_3(Math.round(top_cone_table2_1_3_t));
+    if (I49 >= 2) {
+      top_cone_table2_2_2_t = top_cone_table2_1_3_t * 3.1416;
+      Settop_cone_table2_2_2(top_cone_table2_2_2_t.toFixed(6));
+      top_cone_table2_0_3_t = Math.ceil(top_cone_table2_2_2_t / bricks_std_width);
+      Settop_cone_table2_0_3(top_cone_table2_0_3_t);
+    } else {
+      top_cone_table2_0_3_t=0
+      // Settop_cone_table2_1_3(null);
+      Settop_cone_table2_2_2(null);
+      Settop_cone_table2_0_3(null);
+    }
+
+    let top_cone_table2_1_4_t, top_cone_table2_2_3_t, top_cone_table2_0_4_t;
+    top_cone_table2_1_4_t = top_cone_table2_1_3_t - H26 * 2 * bricks_std_height;
+    Settop_cone_table2_1_4(Math.round(top_cone_table2_1_4_t));
+    if (I49 >= 3) {
+      top_cone_table2_2_3_t = top_cone_table2_1_4_t * 3.1416;
+      Settop_cone_table2_2_3(top_cone_table2_2_3_t.toFixed(6));
+      top_cone_table2_0_4_t = Math.ceil(top_cone_table2_2_3_t / bricks_std_width);
+      Settop_cone_table2_0_4(top_cone_table2_0_4_t);
+    } else {
+      top_cone_table2_0_4_t=0
+      // Settop_cone_table2_1_4(null);
+      Settop_cone_table2_2_3(null);
+      Settop_cone_table2_0_4(null);
+    }
+
+    let top_cone_table2_1_5_t, top_cone_table2_2_4_t, top_cone_table2_0_5_t;
+
+    top_cone_table2_1_5_t = top_cone_table2_1_4_t - H26 * 2 * bricks_std_height;
+    Settop_cone_table2_1_5(Math.round(top_cone_table2_1_5_t));
+    if (I49 >= 4) {
+    top_cone_table2_2_4_t = top_cone_table2_1_5_t * 3.1416;
+    Settop_cone_table2_2_4(top_cone_table2_2_4_t.toFixed(6));
+    top_cone_table2_0_5_t = Math.ceil(top_cone_table2_2_4_t / bricks_std_width);
+    Settop_cone_table2_0_5(top_cone_table2_0_5_t);
+} else {
+    top_cone_table2_0_5_t = 0;
+    // Settop_cone_table2_1_5(null);
+    Settop_cone_table2_2_4(null);
+    Settop_cone_table2_0_5(null);
+}
+
+let top_cone_table2_1_6_t, top_cone_table2_2_5_t, top_cone_table2_0_6_t;
+
+top_cone_table2_1_6_t = top_cone_table2_1_5_t - H26 * 2 * bricks_std_height;
+Settop_cone_table2_1_6(Math.round(top_cone_table2_1_6_t));
+if (I49 >= 5) {
+  top_cone_table2_2_5_t = top_cone_table2_1_6_t * 3.1416;
+  Settop_cone_table2_2_5(top_cone_table2_2_5_t.toFixed(6));
+  top_cone_table2_0_6_t = Math.ceil(top_cone_table2_2_5_t / bricks_std_width);
+  Settop_cone_table2_0_6(top_cone_table2_0_6_t);
+} else {
+  top_cone_table2_0_6_t = 0;
+  // Settop_cone_table2_1_6(null);
+  Settop_cone_table2_2_5(null);
+  Settop_cone_table2_0_6(null);
+}
+
+let top_cone_table2_1_7_t, top_cone_table2_2_6_t, top_cone_table2_0_7_t;
+
+top_cone_table2_1_7_t = top_cone_table2_1_6_t - H26 * 2 * bricks_std_height;
+Settop_cone_table2_1_7(Math.round(top_cone_table2_1_7_t));
+if (I49 >= 6) {
+    top_cone_table2_2_6_t = top_cone_table2_1_7_t * 3.1416;
+    Settop_cone_table2_2_6(top_cone_table2_2_6_t.toFixed(6));
+    top_cone_table2_0_7_t = Math.ceil(top_cone_table2_2_6_t / bricks_std_width);
+    Settop_cone_table2_0_7(top_cone_table2_0_7_t);
+} else {
+    top_cone_table2_0_7_t = 0;
+    // Settop_cone_table2_1_7(null);
+    Settop_cone_table2_2_6(null);
+    Settop_cone_table2_0_7(null);
+}
+
+
+let top_cone_table2_1_8_t, top_cone_table2_2_7_t, top_cone_table2_0_8_t;
+
+top_cone_table2_1_8_t = top_cone_table2_1_7_t - H26 * 2 * bricks_std_height;
+Settop_cone_table2_1_8(Math.round(top_cone_table2_1_8_t));
+if (I49 >= 7) {
+    top_cone_table2_2_7_t = top_cone_table2_1_8_t * 3.1416;
+    Settop_cone_table2_2_7(top_cone_table2_2_7_t.toFixed(6));
+    top_cone_table2_0_8_t = Math.ceil(top_cone_table2_2_7_t / bricks_std_width);
+    Settop_cone_table2_0_8(top_cone_table2_0_8_t);
+} else {
+    top_cone_table2_0_8_t = 0;
+    // Settop_cone_table2_1_8(null);
+    Settop_cone_table2_2_7(null);
+    Settop_cone_table2_0_8(null);
+}
+
+
+let top_cone_table2_1_9_t, top_cone_table2_2_8_t, top_cone_table2_0_9_t;
+
+top_cone_table2_1_9_t = top_cone_table2_1_8_t - H26 * 2 * bricks_std_height;
+Settop_cone_table2_1_9(Math.round(top_cone_table2_1_9_t));
+if (I49 >= 8) {
+    top_cone_table2_2_8_t = top_cone_table2_1_9_t * 3.1416;
+    Settop_cone_table2_2_8(top_cone_table2_2_8_t.toFixed(6));
+    top_cone_table2_0_9_t = Math.ceil(top_cone_table2_2_8_t / bricks_std_width);
+    Settop_cone_table2_0_9(top_cone_table2_0_9_t);
+} else {
+    top_cone_table2_0_9_t = 0;
+    // Settop_cone_table2_1_9(null);
+    Settop_cone_table2_2_8(null);
+    Settop_cone_table2_0_9(null);
+}
+
+let top_cone_table2_1_10_t, top_cone_table2_2_9_t, top_cone_table2_0_10_t;
+
+top_cone_table2_1_10_t = top_cone_table2_1_9_t - H26 * 2 * bricks_std_height;
+Settop_cone_table2_1_10(Math.round(top_cone_table2_1_10_t));
+if (I49 >= 9) {
+    top_cone_table2_2_9_t = top_cone_table2_1_10_t * 3.1416;
+    Settop_cone_table2_2_9(top_cone_table2_2_9_t.toFixed(6));
+    top_cone_table2_0_10_t = Math.ceil(top_cone_table2_2_9_t / bricks_std_width);
+    Settop_cone_table2_0_10(top_cone_table2_0_10_t);
+} else {
+    top_cone_table2_0_10_t = 0;
+    // Settop_cone_table2_1_10(null);
+    Settop_cone_table2_2_9(null);
+    Settop_cone_table2_0_10(null);
+}
+
+let top_cone_table2_1_11_t, top_cone_table2_2_10_t, top_cone_table2_0_11_t;
+
+top_cone_table2_1_11_t = top_cone_table2_1_10_t - H26 * 2 * bricks_std_height;
+Settop_cone_table2_1_11(Math.round(top_cone_table2_1_11_t));
+if (I49 >= 10) {
+    top_cone_table2_2_10_t = top_cone_table2_1_11_t * 3.1416;
+    Settop_cone_table2_2_10(top_cone_table2_2_10_t.toFixed(6));
+    top_cone_table2_0_11_t = Math.ceil(top_cone_table2_2_10_t / bricks_std_width);
+    Settop_cone_table2_0_11(top_cone_table2_0_11_t);
+} else {
+    top_cone_table2_0_11_t = 0;
+    // Settop_cone_table2_1_11(null);
+    Settop_cone_table2_2_10(null);
+    Settop_cone_table2_0_11(null);
+}
+
+let top_cone_table2_1_12_t, top_cone_table2_2_11_t, top_cone_table2_0_12_t;
+
+top_cone_table2_1_12_t = top_cone_table2_1_11_t - H26 * 2 * bricks_std_height;
+Settop_cone_table2_1_12(Math.round(top_cone_table2_1_12_t));
+if (I49 >= 11) {
+    top_cone_table2_2_11_t = top_cone_table2_1_12_t * 3.1416;
+    Settop_cone_table2_2_11(top_cone_table2_2_11_t.toFixed(6));
+    top_cone_table2_0_12_t = Math.ceil(top_cone_table2_2_11_t / bricks_std_width);
+    Settop_cone_table2_0_12(top_cone_table2_0_12_t);
+} else {
+    top_cone_table2_0_12_t = 0;
+    // Settop_cone_table2_1_12(null);
+    Settop_cone_table2_2_11(null);
+    Settop_cone_table2_0_12(null);
+}
+
+let top_cone_table2_1_13_t, top_cone_table2_2_12_t, top_cone_table2_0_13_t;
+
+top_cone_table2_1_13_t = top_cone_table2_1_12_t - H26 * 2 * bricks_std_height;
+Settop_cone_table2_1_13(Math.round(top_cone_table2_1_13_t));
+if (I49 >= 12) {
+    top_cone_table2_2_12_t = top_cone_table2_1_13_t * 3.1416;
+    Settop_cone_table2_2_12(top_cone_table2_2_12_t.toFixed(6));
+    top_cone_table2_0_13_t = Math.ceil(top_cone_table2_2_12_t / bricks_std_width);
+    Settop_cone_table2_0_13(top_cone_table2_0_13_t);
+} else {
+    top_cone_table2_0_13_t = 0;
+    // Settop_cone_table2_1_13(null);
+    Settop_cone_table2_2_12(null);
+    Settop_cone_table2_0_13(null);
+}
+
+let top_cone_table2_1_14_t, top_cone_table2_2_13_t, top_cone_table2_0_14_t;
+
+top_cone_table2_1_14_t = top_cone_table2_1_13_t - H26 * 2 * bricks_std_height;
+Settop_cone_table2_1_14(Math.round(top_cone_table2_1_14_t));
+if (I49 >= 13) {
+    top_cone_table2_2_13_t = top_cone_table2_1_14_t * 3.1416;
+    Settop_cone_table2_2_13(top_cone_table2_2_13_t.toFixed(6));
+    top_cone_table2_0_14_t = Math.ceil(top_cone_table2_2_13_t / bricks_std_width);
+    Settop_cone_table2_0_14(top_cone_table2_0_14_t);
+} else {
+    top_cone_table2_0_14_t = 0;
+    // Settop_cone_table2_1_14(null);
+    Settop_cone_table2_2_13(null);
+    Settop_cone_table2_0_14(null);
+}
+
+let top_cone_table2_1_15_t, top_cone_table2_2_14_t, top_cone_table2_0_15_t;
+
+top_cone_table2_1_15_t = top_cone_table2_1_14_t - H26 * 2 * bricks_std_height;
+Settop_cone_table2_1_15(Math.round(top_cone_table2_1_15_t));
+if (I49 >= 14) {
+    top_cone_table2_2_14_t = top_cone_table2_1_15_t * 3.1416;
+    Settop_cone_table2_2_14(top_cone_table2_2_14_t.toFixed(6));
+    top_cone_table2_0_15_t = Math.ceil(top_cone_table2_2_14_t / bricks_std_width);
+    Settop_cone_table2_0_15(top_cone_table2_0_15_t);
+} else {
+    top_cone_table2_0_15_t = 0;
+    // Settop_cone_table2_1_15(null);
+    Settop_cone_table2_2_14(null);
+    Settop_cone_table2_0_15(null);
+}
+
+let top_cone_table2_1_16_t, top_cone_table2_2_15_t, top_cone_table2_0_16_t;
+
+top_cone_table2_1_16_t = top_cone_table2_1_15_t - H26 * 2 * bricks_std_height;
+Settop_cone_table2_1_16(Math.round(top_cone_table2_1_16_t));
+if (I49 >= 15) {
+    top_cone_table2_2_15_t = top_cone_table2_1_16_t * 3.1416;
+    Settop_cone_table2_2_15(top_cone_table2_2_15_t.toFixed(6));
+    top_cone_table2_0_16_t = Math.ceil(top_cone_table2_2_15_t / bricks_std_width);
+    Settop_cone_table2_0_16(top_cone_table2_0_16_t);
+} else {
+    top_cone_table2_0_16_t = 0;
+    // Settop_cone_table2_1_16(null);
+    Settop_cone_table2_2_15(null);
+    Settop_cone_table2_0_16(null);
+}
+
+const top_cone_table2_3_1t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_2_t *
+    density_of_bricks) /
+  1000000000;
+setTop_cone_table2_3_1(top_cone_table2_3_1t);
+
+const top_cone_table2_3_2t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_3_t *
+    density_of_bricks) /
+  1000000000;
+setTop_cone_table2_3_2(top_cone_table2_3_2t);
+
+const top_cone_table2_3_3t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_4_t *
+    density_of_bricks) /
+  1000000000;
+setTop_cone_table2_3_3(top_cone_table2_3_3t);
+
+const top_cone_table2_3_4t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_5_t *
+    density_of_bricks) /
+  1000000000;
+setTop_cone_table2_3_4(top_cone_table2_3_4t);
+
+const top_cone_table2_3_5t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_6_t *
+    density_of_bricks) /
+  1000000000;
+setTop_cone_table2_3_5(top_cone_table2_3_5t);
+
+const top_cone_table2_3_6t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_7_t *
+    density_of_bricks) /
+  1000000000;
+setTop_cone_table2_3_6(top_cone_table2_3_6t);
+
+const top_cone_table2_3_7t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_8_t *
+    density_of_bricks) /
+  1000000000;
+setTop_cone_table2_3_7(top_cone_table2_3_7t);
+
+const top_cone_table2_3_8t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_9_t *
+    density_of_bricks) /
+  1000000000;
+setTop_cone_table2_3_8(top_cone_table2_3_8t);
+
+const top_cone_table2_3_9t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_10_t *
+    density_of_bricks) /
+  1000000000;
+setTop_cone_table2_3_9(top_cone_table2_3_9t);
+
+const top_cone_table2_3_10t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_11_t *
+    density_of_bricks) /
+  1000000000;
+  setTop_cone_table2_3_10(top_cone_table2_3_10t);
+
+const top_cone_table2_3_11t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_12_t *
+    density_of_bricks) /
+  1000000000;
+setTop_cone_table2_3_11(top_cone_table2_3_11t);
+
+const top_cone_table2_3_12t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_13_t *
+    density_of_bricks) /
+  1000000000;
+setTop_cone_table2_3_12(top_cone_table2_3_12t);
+
+const top_cone_table2_3_13t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_14_t *
+    density_of_bricks) /
+  1000000000;
+setTop_cone_table2_3_13(top_cone_table2_3_13t);
+
+const top_cone_table2_3_14t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_15_t *
+    density_of_bricks) /
+  1000000000;
+if (top_cone_table2_3_14 == null) {
+  setTop_cone_table2_3_14(0.00);
+} else {
+  setTop_cone_table2_3_14(top_cone_table2_3_14t);
+}
+
+const top_cone_table2_3_15t =
+  (bottom_cone_side_lining_brick_length *
+    bricks_std_width *
+    bricks_std_height *
+    top_cone_table2_0_16_t *
+    density_of_bricks) /
+  1000000000;
+setTop_cone_table2_3_15(top_cone_table2_3_15t);
+
+const top_cone_table2_0_1_t = parseFloat(top_cone_table2_0_2_t) + parseFloat(top_cone_table2_0_3_t)+ parseFloat(top_cone_table2_0_4_t)+ parseFloat(top_cone_table2_0_5_t)+ parseFloat(top_cone_table2_0_6_t)+ parseFloat(top_cone_table2_0_7_t)+ parseFloat(top_cone_table2_0_8_t)+ parseFloat(top_cone_table2_0_9_t)+ parseFloat(top_cone_table2_0_10_t)+ parseFloat(top_cone_table2_0_11_t)+ parseFloat(top_cone_table2_0_12_t)+ parseFloat(top_cone_table2_0_13_t)+ parseFloat(top_cone_table2_0_14_t)+ parseFloat(top_cone_table2_0_15_t)+ parseFloat(top_cone_table2_0_16_t)
+    Settop_cone_table2_0_1(top_cone_table2_0_1_t)
+
+    const top_cone_table2_3_24_t = parseFloat(top_cone_table2_3_1t)+ parseFloat(top_cone_table2_3_2t)+ parseFloat(top_cone_table2_3_3t)+ parseFloat(top_cone_table2_3_4t)+ parseFloat(top_cone_table2_3_5t)+ parseFloat(top_cone_table2_3_6t)+ parseFloat(top_cone_table2_3_7t)+ parseFloat(top_cone_table2_3_8t)+ parseFloat(top_cone_table2_3_9t)+ parseFloat(top_cone_table2_3_10t)+ parseFloat(top_cone_table2_3_11t)+ parseFloat(top_cone_table2_3_12t)+ parseFloat(top_cone_table2_3_13t)+ parseFloat(top_cone_table2_3_14t)+ parseFloat(top_cone_table2_3_15t)
+    setTop_cone_table2_3_24((top_cone_table2_3_24_t).toFixed(3))
+
+
+    
     setOpen(false);
     getUserData();
     setdownload(true);
@@ -3056,7 +3554,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>{safety_bottom5}</p>
+                          <p>{top_cone_table_0_1}</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -3083,7 +3581,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>{safety_bottom9}</p>
+                          <p>{top_cone_table2_0_1}</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -3622,7 +4120,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>{top_cone_table_0_1}pending</p>
+                          <p>{top_cone_table_0_1}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3652,7 +4150,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>pending</p>
+                          <p>{top_cone_table_3_24}</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -4965,6 +5463,938 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell>
                         <div className="row_ladle flex-all">
                           <p>{top_cone_table_3_23}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Paper>
+          </div>
+        </div>
+      </div>
+
+      <div ref={div5Ref}>
+        <p className="aod_para">Vessel bottom Conical Portion</p>
+        <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
+          <div className="ladle_first">
+            <Paper sx={{ overflow: "hidden" }}>
+              <TableContainer
+                sx={{ maxHeight: 2500 }}
+                style={{ backgroundColor: "#f9fbfc" }}
+              >
+                <Table stickyHeader aria-label="sticky table">
+                  <TableBody>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_1}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_1}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_24}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_2}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_2}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_1}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_1}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_3}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_3}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_2}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_2}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_4}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_4}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_3}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_3}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_5}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_5}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_4}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_4}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_6}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_6}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_5}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_5}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_7}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_7}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_6}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_6}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_8}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_8}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_7}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_7}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_9}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_9}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_8}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_8}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_10}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_10}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_9}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_9}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_11}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_11}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_10}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_10}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_12}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_12}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_11}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_11}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_13}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_13}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_12}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_12}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_14}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_14}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_13}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_13}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_15}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_15}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_14}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_14}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bottom_cone_side_lining_brick_length}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_width}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{bricks_std_height}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_0_16}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_1_16}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_2_15}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p></p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_table2_3_15}</p>
                         </div>
                       </TableCell>
                     </TableRow>
