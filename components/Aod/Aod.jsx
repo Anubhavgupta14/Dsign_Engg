@@ -140,73 +140,107 @@ const Ladlecalculator = ({ authtoken }) => {
   const [table1_7_4, Settable1_7_4] = useState(0);
   const [table1_6_5, Settable1_6_5] = useState(0);
   const [table1_7_5, Settable1_7_5] = useState(0);
-  const [Diaon1,setDiaon1] = useState(0);
-  const [Diaon2,setDiaon2] = useState(0);
-  const [Diaon3,setDiaon3] = useState(0);
-  const [Diaon4,setDiaon4] = useState(0);
-  const [AreaB1,setAreaB1] = useState(0);
-  const [AreaB2,setAreaB2] = useState(0);
-  const [AreaB3,setAreaB3] = useState(0);
-  const [AreaB4,setAreaB4] = useState(0);
-  const [AreaL1,setAreaL1] = useState(0);
-  const [AreaL2,setAreaL2] = useState(0);
-  const [AreaL3,setAreaL3] = useState(0);
-  const [AreaL4,setAreaL4] = useState(0);
-  const [no_of_layer1,setno_of_layer1] = useState(0);
-  const [no_of_layer2,setno_of_layer2] = useState(0);
-  const [no_of_layer3,setno_of_layer3] = useState(0);
-  const [no_of_layer4,setno_of_layer4] = useState(0);
-  const [weight_of_bricks1,Setweight_of_bricks1] = useState(0);
-  const [weight_of_bricks2,Setweight_of_bricks2] = useState(0);
-  const [weight_of_bricks3,Setweight_of_bricks3] = useState(0);
-  const [weight_of_bricks4,Setweight_of_bricks4] = useState(0);
-  const [weight_of_bricks5,Setweight_of_bricks5] = useState(0);
-  const [sum_weight_bricks,Setsum_weight_bricks] = useState(0)
-  const [safety_table_sampling,Setsafety_table_sampling] = useState(0)
-  const [safety_table_dia,Setsafety_table_dia] = useState(0)
-  const [safety_table_areaB,Setsafety_table_areaB] = useState(0)
-  const [safety_table_areaL,Setsafety_table_areaL] = useState(0)
-  const [safety_table_nooflayer,Setsafety_table_nooflayer] = useState(0)
-  const [safety_table_weight_bricks,Setsafety_table_weight_bricks] = useState(0)
-  const [top_cone_table_1_1,Settop_cone_table_1_1] = useState(0);
-  const [top_cone_table_1_2,Settop_cone_table_1_2] = useState(0);
-  const [top_cone_table_1_3,Settop_cone_table_1_3] = useState(0);
-  const [top_cone_table_1_4,Settop_cone_table_1_4] = useState(0);
-  const [top_cone_table_1_5,Settop_cone_table_1_5] = useState(0);
-  const [top_cone_table_1_6,Settop_cone_table_1_6] = useState(0);
-  const [top_cone_table_1_7,Settop_cone_table_1_7] = useState(0);
-  const [top_cone_table_1_8,Settop_cone_table_1_8] = useState(0);
-  const [top_cone_table_1_9,Settop_cone_table_1_9] = useState(0);
-  const [top_cone_table_1_10,Settop_cone_table_1_10] = useState(0);
-  const [top_cone_table_1_11,Settop_cone_table_1_11] = useState(0);
-  const [top_cone_table_1_12,Settop_cone_table_1_12] = useState(0);
-  const [top_cone_table_1_13,Settop_cone_table_1_13] = useState(0);
-  const [top_cone_table_2_1,Settop_cone_table_2_1] = useState(0);
-  const [top_cone_table_2_2,Settop_cone_table_2_2] = useState(0);
-  const [top_cone_table_2_3,Settop_cone_table_2_3] = useState(0);
-  const [top_cone_table_2_4,Settop_cone_table_2_4] = useState(0);
-  const [top_cone_table_2_5,Settop_cone_table_2_5] = useState(0);
-  const [top_cone_table_2_6,Settop_cone_table_2_6] = useState(0);
-  const [top_cone_table_2_7,Settop_cone_table_2_7] = useState(0);
-  const [top_cone_table_2_8,Settop_cone_table_2_8] = useState(0);
-  const [top_cone_table_2_9,Settop_cone_table_2_9] = useState(0);
-  const [top_cone_table_2_10,Settop_cone_table_2_10] = useState(0);
-  const [top_cone_table_2_11,Settop_cone_table_2_11] = useState(0);
-  const [top_cone_table_2_12,Settop_cone_table_2_12] = useState(0);
-  const [top_cone_table_2_13,Settop_cone_table_2_13] = useState(0);
-  const [top_cone_table_0_1,Settop_cone_table_0_1] = useState(0);
-  const [top_cone_table_0_2,Settop_cone_table_0_2] = useState(0);
-  const [top_cone_table_0_3,Settop_cone_table_0_3] = useState(0);
-  const [top_cone_table_0_4,Settop_cone_table_0_4] = useState(0);
-  const [top_cone_table_0_5,Settop_cone_table_0_5] = useState(0);
-  const [top_cone_table_0_6,Settop_cone_table_0_6] = useState(0);
-  const [top_cone_table_0_7,Settop_cone_table_0_7] = useState(0);
-  const [top_cone_table_0_8,Settop_cone_table_0_8] = useState(0);
-  const [top_cone_table_0_9,Settop_cone_table_0_9] = useState(0);
-  const [top_cone_table_0_10,Settop_cone_table_0_10] = useState(0);
-  const [top_cone_table_0_11,Settop_cone_table_0_11] = useState(0);
-  const [top_cone_table_0_12,Settop_cone_table_0_12] = useState(0);
-  const [top_cone_table_0_13,Settop_cone_table_0_13] = useState(0);
+  const [Diaon1, setDiaon1] = useState(0);
+  const [Diaon2, setDiaon2] = useState(0);
+  const [Diaon3, setDiaon3] = useState(0);
+  const [Diaon4, setDiaon4] = useState(0);
+  const [AreaB1, setAreaB1] = useState(0);
+  const [AreaB2, setAreaB2] = useState(0);
+  const [AreaB3, setAreaB3] = useState(0);
+  const [AreaB4, setAreaB4] = useState(0);
+  const [AreaL1, setAreaL1] = useState(0);
+  const [AreaL2, setAreaL2] = useState(0);
+  const [AreaL3, setAreaL3] = useState(0);
+  const [AreaL4, setAreaL4] = useState(0);
+  const [no_of_layer1, setno_of_layer1] = useState(0);
+  const [no_of_layer2, setno_of_layer2] = useState(0);
+  const [no_of_layer3, setno_of_layer3] = useState(0);
+  const [no_of_layer4, setno_of_layer4] = useState(0);
+  const [weight_of_bricks1, Setweight_of_bricks1] = useState(0);
+  const [weight_of_bricks2, Setweight_of_bricks2] = useState(0);
+  const [weight_of_bricks3, Setweight_of_bricks3] = useState(0);
+  const [weight_of_bricks4, Setweight_of_bricks4] = useState(0);
+  const [weight_of_bricks5, Setweight_of_bricks5] = useState(0);
+  const [sum_weight_bricks, Setsum_weight_bricks] = useState(0);
+  const [safety_table_sampling, Setsafety_table_sampling] = useState(0);
+  const [safety_table_dia, Setsafety_table_dia] = useState(0);
+  const [safety_table_areaB, Setsafety_table_areaB] = useState(0);
+  const [safety_table_areaL, Setsafety_table_areaL] = useState(0);
+  const [safety_table_nooflayer, Setsafety_table_nooflayer] = useState(0);
+  const [safety_table_weight_bricks, Setsafety_table_weight_bricks] =
+    useState(0);
+  const [top_cone_table_1_1, Settop_cone_table_1_1] = useState(0);
+  const [top_cone_table_1_2, Settop_cone_table_1_2] = useState(0);
+  const [top_cone_table_1_3, Settop_cone_table_1_3] = useState(0);
+  const [top_cone_table_1_4, Settop_cone_table_1_4] = useState(0);
+  const [top_cone_table_1_5, Settop_cone_table_1_5] = useState(0);
+  const [top_cone_table_1_6, Settop_cone_table_1_6] = useState(0);
+  const [top_cone_table_1_7, Settop_cone_table_1_7] = useState(0);
+  const [top_cone_table_1_8, Settop_cone_table_1_8] = useState(0);
+  const [top_cone_table_1_9, Settop_cone_table_1_9] = useState(0);
+  const [top_cone_table_1_10, Settop_cone_table_1_10] = useState(0);
+  const [top_cone_table_1_11, Settop_cone_table_1_11] = useState(0);
+  const [top_cone_table_1_12, Settop_cone_table_1_12] = useState(0);
+  const [top_cone_table_1_13, Settop_cone_table_1_13] = useState(0);
+  const [top_cone_table_1_14, Settop_cone_table_1_14] = useState(0);
+  const [top_cone_table_1_15, Settop_cone_table_1_15] = useState(0);
+  const [top_cone_table_1_16, Settop_cone_table_1_16] = useState(0);
+  const [top_cone_table_1_17, Settop_cone_table_1_17] = useState(0);
+  const [top_cone_table_1_18, Settop_cone_table_1_18] = useState(0);
+  const [top_cone_table_1_19, Settop_cone_table_1_19] = useState(0);
+  const [top_cone_table_1_20, Settop_cone_table_1_20] = useState(0);
+  const [top_cone_table_1_21, Settop_cone_table_1_21] = useState(0);
+  const [top_cone_table_1_22, Settop_cone_table_1_22] = useState(0);
+  const [top_cone_table_1_23, Settop_cone_table_1_23] = useState(0);
+  const [top_cone_table_1_24, Settop_cone_table_1_24] = useState(0);
+  const [top_cone_table_2_1, Settop_cone_table_2_1] = useState(0);
+  const [top_cone_table_2_2, Settop_cone_table_2_2] = useState(0);
+  const [top_cone_table_2_3, Settop_cone_table_2_3] = useState(0);
+  const [top_cone_table_2_4, Settop_cone_table_2_4] = useState(0);
+  const [top_cone_table_2_5, Settop_cone_table_2_5] = useState(0);
+  const [top_cone_table_2_6, Settop_cone_table_2_6] = useState(0);
+  const [top_cone_table_2_7, Settop_cone_table_2_7] = useState(0);
+  const [top_cone_table_2_8, Settop_cone_table_2_8] = useState(0);
+  const [top_cone_table_2_9, Settop_cone_table_2_9] = useState(0);
+  const [top_cone_table_2_10, Settop_cone_table_2_10] = useState(0);
+  const [top_cone_table_2_11, Settop_cone_table_2_11] = useState(0);
+  const [top_cone_table_2_12, Settop_cone_table_2_12] = useState(0);
+  const [top_cone_table_2_13, Settop_cone_table_2_13] = useState(0);
+  const [top_cone_table_2_14, Settop_cone_table_2_14] = useState(0);
+  const [top_cone_table_2_15, Settop_cone_table_2_15] = useState(0);
+  const [top_cone_table_2_16, Settop_cone_table_2_16] = useState(0);
+  const [top_cone_table_2_17, Settop_cone_table_2_17] = useState(0);
+  const [top_cone_table_2_18, Settop_cone_table_2_18] = useState(0);
+  const [top_cone_table_2_19, Settop_cone_table_2_19] = useState(0);
+  const [top_cone_table_2_20, Settop_cone_table_2_20] = useState(0);
+  const [top_cone_table_2_21, Settop_cone_table_2_21] = useState(0);
+  const [top_cone_table_2_22, Settop_cone_table_2_22] = useState(0);
+  const [top_cone_table_2_23, Settop_cone_table_2_23] = useState(0);
+  const [top_cone_table_2_24, Settop_cone_table_2_24] = useState(0);
+  const [top_cone_table_0_1, Settop_cone_table_0_1] = useState(0);
+  const [top_cone_table_0_2, Settop_cone_table_0_2] = useState(0);
+  const [top_cone_table_0_3, Settop_cone_table_0_3] = useState(0);
+  const [top_cone_table_0_4, Settop_cone_table_0_4] = useState(0);
+  const [top_cone_table_0_5, Settop_cone_table_0_5] = useState(0);
+  const [top_cone_table_0_6, Settop_cone_table_0_6] = useState(0);
+  const [top_cone_table_0_7, Settop_cone_table_0_7] = useState(0);
+  const [top_cone_table_0_8, Settop_cone_table_0_8] = useState(0);
+  const [top_cone_table_0_9, Settop_cone_table_0_9] = useState(0);
+  const [top_cone_table_0_10, Settop_cone_table_0_10] = useState(0);
+  const [top_cone_table_0_11, Settop_cone_table_0_11] = useState(0);
+  const [top_cone_table_0_12, Settop_cone_table_0_12] = useState(0);
+  const [top_cone_table_0_13, Settop_cone_table_0_13] = useState(0);
+  const [top_cone_table_0_14, Settop_cone_table_0_14] = useState(0);
+  const [top_cone_table_0_15, Settop_cone_table_0_15] = useState(0);
+  const [top_cone_table_0_16, Settop_cone_table_0_16] = useState(0);
+  const [top_cone_table_0_17, Settop_cone_table_0_17] = useState(0);
+  const [top_cone_table_0_18, Settop_cone_table_0_18] = useState(0);
+  const [top_cone_table_0_19, Settop_cone_table_0_19] = useState(0);
+  const [top_cone_table_0_20, Settop_cone_table_0_20] = useState(0);
+  const [top_cone_table_0_21, Settop_cone_table_0_21] = useState(0);
+  const [top_cone_table_0_22, Settop_cone_table_0_22] = useState(0);
+  const [top_cone_table_0_23, Settop_cone_table_0_23] = useState(0);
+  const [top_cone_table_0_24, Settop_cone_table_0_24] = useState(0);
   const [top_cone_table_3_1, setTop_cone_table_3_1] = useState(1);
   const [top_cone_table_3_2, setTop_cone_table_3_2] = useState(2);
   const [top_cone_table_3_3, setTop_cone_table_3_3] = useState(3);
@@ -230,7 +264,6 @@ const Ladlecalculator = ({ authtoken }) => {
   const [top_cone_table_3_21, setTop_cone_table_3_21] = useState(21);
   const [top_cone_table_3_22, setTop_cone_table_3_22] = useState(22);
   const [top_cone_table_3_23, setTop_cone_table_3_23] = useState(23);
-  
 
   const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
@@ -268,8 +301,9 @@ const Ladlecalculator = ({ authtoken }) => {
     aod_ticket: 0,
   });
   const K13 = degree_lining_for_trapping_t / 360;
-  const H21 = Math.tan(3.1416*top_cone_angle/180)
+  const H21 = Math.tan((3.1416 * top_cone_angle) / 180);
   const result = async (event) => {
+    const I20 = top_cone_height / 100;
     // const result_ticket = await validate_ticket();
     // if (result_ticket === -1) {
     //   toast.error("You don't have tickets");
@@ -402,213 +436,724 @@ const Ladlecalculator = ({ authtoken }) => {
 
     Settable1_4_4(K14);
 
-    const X6 = parseFloat(vessel_cylindrical_id)-parseFloat(parseFloat(size1_t)+parseFloat(safety_lining_length_t))-parseFloat(parseFloat(size1_s)+parseFloat(safety_lining_length_s))
-    setDiaon1(Math.round(X6))
+    const X6 =
+      parseFloat(vessel_cylindrical_id) -
+      parseFloat(parseFloat(size1_t) + parseFloat(safety_lining_length_t)) -
+      parseFloat(parseFloat(size1_s) + parseFloat(safety_lining_length_s));
+    setDiaon1(Math.round(X6));
 
-    const areaB1 = bricks_std_width*bricks_std_height
-    setAreaB1(areaB1)
+    const areaB1 = bricks_std_width * bricks_std_height;
+    setAreaB1(areaB1);
 
-    setAreaL1(3.1416*M14)
-    setno_of_layer1(F14/100)
+    setAreaL1(3.1416 * M14);
+    setno_of_layer1(F14 / 100);
 
-    const L14=0
-    const weight_of_bricks2 =size1_s*bricks_std_width*bricks_std_height*(parseFloat(K14)+parseFloat(L14))*density_of_bricks/1000000000
-    Setweight_of_bricks2(weight_of_bricks2.toFixed(1))
+    const L14 = 0;
+    const weight_of_bricks2 =
+      (size1_s *
+        bricks_std_width *
+        bricks_std_height *
+        (parseFloat(K14) + parseFloat(L14)) *
+        density_of_bricks) /
+      1000000000;
+    Setweight_of_bricks2(weight_of_bricks2.toFixed(1));
 
-    Settable1_5_4(K15)
-    setDiaon2(M15)
-    setAreaB2(areaB1)
-    setAreaL2(3.1416*M15)
-    setno_of_layer2(F15/100)
+    Settable1_5_4(K15);
+    setDiaon2(M15);
+    setAreaB2(areaB1);
+    setAreaL2(3.1416 * M15);
+    setno_of_layer2(F15 / 100);
 
-    const weight_of_bricks3 = size2_s*bricks_std_width*bricks_std_height*(parseFloat(K15)+parseFloat(L14))*density_of_bricks/1000000000
-    Setweight_of_bricks3((weight_of_bricks3).toFixed(3))
+    const weight_of_bricks3 =
+      (size2_s *
+        bricks_std_width *
+        bricks_std_height *
+        (parseFloat(K15) + parseFloat(L14)) *
+        density_of_bricks) /
+      1000000000;
+    Setweight_of_bricks3(weight_of_bricks3.toFixed(3));
 
-    Settable1_6_4(K16)
-    Settable1_6_5(L16)
-    setDiaon3(M16)
-    setAreaB3(areaB1)
-    setAreaL3((3.1416*M16).toFixed(2))
-    setno_of_layer3(F16/100)
+    Settable1_6_4(K16);
+    Settable1_6_5(L16);
+    setDiaon3(M16);
+    setAreaB3(areaB1);
+    setAreaL3((3.1416 * M16).toFixed(2));
+    setno_of_layer3(F16 / 100);
 
-    const weight_of_bricks4 = size3_s*bricks_std_width*bricks_std_height*(parseFloat(K16)+parseFloat(L16))*density_of_bricks/1000000000
-    Setweight_of_bricks4((weight_of_bricks4).toFixed(3))
+    const weight_of_bricks4 =
+      (size3_s *
+        bricks_std_width *
+        bricks_std_height *
+        (parseFloat(K16) + parseFloat(L16)) *
+        density_of_bricks) /
+      1000000000;
+    Setweight_of_bricks4(weight_of_bricks4.toFixed(3));
 
-    Settable1_7_4(K17)
-    Settable1_7_5(L17)
-    setDiaon4(M17)
-    setAreaB4(areaB1)
-    setAreaL4((3.1416*M17).toFixed(2))
-    setno_of_layer4(F17/100)
-    const weight_of_bricks5 = size4_s*bricks_std_width*bricks_std_height*(parseFloat(K17)+parseFloat(L17))*density_of_bricks/1000000000
-    Setweight_of_bricks5((weight_of_bricks5).toFixed(3))
+    Settable1_7_4(K17);
+    Settable1_7_5(L17);
+    setDiaon4(M17);
+    setAreaB4(areaB1);
+    setAreaL4((3.1416 * M17).toFixed(2));
+    setno_of_layer4(F17 / 100);
+    const weight_of_bricks5 =
+      (size4_s *
+        bricks_std_width *
+        bricks_std_height *
+        (parseFloat(K17) + parseFloat(L17)) *
+        density_of_bricks) /
+      1000000000;
+    Setweight_of_bricks5(weight_of_bricks5.toFixed(3));
 
-    Setsum_weight_bricks((parseFloat(weight_of_bricks1)+parseFloat(weight_of_bricks2)+parseFloat(weight_of_bricks3)+parseFloat(weight_of_bricks4)).toFixed(3))
+    Setsum_weight_bricks(
+      (
+        parseFloat(weight_of_bricks1) +
+        parseFloat(weight_of_bricks2) +
+        parseFloat(weight_of_bricks3) +
+        parseFloat(weight_of_bricks4)
+      ).toFixed(3)
+    );
 
-    Setsafety_table_sampling(Math.ceil(O19/N19))
-    Setsafety_table_dia(vessel_cylindrical_id)
-    Setsafety_table_areaB(N19)
-    Setsafety_table_areaL(O19)
-    Setsafety_table_nooflayer(parseFloat(F17/100)+parseFloat(F16/100)+parseFloat(F15/100)+parseFloat(F14/100))
-    const safety_table_sum =safety_lining_length_t*safety_bricks_width*safety_bricks_length*(Math.ceil(O19/N19))*density_of_bricks/1000000000
-    Setsafety_table_weight_bricks((safety_table_sum).toFixed(3))
-    const top_cone_table_1_1 = vessel_cylindrical_id-2*(parseFloat(top_cone_lining)+parseFloat(top_safety))
-    Settop_cone_table_1_1(top_cone_table_1_1)
+    Setsafety_table_sampling(Math.ceil(O19 / N19));
+    Setsafety_table_dia(vessel_cylindrical_id);
+    Setsafety_table_areaB(N19);
+    Setsafety_table_areaL(O19);
+    Setsafety_table_nooflayer(
+      parseFloat(F17 / 100) +
+        parseFloat(F16 / 100) +
+        parseFloat(F15 / 100) +
+        parseFloat(F14 / 100)
+    );
+    const safety_table_sum =
+      (safety_lining_length_t *
+        safety_bricks_width *
+        safety_bricks_length *
+        Math.ceil(O19 / N19) *
+        density_of_bricks) /
+      1000000000;
+    Setsafety_table_weight_bricks(safety_table_sum.toFixed(3));
+    const top_cone_table_1_1_t =
+      vessel_cylindrical_id -
+      2 * (parseFloat(top_cone_lining) + parseFloat(top_safety));
+    Settop_cone_table_1_1(top_cone_table_1_1_t);
 
-    const top_cone_table_1_2 = (parseFloat(top_cone_table_1_1)-parseFloat(H21*2*bricks_std_height))
-    Settop_cone_table_1_2(Math.round(top_cone_table_1_2))
-    // event.preventDefault();
+    let top_cone_table_1_2_t, top_cone_table_2_1_t, top_cone_table_0_2_t;
+    if (I20 >= 1) {
+      top_cone_table_1_2_t = top_cone_table_1_1_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_2(Math.round(top_cone_table_1_2_t));
+      top_cone_table_2_1_t = top_cone_table_1_2_t * 3.1416;
+      Settop_cone_table_2_1(top_cone_table_2_1_t.toFixed(6));
+      top_cone_table_0_2_t = Math.ceil(top_cone_table_2_1_t / bricks_std_width);
+      Settop_cone_table_0_2(top_cone_table_0_2_t);
+    } else {
+      top_cone_table_0_2_t=0
+      Settop_cone_table_1_2(null);
+      Settop_cone_table_2_1(null);
+      Settop_cone_table_0_2(null);
+    }
 
-    const top_cone_table_2_1 = top_cone_table_1_2*3.1416
-    Settop_cone_table_2_1((top_cone_table_2_1).toFixed(6))
-    const top_cone_table_0_2 = Math.ceil(top_cone_table_2_1/bricks_std_width)
-    Settop_cone_table_0_2(top_cone_table_0_2)
+    let top_cone_table_1_3_t, top_cone_table_2_2_t, top_cone_table_0_3_t;
+    if (I20 >= 2) {
+      top_cone_table_1_3_t = top_cone_table_1_2_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_3(Math.round(top_cone_table_1_3_t));
+      top_cone_table_2_2_t = top_cone_table_1_3_t * 3.1416;
+      Settop_cone_table_2_2(top_cone_table_2_2_t.toFixed(6));
+      top_cone_table_0_3_t = Math.ceil(top_cone_table_2_2_t / bricks_std_width);
+      Settop_cone_table_0_3(top_cone_table_0_3_t);
+    } else {
+      top_cone_table_0_3_t=0
+      Settop_cone_table_1_3(null);
+      Settop_cone_table_2_2(null);
+      Settop_cone_table_0_3(null);
+    }
 
-    const top_cone_table_1_3 = (top_cone_table_1_2-(H21*2*bricks_std_height))
-    Settop_cone_table_1_3(Math.round(top_cone_table_1_3))
-    const top_cone_table_2_2 = top_cone_table_1_3 * 3.1416
-    Settop_cone_table_2_2((top_cone_table_2_2).toFixed(6))
-    const top_cone_table_0_3 = Math.ceil(top_cone_table_2_2/bricks_std_width)
-    Settop_cone_table_0_3(top_cone_table_0_3)
+    let top_cone_table_1_4_t, top_cone_table_2_3_t, top_cone_table_0_4_t;
+    if (I20 >= 3) {
+      top_cone_table_1_4_t = top_cone_table_1_3_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_4(Math.round(top_cone_table_1_4_t));
+      top_cone_table_2_3_t = top_cone_table_1_4_t * 3.1416;
+      Settop_cone_table_2_3(top_cone_table_2_3_t.toFixed(6));
+      top_cone_table_0_4_t = Math.ceil(top_cone_table_2_3_t / bricks_std_width);
+      Settop_cone_table_0_4(top_cone_table_0_4_t);
+    } else {
+      top_cone_table_0_4_t=0
+      Settop_cone_table_1_4(null);
+      Settop_cone_table_2_3(null);
+      Settop_cone_table_0_4(null);
+    }
 
-    const top_cone_table_1_4 = (top_cone_table_1_3-(H21*2*bricks_std_height))
-    Settop_cone_table_1_4(Math.round(top_cone_table_1_4))
-    const top_cone_table_2_3 = top_cone_table_1_4 * 3.1416
-    Settop_cone_table_2_3((top_cone_table_2_3).toFixed(6))
-    const top_cone_table_0_4 = Math.ceil(top_cone_table_2_3/bricks_std_width)
-    Settop_cone_table_0_4(top_cone_table_0_4)
+    let top_cone_table_1_5_t, top_cone_table_2_4_t, top_cone_table_0_5_t;
+    if (I20 >= 4) {
+      top_cone_table_1_5_t = top_cone_table_1_4_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_5(Math.round(top_cone_table_1_5_t));
+      top_cone_table_2_4_t = top_cone_table_1_5_t * 3.1416;
+      Settop_cone_table_2_4(top_cone_table_2_4_t.toFixed(6));
+      top_cone_table_0_5_t = Math.ceil(top_cone_table_2_4_t / bricks_std_width);
+      Settop_cone_table_0_5(top_cone_table_0_5_t);
+    } else {
+      top_cone_table_0_5_t=0
+      Settop_cone_table_1_5(null);
+      Settop_cone_table_2_4(null);
+      Settop_cone_table_0_5(null);
+    }
 
-    const top_cone_table_1_5 = (top_cone_table_1_4-(H21*2*bricks_std_height))
-    Settop_cone_table_1_5(Math.round(top_cone_table_1_5))
-    const top_cone_table_2_4 = top_cone_table_1_5 * 3.1416
-    Settop_cone_table_2_4((top_cone_table_2_4).toFixed(6))
-    const top_cone_table_0_5 = Math.ceil(top_cone_table_2_4/bricks_std_width)
-    Settop_cone_table_0_5(top_cone_table_0_5)
+    let top_cone_table_1_6_t, top_cone_table_2_5_t, top_cone_table_0_6_t;
+    if (I20 >= 5) {
+      top_cone_table_1_6_t = top_cone_table_1_5_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_6(Math.round(top_cone_table_1_6_t));
+      top_cone_table_2_5_t = top_cone_table_1_6_t * 3.1416;
+      Settop_cone_table_2_5(top_cone_table_2_5_t.toFixed(6));
+      top_cone_table_0_6_t = Math.ceil(top_cone_table_2_5_t / bricks_std_width);
+      Settop_cone_table_0_6(top_cone_table_0_6_t);
+    } else {
+      top_cone_table_0_6_t=0
+      Settop_cone_table_1_6(null);
+      Settop_cone_table_2_5(null);
+      Settop_cone_table_0_6(null);
+    }
 
-    const top_cone_table_1_6 = (top_cone_table_1_5-(H21*2*bricks_std_height))
-    Settop_cone_table_1_6(Math.round(top_cone_table_1_6))
-    const top_cone_table_2_5 = top_cone_table_1_6 * 3.1416
-    Settop_cone_table_2_5((top_cone_table_2_5).toFixed(6))
-    const top_cone_table_0_6 = Math.ceil(top_cone_table_2_5/bricks_std_width)
-    Settop_cone_table_0_6(top_cone_table_0_6)
+    let top_cone_table_1_7_t, top_cone_table_2_6_t, top_cone_table_0_7_t;
+    if (I20 >= 6) {
+      top_cone_table_1_7_t = top_cone_table_1_6_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_7(Math.round(top_cone_table_1_7_t));
+      top_cone_table_2_6_t = top_cone_table_1_7_t * 3.1416;
+      Settop_cone_table_2_6(top_cone_table_2_6_t.toFixed(6));
+      top_cone_table_0_7_t = Math.ceil(top_cone_table_2_6_t / bricks_std_width);
+      Settop_cone_table_0_7(top_cone_table_0_7_t);
+    } else {
+      top_cone_table_0_7_t=0
+      Settop_cone_table_1_7(null);
+      Settop_cone_table_2_6(null);
+      Settop_cone_table_0_7(null);
+    }
 
-    const top_cone_table_1_7 = (top_cone_table_1_6-(H21*2*bricks_std_height))
-    Settop_cone_table_1_7(Math.round(top_cone_table_1_7))
-    const top_cone_table_2_6 = top_cone_table_1_7 * 3.1416
-    Settop_cone_table_2_6((top_cone_table_2_6).toFixed(6))
-    const top_cone_table_0_7 = Math.ceil(top_cone_table_2_6/bricks_std_width)
-    Settop_cone_table_0_7(top_cone_table_0_7)
+    let top_cone_table_1_8_t, top_cone_table_2_7_t, top_cone_table_0_8_t;
+    if (I20 >= 7) {
+      top_cone_table_1_8_t = top_cone_table_1_7_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_8(Math.round(top_cone_table_1_8_t));
+      top_cone_table_2_7_t = top_cone_table_1_8_t * 3.1416;
+      Settop_cone_table_2_7(top_cone_table_2_7_t.toFixed(6));
+      top_cone_table_0_8_t = Math.ceil(top_cone_table_2_7_t / bricks_std_width);
+      Settop_cone_table_0_8(top_cone_table_0_8_t);
+    } else {
+      top_cone_table_0_8_t=0
+      Settop_cone_table_1_8(null);
+      Settop_cone_table_2_7(null);
+      Settop_cone_table_0_8(null);
+    }
 
-    const top_cone_table_1_8 = (top_cone_table_1_7-(H21*2*bricks_std_height))
-    Settop_cone_table_1_8(Math.round(top_cone_table_1_8))
-    const top_cone_table_2_7 = top_cone_table_1_8 * 3.1416
-    Settop_cone_table_2_7((top_cone_table_2_7).toFixed(6))
-    const top_cone_table_0_8 = Math.ceil(top_cone_table_2_7/bricks_std_width)
-    Settop_cone_table_0_8(top_cone_table_0_8)
+    let top_cone_table_1_9_t;
+    let top_cone_table_2_8_t;
+    let top_cone_table_0_9_t;
+    if (I20 >= 8) {
+      top_cone_table_1_9_t = top_cone_table_1_8_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_9(Math.round(top_cone_table_1_9_t));
+      top_cone_table_2_8_t = top_cone_table_1_9_t * 3.1416;
+      Settop_cone_table_2_8(top_cone_table_2_8_t.toFixed(6));
+      top_cone_table_0_9_t = Math.ceil(top_cone_table_2_8_t / bricks_std_width);
+      Settop_cone_table_0_9(top_cone_table_0_9_t);
+    } else {
+      top_cone_table_0_9_t=0
+      Settop_cone_table_1_9(null);
+      Settop_cone_table_2_8(null);
+      Settop_cone_table_0_9(null);
+    }
 
-    const top_cone_table_1_9 = (top_cone_table_1_8-(H21*2*bricks_std_height))
-    Settop_cone_table_1_9(Math.round(top_cone_table_1_9))
-    const top_cone_table_2_8 = top_cone_table_1_9 * 3.1416
-    Settop_cone_table_2_8((top_cone_table_2_8).toFixed(6))
-    const top_cone_table_0_9 = Math.ceil(top_cone_table_2_8/bricks_std_width)
-    Settop_cone_table_0_9(top_cone_table_0_9)
+    let top_cone_table_1_10_t;
+    let top_cone_table_2_9_t;
+    let top_cone_table_0_10_t;
 
-    const top_cone_table_1_10 = (top_cone_table_1_9-(H21*2*bricks_std_height))
-    Settop_cone_table_1_10(Math.round(top_cone_table_1_10))
-    const top_cone_table_2_9 = top_cone_table_1_10 * 3.1416
-    Settop_cone_table_2_9((top_cone_table_2_9).toFixed(6))
-    const top_cone_table_0_10 = Math.ceil(top_cone_table_2_9/bricks_std_width)
-    Settop_cone_table_0_10(top_cone_table_0_10)
+    if (I20 >= 9) {
+      top_cone_table_1_10_t =
+        top_cone_table_1_9_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_10(Math.round(top_cone_table_1_10_t));
+      top_cone_table_2_9_t = top_cone_table_1_10_t * 3.1416;
+      Settop_cone_table_2_9(top_cone_table_2_9_t.toFixed(6));
+      top_cone_table_0_10_t = Math.ceil(
+        top_cone_table_2_9_t / bricks_std_width
+      );
+      Settop_cone_table_0_10(top_cone_table_0_10_t);
+    } else {
+      top_cone_table_0_10_t=0
+      Settop_cone_table_1_10(null);
+      Settop_cone_table_2_9(null);
+      Settop_cone_table_0_10(null);
+    }
 
-    const top_cone_table_1_11 = (top_cone_table_1_10-(H21*2*bricks_std_height))
-    Settop_cone_table_1_11(Math.round(top_cone_table_1_11))
-    const top_cone_table_2_10 = top_cone_table_1_11 * 3.1416
-    Settop_cone_table_2_10((top_cone_table_2_10).toFixed(6))
-    const top_cone_table_0_11 = Math.ceil(top_cone_table_2_10/bricks_std_width)
-    Settop_cone_table_0_11(top_cone_table_0_11)
+    let top_cone_table_1_11_t;
+    let top_cone_table_2_10_t;
+    let top_cone_table_0_11_t;
+    if (I20 >= 10) {
+      top_cone_table_1_11_t =
+        top_cone_table_1_10_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_11(Math.round(top_cone_table_1_11_t));
+      top_cone_table_2_10_t = top_cone_table_1_11_t * 3.1416;
+      Settop_cone_table_2_10(top_cone_table_2_10_t.toFixed(6));
+      top_cone_table_0_11_t = Math.ceil(
+        top_cone_table_2_10_t / bricks_std_width
+      );
+      Settop_cone_table_0_11(top_cone_table_0_11_t);
+    } else {
+      top_cone_table_0_11_t=0
+      Settop_cone_table_1_11(null);
+      Settop_cone_table_2_10(null);
+      Settop_cone_table_0_11(null);
+    }
 
-    const top_cone_table_1_12 = (top_cone_table_1_11-(H21*2*bricks_std_height))
-    Settop_cone_table_1_12(Math.round(top_cone_table_1_12))
-    const top_cone_table_2_11 = top_cone_table_1_12 * 3.1416
-    Settop_cone_table_2_11((top_cone_table_2_11).toFixed(6))
-    const top_cone_table_0_12 = Math.ceil(top_cone_table_2_11/bricks_std_width)
-    Settop_cone_table_0_12(top_cone_table_0_12)
+    let top_cone_table_1_12_t;
+    let top_cone_table_2_11_t;
+    let top_cone_table_0_12_t;
+    if (I20 >= 11) {
+      top_cone_table_1_12_t =
+        top_cone_table_1_11_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_12(Math.round(top_cone_table_1_12_t));
+      top_cone_table_2_11_t = top_cone_table_1_12_t * 3.1416;
+      Settop_cone_table_2_11(top_cone_table_2_11_t.toFixed(6));
+      top_cone_table_0_12_t = Math.ceil(
+        top_cone_table_2_11_t / bricks_std_width
+      );
+      Settop_cone_table_0_12(top_cone_table_0_12_t);
+    } else {
+      top_cone_table_0_12_t=0
+      Settop_cone_table_1_12(null);
+      Settop_cone_table_2_11(null);
+      Settop_cone_table_0_12(null);
+    }
 
-    const top_cone_table_1_13 = (top_cone_table_1_12-(H21*2*bricks_std_height))
-    Settop_cone_table_1_13(Math.round(top_cone_table_1_13))
-    const top_cone_table_2_12 = top_cone_table_1_13 * 3.1416
-    Settop_cone_table_2_12((top_cone_table_2_12).toFixed(6))
-    const top_cone_table_0_13 = Math.ceil(top_cone_table_2_12/bricks_std_width)
-    Settop_cone_table_0_13(top_cone_table_0_13)
+    let top_cone_table_1_13_t, top_cone_table_2_12_t, top_cone_table_0_13_t;
+    if (I20 >= 12) {
+      top_cone_table_1_13_t =
+        top_cone_table_1_12_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_13(Math.round(top_cone_table_1_13_t));
+      top_cone_table_2_12_t = top_cone_table_1_13_t * 3.1416;
+      Settop_cone_table_2_12(top_cone_table_2_12_t.toFixed(6));
+      top_cone_table_0_13_t = Math.ceil(
+        top_cone_table_2_12_t / bricks_std_width
+      );
+      Settop_cone_table_0_13(top_cone_table_0_13_t);
+    } else {
+      top_cone_table_0_13_t=0
+      Settop_cone_table_1_13(null);
+      Settop_cone_table_2_12(null);
+      Settop_cone_table_0_13(null);
+    }
 
-    const top_cone_table_3_1 = top_cone_lining*bricks_std_width*bricks_std_height*top_cone_table_0_2*density_of_bricks/1000000000
-    setTop_cone_table_3_1(top_cone_table_3_1)
+    let top_cone_table_1_14_t, top_cone_table_2_13_t, top_cone_table_0_14_t;
+    if (I20 >= 13) {
+      top_cone_table_1_14_t =
+        top_cone_table_1_13_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_14(Math.round(top_cone_table_1_14_t));
+      top_cone_table_2_13_t = top_cone_table_1_14_t * 3.1416;
+      Settop_cone_table_2_13(top_cone_table_2_13_t.toFixed(6));
+      top_cone_table_0_14_t = Math.ceil(
+        top_cone_table_2_13_t / bricks_std_width
+      );
+      Settop_cone_table_0_14(top_cone_table_0_14_t);
+    } else {
+      top_cone_table_0_14_t=0
+      Settop_cone_table_1_14(null);
+      Settop_cone_table_2_13(null);
+      Settop_cone_table_0_14(null);
+    }
 
-    const top_cone_table_3_2 = top_cone_lining*bricks_std_width*bricks_std_height*top_cone_table_0_3*density_of_bricks/1000000000
-    setTop_cone_table_3_2(top_cone_table_3_2)
+    let top_cone_table_1_15_t, top_cone_table_2_14_t, top_cone_table_0_15_t;
+    if (I20 >= 14) {
+      top_cone_table_1_15_t =
+        top_cone_table_1_15_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_15(Math.round(top_cone_table_1_15_t));
+      top_cone_table_2_14_t = top_cone_table_1_15_t * 3.1416;
+      Settop_cone_table_2_14(top_cone_table_2_14_t.toFixed(6));
+      top_cone_table_0_15_t = Math.ceil(
+        top_cone_table_2_14_t / bricks_std_width
+      );
+      Settop_cone_table_0_15(top_cone_table_0_15_t);
+    } else {
+      top_cone_table_0_15_t=0
+      Settop_cone_table_1_15(null);
+      Settop_cone_table_2_14(null);
+      Settop_cone_table_0_15(null);
+    }
 
-    const top_cone_table_3_3 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_4 * density_of_bricks / 1000000000;
-setTop_cone_table_3_3(top_cone_table_3_3);
+    let top_cone_table_1_16_t, top_cone_table_2_15_t, top_cone_table_0_16_t;
 
-const top_cone_table_3_4 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_5 * density_of_bricks / 1000000000;
-setTop_cone_table_3_4(top_cone_table_3_4);
+    if (I20 >= 15) {
+      top_cone_table_1_16_t =
+        top_cone_table_1_15_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_16(Math.round(top_cone_table_1_16_t));
+      top_cone_table_2_15_t = top_cone_table_1_16_t * 3.1416;
+      Settop_cone_table_2_15(top_cone_table_2_15_t.toFixed(6));
+      top_cone_table_0_16_t = Math.ceil(
+        top_cone_table_2_15_t / bricks_std_width
+      );
+      Settop_cone_table_0_16(top_cone_table_0_16_t);
+    } else {
+      top_cone_table_0_16_t=0
+      Settop_cone_table_1_16(null);
+      Settop_cone_table_2_15(null);
+      Settop_cone_table_0_16(null);
+    }
 
-const top_cone_table_3_5 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_6 * density_of_bricks / 1000000000;
-setTop_cone_table_3_5(top_cone_table_3_5);
+    let top_cone_table_1_17_t, top_cone_table_2_16_t, top_cone_table_0_17_t;
 
-const top_cone_table_3_6 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_7 * density_of_bricks / 1000000000;
-setTop_cone_table_3_6(top_cone_table_3_6);
+    if (I20 >= 16) {
+      top_cone_table_1_17_t =
+        top_cone_table_1_16_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_17(Math.round(top_cone_table_1_17_t));
+      top_cone_table_2_16_t = top_cone_table_1_17_t * 3.1416;
+      Settop_cone_table_2_16(top_cone_table_2_16_t.toFixed(6));
+      top_cone_table_0_17_t = Math.ceil(
+        top_cone_table_2_16_t / bricks_std_width
+      );
+      Settop_cone_table_0_17(top_cone_table_0_17_t);
+    } else {
+      top_cone_table_0_17_t=0
+      Settop_cone_table_1_17(null);
+      Settop_cone_table_2_16(null);
+      Settop_cone_table_0_17(null);
+    }
 
-const top_cone_table_3_7 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_8 * density_of_bricks / 1000000000;
-setTop_cone_table_3_7(top_cone_table_3_7);
+    let top_cone_table_1_18_t, top_cone_table_2_17_t, top_cone_table_0_18_t;
 
-const top_cone_table_3_8 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_9 * density_of_bricks / 1000000000;
-setTop_cone_table_3_8(top_cone_table_3_8);
+    if (I20 >= 17) {
+      top_cone_table_1_18_t =
+        top_cone_table_1_17_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_18(Math.round(top_cone_table_1_18_t));
+      top_cone_table_2_17_t = top_cone_table_1_18_t * 3.1416;
+      Settop_cone_table_2_17(top_cone_table_2_17_t.toFixed(6));
+      top_cone_table_0_18_t = Math.ceil(
+        top_cone_table_2_17_t / bricks_std_width
+      );
+      Settop_cone_table_0_18(top_cone_table_0_18_t);
+    } else {
+      top_cone_table_0_18_t=0
+      Settop_cone_table_1_18(null);
+      Settop_cone_table_2_17(null);
+      Settop_cone_table_0_18(null);
+    }
 
-const top_cone_table_3_9 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_10 * density_of_bricks / 1000000000;
-setTop_cone_table_3_9(top_cone_table_3_9);
+    let top_cone_table_1_19_t, top_cone_table_2_18_t, top_cone_table_0_19_t;
 
-const top_cone_table_3_10 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_11 * density_of_bricks / 1000000000;
-setTop_cone_table_3_10(top_cone_table_3_10);
+    if (I20 >= 18) {
+      top_cone_table_1_19_t =
+        top_cone_table_1_18_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_19(Math.round(top_cone_table_1_19_t));
+      top_cone_table_2_18_t = top_cone_table_1_19_t * 3.1416;
+      Settop_cone_table_2_18(top_cone_table_2_18_t.toFixed(6));
+      top_cone_table_0_19_t = Math.ceil(
+        top_cone_table_2_18_t / bricks_std_width
+      );
+      Settop_cone_table_0_19(top_cone_table_0_19_t);
+    } else {
+      top_cone_table_0_19_t=0
+      Settop_cone_table_1_19(null);
+      Settop_cone_table_2_18(null);
+      Settop_cone_table_0_19(null);
+    }
 
-const top_cone_table_3_11 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_12 * density_of_bricks / 1000000000;
-setTop_cone_table_3_11(top_cone_table_3_11);
+    let top_cone_table_1_20_t, top_cone_table_2_19_t, top_cone_table_0_20_t;
 
-const top_cone_table_3_12 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_13 * density_of_bricks / 1000000000;
-setTop_cone_table_3_12(top_cone_table_3_12);
+    if (I20 >= 19) {
+      top_cone_table_1_20_t =
+        top_cone_table_1_19_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_20(Math.round(top_cone_table_1_20_t));
+      top_cone_table_2_19_t = top_cone_table_1_20_t * 3.1416;
+      Settop_cone_table_2_19(top_cone_table_2_19_t.toFixed(6));
+      top_cone_table_0_20_t = Math.ceil(
+        top_cone_table_2_19_t / bricks_std_width
+      );
+      Settop_cone_table_0_20(top_cone_table_0_20_t);
+    } else {
+      top_cone_table_0_20_t=0
+      Settop_cone_table_1_20(null);
+      Settop_cone_table_2_19(null);
+      Settop_cone_table_0_20(null);
+    }
 
-// const top_cone_table_3_13 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_14 * density_of_bricks / 1000000000;
-// setTop_cone_table_3_13(top_cone_table_3_13);
+    let top_cone_table_1_21_t, top_cone_table_2_20_t, top_cone_table_0_21_t;
 
-// const top_cone_table_3_14 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_15 * density_of_bricks / 1000000000;
-// setTop_cone_table_3_14(top_cone_table_3_14);
+    if (I20 >= 20) {
+      top_cone_table_1_21_t =
+        top_cone_table_1_20_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_21(Math.round(top_cone_table_1_21_t));
+      top_cone_table_2_20_t = top_cone_table_1_21_t * 3.1416;
+      Settop_cone_table_2_20(top_cone_table_2_20_t.toFixed(6));
+      top_cone_table_0_21_t = Math.ceil(
+        top_cone_table_2_20_t / bricks_std_width
+      );
+      Settop_cone_table_0_21(top_cone_table_0_21_t);
+    } else {
+      top_cone_table_0_21_t=0
+      Settop_cone_table_1_21(null);
+      Settop_cone_table_2_20(null);
+      Settop_cone_table_0_21(null);
+    }
 
-// const top_cone_table_3_15 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_16 * density_of_bricks / 1000000000;
-// setTop_cone_table_3_15(top_cone_table_3_15);
+    let top_cone_table_1_22_t, top_cone_table_2_21_t, top_cone_table_0_22_t;
 
-// const top_cone_table_3_16 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_17 * density_of_bricks / 1000000000;
-// setTop_cone_table_3_16(top_cone_table_3_16);
+    if (I20 >= 21) {
+      top_cone_table_1_22_t =
+        top_cone_table_1_21_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_22(Math.round(top_cone_table_1_22_t));
+      top_cone_table_2_21_t = top_cone_table_1_22_t * 3.1416;
+      Settop_cone_table_2_21(top_cone_table_2_21_t.toFixed(6));
+      top_cone_table_0_22_t = Math.ceil(
+        top_cone_table_2_21_t / bricks_std_width
+      );
+      Settop_cone_table_0_22(top_cone_table_0_22_t);
+    } else {
+      top_cone_table_0_22_t=0
+      Settop_cone_table_1_22(null);
+      Settop_cone_table_2_21(null);
+      Settop_cone_table_0_22(null);
+    }
 
-// const top_cone_table_3_17 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_18 * density_of_bricks / 1000000000;
-// setTop_cone_table_3_17(top_cone_table_3_17);
+    let top_cone_table_1_23_t, top_cone_table_2_22_t, top_cone_table_0_23_t;
 
-// const top_cone_table_3_18 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_19 * density_of_bricks / 1000000000;
-// setTop_cone_table_3_18(top_cone_table_3_18);
+    if (I20 >= 22) {
+      top_cone_table_1_23_t =
+        top_cone_table_1_22_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_23(Math.round(top_cone_table_1_23_t));
+      top_cone_table_2_22_t = top_cone_table_1_23_t * 3.1416;
+      Settop_cone_table_2_22(top_cone_table_2_22_t.toFixed(6));
+      top_cone_table_0_23_t = Math.ceil(
+        top_cone_table_2_22_t / bricks_std_width
+      );
+      Settop_cone_table_0_23(top_cone_table_0_23_t);
+    } else {
+      top_cone_table_0_23_t=0
+      Settop_cone_table_1_23(null);
+      Settop_cone_table_2_22(null);
+      Settop_cone_table_0_23(null);
+    }
 
-// const top_cone_table_3_19 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_20 * density_of_bricks / 1000000000;
-// setTop_cone_table_3_19(top_cone_table_3_19);
+    let top_cone_table_1_24_t, top_cone_table_2_23_t, top_cone_table_0_24_t;
 
-// const top_cone_table_3_20 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_21 * density_of_bricks / 1000000000;
-// setTop_cone_table_3_20(top_cone_table_3_20);
+    if (I20 >= 23) {
+      top_cone_table_1_24_t =
+        top_cone_table_1_23_t - H21 * 2 * bricks_std_height;
+      Settop_cone_table_1_24(Math.round(top_cone_table_1_24_t));
+      top_cone_table_2_23_t = top_cone_table_1_24_t * 3.1416;
+      Settop_cone_table_2_23(top_cone_table_2_23_t.toFixed(6));
+      top_cone_table_0_24_t = Math.ceil(
+        top_cone_table_2_23_t / bricks_std_width
+      );
+      Settop_cone_table_0_24(top_cone_table_0_24_t);
+    } else {
+      top_cone_table_0_24_t=0
+      Settop_cone_table_1_24(null);
+      Settop_cone_table_2_23(null);
+      Settop_cone_table_0_24(null);
+    }
 
-// const top_cone_table_3_21 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_22 * density_of_bricks / 1000000000;
-// setTop_cone_table_3_21(top_cone_table_3_21);
+    const top_cone_table_3_1_t =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_2_t *
+        density_of_bricks) /
+      1000000000;
+      
+    setTop_cone_table_3_1(top_cone_table_3_1_t);
 
-// const top_cone_table_3_22 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_23 * density_of_bricks / 1000000000;
-// setTop_cone_table_3_22(top_cone_table_3_22);
+    const top_cone_table_3_2 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_3_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_2(top_cone_table_3_2);
 
-// const top_cone_table_3_23 = top_cone_lining * bricks_std_width * bricks_std_height * top_cone_table_0_24 * density_of_bricks / 1000000000;
-// setTop_cone_table_3_23(top_cone_table_3_23);
+    const top_cone_table_3_3 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_4_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_3(top_cone_table_3_3);
+
+    const top_cone_table_3_4 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_5_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_4(top_cone_table_3_4);
+
+    const top_cone_table_3_5 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_6_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_5(top_cone_table_3_5);
+
+    const top_cone_table_3_6 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_7_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_6(top_cone_table_3_6);
+
+    const top_cone_table_3_7 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_8_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_7(top_cone_table_3_7);
+
+    const top_cone_table_3_8 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_9_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_8(top_cone_table_3_8);
+
+    const top_cone_table_3_9 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_10_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_9(top_cone_table_3_9);
+
+    const top_cone_table_3_10 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_11_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_10(top_cone_table_3_10);
+
+    const top_cone_table_3_11 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_12_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_11(top_cone_table_3_11);
+
+    const top_cone_table_3_12 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_13_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_12(top_cone_table_3_12);
+
+    const top_cone_table_3_13 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_14_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_13(top_cone_table_3_13);
+
+    const top_cone_table_3_14 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_15_t *
+        density_of_bricks) /
+      1000000000;
+      if(top_cone_table_3_14==null)
+      setTop_cone_table_3_14(0.00)
+    else
+    setTop_cone_table_3_14(top_cone_table_3_14);
+
+    const top_cone_table_3_15 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_16_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_15(top_cone_table_3_15);
+
+    const top_cone_table_3_16 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_17_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_16(top_cone_table_3_16);
+
+    const top_cone_table_3_17 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_18_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_17(top_cone_table_3_17);
+
+    const top_cone_table_3_18 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_19_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_18(top_cone_table_3_18);
+
+    const top_cone_table_3_19 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_20_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_19(top_cone_table_3_19);
+
+    const top_cone_table_3_20 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_21_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_20(top_cone_table_3_20);
+
+    const top_cone_table_3_21 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_22_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_21(top_cone_table_3_21);
+
+    const top_cone_table_3_22 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_23_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_22(top_cone_table_3_22);
+
+    const top_cone_table_3_23 =
+      (top_cone_lining *
+        bricks_std_width *
+        bricks_std_height *
+        top_cone_table_0_24_t *
+        density_of_bricks) /
+      1000000000;
+    setTop_cone_table_3_23(top_cone_table_3_23);
 
     setOpen(false);
     getUserData();
@@ -2966,7 +3511,9 @@ setTop_cone_table_3_12(top_cone_table_3_12);
             </Paper>
           </div>
         </div>
-        <p className="aod_para">Safety Lining for Cylindrical portion of Vessel</p>
+        <p className="aod_para">
+          Safety Lining for Cylindrical portion of Vessel
+        </p>
         <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
           <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
@@ -3042,8 +3589,8 @@ setTop_cone_table_3_12(top_cone_table_3_12);
       </div>
 
       <div ref={div4Ref}>
-      <p className="aod_para">Top Cone Bricks Details</p>
-      <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
+        <p className="aod_para">Top Cone Bricks Details</p>
+        <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
           <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
               <TableContainer
@@ -3793,6 +4340,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                         </div>
                       </TableCell>
                     </TableRow>
+
                     <TableRow
                       hover
                       role="checkbox"
@@ -3801,12 +4349,12 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                     >
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_lining}</p>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{bricks_std_width}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3816,7 +4364,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_0_14}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3826,7 +4374,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_1_14}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3836,7 +4384,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_2_13}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3846,7 +4394,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>{top_cone_table_3_3}</p>
+                          <p>{top_cone_table_3_13}</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -3858,12 +4406,12 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                     >
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_lining}</p>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{bricks_std_width}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3873,7 +4421,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_0_15}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3883,7 +4431,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_1_15}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3893,7 +4441,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_2_14}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3903,7 +4451,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>pending</p>
+                          <p>{top_cone_table_3_14}</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -3915,12 +4463,12 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                     >
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_lining}</p>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{bricks_std_width}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3930,7 +4478,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_0_16}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3940,7 +4488,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_1_16}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3950,7 +4498,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_2_15}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3960,7 +4508,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>pending</p>
+                          <p>{top_cone_table_3_15}</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -3972,12 +4520,12 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                     >
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_lining}</p>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{bricks_std_width}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3987,7 +4535,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_0_17}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3997,7 +4545,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_1_17}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4007,7 +4555,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_2_16}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4017,7 +4565,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>pending</p>
+                          <p>{top_cone_table_3_16}</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -4029,12 +4577,12 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                     >
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_lining}</p>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{bricks_std_width}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4044,7 +4592,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_0_18}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4054,7 +4602,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_1_18}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4064,7 +4612,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_2_17}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4074,7 +4622,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>pending</p>
+                          <p>{top_cone_table_3_17}</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -4086,12 +4634,12 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                     >
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_lining}</p>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{bricks_std_width}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4101,7 +4649,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_0_19}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4111,7 +4659,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_1_19}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4121,7 +4669,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_2_18}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4131,7 +4679,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>pending</p>
+                          <p>{top_cone_table_3_18}</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -4143,12 +4691,12 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                     >
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_lining}</p>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{bricks_std_width}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4158,7 +4706,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_0_20}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4168,7 +4716,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_1_20}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4178,7 +4726,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_2_19}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4188,7 +4736,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>pending</p>
+                          <p>{top_cone_table_3_19}</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -4200,12 +4748,12 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                     >
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_lining}</p>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{bricks_std_width}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4215,7 +4763,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_0_21}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4225,7 +4773,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_1_21}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4235,7 +4783,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_2_20}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4245,7 +4793,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>pending</p>
+                          <p>{top_cone_table_3_20}</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -4257,12 +4805,12 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                     >
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_lining}</p>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{bricks_std_width}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4272,7 +4820,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_0_22}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4282,7 +4830,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_1_22}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4292,7 +4840,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_2_21}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4302,7 +4850,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>pending</p>
+                          <p>{top_cone_table_3_21}</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -4314,12 +4862,12 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                     >
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_lining}</p>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{bricks_std_width}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4329,7 +4877,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_0_23}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4339,7 +4887,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_1_23}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4349,7 +4897,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_2_22}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4359,7 +4907,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>pending</p>
+                          <p>{top_cone_table_3_22}</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -4371,12 +4919,12 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                     >
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_lining}</p>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{bricks_std_width}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4386,7 +4934,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_0_24}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4396,7 +4944,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_1_24}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4406,7 +4954,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{top_cone_table_2_23}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4416,7 +4964,7 @@ setTop_cone_table_3_12(top_cone_table_3_12);
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>pending</p>
+                          <p>{top_cone_table_3_23}</p>
                         </div>
                       </TableCell>
                     </TableRow>
