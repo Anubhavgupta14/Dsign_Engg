@@ -44,6 +44,8 @@ const Ladlecalculator = ({ authtoken }) => {
   const div3Ref = useRef();
   const div4Ref = useRef();
   const div5Ref = useRef();
+  const div6Ref = useRef();
+  const div7Ref = useRef();
   const [vessel_cylindrical_id, setVessel_cylindrical_id] = useState(null);
   const [vessel_cylindrical_height, setVessel_cylindrical_height] =
     useState(null);
@@ -345,6 +347,64 @@ const Ladlecalculator = ({ authtoken }) => {
   const [top_cone_table4_3_3, setTop_cone_table4_3_3] = useState(0);
   const [top_cone_table4_sum, setTop_cone_table4_sum] = useState(0);
   const [total_weight, Settotal_weight] = useState(0)
+  const [sizeW1, SetsizeW1] = useState(0)
+  const [sizeW2, SetsizeW2] = useState(0)
+  const [sizeW3, SetsizeW3] = useState(0)
+  const [sizeW4, SetsizeW4] = useState(0)
+  const [sizeW5, SetsizeW5] = useState(0)
+  const [sizeW6, SetsizeW6] = useState(0)
+  const [sizeW7, SetsizeW7] = useState(0)
+  const [sizeW8, SetsizeW8] = useState(0)
+  const [sizeW9, SetsizeW9] = useState(0)
+  const [sizeW10, SetsizeW10] = useState(0)
+  const [sizeW11, SetsizeW11] = useState(0)
+  const [sizeW12, SetsizeW12] = useState(0)
+  const [sizeW13, SetsizeW13] = useState(0)
+  const [sizeW14, SetsizeW14] = useState(0)
+  const [sizeL1, SetsizeL1] = useState(0)
+  const [sizeL2, SetsizeL2] = useState(0)
+  const [sizeL3, SetsizeL3] = useState(0)
+  const [sizeL4, SetsizeL4] = useState(0)
+  const [sizeL5, SetsizeL5] = useState(0)
+  const [sizeL6, SetsizeL6] = useState(0)
+  const [sizeL7, SetsizeL7] = useState(0)
+  const [sizeL8, SetsizeL8] = useState(0)
+  const [sizeL9, SetsizeL9] = useState(0)
+  const [sizeL10, SetsizeL10] = useState(0)
+  const [sizeL11, SetsizeL11] = useState(0)
+  const [sizeL12, SetsizeL12] = useState(0)
+  const [sizeL13, SetsizeL13] = useState(0)
+  const [sizeL14, SetsizeL14] = useState(0)
+  const [qty1, Setqty1] = useState(0)
+  const [qty2, Setqty2] = useState(0)
+  const [qty3, Setqty3] = useState(0)
+  const [qty4, Setqty4] = useState(0)
+  const [qty5, Setqty5] = useState(0)
+  const [qty6, Setqty6] = useState(0)
+  const [qty7, Setqty7] = useState(0)
+  const [qty8, Setqty8] = useState(0)
+  const [qty9, Setqty9] = useState(0)
+  const [qty10, Setqty10] = useState(0)
+  const [qty11, Setqty11] = useState(0)
+  const [qty12, Setqty12] = useState(0)
+  const [qty13, Setqty13] = useState(0)
+  const [qty14, Setqty14] = useState(0)
+  const [weight1, Setweight1] = useState(0)
+  const [weight2, Setweight2] = useState(0)
+  const [weight3, Setweight3] = useState(0)
+  const [weight4, Setweight4] = useState(0)
+  const [weight5, Setweight5] = useState(0)
+  const [weight6, Setweight6] = useState(0)
+  const [weight7, Setweight7] = useState(0)
+  const [weight8, Setweight8] = useState(0)
+  const [weight9, Setweight9] = useState(0)
+  const [weight10, Setweight10] = useState(0)
+  const [weight11, Setweight11] = useState(0)
+  const [weight12, Setweight12] = useState(0)
+  const [weight13, Setweight13] = useState(0)
+  const [weight14, Setweight14] = useState(0)
+  const [weightsum, Setweightsum] = useState(0)
+
 
   const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
@@ -587,13 +647,15 @@ const Ladlecalculator = ({ authtoken }) => {
       1000000000;
     Setweight_of_bricks5(weight_of_bricks5.toFixed(3));
 
+    const brick_weight = (
+      parseFloat(weight_of_bricks2) +
+      parseFloat(weight_of_bricks3) +
+      parseFloat(weight_of_bricks4) +
+      parseFloat(weight_of_bricks5)
+
+    ).toFixed(3)
     Setsum_weight_bricks(
-      (
-        parseFloat(weight_of_bricks1) +
-        parseFloat(weight_of_bricks2) +
-        parseFloat(weight_of_bricks3) +
-        parseFloat(weight_of_bricks4)
-      ).toFixed(3)
+      brick_weight
     );
 
     Setsafety_table_sampling(Math.ceil(O19 / N19));
@@ -1768,8 +1830,230 @@ const Ladlecalculator = ({ authtoken }) => {
     const top_table4_sum = parseFloat(top_table4_1_3)+parseFloat(top_table4_2_3)+parseFloat(top_table4_3_3)
     setTop_cone_table4_sum((top_table4_sum).toFixed(3))
 
-    const weight = parseFloat(sum_weight_bricks) + parseFloat(safety_table_sum)  + parseFloat(top_cone_table_3_24_t) + parseFloat(top_cone_table2_3_24_t) + parseFloat(top_table3_3) + parseFloat(top_table4_sum)
+    const weight = parseFloat(brick_weight) + parseFloat(safety_table_sum)  + parseFloat(top_cone_table_3_24_t) + parseFloat(top_cone_table2_3_24_t) + parseFloat(top_table3_3) + parseFloat(top_table4_sum)
     Settotal_weight((weight).toFixed(3))
+
+    // Fabrication
+    const sizel1 = (parseFloat(vessel_cylindrical_id)+parseFloat(vessel_cylindrical_shell))*3.1428
+    SetsizeL1(Math.round(sizel1))
+    const sizew1 = vessel_cylindrical_height
+    SetsizeW1(sizew1)
+    const qty1t = 1;
+    Setqty1(qty1t)
+    const weight1 = sizel1*sizew1*vessel_cylindrical_shell*qty1t*7.864/1000000
+    Setweight1(Math.round(weight1))
+
+
+    const F950 = parseFloat(vessel_cylindrical_id) + parseFloat(vessel_top_cone)
+    const J953 = Math.tan(3.1416/180*top_cone_angle)
+    const J954 = Math.cos(3.1416/180*top_cone_angle)
+    const E955 = ((F950/2)/J953)/J954
+    const H958 = ((F950/2)*3.1428*360/(E955*3.1428))/4
+    const J958 = Math.sin(3.1416/180*H958)
+    const sizel2 = J958*E955*2
+    SetsizeL2(Math.round(sizel2))
+
+    const E956 = (((parseFloat(D20)+parseFloat(vessel_top_cone))/2)/J953)/J954
+    const G958 = E956*J958
+    const sizew2 = (parseFloat(E955)-parseFloat(E956))+(parseFloat(E956)-parseFloat(G958))
+    SetsizeW2(Math.round(sizew2))
+    const qty2t = 2
+    Setqty2(qty2t)
+    const weight2 = sizel2*sizew2*vessel_top_cone*qty2t*7.864/1000000
+    Setweight2(Math.round(weight2))
+
+    const H985 = parseFloat(vessel_cylindrical_id)+parseFloat(vessel_bottom_cone)
+    const J988 = Math.sin(3.1416/180*(90-parseFloat(bottom_cone_angle)))
+    const J990 = Math.tan(3.1416/180*(90-parseFloat(bottom_cone_angle)))
+    const D990 = (((parseFloat(vessel_cylindrical_id)+parseFloat(vessel_bottom_cone))/2)*J990)/J988
+    const G991 = (H985*3.1428)*360/(D990*2*3.1428)
+    const J991 = Math.sin(3.1416/180*(G991/4))
+    let sizel3;
+    if(top_cone_angle==0){
+      sizel3=0
+    }
+    else{
+      sizel3 = 2*J991*D990
+    }
+    SetsizeL3(Math.round(sizel3))
+
+    const J992 = Math.cos(3.1416/180*(G991/4))
+    const D991 = D990-(bottom_cone_height/J988)
+    const F997 = J992*D991
+    const D989 = D990-D991
+    let sizew3;
+    if(top_cone_angle==0){
+      sizew3 = 0
+    }
+    else{
+      sizew3 = (D991-F997)+D989
+    }
+    SetsizeW3(Math.round(sizew3))
+
+    let qty3t;
+    if(top_cone_angle==0){
+      qty3t=0
+    }
+    else{
+      qty3t=2
+    }
+    Setqty3(qty3t)
+
+    const weight3 = sizel3*sizew3*vessel_bottom_cone*qty3t*7.864/1000000
+    Setweight3(Math.round(weight3))
+
+    const E976 = parseFloat(vessel_cylindrical_id/2) + parseFloat(vessel_cylindrical_shell)
+    const sizel4 = parseFloat(width_of_vessel_flange) + parseFloat(E976)
+    SetsizeL4(sizel4)
+
+    const L980 = (sizel4*sizel4) - ((E976/2)*(E976/2))
+    const K979 = Math.sqrt(L980)
+    const K980 = sizel4-K979
+    const K978 = E976-(0.866*E976)
+    const K981 = K978-K980
+    const K982 = (sizel4-E976)+K981
+    const sizew4 = parseFloat(K982*6) + parseFloat(K980)
+    SetsizeW4(Math.round(sizew4))
+
+    const qty4t = 1
+    Setqty4(qty4t)
+    const weight4 = sizel4*sizew4*cylindrical_shell_flange*qty4t*7.864/1000000
+    Setweight4(Math.round(weight4))
+
+
+    const E973 = parseFloat(vessel_cylindrical_id/2) + parseFloat(vessel_top_cone)
+    const sizel5 = parseFloat(E973) + parseFloat(width_of_cone_flange)
+    SetsizeL5(Math.round(sizel5))
+
+    const K974 = Math.sqrt((sizel5*sizel5)-((E973/2)*(E973/2)))
+    const K975 = sizel5 - K974
+    const K973 = E973-(0.866*E973)
+    const K976 = K973-K975
+    const L976 = sizel5-E973+K976
+    const sizew5 = (L976*6)+K975
+    SetsizeW5(Math.round(sizew5))
+
+    const qty5t=1
+    Setqty5(qty5t)
+    const weight5 = sizel5*sizew5*top_cone_flange*qty5t*7.864/1000000
+    Setweight5(Math.round(weight5))
+
+    const sizel6=0
+    const sizew6=0
+    const qty6t=1
+    Setqty6(qty6t)
+    const weight6 = sizel6*sizew6*top_cone_protection_flange*qty6t*7.864/1000000
+    Setweight6(Math.round(weight6))
+
+
+    let F970
+    const F968 = disc_end_height*0.1
+    const F969 = disc_end_height*0.25
+    const D966 = parseFloat(D27)+parseFloat(disc_end*2)
+    if(disc_end>25){
+      F970 = parseFloat(D966)+parseFloat(D966/42)+parseFloat(2*F968)+parseFloat(2/3*(F969))+ parseFloat(disc_end)
+    }
+    else{
+      F970 = parseFloat(D966)+parseFloat(D966/42)+parseFloat(2*F968)+parseFloat(2/3*(F969))
+    }
+
+    const I966 = parseFloat(disc_end_height) + (disc_end/2)
+    const H966 = parseFloat(D27) + parseFloat(disc_end)
+    const I968 = parseFloat((H966*H966)/(8*I966))+ parseFloat(I966/2)
+    const K966 = (I968-I966)/I968
+    const J966 = 2* (57.2958*Math.acos(K966))
+    const J969 = 0.01745*I968*J966
+    let sizel7;
+    if(top_cone_angle==0){
+      sizel7 = F970
+    }
+    else{
+      sizel7 = J969
+    }
+    SetsizeL7(Math.round(sizel7))
+    const sizew7=0
+    SetsizeW7(sizew7)
+    
+    const qty7t=1
+    Setqty7(qty7t)
+    const weight7 = 3.1416/4*sizel7*sizel7*disc_end*7.864/1000000
+    Setweight7(Math.round(weight7))
+    const sizel8=375
+    SetsizeL8(375)
+
+    const sizew8 = vessel_flanges_distance-cylindrical_shell_flange-cylinder_to_trunion_flange
+    SetsizeW8(sizew8)
+
+    const qty8t = 12
+    Setqty8(qty8t)
+    const weight8 = sizel8*sizew8*stiffner_cyl_flange*qty8t*7.864/1000000
+    Setweight8(Math.round(weight8))
+
+    const sizel9=250
+    SetsizeL9(sizel9)
+    const sizew9=250
+    SetsizeW9(sizew9)
+    const qty9t=24
+    Setqty9(qty9t)
+    const weight9 = sizel9*sizew9*stiffnertop_cone_flange*qty9t*7.864/1000000
+    Setweight9(Math.round(weight9))
+
+    const sizel10 = sizel8*2
+    const sizew10 = sizew8
+    SetsizeL10(sizel10)
+    SetsizeW10(sizew10)
+    const qty10t=6
+    Setqty10(qty10t)
+    const weight10 = sizel10*sizew10*lifting_hook*qty10t*7.864/1000000
+    Setweight10(Math.round(weight10))
+
+    const sizel11 = 500
+    const sizew11 = 300
+    SetsizeL11(sizel11)
+    SetsizeW11(sizew11)
+    const qty11t=12
+    Setqty11(qty11t)
+    const weight11 = sizel11*sizew11*legs*qty11t*7.864/1000000
+    Setweight11(Math.round(weight11))
+
+    const sizel12 = (D20+400)-300
+    SetsizeL12(Math.round(sizel12))
+    const sizew12 = (D20+400)/2
+    SetsizeW12(Math.round(sizew12))
+    const qty12t=1
+    Setqty12(qty12t)
+    const weight12 = sizel12*sizew12*cone_top_rim*qty12t*7.864/1000000
+    Setweight12(Math.round(weight12))
+
+    const sizel13 = 3.1416/4*pin_lifting_hook*pin_lifting_hook/1000000
+    SetsizeL13(sizel13)
+    const sizew13 = 500
+    SetsizeW13(sizew13)
+    const qty13t=3
+    Setqty13(qty13t)
+    const weight13 = sizel13*sizew13*qty13t*7.864/1
+    Setweight13(Math.round(weight13))
+
+    const E979 = parseFloat(vessel_cylindrical_id/2) + parseFloat(vessel_cylindrical_shell)
+    const sizel14 = parseFloat(width_of_trunion_flange) + parseFloat(E979)
+    SetsizeL14(Math.round(sizel14))
+
+    const K984 = Math.sqrt((sizel14*sizel14)-((E979/2)*(E979/2)))
+    const K985 = sizel14-K984
+    const K983 = E979-(0.866*E979)
+    const L986 = (sizel14-E979)+(K983-K985)
+    const sizew14 = (L986*6)+K985
+    SetsizeW14(Math.round(sizew14))
+    const qty14t=1
+    Setqty14(qty14t)
+    const weight14 = sizel14*sizew14*qty14t*cylinder_to_trunion_flange*7.864/1000000
+    Setweight14(Math.round(weight14))
+
+    const weight_sum = parseFloat(weight1)+parseFloat(weight2)+parseFloat(weight3)+parseFloat(weight4)+parseFloat(weight5)+parseFloat(weight6)+parseFloat(weight7)+parseFloat(weight8)+parseFloat(weight9)+parseFloat(weight10)+parseFloat(weight11)+parseFloat(weight12)+parseFloat(weight13)+parseFloat(weight14)
+    Setweightsum(weight_sum)
+
+
+
 
     setOpen(false);
     getUserData();
@@ -2292,18 +2576,19 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={28}>28</MenuItem>
+                            <MenuItem value={30}>30</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                            <MenuItem value={125}>125</MenuItem>
+                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2328,17 +2613,12 @@ const Ladlecalculator = ({ authtoken }) => {
                               <em>None</em>
                             </MenuItem>
                             <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
-                            <MenuItem value={45}>45</MenuItem>
-                            <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2365,17 +2645,12 @@ const Ladlecalculator = ({ authtoken }) => {
                               <em>None</em>
                             </MenuItem>
                             <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
-                            <MenuItem value={45}>45</MenuItem>
-                            <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2401,18 +2676,19 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={28}>28</MenuItem>
+                            <MenuItem value={30}>30</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                            <MenuItem value={125}>125</MenuItem>
+                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2442,18 +2718,19 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={28}>28</MenuItem>
+                            <MenuItem value={30}>30</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                            <MenuItem value={125}>125</MenuItem>
+                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2479,18 +2756,19 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={28}>28</MenuItem>
+                            <MenuItem value={30}>30</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                            <MenuItem value={125}>125</MenuItem>
+                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2514,18 +2792,19 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={28}>28</MenuItem>
+                            <MenuItem value={30}>30</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                            <MenuItem value={125}>125</MenuItem>
+                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2598,18 +2877,19 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={28}>28</MenuItem>
+                            <MenuItem value={30}>30</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                            <MenuItem value={125}>125</MenuItem>
+                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2635,18 +2915,19 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={28}>28</MenuItem>
+                            <MenuItem value={30}>30</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                            <MenuItem value={125}>125</MenuItem>
+                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2670,18 +2951,19 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={28}>28</MenuItem>
+                            <MenuItem value={30}>30</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                            <MenuItem value={125}>125</MenuItem>
+                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2712,18 +2994,19 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={28}>28</MenuItem>
+                            <MenuItem value={30}>30</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                            <MenuItem value={125}>125</MenuItem>
+                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2747,18 +3030,19 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={28}>28</MenuItem>
+                            <MenuItem value={30}>30</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                            <MenuItem value={125}>125</MenuItem>
+                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2784,18 +3068,19 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={28}>28</MenuItem>
+                            <MenuItem value={30}>30</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                            <MenuItem value={125}>125</MenuItem>
+                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2821,18 +3106,19 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={28}>28</MenuItem>
+                            <MenuItem value={30}>30</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                            <MenuItem value={125}>125</MenuItem>
+                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2844,41 +3130,24 @@ const Ladlecalculator = ({ authtoken }) => {
                       tabIndex={-1}
                       sx={{ maxHeight: "10px" }}
                     >
-                      <TableCell sx={{ textAlign: "center" }}>
-                        <FormControl
-                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
-                          size="small"
-                          // error={error_show.thickness4 && !thickness4}
-                        >
-                          <InputLabel id="demo-select-small-label">
-                            Vessel Flanges Distance
-                          </InputLabel>
-                          <Select
-                            labelId="demo-select-small-label"
-                            id="demo-select-small"
-                            value={vessel_flanges_distance}
-                            label="Vessel Flanges Distance"
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <TextField
+                            required
+                            className="textfield_ladle"
+                            id="outlined-number"
+                            sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
+                            label="Vessel Flange Distance"
+                            variant="outlined"
+                            type="number"
+                            defaultValue="Small"
+                            // error={error_show.topdiameter && !topdiameter}
+                            size="small"
                             onChange={(e) =>
                               Setvessel_flanges_distance(e.target.value)
                             }
-                          >
-                            <MenuItem value="">
-                              <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={12}>12</MenuItem>
-                            <MenuItem value={14}>14</MenuItem>
-                            <MenuItem value={16}>16</MenuItem>
-                            <MenuItem value={20}>20</MenuItem>
-                            <MenuItem value={22}>22</MenuItem>
-                            <MenuItem value={25}>25</MenuItem>
-                            <MenuItem value={32}>32</MenuItem>
-                            <MenuItem value={36}>36</MenuItem>
-                            <MenuItem value={40}>40</MenuItem>
-                            <MenuItem value={45}>45</MenuItem>
-                            <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={60}>60</MenuItem>
-                          </Select>
-                        </FormControl>
+                          />
+                        </div>
                       </TableCell>
 
                       <TableCell>
@@ -6836,6 +7105,594 @@ const Ladlecalculator = ({ authtoken }) => {
                       <TableCell>
                         <div className="row_ladle flex-all">
                           <p>{top_cone_table4_3_3}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Paper>
+          </div>
+        </div>
+      </div>
+
+      <div ref={div6Ref}>
+        <p className="aod_para">Fabrication Approx. Weight for AOD Vessel - Above Dimensions: {weightsum} Kgs</p>
+        <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
+          <div className="ladle_first">
+            <Paper sx={{ overflow: "hidden" }}>
+              <TableContainer
+                sx={{ maxHeight: 2500 }}
+                style={{ backgroundColor: "#f9fbfc" }}
+              >
+                <Table stickyHeader aria-label="sticky table">
+                  <TableBody>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Perticulars</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Plate Thick.</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Size-L</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Size-W</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Qty.</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Weight</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Cyl. Shell</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{vessel_cylindrical_shell}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeL1}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeW1}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{qty1}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{weight1}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Top Cone Shell</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{vessel_top_cone}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeL2}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeW2}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{qty2}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{weight2}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Bottom Cone Shell</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{vessel_bottom_cone}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeL3}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeW3}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{qty3}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{weight3}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Cyl. Shell Flange</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{cylindrical_shell_flange}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeL4}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeW4}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{qty4}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{weight4}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Top Cone Shell Flange</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_flange}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeL5}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeW5}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{qty5}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{weight5}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Top Cone Protection Flg</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{top_cone_protection_flange}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeL6}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeW6}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{qty6}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{weight6}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Disc End</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{disc_end}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeL7}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeW7}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{qty7}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{weight7}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Stiffner Cyl. Flange</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{stiffner_cyl_flange}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeL8}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeW8}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{qty8}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{weight8}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Stiffner Top Cone Flange</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{stiffnertop_cone_flange}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeL9}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeW9}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{qty9}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{weight9}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Lifting Hook</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{lifting_hook}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeL10}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeW10}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{qty10}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{weight10}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Legs</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{legs}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeL11}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeW11}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{qty11}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{weight11}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Cone Top Rim</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{cone_top_rim}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeL12}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeW12}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{qty12}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{weight12}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Pin Lifting Hook</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{pin_lifting_hook}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeL13}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeW13}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{qty13}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{weight13}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Cylinder to Trunion Flange</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{cylinder_to_trunion_flange}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeL14}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{sizeW14}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{qty14}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{weight14}</p>
                         </div>
                       </TableCell>
                     </TableRow>
