@@ -404,6 +404,56 @@ const Ladlecalculator = ({ authtoken }) => {
   const [weight13, Setweight13] = useState(0)
   const [weight14, Setweight14] = useState(0)
   const [weightsum, Setweightsum] = useState(0)
+  const [dia1, Setdia1] = useState(0)
+  const [dia2, Setdia2] = useState(0)
+  const [dia3, Setdia3] = useState(0)
+  const [dia4, Setdia4] = useState(0)
+  const [dia5, Setdia5] = useState(0)
+  const [dia6, Setdia6] = useState(0)
+  const [dia7, Setdia7] = useState(0)
+  const [dia8, Setdia8] = useState(0)
+  const [dia9, Setdia9] = useState(0)
+  const [dia10, Setdia10] = useState(0)
+  const [dia11, Setdia11] = useState(0)
+  const [dia12, Setdia12] = useState(0)
+  const [dia13, Setdia13] = useState(0)
+  const [dia14, Setdia14] = useState(0)
+  const [dia15, Setdia15] = useState(0)
+  const [dia16, Setdia16] = useState(0)
+  const [dia17, Setdia17] = useState(0)
+  const [dia18, Setdia18] = useState(0)
+  const [dia19, Setdia19] = useState(0)
+  const [dia20, Setdia20] = useState(0)
+  const [dia21, Setdia21] = useState(0)
+  const [dia22, Setdia22] = useState(0)
+  const [dia23, Setdia23] = useState(0)
+  const [dia24, Setdia24] = useState(0)
+  const [dia25, Setdia25] = useState(0)
+  const [dia26, Setdia26] = useState(0)
+  const [dia27, Setdia27] = useState(0)
+  const [dia28, Setdia28] = useState(0)
+  const [dia29, Setdia29] = useState(0)
+  const [dia30, Setdia30] = useState(0)
+  const [dia31, Setdia31] = useState(0)
+  const [dia32, Setdia32] = useState(0)
+  const [dia33, Setdia33] = useState(0)
+  const [dia34, Setdia34] = useState(0)
+  const [dia35, Setdia35] = useState(0)
+  const [dia36, Setdia36] = useState(0)
+  const [dia37, Setdia37] = useState(0)
+  const [dia38, Setdia38] = useState(0)
+  const [dia39, Setdia39] = useState(0)
+  const [dia40, Setdia40] = useState(0)
+  const [dia41, Setdia41] = useState(0)
+  const [dia42, Setdia42] = useState(0)
+  const [dia43, Setdia43] = useState(0)
+  const [dia44, Setdia44] = useState(0)
+  const [dia45, Setdia45] = useState(0)
+  const [dia46, Setdia46] = useState(0)
+  const [dia47, Setdia47] = useState(0)
+  const [dia48, Setdia48] = useState(0)
+  const [dia49, Setdia49] = useState(0)
+  const [dia50, Setdia50] = useState(0)
 
 
   const [output_show, setOutput_show] = useState(false);
@@ -526,16 +576,16 @@ const Ladlecalculator = ({ authtoken }) => {
         (parseFloat(vessel_cylindrical_id) +
           parseFloat(
             parseFloat(vessel_cylindrical_id) -
-              parseFloat(
-                Math.tan((3.1416 * bottom_cone_angle) / 180) *
-                  2 *
-                  bottom_cone_height
-              )
+            parseFloat(
+              Math.tan((3.1416 * bottom_cone_angle) / 180) *
+              2 *
+              bottom_cone_height
+            )
           )) *
         (parseFloat(bottom_cone_height) -
           parseFloat(
             parseFloat(bottom_cone_bottom_lining_brick_length) +
-              parseFloat(bottom_cone_safety_lining_brick_length)
+            parseFloat(bottom_cone_safety_lining_brick_length)
           ))) /
       2;
     const N68 = safety_bricks_width * safety_bricks_length;
@@ -549,11 +599,11 @@ const Ladlecalculator = ({ authtoken }) => {
     const E27 =
       parseFloat(
         parseFloat(vessel_cylindrical_id) -
-          parseFloat(
-            Math.tan((3.1416 * bottom_cone_angle) / 180) *
-              2 *
-              bottom_cone_height
-          )
+        parseFloat(
+          Math.tan((3.1416 * bottom_cone_angle) / 180) *
+          2 *
+          bottom_cone_height
+        )
       ) -
       2 * bottom_cone_safety_lining_brick_length;
     const M69 =
@@ -664,9 +714,9 @@ const Ladlecalculator = ({ authtoken }) => {
     Setsafety_table_areaL(O19);
     Setsafety_table_nooflayer(
       parseFloat(F17 / 100) +
-        parseFloat(F16 / 100) +
-        parseFloat(F15 / 100) +
-        parseFloat(F14 / 100)
+      parseFloat(F16 / 100) +
+      parseFloat(F15 / 100) +
+      parseFloat(F14 / 100)
     );
     const safety_table_sum =
       (safety_lining_length_t *
@@ -1337,8 +1387,8 @@ const Ladlecalculator = ({ authtoken }) => {
     const top_cone_table2_1_1_t =
       vessel_cylindrical_id -
       2 *
-        (parseFloat(bottom_cone_side_lining_brick_length) +
-          parseFloat(bottom_cone_safety_lining_brick_length));
+      (parseFloat(bottom_cone_side_lining_brick_length) +
+        parseFloat(bottom_cone_safety_lining_brick_length));
     Settop_cone_table2_1_1(top_cone_table2_1_1_t);
 
     let top_cone_table2_1_2_t, top_cone_table2_2_1_t, top_cone_table2_0_2_t;
@@ -1790,267 +1840,371 @@ const Ladlecalculator = ({ authtoken }) => {
       parseFloat(top_cone_table2_3_15t);
     setTop_cone_table2_3_24(top_cone_table2_3_24_t.toFixed(3));
 
-    const top_table3_1 = 3.1416/4*E27*E27
+    const top_table3_1 = 3.1416 / 4 * E27 * E27
     setTop_cone_table3_1(Math.round(top_table3_1))
-    const top_table3_2 = bricks_std_width*bricks_std_height
+    const top_table3_2 = bricks_std_width * bricks_std_height
     setTop_cone_table3_2((top_table3_2).toFixed(3))
-    const top_table3_0 = top_table3_1/top_table3_2
+    const top_table3_0 = top_table3_1 / top_table3_2
     setTop_cone_table3_0(Math.round(top_table3_0))
-    const top_table3_3 = bottom_cone_side_lining_brick_length*bricks_std_width*bricks_std_height*top_table3_0*density_of_bricks/1000000000
+    const top_table3_3 = bottom_cone_side_lining_brick_length * bricks_std_width * bricks_std_height * top_table3_0 * density_of_bricks / 1000000000
     setTop_cone_table3_3((top_table3_3).toFixed(3))
 
-    const top_table4_1_1 = 3.1416*(parseFloat(vessel_cylindrical_id)+parseFloat(D20))*top_cone_height/2
+    const top_table4_1_1 = 3.1416 * (parseFloat(vessel_cylindrical_id) + parseFloat(D20)) * top_cone_height / 2
     setTop_cone_table4_1_1((top_table4_1_1).toFixed(3))
-    const top_table4_1_2 = safety_bricks_width*safety_bricks_length
+    const top_table4_1_2 = safety_bricks_width * safety_bricks_length
     setTop_cone_table4_1_2(top_table4_1_2)
-    const top_table4_1_0 = top_table4_1_1/top_table4_1_2
+    const top_table4_1_0 = top_table4_1_1 / top_table4_1_2
     setTop_cone_table4_1_0(Math.round(top_table4_1_0))
-    const top_table4_1_3 = safety_bricks_width*safety_bricks_length*safety_bricks_height*top_table4_1_0*density_of_bricks/1000000000
+    const top_table4_1_3 = safety_bricks_width * safety_bricks_length * safety_bricks_height * top_table4_1_0 * density_of_bricks / 1000000000
     setTop_cone_table4_1_3((top_table4_1_3).toFixed(3))
 
-    const D27 = vessel_cylindrical_id-(Math.tan(3.1416*bottom_cone_angle/180)*2*bottom_cone_height)
-    const top_table4_2_1 = 3.1416*(parseFloat(vessel_cylindrical_id)+parseFloat(D27))*(parseFloat(bottom_cone_height)-(parseFloat(bottom_cone_bottom_lining_brick_length)+parseFloat(bottom_cone_safety_lining_brick_length)))/2
+    const D27 = vessel_cylindrical_id - (Math.tan(3.1416 * bottom_cone_angle / 180) * 2 * bottom_cone_height)
+    const top_table4_2_1 = 3.1416 * (parseFloat(vessel_cylindrical_id) + parseFloat(D27)) * (parseFloat(bottom_cone_height) - (parseFloat(bottom_cone_bottom_lining_brick_length) + parseFloat(bottom_cone_safety_lining_brick_length))) / 2
     setTop_cone_table4_2_1((top_table4_2_1).toFixed(3))
-    const top_table4_2_2 = safety_bricks_width*safety_bricks_length
+    const top_table4_2_2 = safety_bricks_width * safety_bricks_length
     setTop_cone_table4_2_2(top_table4_2_2)
-    const top_table4_2_0 = top_table4_2_1/top_table4_2_2
+    const top_table4_2_0 = top_table4_2_1 / top_table4_2_2
     setTop_cone_table4_2_0(Math.round(top_table4_2_0))
-    const top_table4_2_3 = safety_bricks_width*safety_bricks_length*safety_bricks_height*top_table4_2_0*density_of_bricks/1000000000
+    const top_table4_2_3 = safety_bricks_width * safety_bricks_length * safety_bricks_height * top_table4_2_0 * density_of_bricks / 1000000000
     setTop_cone_table4_2_3((top_table4_2_3).toFixed(3))
 
-    const top_table4_3_1 = 3.1416/4*(parseFloat(E27)+parseFloat(bottom_cone_bottom_lining_brick_length))*(parseFloat(E27)+parseFloat(bottom_cone_bottom_lining_brick_length))
+    const top_table4_3_1 = 3.1416 / 4 * (parseFloat(E27) + parseFloat(bottom_cone_bottom_lining_brick_length)) * (parseFloat(E27) + parseFloat(bottom_cone_bottom_lining_brick_length))
     setTop_cone_table4_3_1((top_table4_3_1).toFixed(3))
-    const top_table4_3_2 = safety_bricks_width*safety_bricks_length
+    const top_table4_3_2 = safety_bricks_width * safety_bricks_length
     setTop_cone_table4_3_2(top_table4_3_2)
-    const top_table4_3_0 = top_table4_3_1/top_table4_3_2
+    const top_table4_3_0 = top_table4_3_1 / top_table4_3_2
     setTop_cone_table4_3_0(Math.round(top_table4_3_0))
-    const top_table4_3_3 = safety_bricks_width*safety_bricks_length*safety_bricks_height*top_table4_3_0*density_of_bricks/1000000000
+    const top_table4_3_3 = safety_bricks_width * safety_bricks_length * safety_bricks_height * top_table4_3_0 * density_of_bricks / 1000000000
     setTop_cone_table4_3_3((top_table4_3_3).toFixed(3))
 
-    const top_table4_sum = parseFloat(top_table4_1_3)+parseFloat(top_table4_2_3)+parseFloat(top_table4_3_3)
+    const top_table4_sum = parseFloat(top_table4_1_3) + parseFloat(top_table4_2_3) + parseFloat(top_table4_3_3)
     setTop_cone_table4_sum((top_table4_sum).toFixed(3))
 
-    const weight = parseFloat(brick_weight) + parseFloat(safety_table_sum)  + parseFloat(top_cone_table_3_24_t) + parseFloat(top_cone_table2_3_24_t) + parseFloat(top_table3_3) + parseFloat(top_table4_sum)
+    const weight = parseFloat(brick_weight) + parseFloat(safety_table_sum) + parseFloat(top_cone_table_3_24_t) + parseFloat(top_cone_table2_3_24_t) + parseFloat(top_table3_3) + parseFloat(top_table4_sum)
     Settotal_weight((weight).toFixed(3))
 
     // Fabrication
-    const sizel1 = (parseFloat(vessel_cylindrical_id)+parseFloat(vessel_cylindrical_shell))*3.1428
+    const sizel1 = (parseFloat(vessel_cylindrical_id) + parseFloat(vessel_cylindrical_shell)) * 3.1428
     SetsizeL1(Math.round(sizel1))
     const sizew1 = vessel_cylindrical_height
     SetsizeW1(sizew1)
     const qty1t = 1;
     Setqty1(qty1t)
-    const weight1 = sizel1*sizew1*vessel_cylindrical_shell*qty1t*7.864/1000000
+    const weight1 = sizel1 * sizew1 * vessel_cylindrical_shell * qty1t * 7.864 / 1000000
     Setweight1(Math.round(weight1))
 
 
     const F950 = parseFloat(vessel_cylindrical_id) + parseFloat(vessel_top_cone)
-    const J953 = Math.tan(3.1416/180*top_cone_angle)
-    const J954 = Math.cos(3.1416/180*top_cone_angle)
-    const E955 = ((F950/2)/J953)/J954
-    const H958 = ((F950/2)*3.1428*360/(E955*3.1428))/4
-    const J958 = Math.sin(3.1416/180*H958)
-    const sizel2 = J958*E955*2
+    const J953 = Math.tan(3.1416 / 180 * top_cone_angle)
+    const J954 = Math.cos(3.1416 / 180 * top_cone_angle)
+    const E955 = ((F950 / 2) / J953) / J954
+    const H958 = ((F950 / 2) * 3.1428 * 360 / (E955 * 3.1428)) / 4
+    const J958 = Math.sin(3.1416 / 180 * H958)
+    const sizel2 = J958 * E955 * 2
     SetsizeL2(Math.round(sizel2))
 
-    const E956 = (((parseFloat(D20)+parseFloat(vessel_top_cone))/2)/J953)/J954
-    const G958 = E956*J958
-    const sizew2 = (parseFloat(E955)-parseFloat(E956))+(parseFloat(E956)-parseFloat(G958))
+    const E956 = (((parseFloat(D20) + parseFloat(vessel_top_cone)) / 2) / J953) / J954
+    const G958 = E956 * J958
+    const sizew2 = (parseFloat(E955) - parseFloat(E956)) + (parseFloat(E956) - parseFloat(G958))
     SetsizeW2(Math.round(sizew2))
     const qty2t = 2
     Setqty2(qty2t)
-    const weight2 = sizel2*sizew2*vessel_top_cone*qty2t*7.864/1000000
+    const weight2 = sizel2 * sizew2 * vessel_top_cone * qty2t * 7.864 / 1000000
     Setweight2(Math.round(weight2))
 
-    const H985 = parseFloat(vessel_cylindrical_id)+parseFloat(vessel_bottom_cone)
-    const J988 = Math.sin(3.1416/180*(90-parseFloat(bottom_cone_angle)))
-    const J990 = Math.tan(3.1416/180*(90-parseFloat(bottom_cone_angle)))
-    const D990 = (((parseFloat(vessel_cylindrical_id)+parseFloat(vessel_bottom_cone))/2)*J990)/J988
-    const G991 = (H985*3.1428)*360/(D990*2*3.1428)
-    const J991 = Math.sin(3.1416/180*(G991/4))
+    const H985 = parseFloat(vessel_cylindrical_id) + parseFloat(vessel_bottom_cone)
+    const J988 = Math.sin(3.1416 / 180 * (90 - parseFloat(bottom_cone_angle)))
+    const J990 = Math.tan(3.1416 / 180 * (90 - parseFloat(bottom_cone_angle)))
+    const D990 = (((parseFloat(vessel_cylindrical_id) + parseFloat(vessel_bottom_cone)) / 2) * J990) / J988
+    const G991 = (H985 * 3.1428) * 360 / (D990 * 2 * 3.1428)
+    const J991 = Math.sin(3.1416 / 180 * (G991 / 4))
     let sizel3;
-    if(top_cone_angle==0){
-      sizel3=0
+    if (top_cone_angle == 0) {
+      sizel3 = 0
     }
-    else{
-      sizel3 = 2*J991*D990
+    else {
+      sizel3 = 2 * J991 * D990
     }
     SetsizeL3(Math.round(sizel3))
 
-    const J992 = Math.cos(3.1416/180*(G991/4))
-    const D991 = D990-(bottom_cone_height/J988)
-    const F997 = J992*D991
-    const D989 = D990-D991
+    const J992 = Math.cos(3.1416 / 180 * (G991 / 4))
+    const D991 = D990 - (bottom_cone_height / J988)
+    const F997 = J992 * D991
+    const D989 = D990 - D991
     let sizew3;
-    if(top_cone_angle==0){
+    if (top_cone_angle == 0) {
       sizew3 = 0
     }
-    else{
-      sizew3 = (D991-F997)+D989
+    else {
+      sizew3 = (D991 - F997) + D989
     }
     SetsizeW3(Math.round(sizew3))
 
     let qty3t;
-    if(top_cone_angle==0){
-      qty3t=0
+    if (top_cone_angle == 0) {
+      qty3t = 0
     }
-    else{
-      qty3t=2
+    else {
+      qty3t = 2
     }
     Setqty3(qty3t)
 
-    const weight3 = sizel3*sizew3*vessel_bottom_cone*qty3t*7.864/1000000
+    const weight3 = sizel3 * sizew3 * vessel_bottom_cone * qty3t * 7.864 / 1000000
     Setweight3(Math.round(weight3))
 
-    const E976 = parseFloat(vessel_cylindrical_id/2) + parseFloat(vessel_cylindrical_shell)
+    const E976 = parseFloat(vessel_cylindrical_id / 2) + parseFloat(vessel_cylindrical_shell)
     const sizel4 = parseFloat(width_of_vessel_flange) + parseFloat(E976)
     SetsizeL4(sizel4)
 
-    const L980 = (sizel4*sizel4) - ((E976/2)*(E976/2))
+    const L980 = (sizel4 * sizel4) - ((E976 / 2) * (E976 / 2))
     const K979 = Math.sqrt(L980)
-    const K980 = sizel4-K979
-    const K978 = E976-(0.866*E976)
-    const K981 = K978-K980
-    const K982 = (sizel4-E976)+K981
-    const sizew4 = parseFloat(K982*6) + parseFloat(K980)
+    const K980 = sizel4 - K979
+    const K978 = E976 - (0.866 * E976)
+    const K981 = K978 - K980
+    const K982 = (sizel4 - E976) + K981
+    const sizew4 = parseFloat(K982 * 6) + parseFloat(K980)
     SetsizeW4(Math.round(sizew4))
 
     const qty4t = 1
     Setqty4(qty4t)
-    const weight4 = sizel4*sizew4*cylindrical_shell_flange*qty4t*7.864/1000000
+    const weight4 = sizel4 * sizew4 * cylindrical_shell_flange * qty4t * 7.864 / 1000000
     Setweight4(Math.round(weight4))
 
 
-    const E973 = parseFloat(vessel_cylindrical_id/2) + parseFloat(vessel_top_cone)
+    const E973 = parseFloat(vessel_cylindrical_id / 2) + parseFloat(vessel_top_cone)
     const sizel5 = parseFloat(E973) + parseFloat(width_of_cone_flange)
     SetsizeL5(Math.round(sizel5))
 
-    const K974 = Math.sqrt((sizel5*sizel5)-((E973/2)*(E973/2)))
+    const K974 = Math.sqrt((sizel5 * sizel5) - ((E973 / 2) * (E973 / 2)))
     const K975 = sizel5 - K974
-    const K973 = E973-(0.866*E973)
-    const K976 = K973-K975
-    const L976 = sizel5-E973+K976
-    const sizew5 = (L976*6)+K975
+    const K973 = E973 - (0.866 * E973)
+    const K976 = K973 - K975
+    const L976 = sizel5 - E973 + K976
+    const sizew5 = (L976 * 6) + K975
     SetsizeW5(Math.round(sizew5))
 
-    const qty5t=1
+    const qty5t = 1
     Setqty5(qty5t)
-    const weight5 = sizel5*sizew5*top_cone_flange*qty5t*7.864/1000000
+    const weight5 = sizel5 * sizew5 * top_cone_flange * qty5t * 7.864 / 1000000
     Setweight5(Math.round(weight5))
 
-    const sizel6=0
-    const sizew6=0
-    const qty6t=1
+    const sizel6 = 0
+    const sizew6 = 0
+    const qty6t = 1
     Setqty6(qty6t)
-    const weight6 = sizel6*sizew6*top_cone_protection_flange*qty6t*7.864/1000000
+    const weight6 = sizel6 * sizew6 * top_cone_protection_flange * qty6t * 7.864 / 1000000
     Setweight6(Math.round(weight6))
 
 
     let F970
-    const F968 = disc_end_height*0.1
-    const F969 = disc_end_height*0.25
-    const D966 = parseFloat(D27)+parseFloat(disc_end*2)
-    if(disc_end>25){
-      F970 = parseFloat(D966)+parseFloat(D966/42)+parseFloat(2*F968)+parseFloat(2/3*(F969))+ parseFloat(disc_end)
+    const F968 = disc_end_height * 0.1
+    const F969 = disc_end_height * 0.25
+    const D966 = parseFloat(D27) + parseFloat(disc_end * 2)
+    if (disc_end > 25) {
+      F970 = parseFloat(D966) + parseFloat(D966 / 42) + parseFloat(2 * F968) + parseFloat(2 / 3 * (F969)) + parseFloat(disc_end)
     }
-    else{
-      F970 = parseFloat(D966)+parseFloat(D966/42)+parseFloat(2*F968)+parseFloat(2/3*(F969))
+    else {
+      F970 = parseFloat(D966) + parseFloat(D966 / 42) + parseFloat(2 * F968) + parseFloat(2 / 3 * (F969))
     }
 
-    const I966 = parseFloat(disc_end_height) + (disc_end/2)
+    const I966 = parseFloat(disc_end_height) + (disc_end / 2)
     const H966 = parseFloat(D27) + parseFloat(disc_end)
-    const I968 = parseFloat((H966*H966)/(8*I966))+ parseFloat(I966/2)
-    const K966 = (I968-I966)/I968
-    const J966 = 2* (57.2958*Math.acos(K966))
-    const J969 = 0.01745*I968*J966
+    const I968 = parseFloat((H966 * H966) / (8 * I966)) + parseFloat(I966 / 2)
+    const K966 = (I968 - I966) / I968
+    const J966 = 2 * (57.2958 * Math.acos(K966))
+    const J969 = 0.01745 * I968 * J966
     let sizel7;
-    if(top_cone_angle==0){
+    if (top_cone_angle == 0) {
       sizel7 = F970
     }
-    else{
+    else {
       sizel7 = J969
     }
     SetsizeL7(Math.round(sizel7))
-    const sizew7=0
+    const sizew7 = 0
     SetsizeW7(sizew7)
-    
-    const qty7t=1
+
+    const qty7t = 1
     Setqty7(qty7t)
-    const weight7 = 3.1416/4*sizel7*sizel7*disc_end*7.864/1000000
+    const weight7 = 3.1416 / 4 * sizel7 * sizel7 * disc_end * 7.864 / 1000000
     Setweight7(Math.round(weight7))
-    const sizel8=375
+    const sizel8 = 375
     SetsizeL8(375)
 
-    const sizew8 = vessel_flanges_distance-cylindrical_shell_flange-cylinder_to_trunion_flange
+    const sizew8 = vessel_flanges_distance - cylindrical_shell_flange - cylinder_to_trunion_flange
     SetsizeW8(sizew8)
 
     const qty8t = 12
     Setqty8(qty8t)
-    const weight8 = sizel8*sizew8*stiffner_cyl_flange*qty8t*7.864/1000000
+    const weight8 = sizel8 * sizew8 * stiffner_cyl_flange * qty8t * 7.864 / 1000000
     Setweight8(Math.round(weight8))
 
-    const sizel9=250
+    const sizel9 = 250
     SetsizeL9(sizel9)
-    const sizew9=250
+    const sizew9 = 250
     SetsizeW9(sizew9)
-    const qty9t=24
+    const qty9t = 24
     Setqty9(qty9t)
-    const weight9 = sizel9*sizew9*stiffnertop_cone_flange*qty9t*7.864/1000000
+    const weight9 = sizel9 * sizew9 * stiffnertop_cone_flange * qty9t * 7.864 / 1000000
     Setweight9(Math.round(weight9))
 
-    const sizel10 = sizel8*2
+    const sizel10 = sizel8 * 2
     const sizew10 = sizew8
     SetsizeL10(sizel10)
     SetsizeW10(sizew10)
-    const qty10t=6
+    const qty10t = 6
     Setqty10(qty10t)
-    const weight10 = sizel10*sizew10*lifting_hook*qty10t*7.864/1000000
+    const weight10 = sizel10 * sizew10 * lifting_hook * qty10t * 7.864 / 1000000
     Setweight10(Math.round(weight10))
 
     const sizel11 = 500
     const sizew11 = 300
     SetsizeL11(sizel11)
     SetsizeW11(sizew11)
-    const qty11t=12
+    const qty11t = 12
     Setqty11(qty11t)
-    const weight11 = sizel11*sizew11*legs*qty11t*7.864/1000000
+    const weight11 = sizel11 * sizew11 * legs * qty11t * 7.864 / 1000000
     Setweight11(Math.round(weight11))
 
-    const sizel12 = (D20+400)-300
+    const sizel12 = (D20 + 400) - 300
     SetsizeL12(Math.round(sizel12))
-    const sizew12 = (D20+400)/2
+    const sizew12 = (D20 + 400) / 2
     SetsizeW12(Math.round(sizew12))
-    const qty12t=1
+    const qty12t = 1
     Setqty12(qty12t)
-    const weight12 = sizel12*sizew12*cone_top_rim*qty12t*7.864/1000000
+    const weight12 = sizel12 * sizew12 * cone_top_rim * qty12t * 7.864 / 1000000
     Setweight12(Math.round(weight12))
 
-    const sizel13 = 3.1416/4*pin_lifting_hook*pin_lifting_hook/1000000
+    const sizel13 = 3.1416 / 4 * pin_lifting_hook * pin_lifting_hook / 1000000
     SetsizeL13(sizel13)
     const sizew13 = 500
     SetsizeW13(sizew13)
-    const qty13t=3
+    const qty13t = 3
     Setqty13(qty13t)
-    const weight13 = sizel13*sizew13*qty13t*7.864/1
+    const weight13 = sizel13 * sizew13 * qty13t * 7.864 / 1
     Setweight13(Math.round(weight13))
 
-    const E979 = parseFloat(vessel_cylindrical_id/2) + parseFloat(vessel_cylindrical_shell)
+    const E979 = parseFloat(vessel_cylindrical_id / 2) + parseFloat(vessel_cylindrical_shell)
     const sizel14 = parseFloat(width_of_trunion_flange) + parseFloat(E979)
     SetsizeL14(Math.round(sizel14))
 
-    const K984 = Math.sqrt((sizel14*sizel14)-((E979/2)*(E979/2)))
-    const K985 = sizel14-K984
-    const K983 = E979-(0.866*E979)
-    const L986 = (sizel14-E979)+(K983-K985)
-    const sizew14 = (L986*6)+K985
+    const K984 = Math.sqrt((sizel14 * sizel14) - ((E979 / 2) * (E979 / 2)))
+    const K985 = sizel14 - K984
+    const K983 = E979 - (0.866 * E979)
+    const L986 = (sizel14 - E979) + (K983 - K985)
+    const sizew14 = (L986 * 6) + K985
     SetsizeW14(Math.round(sizew14))
-    const qty14t=1
+    const qty14t = 1
     Setqty14(qty14t)
-    const weight14 = sizel14*sizew14*qty14t*cylinder_to_trunion_flange*7.864/1000000
+    const weight14 = sizel14 * sizew14 * qty14t * cylinder_to_trunion_flange * 7.864 / 1000000
     Setweight14(Math.round(weight14))
 
-    const weight_sum = parseFloat(weight1)+parseFloat(weight2)+parseFloat(weight3)+parseFloat(weight4)+parseFloat(weight5)+parseFloat(weight6)+parseFloat(weight7)+parseFloat(weight8)+parseFloat(weight9)+parseFloat(weight10)+parseFloat(weight11)+parseFloat(weight12)+parseFloat(weight13)+parseFloat(weight14)
+    const weight_sum = parseFloat(weight1) + parseFloat(weight2) + parseFloat(weight3) + parseFloat(weight4) + parseFloat(weight5) + parseFloat(weight6) + parseFloat(weight7) + parseFloat(weight8) + parseFloat(weight9) + parseFloat(weight10) + parseFloat(weight11) + parseFloat(weight12) + parseFloat(weight13) + parseFloat(weight14)
     Setweightsum(weight_sum)
+
+    let d1
+    if (top_cone_angle == 0) {
+      d1 = 0
+    }
+    else {
+      d1 = vessel_top_cone
+    }
+    Setdia1(d1)
+
+
+    let d2
+    if (top_cone_angle == 0) {
+      d2 = 0
+    }
+    else {
+      d2 = vessel_cylindrical_shell
+    }
+    Setdia2(d2)
+
+    let d3
+    if (top_cone_angle == 0) {
+      d3 = 0
+    }
+    else {
+      d3 = vessel_bottom_cone
+    }
+    Setdia3(d3)
+
+    let d4
+    if (top_cone_angle == 0) {
+      d4 = 0
+    }
+    else {
+      d4 = disc_end
+    }
+    Setdia4(d4)
+
+    let d5
+    let d6
+    let d7, d8, d9, d10, d11, d12, d13
+    if (top_cone_angle == 0) {
+      d5 = 0
+      d6 = 0
+      d7 = 0
+      d8 = 0
+      d9 = 0
+      d10 = 0
+      d11 = 0
+      d12 = 0
+      d13 = 0
+    }
+    else {
+      d5 = vessel_cylindrical_id
+      d6 = D20
+      d7 = top_cone_height
+      d8 = top_cone_flange
+      d9 = cylindrical_shell_flange
+      d10 = vessel_cylindrical_height
+      d11 = parseFloat(bottom_cone_height) + parseFloat(disc_end_height)
+      d12 = D27
+      d13 = parseFloat(d7) + parseFloat(d10) + parseFloat(d11)
+    }
+    Setdia5(Math.round(d5))
+    Setdia6(Math.round(d6))
+    Setdia7(Math.round(d7))
+    Setdia8(Math.round(d8))
+    Setdia9(Math.round(d9))
+    Setdia10(Math.round(d10))
+    Setdia11(Math.round(d11))
+    Setdia12(Math.round(d12))
+    Setdia13(Math.round(d13))
+    
+    Setdia14(Math.round((parseFloat(vessel_cylindrical_id) + parseFloat(vessel_cylindrical_shell))*3.1428))
+    Setdia15(vessel_cylindrical_height)
+    Setdia16(Math.round(sizel2))
+    Setdia17(Math.round(E955))
+    Setdia18(Math.round(E956))
+    Setdia19(Math.round(sizew2))
+    Setdia20(Math.round(2*H958))
+    Setdia21(Math.round(vessel_top_cone))
+    Setdia22(Math.round(sizel7))
+    Setdia23(Math.round(disc_end))
+    Setdia24(Math.round(sizel3))
+    Setdia25(Math.round(D990))
+    Setdia26(Math.round(D991))
+    Setdia27(Math.round(sizew3))
+    Setdia28(Math.round((G991/4)*2))
+    Setdia29(Math.round(vessel_bottom_cone))
+    Setdia30(Math.round(sizel5))
+    Setdia31(Math.round(sizel5))
+    Setdia32(Math.round(sizew5))
+    Setdia33(Math.round(E973))
+    Setdia34(Math.round(top_cone_flange))
+    Setdia35(Math.round(sizel4))
+    Setdia36(Math.round(sizel4))
+    Setdia37(Math.round(sizew4))
+    Setdia38(Math.round(E976))
+    Setdia39(Math.round(cylindrical_shell_flange))
+
+
+
+
+
 
 
 
@@ -2187,29 +2341,29 @@ const Ladlecalculator = ({ authtoken }) => {
     window.location.reload();
   };
 
-  // const [windowWidth, setWindowWidth] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
 
   // Function to update window width
-  // const updateWindowWidth = () => {
-  //     setWindowWidth(window.innerWidth);
-  // };
+  const updateWindowWidth = () => {
+    setWindowWidth(window.innerWidth);
+  };
 
   // Add an event listener to update the window width when the component mounts
-  // useLayoutEffect(() => {
-  //     updateWindowWidth();
-  //     window.addEventListener('resize', updateWindowWidth);
-  //     return () => {
-  //         window.removeEventListener('resize', updateWindowWidth);
-  //     };
-  // }, []);
+  useLayoutEffect(() => {
+    updateWindowWidth();
+    window.addEventListener('resize', updateWindowWidth);
+    return () => {
+      window.removeEventListener('resize', updateWindowWidth);
+    };
+  }, []);
 
   // Calculate the image width based on screen size
-  // const imageWidth = windowWidth < 900 ? 300 : 1100;
-  // const imageWidth2 = windowWidth < 900 ? 100 : 300;
-  // const imageWidth3 = windowWidth < 900 ? 100 : 300;
-  // const imageheight1 = windowWidth < 900 ? 100 : 400;
-  // const imageheight2 = windowWidth < 900 ? 100 : 300;
-  // const imageheight3 = windowWidth < 900 ? 100 : 300;
+  const imageWidth = windowWidth < 900 ? 300 : 550;
+  const imageWidth2 = windowWidth < 900 ? 100 : 400;
+  const imageWidth3 = windowWidth < 900 ? 100 : 800;
+  const imageheight1 = windowWidth < 900 ? 100 : 400;
+  const imageheight2 = windowWidth < 900 ? 100 : 300;
+  const imageheight3 = windowWidth < 900 ? 100 : 300;
 
   return (
     <div className="body_ladle" style={{ backgroundColor: "#f9fbfc" }}>
@@ -2559,7 +2713,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Vessel Cylindrical Shell
@@ -2597,7 +2751,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Vessel Top Cone
@@ -2627,7 +2781,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Vessel Bottom Cone
@@ -2659,7 +2813,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Cylindrical Shell Flange
@@ -2703,7 +2857,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Top Cone Flange
@@ -2739,7 +2893,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Top Cone Protection Flange
@@ -2777,7 +2931,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Disc End
@@ -2860,7 +3014,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Stiffner Cyl. Flange
@@ -2898,7 +3052,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Stiffner Top Cone Flange
@@ -2936,7 +3090,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Lifting Hook
@@ -2979,7 +3133,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Legs
@@ -3015,7 +3169,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Cone Top Rim
@@ -3051,7 +3205,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Pin Lifting Hook
@@ -3089,7 +3243,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          // error={error_show.thickness4 && !thickness4}
+                        // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
                             Cylinder to Trunion Flange
@@ -6880,7 +7034,7 @@ const Ladlecalculator = ({ authtoken }) => {
               >
                 <Table stickyHeader aria-label="sticky table">
                   <TableBody>
-                  <TableRow
+                    <TableRow
                       hover
                       role="checkbox"
                       tabIndex={-1}
@@ -7702,6 +7856,310 @@ const Ladlecalculator = ({ authtoken }) => {
             </Paper>
           </div>
         </div>
+      </div>
+      <div ref={div7Ref}>
+        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh' }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            {/* <h3 style={{ textAlign: "center", marginBottom: "1vh" }}>
+              DEVELOPMENT OF LADLE TOP RIM PLATE
+            </h3>
+            <h5 style={{ textAlign: "center", marginBottom: "10vh" }}>
+              SIX SECTOR PLATE @ 60 DEGREE EACH
+            </h5> */}
+            <div className="dia">
+              <div className="dia_p_1aod">
+                <p className="p1"> Cone Shell Thk. {dia1}</p>
+              </div>
+              <div className="dia_p_2aod">
+                <p className="p1">Total Height of Vessel</p>
+              </div>
+              <div className="dia_p_3aod">
+                <p className="p1">Vessel Shell Thk. {dia2}</p>
+              </div>
+              <div className="dia_p_4aod">
+                <p className="p1">Bottom Cone Thk. {dia3}</p>
+              </div>
+              <div className="dia_p_5aod">
+                <p className="p1">Disc End Thk. {dia4}</p>
+              </div>
+              <Image
+                src="/aod6.jpeg"
+                alt="My Image"
+                width={imageWidth2}
+                height={imageheight1}
+                loading="eager" // Options: "eager", "lazy", or "auto"
+                priority // Preload this image
+                quality={80} // Set the image quality (0-100)
+              />
+            </div>
+          </div>
+
+          <div className="dia">
+            <div className="dia_p_6aod">
+              <p className="p1"> Vessel ID {dia5}</p>
+            </div>
+            <div className="dia_p_7aod">
+              <p className="p1" style={{ fontSize: '10px' }}>Cone Top ID</p>
+            </div>
+            <div className="dia_p_8aod">
+              <p className="p1" style={{ fontSize: '10px' }}>{dia6}</p>
+            </div>
+            <div className="dia_p_9aod">
+              <p className="p1">Top Cone Height</p>
+            </div>
+            <div className="dia_p_10aod">
+              <p className="p1">Cone Flange Thk.</p>
+            </div>
+            <div className="dia_p_11aod">
+              <p className="p1">Vessel FLange Thk.</p>
+            </div>
+            <div className="dia_p_12aod">
+              <p className="p1">Cyl. Shell Height</p>
+            </div>
+            <div className="dia_p_13aod">
+              <p className="p1 p_temp">Bottom Cone with Disc end Height</p>
+            </div>
+            <div className="dia_p_14aod">
+              <p className="p1">{dia7}</p>
+            </div>
+            <div className="dia_p_15aod">
+              <p className="p1">{dia8}</p>
+            </div>
+            <div className="dia_p_16aod">
+              <p className="p1">{dia9}</p>
+            </div>
+            <div className="dia_p_17aod">
+              <p className="p1">{dia10}</p>
+            </div>
+            <div className="dia_p_18aod">
+              <p className="p1">{dia11}</p>
+            </div>
+            <div className="dia_p_19aod">
+              <p className="p1">Bottom Cone Dia</p>
+            </div>
+            <div className="dia_p_20aod">
+              <p className="p1">{dia12}</p>
+            </div>
+            <div className="dia_p_21aod">
+              <p className="p1">{dia13}</p>
+            </div>
+            <Image
+              src="/aod1.png"
+              alt="My Image"
+              width={imageWidth2}
+              height={imageheight1}
+              loading="eager" // Options: "eager", "lazy", or "auto"
+              priority // Preload this image
+              quality={80} // Set the image quality (0-100)
+            />
+          </div>
+        </div>
+
+
+        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh' }}>
+
+          <div className="dia">
+            <div className="dia_p_22aod">
+              <p className="p1">{dia14}</p>
+            </div>
+            <div className="dia_p_23aod">
+              <p className="p1">{dia15}</p>
+            </div>
+            <Image
+              src="/aod7.png"
+              alt="My Image"
+              width={imageWidth}
+              height={imageheight2}
+              loading="eager" // Options: "eager", "lazy", or "auto"
+              priority // Preload this image
+              quality={80} // Set the image quality (0-100)
+            />
+          </div>
+        </div>
+
+
+        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh' }}>
+
+          <div className="dia">
+            <div className="dia_p_24aod">
+              <p className="p1">{dia16}</p>
+            </div>
+            <div className="dia_p_25aod">
+              <p className="p1">{dia17} R</p>
+            </div>
+            <div className="dia_p_26aod">
+              <p className="p1">{dia18} r</p>
+            </div>
+            <div className="dia_p_27aod">
+              <p className="p1">{dia19}</p>
+            </div>
+            <div className="dia_p_28aod">
+              <p className="p1">{dia20} Angle in Degree</p>
+            </div>
+            <div className="dia_p_29aod">
+              <p className="p1">{dia21} Thk.</p>
+            </div>
+            <Image
+              src="/aod2.png"
+              alt="My Image"
+              width={imageWidth3}
+              height={imageheight2}
+              loading="eager" // Options: "eager", "lazy", or "auto"
+              priority // Preload this image
+              quality={80} // Set the image quality (0-100)
+            />
+          </div>
+        </div>
+        
+        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh' }}>
+
+          <div className="dia">
+            <div className="dia_p_30aod">
+              <p className="p1">{dia22} Dia</p>
+            </div>
+            <div className="dia_p_31aod">
+              <p className="p1">{dia23} Thk.</p>
+            </div>
+            <Image
+              src="/aod4.png"
+              alt="My Image"
+              width={imageWidth2}
+              height={imageheight1}
+              loading="eager" // Options: "eager", "lazy", or "auto"
+              priority // Preload this image
+              quality={80} // Set the image quality (0-100)
+            />
+          </div>
+        </div>
+
+        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh' }}>
+
+          <div className="dia">
+            <div className="dia_p_24aod">
+              <p className="p1">{dia24}</p>
+            </div>
+            <div className="dia_p_25aod">
+              <p className="p1">{dia25} R</p>
+            </div>
+            <div className="dia_p_26aod">
+              <p className="p1">{dia26} r</p>
+            </div>
+            <div className="dia_p_27aod">
+              <p className="p1">{dia27}</p>
+            </div>
+            <div className="dia_p_28aod">
+              <p className="p1">{dia28} Angle in Degree</p>
+            </div>
+            <div className="dia_p_29aod">
+              <p className="p1">{dia29} Thk.</p>
+            </div>
+            <Image
+              src="/aod2.png"
+              alt="My Image"
+              width={imageWidth3}
+              height={imageheight2}
+              loading="eager" // Options: "eager", "lazy", or "auto"
+              priority // Preload this image
+              quality={80} // Set the image quality (0-100)
+            />
+          </div>
+        </div>
+
+
+        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh', marginBottom:'15vh' }}>
+
+          <div className="dia">
+            <div className="dia_p_32aod">
+              <p className="p1">R {dia30}</p>
+            </div>
+            <div className="dia_p_33aod">
+              <p className="p1">{dia31}</p>
+            </div>
+            <div className="dia_p_34aod">
+              <p className="p1">d{dia32}</p>
+            </div>
+            <div className="dia_p_35aod">
+              <p className="p1">{dia33} r</p>
+            </div>
+            <div className="dia_p_36aod">
+              <p className="p1">{dia34}</p>
+            </div>
+            <Image
+              src="/aod3.jpeg"
+              alt="My Image"
+              width={imageWidth2}
+              height={imageheight1}
+              loading="eager" // Options: "eager", "lazy", or "auto"
+              priority // Preload this image
+              quality={80} // Set the image quality (0-100)
+            />
+          </div>
+        </div>
+        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh', marginBottom:'15vh' }}>
+
+          <div className="dia">
+            <div className="dia_p_32aod">
+              <p className="p1">R {dia35}</p>
+            </div>
+            <div className="dia_p_33aod">
+              <p className="p1">{dia36}</p>
+            </div>
+            <div className="dia_p_34aod">
+              <p className="p1">{dia37}</p>
+            </div>
+            <div className="dia_p_35aod">
+              <p className="p1">{dia38} r</p>
+            </div>
+            <div className="dia_p_36aod">
+              <p className="p1">{dia39}</p>
+            </div>
+            <Image
+              src="/aod3.jpeg"
+              alt="My Image"
+              width={imageWidth2}
+              height={imageheight1}
+              loading="eager" // Options: "eager", "lazy", or "auto"
+              priority // Preload this image
+              quality={80} // Set the image quality (0-100)
+            />
+          </div>
+        </div>
+        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh', marginBottom:'15vh' }}>
+
+          <div className="dia">
+            <div className="dia_p_32aod">
+              <p className="p1">R {dia35}</p>
+            </div>
+            <div className="dia_p_37aod">
+              <p className="p1">{dia36}</p>
+            </div>
+            <div className="dia_p_34aod">
+              <p className="p1">{dia37}</p>
+            </div>
+            <div className="dia_p_35aod">
+              <p className="p1">{dia38} r</p>
+            </div>
+            <div className="dia_p_36aod">
+              <p className="p1">{dia39}</p>
+            </div>
+            <Image
+              src="/aod5.jpeg"
+              alt="My Image"
+              width={imageWidth2}
+              height={imageheight1}
+              loading="eager" // Options: "eager", "lazy", or "auto"
+              priority // Preload this image
+              quality={80} // Set the image quality (0-100)
+            />
+          </div>
+        </div>
+        
       </div>
 
       <div className="btns_ladle">
