@@ -50,6 +50,11 @@ const Ladlecalculator = ({ authtoken }) => {
   const [volumn_aod, Setvolumn_aod] = useState(0)
   const [total_capacity, Settotal_capacity] = useState(0)
   const [total_volumn, Settotal_volumn] = useState(0)
+  const [metal, Setmetal] = useState(0)
+  const [lining_bricks, Setlining_bricks] = useState(0)
+  const [fabricated_vessel, Setfabricated_vessel] = useState(0)
+  const [slag, Setslag] = useState(0)
+  const [total, Settotal] = useState(0)
   const [vessel_cylindrical_id, setVessel_cylindrical_id] = useState(null);
   const [vessel_cylindrical_height, setVessel_cylindrical_height] =
     useState(null);
@@ -102,7 +107,7 @@ const Ladlecalculator = ({ authtoken }) => {
   const [degree_lining_for_trapping_t, Setdegree_lining_for_trapping_t] =
     useState(null);
   const [degree_lining_for_trapping_s, Setdegree_lining_for_trapping_s] =
-    useState(null);
+    useState(" ");
   const [top_cone_lining, Settop_cone_lining] = useState(null);
   const [
     bottom_cone_side_lining_brick_length,
@@ -119,9 +124,9 @@ const Ladlecalculator = ({ authtoken }) => {
   const [bricks_std_width, Setbricks_std_width] = useState(null);
   const [bricks_std_height, Setbricks_std_height] = useState(null);
   const [density_of_bricks, Setdensity_of_bricks] = useState(null);
-  const [safety_bricks_width, Setsafety_bricks_width] = useState(null);
+  const [safety_bricks_width, Setsafety_bricks_width] = useState(115);
   const [safety_bricks_height, Setsafety_bricks_height] = useState(null);
-  const [safety_bricks_length, Setsafety_bricks_length] = useState(null);
+  const [safety_bricks_length, Setsafety_bricks_length] = useState(230);
   const [safety_cyl1, Setsafety_cyl1] = useState(0);
   const [safety_cyl2, Setsafety_cyl2] = useState(0);
   const [safety_cyl3, Setsafety_cyl3] = useState(0);
@@ -501,13 +506,13 @@ const Ladlecalculator = ({ authtoken }) => {
   const result = async (event) => {
     const I20 = top_cone_height / 100;
     const I49 = bottom_cone_height / 100;
-    // const result_ticket = await validate_ticket();
-    // if (result_ticket === -1) {
-    //   toast.error("You don't have tickets");
-    //   setOpen(false);
-    //   getUserData();
-    //   return;
-    // }
+     const result_ticket = await validate_ticket();
+     if (result_ticket === -1) {
+       toast.error("You don't have tickets");
+       setOpen(false);
+       getUserData();
+       return;
+     }
 
     const F14 = Math.ceil((0.52 * vessel_cylindrical_height) / 100) * 100;
     const F15 = Math.ceil((0.14 * vessel_cylindrical_height) / 100) * 100;
@@ -955,9 +960,10 @@ const Ladlecalculator = ({ authtoken }) => {
     }
 
     let top_cone_table_1_15_t, top_cone_table_2_14_t, top_cone_table_0_15_t;
+    
     if (I20 >= 14) {
       top_cone_table_1_15_t =
-        top_cone_table_1_15_t - H21 * 2 * bricks_std_height;
+        top_cone_table_1_14_t - H21 * 2 * bricks_std_height;
       Settop_cone_table_1_15(Math.round(top_cone_table_1_15_t));
       top_cone_table_2_14_t = top_cone_table_1_15_t * 3.1416;
       Settop_cone_table_2_14(top_cone_table_2_14_t.toFixed(6));
@@ -2104,7 +2110,7 @@ const Ladlecalculator = ({ authtoken }) => {
     Setweight14(Math.round(weight14))
 
     const weight_sum = parseFloat(weight1) + parseFloat(weight2) + parseFloat(weight3) + parseFloat(weight4) + parseFloat(weight5) + parseFloat(weight6) + parseFloat(weight7) + parseFloat(weight8) + parseFloat(weight9) + parseFloat(weight10) + parseFloat(weight11) + parseFloat(weight12) + parseFloat(weight13) + parseFloat(weight14)
-    Setweightsum(weight_sum)
+    Setweightsum(Math.round(weight_sum))
 
     let d1
     if (top_cone_angle == 0) {
@@ -2204,7 +2210,7 @@ const Ladlecalculator = ({ authtoken }) => {
     Setdia37(Math.round(sizew4))
     Setdia38(Math.round(E976))
     Setdia39(Math.round(cylindrical_shell_flange))
-    Setdisc_end_dia(D27)
+    Setdisc_end_dia(Math.round(D27))
     const W21 = ((vessel_cylindrical_id)-2*(parseFloat(bottom_cone_side_lining_brick_length)+parseFloat(bottom_cone_safety_lining_brick_length)))/2000
     const W22 = ((D27)-2*(parseFloat(bottom_cone_side_lining_brick_length)+parseFloat(bottom_cone_safety_lining_brick_length)))/2000
     const W19 = (W21*W21)+(W21*W22)+(W22*W22)
@@ -2291,6 +2297,12 @@ const Ladlecalculator = ({ authtoken }) => {
     const totalvolumn = parseFloat(Z28) + parseFloat(Z29) + parseFloat(Z30)
     Settotal_volumn((totalvolumn).toFixed(2))
     
+    const tempw = (weight).toFixed(3)
+    Setmetal((capacityaod).toFixed(2))
+    Setlining_bricks(tempw)
+    Setfabricated_vessel((weight_sum/1000).toFixed(2))
+    Setslag((capacityaod*0.1).toFixed(2))
+    Settotal((parseFloat(capacityaod)+parseFloat(tempw)+parseFloat(weight_sum/1000)+parseFloat(capacityaod*0.1)).toFixed(2))
 
 
 
@@ -2588,6 +2600,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             value={top_cone_bottom_id}
                             type="number"
                             defaultValue="Small"
+                            disabled
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
                             // onChange={(e) =>
@@ -2666,13 +2679,14 @@ const Ladlecalculator = ({ authtoken }) => {
                             label="Bottom Cone Top ID"
                             value={bottom_cone_top_id}
                             variant="outlined"
+                            disabled
                             type="number"
                             defaultValue="Small"
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
-                            onChange={(e) =>
-                              Setbottom_cone_top_id(e.target.value)
-                            }
+                            // onChange={(e) =>
+                            //   Setbottom_cone_top_id(e.target.value)
+                            // }
                           />
                         </div>
                       </TableCell>
@@ -2804,8 +2818,13 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
+                            <MenuItem value={8}>8</MenuItem>
+                            <MenuItem value={10}>10</MenuItem>
+                            <MenuItem value={12}>12</MenuItem>
+                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
+                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
                             <MenuItem value={28}>28</MenuItem>
                             <MenuItem value={30}>30</MenuItem>
@@ -2814,9 +2833,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={100}>100</MenuItem>
-                            <MenuItem value={125}>125</MenuItem>
-                            <MenuItem value={150}>150</MenuItem>
+                            
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2840,13 +2857,21 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
+                            <MenuItem value={8}>8</MenuItem>
+                            <MenuItem value={10}>10</MenuItem>
                             <MenuItem value={12}>12</MenuItem>
+                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
+                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={28}>28</MenuItem>
+                            <MenuItem value={30}>30</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
+                            <MenuItem value={45}>45</MenuItem>
+                            <MenuItem value={50}>50</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2872,13 +2897,21 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
+                            <MenuItem value={8}>8</MenuItem>
+                            <MenuItem value={10}>10</MenuItem>
                             <MenuItem value={12}>12</MenuItem>
+                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
+                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={28}>28</MenuItem>
+                            <MenuItem value={30}>30</MenuItem>
                             <MenuItem value={32}>32</MenuItem>
                             <MenuItem value={36}>36</MenuItem>
                             <MenuItem value={40}>40</MenuItem>
+                            <MenuItem value={45}>45</MenuItem>
+                            <MenuItem value={50}>50</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2904,8 +2937,13 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
+                            <MenuItem value={8}>8</MenuItem>
+                            <MenuItem value={10}>10</MenuItem>
+                            <MenuItem value={12}>12</MenuItem>
+                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
+                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
                             <MenuItem value={28}>28</MenuItem>
                             <MenuItem value={30}>30</MenuItem>
@@ -2914,9 +2952,6 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={100}>100</MenuItem>
-                            <MenuItem value={125}>125</MenuItem>
-                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2946,8 +2981,13 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
+                            <MenuItem value={8}>8</MenuItem>
+                            <MenuItem value={10}>10</MenuItem>
+                            <MenuItem value={12}>12</MenuItem>
+                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
+                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
                             <MenuItem value={28}>28</MenuItem>
                             <MenuItem value={30}>30</MenuItem>
@@ -2956,9 +2996,6 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={100}>100</MenuItem>
-                            <MenuItem value={125}>125</MenuItem>
-                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -2984,8 +3021,13 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
+                            <MenuItem value={8}>8</MenuItem>
+                            <MenuItem value={10}>10</MenuItem>
+                            <MenuItem value={12}>12</MenuItem>
+                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
+                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
                             <MenuItem value={28}>28</MenuItem>
                             <MenuItem value={30}>30</MenuItem>
@@ -2994,9 +3036,6 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={100}>100</MenuItem>
-                            <MenuItem value={125}>125</MenuItem>
-                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -3020,8 +3059,13 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
+                            <MenuItem value={8}>8</MenuItem>
+                            <MenuItem value={10}>10</MenuItem>
+                            <MenuItem value={12}>12</MenuItem>
+                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
+                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
                             <MenuItem value={28}>28</MenuItem>
                             <MenuItem value={30}>30</MenuItem>
@@ -3030,9 +3074,6 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={100}>100</MenuItem>
-                            <MenuItem value={125}>125</MenuItem>
-                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -3105,8 +3146,13 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
+                            <MenuItem value={8}>8</MenuItem>
+                            <MenuItem value={10}>10</MenuItem>
+                            <MenuItem value={12}>12</MenuItem>
+                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
+                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
                             <MenuItem value={28}>28</MenuItem>
                             <MenuItem value={30}>30</MenuItem>
@@ -3115,9 +3161,6 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={100}>100</MenuItem>
-                            <MenuItem value={125}>125</MenuItem>
-                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -3143,8 +3186,13 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
+                            <MenuItem value={8}>8</MenuItem>
+                            <MenuItem value={10}>10</MenuItem>
+                            <MenuItem value={12}>12</MenuItem>
+                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
+                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
                             <MenuItem value={28}>28</MenuItem>
                             <MenuItem value={30}>30</MenuItem>
@@ -3153,9 +3201,6 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={100}>100</MenuItem>
-                            <MenuItem value={125}>125</MenuItem>
-                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -3179,8 +3224,13 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value="">
                               <em>None</em>
                             </MenuItem>
+                            <MenuItem value={8}>8</MenuItem>
+                            <MenuItem value={10}>10</MenuItem>
+                            <MenuItem value={12}>12</MenuItem>
+                            <MenuItem value={14}>14</MenuItem>
                             <MenuItem value={16}>16</MenuItem>
                             <MenuItem value={20}>20</MenuItem>
+                            <MenuItem value={22}>22</MenuItem>
                             <MenuItem value={25}>25</MenuItem>
                             <MenuItem value={28}>28</MenuItem>
                             <MenuItem value={30}>30</MenuItem>
@@ -3189,9 +3239,6 @@ const Ladlecalculator = ({ authtoken }) => {
                             <MenuItem value={40}>40</MenuItem>
                             <MenuItem value={45}>45</MenuItem>
                             <MenuItem value={50}>50</MenuItem>
-                            <MenuItem value={100}>100</MenuItem>
-                            <MenuItem value={125}>125</MenuItem>
-                            <MenuItem value={150}>150</MenuItem>
                           </Select>
                         </FormControl>
                       </TableCell>
@@ -3453,38 +3500,72 @@ const Ladlecalculator = ({ authtoken }) => {
                       <p>Size1</p>
                     </TableCell>
                     <TableCell>
-                      <div className="row_ladle flex-all">
-                        <TextField
-                          required
-                          className="textfield_ladle"
-                          id="outlined-number"
-                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                          label="Size1"
-                          variant="outlined"
-                          type="number"
-                          defaultValue="Small"
-                          // error={error_show.topdiameter && !topdiameter}
+                    <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          onChange={(e) => Setsize1_t(e.target.value)}
-                        />
-                      </div>
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Size1
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={size1_t}
+                            label="Size 1"
+                            onChange={(e) => Setsize1_t(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={200}>200</MenuItem>
+                            <MenuItem value={225}>225</MenuItem>
+                            <MenuItem value={250}>250</MenuItem>
+                            <MenuItem value={300}>300</MenuItem>
+                            <MenuItem value={350}>350</MenuItem>
+                            <MenuItem value={400}>400</MenuItem>
+                            <MenuItem value={450}>450</MenuItem>
+                            <MenuItem value={500}>500</MenuItem>
+                            <MenuItem value={550}>550</MenuItem>
+                            <MenuItem value={600}>600</MenuItem>
+                          </Select>
+                        </FormControl>
+                        </div>
                     </TableCell>
                     <TableCell>
-                      <div className="row_ladle flex-all">
-                        <TextField
-                          required
-                          className="textfield_ladle"
-                          id="outlined-number"
-                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                          label="Size1"
-                          variant="outlined"
-                          type="number"
-                          defaultValue="Small"
-                          // error={error_show.topdiameter && !topdiameter}
+                    <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          onChange={(e) => Setsize1_s(e.target.value)}
-                        />
-                      </div>
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Size1
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={size1_s}
+                            label="Size 1"
+                            onChange={(e) => Setsize1_s(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={200}>200</MenuItem>
+                            <MenuItem value={225}>225</MenuItem>
+                            <MenuItem value={250}>250</MenuItem>
+                            <MenuItem value={300}>300</MenuItem>
+                            <MenuItem value={350}>350</MenuItem>
+                            <MenuItem value={400}>400</MenuItem>
+                            <MenuItem value={450}>450</MenuItem>
+                            <MenuItem value={500}>500</MenuItem>
+                            <MenuItem value={550}>550</MenuItem>
+                            <MenuItem value={600}>600</MenuItem>
+                          </Select>
+                        </FormControl>
+                        </div>
                     </TableCell>
                     <TableCell>
                       <div className="row_ladle flex-all">
@@ -3510,38 +3591,72 @@ const Ladlecalculator = ({ authtoken }) => {
                       <p>Size2</p>
                     </TableCell>
                     <TableCell>
-                      <div className="row_ladle flex-all">
-                        <TextField
-                          required
-                          className="textfield_ladle"
-                          id="outlined-number"
-                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                          label="Size2"
-                          variant="outlined"
-                          type="number"
-                          defaultValue="Small"
-                          // error={error_show.topdiameter && !topdiameter}
+                    <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          onChange={(e) => Setsize2_t(e.target.value)}
-                        />
-                      </div>
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Size2
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={size2_t}
+                            label="Size 2"
+                            onChange={(e) => Setsize2_t(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={200}>200</MenuItem>
+                            <MenuItem value={225}>225</MenuItem>
+                            <MenuItem value={250}>250</MenuItem>
+                            <MenuItem value={300}>300</MenuItem>
+                            <MenuItem value={350}>350</MenuItem>
+                            <MenuItem value={400}>400</MenuItem>
+                            <MenuItem value={450}>450</MenuItem>
+                            <MenuItem value={500}>500</MenuItem>
+                            <MenuItem value={550}>550</MenuItem>
+                            <MenuItem value={600}>600</MenuItem>
+                          </Select>
+                        </FormControl>
+                        </div>
                     </TableCell>
                     <TableCell>
-                      <div className="row_ladle flex-all">
-                        <TextField
-                          required
-                          className="textfield_ladle"
-                          id="outlined-number"
-                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                          label="Size2"
-                          variant="outlined"
-                          type="number"
-                          defaultValue="Small"
-                          // error={error_show.topdiameter && !topdiameter}
+                    <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          onChange={(e) => Setsize2_s(e.target.value)}
-                        />
-                      </div>
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Size2
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={size2_s}
+                            label="Size 2"
+                            onChange={(e) => Setsize2_s(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={200}>200</MenuItem>
+                            <MenuItem value={225}>225</MenuItem>
+                            <MenuItem value={250}>250</MenuItem>
+                            <MenuItem value={300}>300</MenuItem>
+                            <MenuItem value={350}>350</MenuItem>
+                            <MenuItem value={400}>400</MenuItem>
+                            <MenuItem value={450}>450</MenuItem>
+                            <MenuItem value={500}>500</MenuItem>
+                            <MenuItem value={550}>550</MenuItem>
+                            <MenuItem value={600}>600</MenuItem>
+                          </Select>
+                        </FormControl>
+                        </div>
                     </TableCell>
                     <TableCell>
                       <div className="row_ladle flex-all">
@@ -3567,38 +3682,72 @@ const Ladlecalculator = ({ authtoken }) => {
                       <p>Size3</p>
                     </TableCell>
                     <TableCell>
-                      <div className="row_ladle flex-all">
-                        <TextField
-                          required
-                          className="textfield_ladle"
-                          id="outlined-number"
-                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                          label="Size3"
-                          variant="outlined"
-                          type="number"
-                          defaultValue="Small"
-                          // error={error_show.topdiameter && !topdiameter}
+                    <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          onChange={(e) => Setsize3_t(e.target.value)}
-                        />
-                      </div>
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Size3
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={size3_t}
+                            label="Size 3"
+                            onChange={(e) => Setsize3_t(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={200}>200</MenuItem>
+                            <MenuItem value={225}>225</MenuItem>
+                            <MenuItem value={250}>250</MenuItem>
+                            <MenuItem value={300}>300</MenuItem>
+                            <MenuItem value={350}>350</MenuItem>
+                            <MenuItem value={400}>400</MenuItem>
+                            <MenuItem value={450}>450</MenuItem>
+                            <MenuItem value={500}>500</MenuItem>
+                            <MenuItem value={550}>550</MenuItem>
+                            <MenuItem value={600}>600</MenuItem>
+                          </Select>
+                        </FormControl>
+                        </div>
                     </TableCell>
                     <TableCell>
-                      <div className="row_ladle flex-all">
-                        <TextField
-                          required
-                          className="textfield_ladle"
-                          id="outlined-number"
-                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                          label="Size3"
-                          variant="outlined"
-                          type="number"
-                          defaultValue="Small"
-                          // error={error_show.topdiameter && !topdiameter}
+                    <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          onChange={(e) => Setsize3_s(e.target.value)}
-                        />
-                      </div>
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Size3
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={size3_s}
+                            label="Size 3"
+                            onChange={(e) => Setsize3_s(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={200}>200</MenuItem>
+                            <MenuItem value={225}>225</MenuItem>
+                            <MenuItem value={250}>250</MenuItem>
+                            <MenuItem value={300}>300</MenuItem>
+                            <MenuItem value={350}>350</MenuItem>
+                            <MenuItem value={400}>400</MenuItem>
+                            <MenuItem value={450}>450</MenuItem>
+                            <MenuItem value={500}>500</MenuItem>
+                            <MenuItem value={550}>550</MenuItem>
+                            <MenuItem value={600}>600</MenuItem>
+                          </Select>
+                        </FormControl>
+                        </div>
                     </TableCell>
                     <TableCell>
                       <div className="row_ladle flex-all">
@@ -3624,38 +3773,72 @@ const Ladlecalculator = ({ authtoken }) => {
                       <p>Size4</p>
                     </TableCell>
                     <TableCell>
-                      <div className="row_ladle flex-all">
-                        <TextField
-                          required
-                          className="textfield_ladle"
-                          id="outlined-number"
-                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                          label="Size4"
-                          variant="outlined"
-                          type="number"
-                          defaultValue="Small"
-                          // error={error_show.topdiameter && !topdiameter}
+                    <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          onChange={(e) => Setsize4_t(e.target.value)}
-                        />
-                      </div>
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Size4
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={size4_t}
+                            label="Size 4"
+                            onChange={(e) => Setsize4_t(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={200}>200</MenuItem>
+                            <MenuItem value={225}>225</MenuItem>
+                            <MenuItem value={250}>250</MenuItem>
+                            <MenuItem value={300}>300</MenuItem>
+                            <MenuItem value={350}>350</MenuItem>
+                            <MenuItem value={400}>400</MenuItem>
+                            <MenuItem value={450}>450</MenuItem>
+                            <MenuItem value={500}>500</MenuItem>
+                            <MenuItem value={550}>550</MenuItem>
+                            <MenuItem value={600}>600</MenuItem>
+                          </Select>
+                        </FormControl>
+                        </div>
                     </TableCell>
                     <TableCell>
-                      <div className="row_ladle flex-all">
-                        <TextField
-                          required
-                          className="textfield_ladle"
-                          id="outlined-number"
-                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                          label="Size4"
-                          variant="outlined"
-                          type="number"
-                          defaultValue="Small"
-                          // error={error_show.topdiameter && !topdiameter}
+                    <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          onChange={(e) => Setsize4_s(e.target.value)}
-                        />
-                      </div>
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Size4
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={size4_s}
+                            label="Size 4"
+                            onChange={(e) => Setsize4_s(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={200}>200</MenuItem>
+                            <MenuItem value={225}>225</MenuItem>
+                            <MenuItem value={250}>250</MenuItem>
+                            <MenuItem value={300}>300</MenuItem>
+                            <MenuItem value={350}>350</MenuItem>
+                            <MenuItem value={400}>400</MenuItem>
+                            <MenuItem value={450}>450</MenuItem>
+                            <MenuItem value={500}>500</MenuItem>
+                            <MenuItem value={550}>550</MenuItem>
+                            <MenuItem value={600}>600</MenuItem>
+                          </Select>
+                        </FormControl>
+                        </div>
                     </TableCell>
                     <TableCell>
                       <div className="row_ladle flex-all">
@@ -3681,42 +3864,60 @@ const Ladlecalculator = ({ authtoken }) => {
                       <p>Safety Lining Length</p>
                     </TableCell>
                     <TableCell>
-                      <div className="row_ladle flex-all">
-                        <TextField
-                          required
-                          className="textfield_ladle"
-                          id="outlined-number"
-                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                          label="Safety Lining Length"
-                          variant="outlined"
-                          type="number"
-                          defaultValue="Small"
-                          // error={error_show.topdiameter && !topdiameter}
+                    <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          onChange={(e) =>
-                            Setsafety_lining_length_t(e.target.value)
-                          }
-                        />
-                      </div>
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Safety Lining Length
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={safety_lining_length_t}
+                            label="Safety Lining Length"
+                            onChange={(e) => Setsafety_lining_length_t(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={50}>50</MenuItem>
+                            <MenuItem value={75}>75</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                          </Select>
+                        </FormControl>
+                        </div>
                     </TableCell>
                     <TableCell>
-                      <div className="row_ladle flex-all">
-                        <TextField
-                          required
-                          className="textfield_ladle"
-                          id="outlined-number"
-                          sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
-                          label="Safety Lining Length"
-                          variant="outlined"
-                          type="number"
-                          defaultValue="Small"
-                          // error={error_show.topdiameter && !topdiameter}
+                    <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
-                          onChange={(e) =>
-                            Setsafety_lining_length_s(e.target.value)
-                          }
-                        />
-                      </div>
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Safety Lining Length
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={safety_lining_length_s}
+                            label="Safety Lining Length"
+                            onChange={(e) => Setsafety_lining_length_s(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={50}>50</MenuItem>
+                            <MenuItem value={75}>75</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                          </Select>
+                        </FormControl>
+                        </div>
                     </TableCell>
                     <TableCell>
                       {/* <div className="row_ladle flex-all">
@@ -3756,8 +3957,10 @@ const Ladlecalculator = ({ authtoken }) => {
                           defaultValue="Small"
                           // error={error_show.topdiameter && !topdiameter}
                           size="small"
-                          onChange={(e) =>
+                          onChange={(e) =>{
                             Setdegree_lining_for_trapping_t(e.target.value)
+                            Setdegree_lining_for_trapping_s(360 - e.target.value)
+                          }
                           }
                         />
                       </div>
@@ -3771,7 +3974,9 @@ const Ladlecalculator = ({ authtoken }) => {
                           sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
                           label="Degree Lining for Tapping/Sampling"
                           variant="outlined"
+                          value={degree_lining_for_trapping_s}
                           type="number"
+                          disabled
                           defaultValue="Small"
                           // error={error_show.topdiameter && !topdiameter}
                           size="small"
@@ -3807,82 +4012,121 @@ const Ladlecalculator = ({ authtoken }) => {
                     >
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
+                          size="small"
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Top Cone Lining
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={top_cone_lining}
                             label="Top Cone Lining"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
                             onChange={(e) => Settop_cone_lining(e.target.value)}
-                          />
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={200}>200</MenuItem>
+                            <MenuItem value={250}>250</MenuItem>
+                            <MenuItem value={300}>300</MenuItem>
+                            <MenuItem value={350}>350</MenuItem>
+                            <MenuItem value={400}>400</MenuItem>
+                          </Select>
+                        </FormControl>
                         </div>
                       </TableCell>
                       <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                      <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
+                          size="small"
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Bottom Cone Side Lining Brick Length
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={bottom_cone_side_lining_brick_length}
                             label="Bottom Cone Side Lining Brick Length"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) =>
-                              Setbottom_cone_side_lining_brick_length(
-                                e.target.value
-                              )
-                            }
-                          />
+                            onChange={(e) => Setbottom_cone_side_lining_brick_length(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={300}>300</MenuItem>
+                            <MenuItem value={350}>350</MenuItem>
+                            <MenuItem value={400}>400</MenuItem>
+                            <MenuItem value={450}>450</MenuItem>
+                            <MenuItem value={500}>500</MenuItem>
+                            <MenuItem value={550}>550</MenuItem>
+                            <MenuItem value={600}>600</MenuItem>
+                          </Select>
+                        </FormControl>
                         </div>
                       </TableCell>
                       <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                            label="Bottom Code Bottom Lining Brick Length"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) =>
-                              Setbottom_cone_bottom_lining_brick_length(
-                                e.target.value
-                              )
-                            }
-                          />
+                      <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
+                          size="small"
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Bottom Cone Bottom Lining Brick Length
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={bottom_cone_bottom_lining_brick_length}
+                            label="Bottom Cone Bottom Lining Brick Length"
+                            onChange={(e) => Setbottom_cone_bottom_lining_brick_length(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={300}>300</MenuItem>
+                            <MenuItem value={350}>350</MenuItem>
+                            <MenuItem value={400}>400</MenuItem>
+                            <MenuItem value={450}>450</MenuItem>
+                            <MenuItem value={500}>500</MenuItem>
+                            <MenuItem value={550}>550</MenuItem>
+                            <MenuItem value={600}>600</MenuItem>
+                          </Select>
+                        </FormControl>
                         </div>
                       </TableCell>
                       <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                      <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
+                          size="small"
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Bottom Cone Safety Lining Brick Length
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={bottom_cone_safety_lining_brick_length}
                             label="Bottom Cone Safety Lining Brick Length"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) =>
-                              Setbottom_cone_safety_lining_brick_length(
-                                e.target.value
-                              )
-                            }
-                          />
+                            onChange={(e) => Setbottom_cone_safety_lining_brick_length(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={50}>50</MenuItem>
+                            <MenuItem value={75}>75</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                          </Select>
+                        </FormControl>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -3893,41 +4137,57 @@ const Ladlecalculator = ({ authtoken }) => {
                       sx={{ maxHeight: "10px" }}
                     >
                       <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                            label="Bricks Std. Width"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) =>
-                              Setbricks_std_width(e.target.value)
-                            }
-                          />
+                      <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
+                          size="small"
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Brick Std Width
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={bricks_std_width}
+                            label="Bricks Std Width"
+                            onChange={(e) => Setbricks_std_width(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                            <MenuItem value={150}>150</MenuItem>
+                            <MenuItem value={200}>200</MenuItem>
+                          </Select>
+                        </FormControl>
                         </div>
                       </TableCell>
                       <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                            label="Bricks Std. Height"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) =>
-                              Setbricks_std_height(e.target.value)
-                            }
-                          />
+                      <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
+                          size="small"
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Brick Std Height
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={bricks_std_height}
+                            label="Bricks Std Height"
+                            onChange={(e) => Setbricks_std_height(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                            <MenuItem value={125}>125</MenuItem>
+                            <MenuItem value={150}>150</MenuItem>
+                          </Select>
+                        </FormControl>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -3958,13 +4218,15 @@ const Ladlecalculator = ({ authtoken }) => {
                             sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             label="Safety Bricks Width"
                             variant="outlined"
+                            value={safety_bricks_width}
+                            disabled
                             type="number"
                             defaultValue="Small"
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
-                            onChange={(e) =>
-                              Setsafety_bricks_width(e.target.value)
-                            }
+                            // onChange={(e) =>
+                            //   Setsafety_bricks_width(e.target.value)
+                            // }
                           />
                         </div>
                       </TableCell>
@@ -3977,22 +4239,30 @@ const Ladlecalculator = ({ authtoken }) => {
                       sx={{ maxHeight: "10px" }}
                     >
                       <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
+                      <div className="row_ladle flex-all">
+                      <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
+                          size="small"
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Safety Bricks Height
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={safety_bricks_height}
                             label="Safety Bricks Height"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) =>
-                              Setsafety_bricks_height(e.target.value)
-                            }
-                          />
+                            onChange={(e) => Setsafety_bricks_height(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={50}>50</MenuItem>
+                            <MenuItem value={75}>75</MenuItem>
+                          </Select>
+                        </FormControl>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -4004,13 +4274,15 @@ const Ladlecalculator = ({ authtoken }) => {
                             sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             label="Safety Bricks Length"
                             variant="outlined"
+                            value={safety_bricks_length}
+                            disabled
                             type="number"
                             defaultValue="Small"
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
-                            onChange={(e) =>
-                              Setsafety_bricks_length(e.target.value)
-                            }
+                            // onChange={(e) =>
+                            //   Setsafety_bricks_length(e.target.value)
+                            // }
                           />
                         </div>
                       </TableCell>
@@ -4126,6 +4398,127 @@ const Ladlecalculator = ({ authtoken }) => {
               </TableContainer>
             </Paper>
           </div>
+
+
+          <div className="ladle_first">
+            <Paper sx={{ overflow: "hidden" }}>
+              <TableContainer
+                sx={{ maxHeight: 1000 }}
+                style={{ backgroundColor: "#f9fbfc" }}
+              >
+                <Table stickyHeader aria-label="sticky table">
+                  <TableBody>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Perticulars</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Weight(MT)</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Metal</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{metal}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Lining Bricks</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{lining_bricks}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Fabricated Vessel</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{fabricated_vessel}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Slag-10% of Metal</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{slag}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Total</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{total}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Paper>
+          </div>
+
+
+
           <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
               <TableContainer
