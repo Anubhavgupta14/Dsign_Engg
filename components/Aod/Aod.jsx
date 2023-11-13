@@ -46,18 +46,22 @@ const Ladlecalculator = ({ authtoken }) => {
   const div5Ref = useRef();
   const div6Ref = useRef();
   const div7Ref = useRef();
+  const [capacity_aod, Setcapacity_aod] = useState(0)
+  const [volumn_aod, Setvolumn_aod] = useState(0)
+  const [total_capacity, Settotal_capacity] = useState(0)
+  const [total_volumn, Settotal_volumn] = useState(0)
   const [vessel_cylindrical_id, setVessel_cylindrical_id] = useState(null);
   const [vessel_cylindrical_height, setVessel_cylindrical_height] =
     useState(null);
-  const [top_cone_bottom_id, settop_cone_bottom_id] = useState(null);
+  const [top_cone_bottom_id, settop_cone_bottom_id] = useState(" ");
   const [top_cone_height, Settop_cone_height] = useState(null);
   const [top_cone_angle, Settop_cone_angle] = useState(null);
   const [top_safety, Settop_safety] = useState(null);
   const [density_of_liq_metal, Setdensity_of_liq_metal] = useState(null);
-  const [bottom_cone_top_id, Setbottom_cone_top_id] = useState(null);
+  const [bottom_cone_top_id, Setbottom_cone_top_id] = useState(" ");
   const [bottom_cone_height, Setbottom_cone_height] = useState(null);
   const [bottom_cone_angle, Setbottom_cone_angle] = useState(null);
-  const [disc_end_dia, Setdisc_end_dia] = useState(null);
+  const [disc_end_dia, Setdisc_end_dia] = useState(0);
   const [disc_end_height, Setdisc_end_height] = useState(null);
   const [vessel_cylindrical_shell, Setvessel_cylindrical_shell] =
     useState(null);
@@ -2200,12 +2204,93 @@ const Ladlecalculator = ({ authtoken }) => {
     Setdia37(Math.round(sizew4))
     Setdia38(Math.round(E976))
     Setdia39(Math.round(cylindrical_shell_flange))
+    Setdisc_end_dia(D27)
+    const W21 = ((vessel_cylindrical_id)-2*(parseFloat(bottom_cone_side_lining_brick_length)+parseFloat(bottom_cone_safety_lining_brick_length)))/2000
+    const W22 = ((D27)-2*(parseFloat(bottom_cone_side_lining_brick_length)+parseFloat(bottom_cone_safety_lining_brick_length)))/2000
+    const W19 = (W21*W21)+(W21*W22)+(W22*W22)
+    const AA19 = ((3.1416/3*(bottom_cone_height/1000))*W19)/0.49
+    const W14 = ((vessel_cylindrical_id)-2*(parseFloat(top_cone_lining)+parseFloat(top_safety)))/2000
+    const U12 = vessel_cylindrical_id - (Math.tan(3.1416*top_cone_angle/180)*2*top_cone_height)
+    const W15 = ((U12)-2*(parseFloat(top_cone_lining)+parseFloat(top_safety)))/2000
+    const W11 = 3.1416/3*(top_cone_height/1000)
+    const W12 = (W14*W14)+(W14*W15)+(W15*W15)
+    const AA12 = (W11*W12)/0.49
+
+    const X7 =
+      parseFloat(vessel_cylindrical_id) -
+      parseFloat(parseFloat(size2_t) + parseFloat(safety_lining_length_t)) -
+      parseFloat(parseFloat(size2_s) + parseFloat(safety_lining_length_s));
+
+    const X8 =
+      parseFloat(vessel_cylindrical_id) -
+      parseFloat(parseFloat(size3_t) + parseFloat(safety_lining_length_t)) -
+      parseFloat(parseFloat(size3_s) + parseFloat(safety_lining_length_s));
+
+    const X9 =
+      parseFloat(vessel_cylindrical_id) -
+      parseFloat(parseFloat(size4_t) + parseFloat(safety_lining_length_t)) -
+      parseFloat(parseFloat(size4_s) + parseFloat(safety_lining_length_s));
+
+    const Y6 = 0.7854*X6*X6*F14/1000000000
+    const Y7 = 0.7854*X7*X7*F15/1000000000
+    const Y8 = 0.7854*X8*X8*F16/1000000000
+    const Y9 = 0.7854*X9*X9*F17/1000000000
+    const Z6 = parseFloat(Y6) + parseFloat(Y7) + parseFloat(Y8) + parseFloat(Y9)
+    const AA6 = Z6/0.49
+    const capacityaod = parseFloat(AA19) + parseFloat(AA12) + parseFloat(AA6)
+    Setcapacity_aod((capacityaod).toFixed(2))
+
+    const W18 = 3.1416/3*(bottom_cone_height/1000)
+    const Z19 = W18*W19
+    const Z12 = W11*W12
+    const volumnaod = parseFloat(Z19)+parseFloat(Z12)+parseFloat(Z6)
+    Setvolumn_aod((volumnaod).toFixed(2))
+
+    const U33 = X6/2000
+    const X33 = X9/2000
+    const X12 = ((U12)-2*(parseFloat(top_cone_lining)+parseFloat(top_safety)))/2000
+
+    const X34 = X33 - X12
+    const X35 = 1-(X34/X33)
+    const U35 = 1-((U33-X12)/U33)
+    const Y35 = (U35+X35)/2
+    const Y33 = (U33+X33)/2
+    const Y36 = (2*Math.acos(Y35))/2*Y33*Y33
+
+    const U34 = U33-X12
+    const U45 = U33-U34
+    const X45 = X33-X34
+    const Y45 = (parseFloat(U45)+parseFloat(X45))/2
+    const U37 = Math.sqrt((2*U33)-U34)
+    const X37 = Math.sqrt((2*X33)-X34)
+    const Y37 = (parseFloat(U37)+parseFloat(X37))/2
+    const V31 = Y36-(Y45*Y37)
+    const V30 = parseFloat(F14/1000) + parseFloat(F15/1000) + parseFloat(F16/1000) + parseFloat(F17/1000)
+    const AA28 = 6.85*(V31*V30)
+    
+    const V49 = ((vessel_cylindrical_id)-2*(parseFloat(top_cone_lining)+parseFloat(top_safety)))/1000
+    const V50 =((U12)-2*(parseFloat(top_cone_lining)+parseFloat(top_safety)))/1000
+    const V51 = top_cone_height/1000
+    const V52 = (V49-V50)/2
+    const W49= 1/2*(V49+V50)*V51*V52
+    const AA29 = 6.85*(Z12-W49)
 
 
+    const U19 = vessel_cylindrical_id-(Math.tan(3.1416*bottom_cone_angle/180)*2*bottom_cone_height)
+    const V55 = ((vessel_cylindrical_id)-2*(parseFloat(bottom_cone_side_lining_brick_length)+parseFloat(bottom_cone_safety_lining_brick_length)))/1000
+    const V56 = ((U19)-2*(parseFloat(bottom_cone_side_lining_brick_length)+parseFloat(bottom_cone_safety_lining_brick_length)))/1000
+    const V57 = bottom_cone_height/1000
+    const W55 = 1/2*(parseFloat(V55)+parseFloat(V56))*V57*V52
+    const AA30 = 6.85*(Z19-W55)
+    const totalcapacity = parseFloat(AA28) + parseFloat(AA29) + parseFloat(AA30)
+    Settotal_capacity((totalcapacity).toFixed(2))
 
-
-
-
+    const Z28 = V31*V30
+    const Z29 = Z12-W49
+    const Z30 = Z19-W55
+    const totalvolumn = parseFloat(Z28) + parseFloat(Z29) + parseFloat(Z30)
+    Settotal_volumn((totalvolumn).toFixed(2))
+    
 
 
 
@@ -2463,8 +2548,11 @@ const Ladlecalculator = ({ authtoken }) => {
                             defaultValue="Small"
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
-                            onChange={(e) =>
+                            onChange={(e) =>{
+                              settop_cone_bottom_id(e.target.value)
                               setVessel_cylindrical_id(e.target.value)
+                              Setbottom_cone_top_id(e.target.value)
+                            }
                             }
                           />
                         </div>
@@ -2497,13 +2585,14 @@ const Ladlecalculator = ({ authtoken }) => {
                             sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             label="Top Cone Bottom ID"
                             variant="outlined"
+                            value={top_cone_bottom_id}
                             type="number"
                             defaultValue="Small"
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
-                            onChange={(e) =>
-                              settop_cone_bottom_id(e.target.value)
-                            }
+                            // onChange={(e) =>
+                            //   settop_cone_bottom_id(e.target.value)
+                            // }
                           />
                         </div>
                       </TableCell>
@@ -2575,6 +2664,7 @@ const Ladlecalculator = ({ authtoken }) => {
                             id="outlined-number"
                             sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             label="Bottom Cone Top ID"
+                            value={bottom_cone_top_id}
                             variant="outlined"
                             type="number"
                             defaultValue="Small"
@@ -2632,23 +2722,7 @@ const Ladlecalculator = ({ authtoken }) => {
                           />
                         </div>
                       </TableCell>
-                      <TableCell>
-                        <div className="row_ladle flex-all">
-                          <TextField
-                            required
-                            className="textfield_ladle"
-                            id="outlined-number"
-                            sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
-                            label="Disc End Dia"
-                            variant="outlined"
-                            type="number"
-                            defaultValue="Small"
-                            // error={error_show.topdiameter && !topdiameter}
-                            size="small"
-                            onChange={(e) => Setdisc_end_dia(e.target.value)}
-                          />
-                        </div>
-                      </TableCell>
+                      
                       <TableCell>
                         <div className="row_ladle flex-all">
                           <TextField
@@ -3952,8 +4026,107 @@ const Ladlecalculator = ({ authtoken }) => {
       {/* outputs */}
       <div ref={div2Ref}>
         <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
-          <div className="ladle_first">
             <h2 className="head_ladle">Output</h2>
+          <div className="ladle_first">
+            <Paper sx={{ overflow: "hidden" }}>
+              <TableContainer
+                sx={{ maxHeight: 1000 }}
+                style={{ backgroundColor: "#f9fbfc" }}
+              >
+                <Table stickyHeader aria-label="sticky table">
+                  <TableBody>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Capacity of AOD Vessel</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{capacity_aod} MT</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Volumn of AOD Vessel</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{volumn_aod} Cu.Mtr</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Total Capacity @90 degree Tilt Vessel</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{total_capacity} MT</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Total Volume @90 degree Tilt Vessel</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{total_volumn} Cu.Mtr</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      sx={{ maxHeight: "10px" }}
+                    >
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>Disc End Dia</p>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="row_ladle flex-all">
+                          <p>{disc_end_dia}</p>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Paper>
+          </div>
+          <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
               <TableContainer
                 sx={{ maxHeight: 1000 }}
