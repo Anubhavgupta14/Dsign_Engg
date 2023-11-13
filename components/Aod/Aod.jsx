@@ -463,6 +463,10 @@ const Ladlecalculator = ({ authtoken }) => {
   const [dia48, Setdia48] = useState(0)
   const [dia49, Setdia49] = useState(0)
   const [dia50, Setdia50] = useState(0)
+  const [k, setK] = useState(25);
+  const [k2, setK2] = useState(50);
+  const [k3, setK3] = useState(0);
+  const [k4, setK4] = useState(0);
 
 
   const [output_show, setOutput_show] = useState(false);
@@ -2341,10 +2345,10 @@ const Ladlecalculator = ({ authtoken }) => {
   }, []);
 
   const handleDownloadPDF = async () => {
-    if (!download) {
-      toast.error("Calculate First");
-      return;
-    }
+    // if (!download) {
+    //   toast.error("Calculate First");
+    //   return;
+    // }
 
     // Capture the first div to an image
     const div1ImageData = await html2canvas(div1Ref.current);
@@ -2352,6 +2356,10 @@ const Ladlecalculator = ({ authtoken }) => {
     // Capture the second div to an image
     const div2ImageData = await html2canvas(div2Ref.current);
     const div3ImageData = await html2canvas(div3Ref.current);
+    const div4ImageData = await html2canvas(div4Ref.current);
+    const div5ImageData = await html2canvas(div5Ref.current);
+    const div6ImageData = await html2canvas(div6Ref.current);
+    const div7ImageData = await html2canvas(div7Ref.current);
 
     // Create a new PDF document
     const pdf = new jsPDF("p", "mm", "a4", true);
@@ -2374,9 +2382,9 @@ const Ladlecalculator = ({ authtoken }) => {
       div1ImageData,
       "PNG",
       k,
-      0,
-      pdf.internal.pageSize.getWidth() - k2,
-      pdf.internal.pageSize.getHeight()
+      10,
+      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getHeight()-20
     );
 
     // Add a new page to the PDF document
@@ -2387,24 +2395,76 @@ const Ladlecalculator = ({ authtoken }) => {
       div2ImageData,
       "PNG",
       k3,
-      0,
+      10,
       pdf.internal.pageSize.getWidth() - k4,
-      pdf.internal.pageSize.getHeight()
+      pdf.internal.pageSize.getHeight()-20
     );
     pdf.addPage();
+
+    // Add the second image to the PDF document
     pdf.addImage(
       div3ImageData,
       "PNG",
       k3,
-      0,
+      10,
       pdf.internal.pageSize.getWidth() - k4,
-      pdf.internal.pageSize.getHeight()
+      pdf.internal.pageSize.getHeight()-100
     );
+    pdf.addPage();
+
+    // Add the second image to the PDF document
+    pdf.addImage(
+      div4ImageData,
+      "PNG",
+      k3,
+      10,
+      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getHeight()-20
+    );
+    pdf.addPage();
+
+    // Add the second image to the PDF document
+    pdf.addImage(
+      div5ImageData,
+      "PNG",
+      k3,
+      10,
+      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getHeight()-20
+    );
+    pdf.addPage();
+
+    // Add the second image to the PDF document
+    pdf.addImage(
+      div6ImageData,
+      "PNG",
+      k3,
+      10,
+      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getHeight()-20
+    );
+    pdf.addPage();
+
+    // Add the second image to the PDF document
+    pdf.addImage(
+      div7ImageData,
+      "PNG",
+      k3,
+      10,
+      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getHeight()-10
+    );
+    
+    
+    
+
+    
 
     // Save the PDF document
-    pdf.save("ladle.pdf");
+    pdf.save("aod.pdf");
 
     toast.success("Successfully Downloaded");
+
   };
 
   const validate_ticket = async () => {
@@ -4295,11 +4355,30 @@ const Ladlecalculator = ({ authtoken }) => {
         </div>
       </div>
 
-      {/* outputs */}
-      <div ref={div2Ref}>
-        <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
-            <h2 className="head_ladle">Output</h2>
-          <div className="ladle_first">
+      <div className="btns_ladle">
+        <div className="row4_ladle">
+          <Stack spacing={2} direction="row">
+            <button
+              onClick={() => {
+                if (0) {
+                  fun();
+                } else {
+                  handleOpen();
+                }
+              }}
+              className="button_ladle"
+            >
+              Calculate
+            </button>
+          </Stack>
+          <p className="error_ccm">{error}</p>
+        </div>
+      </div>
+
+
+      <div ref={div2Ref} className={output_show ? "main-box_ladle" : "dis"} style={{ marginBottom: "5vh" }}>
+        <h2 className="head_ladle">Output</h2>
+        <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
               <TableContainer
                 sx={{ maxHeight: 1000 }}
@@ -4398,6 +4477,7 @@ const Ladlecalculator = ({ authtoken }) => {
               </TableContainer>
             </Paper>
           </div>
+
 
 
           <div className="ladle_first">
@@ -4516,7 +4596,6 @@ const Ladlecalculator = ({ authtoken }) => {
               </TableContainer>
             </Paper>
           </div>
-
 
 
           <div className="ladle_first">
@@ -4697,12 +4776,11 @@ const Ladlecalculator = ({ authtoken }) => {
               </TableContainer>
             </Paper>
           </div>
-        </div>
-        <p className="aod_para">Bricks Quantity Total Weight of Bricks {total_weight} MT</p>
+          <p className="aod_para">Bricks Quantity Total Weight of Bricks {total_weight} MT</p>
       </div>
+      
 
-      <div ref={div3Ref}>
-        <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
+      <div ref={div3Ref} className={output_show ? "main-box_ladle" : "dis"} style={{ marginBottom: "5vh" }}>
           <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
               <TableContainer
@@ -5115,12 +5193,11 @@ const Ladlecalculator = ({ authtoken }) => {
               </TableContainer>
             </Paper>
           </div>
-        </div>
-        <p className="aod_para">
+          <p className="aod_para">
           Safety Lining for Cylindrical portion of Vessel
         </p>
-        <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
-          <div className="ladle_first">
+
+        <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
               <TableContainer
                 sx={{ maxHeight: 1000 }}
@@ -5190,13 +5267,14 @@ const Ladlecalculator = ({ authtoken }) => {
               </TableContainer>
             </Paper>
           </div>
-        </div>
-      </div>
+       
+       </div>
 
-      <div ref={div4Ref}>
-        <p className="aod_para">Top Cone Bricks Details</p>
-        <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
-          <div className="ladle_first">
+
+
+       <div ref={div4Ref} className={output_show ? "main-box_ladle" : "dis"} style={{ marginBottom: "5vh" }}>
+            <p className="aod_para">Top Cone Bricks Details</p>
+            <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
               <TableContainer
                 sx={{ maxHeight: 2500 }}
@@ -6578,13 +6656,12 @@ const Ladlecalculator = ({ authtoken }) => {
               </TableContainer>
             </Paper>
           </div>
-        </div>
-      </div>
+       </div>
 
-      <div ref={div5Ref}>
+
+       <div ref={div5Ref} className={output_show ? "main-box_ladle" : "dis"} style={{ marginBottom: "5vh" }}>
         <p className="aod_para">Vessel bottom Conical Portion</p>
-        <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
-          <div className="ladle_first">
+        <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
               <TableContainer
                 sx={{ maxHeight: 2500 }}
@@ -7510,14 +7587,10 @@ const Ladlecalculator = ({ authtoken }) => {
               </TableContainer>
             </Paper>
           </div>
-        </div>
-
-
-
-
+          
         <p className="aod_para">Bottom Lining</p>
-        <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
-          <div className="ladle_first">
+        <div className="ladle_first">
+
             <Paper sx={{ overflow: "hidden" }}>
               <TableContainer
                 sx={{ maxHeight: 2500 }}
@@ -7587,12 +7660,9 @@ const Ladlecalculator = ({ authtoken }) => {
               </TableContainer>
             </Paper>
           </div>
-        </div>
-
-
+          
         <p className="aod_para">Bottom Cone & Bottom Safety</p>
-        <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
-          <div className="ladle_first">
+        <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
               <TableContainer
                 sx={{ maxHeight: 2500 }}
@@ -7833,12 +7903,13 @@ const Ladlecalculator = ({ authtoken }) => {
               </TableContainer>
             </Paper>
           </div>
-        </div>
-      </div>
 
-      <div ref={div6Ref}>
-        <p className="aod_para">Fabrication Approx. Weight for AOD Vessel - Above Dimensions: {weightsum} Kgs</p>
-        <div className="main-box_ladle" style={{ marginBottom: "5vh" }}>
+       </div>
+
+      
+
+       <div ref={div6Ref} className={output_show ? "main-box_ladle" : "dis"} style={{ marginBottom: "5vh" }}>
+          <p className="aod_para">Fabrication Approx. Weight for AOD Vessel - Above Dimensions: {weightsum} Kgs</p>
           <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
               <TableContainer
@@ -8421,9 +8492,13 @@ const Ladlecalculator = ({ authtoken }) => {
               </TableContainer>
             </Paper>
           </div>
-        </div>
-      </div>
-      <div ref={div7Ref}>
+
+       </div>
+
+       
+
+      
+      <div ref={div7Ref} className={output_show ? "" : "dis"}>
         <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh' }}>
           <div
             style={{
@@ -8648,7 +8723,7 @@ const Ladlecalculator = ({ authtoken }) => {
               <p className="p1">{dia31}</p>
             </div>
             <div className="dia_p_34aod">
-              <p className="p1">d{dia32}</p>
+              <p className="p1">{dia32}</p>
             </div>
             <div className="dia_p_35aod">
               <p className="p1">{dia33} r</p>
@@ -8728,23 +8803,28 @@ const Ladlecalculator = ({ authtoken }) => {
         
       </div>
 
-      <div className="btns_ladle">
-        <div className="row4_ladle">
-          <Stack spacing={2} direction="row">
-            <button
-              onClick={() => {
-                if (0) {
-                  fun();
-                } else {
-                  handleOpen();
-                }
-              }}
-              className="button_ladle"
-            >
-              Calculate
-            </button>
-          </Stack>
-          <p className="error_ccm">{error}</p>
+      
+
+
+      <div
+        className="flex-all"
+        style={{ flexDirection: "column", marginBottom: "2vh" }}
+      >
+        <div
+          className={output_show ? "flex-all" : "dis"}
+          style={{ marginBottom: "1vh", marginTop: "7vh" }}
+        >
+          <button onClick={handleDownloadPDF} className="download_btn">
+            Download PDF
+          </button>
+        </div>
+        <div
+          className={output_show ? "flex-all" : "dis"}
+          style={{ marginBottom: "5vh" }}
+        >
+          <button onClick={reset} className="download_btn">
+            Reset
+          </button>
         </div>
       </div>
       <Footer />
