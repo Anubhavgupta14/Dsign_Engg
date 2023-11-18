@@ -335,6 +335,8 @@ const Ladlecalculator = ({ authtoken }) => {
     v.style.visibility = "hidden";
     setOpen(true);
   };
+  const [openwar, setOpenwar] = React.useState(false);
+  const handleClosewar = () => setOpenwar(false);
   const handleClose = () => setOpen(false);
   const [download, setdownload] = useState(false);
   const [error, seterror] = useState("");
@@ -1830,6 +1832,16 @@ const Ladlecalculator = ({ authtoken }) => {
     }
   };
 
+  const [showComponent, setShowComponent] = useState(false); 
+ 
+  useEffect(() => { 
+    const timeout = setTimeout(() => { 
+      setShowComponent(true); 
+    }, 2000); 
+ 
+    return () => clearTimeout(timeout); 
+  }, []);
+
   const reset = () => {
     window.location.reload();
   };
@@ -1890,7 +1902,7 @@ const Ladlecalculator = ({ authtoken }) => {
                   </Link>
                 </p>
                 <div className="btn_div">
-                  <Link href="/pricing">
+                  <Link href="/country">
                     <button>Purchase</button>
                   </Link>
                   {/* <button onClick={result3}>Calculate</button> */}
@@ -1908,6 +1920,47 @@ const Ladlecalculator = ({ authtoken }) => {
           </button>
         </Box>
       </Modal>
+
+      {showComponent&& 
+      <Modal
+        open={userData.ladle_ticket==0?true:false}
+        onClose={handleClosewar}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style} className="cal_width">
+          {userData.ladle_ticket!=0?<Typography id="modal-modal-title" variant="h6" component="h2">
+            Loading !!!
+          </Typography>:<Typography id="modal-modal-title" variant="h6" component="h2">
+            Warning !!!
+          </Typography>}
+          
+          
+          <Typography
+            id="modal-modal-description"
+            sx={{ mt: 2, marginBottom: "17px" }}
+          >{userData.ladle_ticket!=0?<p></p>:<div>
+            <p>
+            You don't have tickets to access this product
+            </p>
+          <p>
+            You Can Purchase Plans or Continue with{" "}
+            <Link href="/ccm" className="plan_head">
+              Free Plan
+            </Link>
+          </p>
+          <div className="btn_div">
+            <Link href="/country">
+              <button>Purchase</button>
+            </Link>
+            {/* <button onClick={result3}>Calculate</button> */}
+          </div>
+        </div>}
+            
+          </Typography>
+        </Box>
+      </Modal>
+      }
       <div ref={div1Ref}>
         <h2 className="head" style={{ fontSize: "33px" }}>
           Ladle Calculator

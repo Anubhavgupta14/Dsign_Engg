@@ -471,6 +471,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
   const [output_show, setOutput_show] = useState(false);
   const [open, setOpen] = React.useState(false);
+  const [openwar, setOpenwar] = React.useState(false);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.up("sm"));
@@ -482,6 +483,7 @@ const Ladlecalculator = ({ authtoken }) => {
     setOpen(true);
   };
   const handleClose = () => setOpen(false);
+  const handleClosewar = () => setOpenwar(false);
   const [download, setdownload] = useState(false);
   const [error, seterror] = useState("");
   // const isdisabled = !()
@@ -507,6 +509,8 @@ const Ladlecalculator = ({ authtoken }) => {
   const K13 = degree_lining_for_trapping_t / 360;
   const H21 = Math.tan((3.1416 * top_cone_angle) / 180);
   const H26 = Math.tan((3.1416 * bottom_cone_angle) / 180);
+
+
   const result = async (event) => {
     const I20 = top_cone_height / 100;
     const I49 = bottom_cone_height / 100;
@@ -2316,6 +2320,8 @@ const Ladlecalculator = ({ authtoken }) => {
     setOutput_show(true);
   };
 
+  
+
   const getUserData = async () => {
     const token = localStorage.getItem("JWT");
     try {
@@ -2338,17 +2344,31 @@ const Ladlecalculator = ({ authtoken }) => {
         error.message + "op" || "Some error occurred while fetching data"
       );
     }
+    
   };
 
+  const [showComponent, setShowComponent] = useState(false); 
+ 
+  useEffect(() => { 
+    const timeout = setTimeout(() => { 
+      setShowComponent(true); 
+    }, 2000); 
+ 
+    return () => clearTimeout(timeout); 
+  }, []); 
+
+  
+
+  
   useEffect(() => {
     getUserData();
   }, []);
 
   const handleDownloadPDF = async () => {
-    // if (!download) {
-    //   toast.error("Calculate First");
-    //   return;
-    // }
+     if (!download) {
+       toast.error("Calculate First");
+       return;
+     }
 
     // Capture the first div to an image
     const div1ImageData = await html2canvas(div1Ref.current);
@@ -2514,6 +2534,7 @@ const Ladlecalculator = ({ authtoken }) => {
     };
   }, []);
 
+
   // Calculate the image width based on screen size
   const imageWidth = windowWidth < 900 ? 300 : 550;
   const imageWidth2 = windowWidth < 900 ? 100 : 400;
@@ -2554,7 +2575,7 @@ const Ladlecalculator = ({ authtoken }) => {
                   </Link>
                 </p>
                 <div className="btn_div">
-                  <Link href="/pricing">
+                  <Link href="/country">
                     <button>Purchase</button>
                   </Link>
                   {/* <button onClick={result3}>Calculate</button> */}
@@ -2572,6 +2593,49 @@ const Ladlecalculator = ({ authtoken }) => {
           </button>
         </Box>
       </Modal>
+
+
+      {showComponent&& 
+      <Modal
+        open={userData.aod_ticket==0?true:false}
+        onClose={handleClosewar}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style} className="cal_width">
+          {userData.aod_ticket!=0?<Typography id="modal-modal-title" variant="h6" component="h2">
+            Loading !!!
+          </Typography>:<Typography id="modal-modal-title" variant="h6" component="h2">
+            Warning !!!
+          </Typography>}
+          
+          
+          <Typography
+            id="modal-modal-description"
+            sx={{ mt: 2, marginBottom: "17px" }}
+          >{userData.aod_ticket!=0?<p></p>:<div>
+            <p>
+            You don't have tickets to access this product
+            </p>
+          <p>
+            You Can Purchase Plans or Continue with{" "}
+            <Link href="/ccm" className="plan_head">
+              Free Plan
+            </Link>
+          </p>
+          <div className="btn_div">
+            <Link href="/country">
+              <button>Purchase</button>
+            </Link>
+            {/* <button onClick={result3}>Calculate</button> */}
+          </div>
+        </div>}
+            
+          </Typography>
+        </Box>
+      </Modal>
+      }
+      
 
       <div ref={div1Ref}>
         <h2 className="head" style={{ fontSize: "33px" }}>
