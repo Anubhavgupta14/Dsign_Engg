@@ -81,7 +81,7 @@ const page = ({authtoken}) => {
         // merchant_param1: pancard,
         // merchant_param2: pancardcopy || "",
         // merchant_param3: user.message,
-        amount:900
+        amount:1
       }
       console.log(paymentDetails)
 
