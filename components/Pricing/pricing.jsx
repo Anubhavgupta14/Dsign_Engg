@@ -99,6 +99,7 @@ const page = ({authtoken}) => {
           return;
         }
         const formHTML = await response.text();
+        console.log(formHTML,"formHTML aaya")
         const container = document.getElementById('payment-form-container');
         container.innerHTML = formHTML;
         const form = document.getElementById('nonseamless');
