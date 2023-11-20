@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   }
 
   let ccavResponse = '';
-  const workingKey = "E2E93FAD1765E9F540873627A119DAF6"; // Replace with your actual working key
+  const workingKey = process.env.CCAVENUEWORKINGID // Replace with your actual working key
 
   // Generate MD5 hash for the key and convert it to a base64 string
   const md5 = crypto.createHash('md5').update(workingKey).digest();
