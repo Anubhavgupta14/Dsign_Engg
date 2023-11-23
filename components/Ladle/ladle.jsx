@@ -47,6 +47,8 @@ const Ladlecalculator = ({ authtoken }) => {
   const div5Ref = useRef();
 
   const theme = useTheme();
+  const [top_id_error, Settop_id_error] = useState(false)
+  const [bottom_id_error, Setbottom_id_error] = useState(false)
   const isMobile = useMediaQuery(theme.breakpoints.up("sm"));
   const [topdiameter, setTopdiameter] = useState(null);
   const [bottomdiameter, setBottomdiameter] = useState(null);
@@ -58,7 +60,7 @@ const Ladlecalculator = ({ authtoken }) => {
   const [freeboardleveldiameter, setFreeboardleveldiameter] = useState(0);
   const [bottomliningleveldiameter, setBottomliningleveldiameter] = useState(0);
   const [inbetweenheight, setInbetweenheight] = useState(0);
-  const [density, setDensity] = useState(0);
+  const [density, setDensity] = useState(null);
   const [input1, setInput1] = useState(0);
   const [input2, setInput2] = useState(0);
   const [input3, setInput3] = useState(0);
@@ -2006,9 +2008,21 @@ const Ladlecalculator = ({ authtoken }) => {
                             variant="outlined"
                             type="number"
                             defaultValue="Small"
-                            error={error_show.topdiameter && !topdiameter}
+                            error={(error_show.topdiameter && !topdiameter)|| top_id_error} 
                             size="small"
-                            onChange={(e) => setTopdiameter(e.target.value)}
+                            onChange={(e) => {
+                              let top_id = e.target.value
+                              if(top_id>3000){
+                                Settop_id_error(true)
+                                toast.error("Top ID must be less than 3000")
+                                // alert(top_id)
+                              }
+                              else if(top_id<3000){
+                                Settop_id_error(false)
+                              }
+                              
+                              setTopdiameter(e.target.value)
+                            }}
                           />
                         </div>
                       </TableCell>
@@ -2023,9 +2037,19 @@ const Ladlecalculator = ({ authtoken }) => {
                             variant="outlined"
                             type="number"
                             defaultValue="Small"
-                            error={error_show.bottomdiameter && !bottomdiameter}
+                            error={(error_show.bottomdiameter && !bottomdiameter)||bottom_id_error}
                             size="small"
-                            onChange={(e) => setBottomdiameter(e.target.value)}
+                            onChange={(e) => {
+                              let bottom_id = e.target.value
+                              if(bottom_id>topdiameter){
+                                Setbottom_id_error(true)
+                                toast.error("Bottom ID must be less than Top ID")
+                              }
+                              else if(bottom_id<=topdiameter){
+                                Setbottom_id_error(false)
+                              }
+                              setBottomdiameter(e.target.value)
+                            }}
                           />
                         </div>
                       </TableCell>
@@ -2090,7 +2114,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle  flex-all">
-                          <TextField
+                          {/* <TextField
                             required
                             className="textfield_ladle"
                             id="outlined-number"
@@ -2102,12 +2126,45 @@ const Ladlecalculator = ({ authtoken }) => {
                             size="small"
                             error={error_show.freeboard && !freeboard}
                             onChange={(e) => setFreeboard(e.target.value)}
-                          />
+                          /> */}
+                          <FormControl
+                        sx={{ m: 0, minWidth: isMobile ? 225 : 100 }}
+                        size="small"
+                        error={error_show.freeboard && !freeboard}
+                      >
+                        <InputLabel id="demo-select-small-label">
+                          Free Board
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={freeboard}
+                          label="Free Board"
+                          onChange={(e) => setFreeboard(e.target.value)}
+                          sx={{
+                            "& .MuiSelect-select": { overflowY: "scroll" },
+                          }}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={100}>100</MenuItem>
+                          <MenuItem value={125}>125</MenuItem>
+                          <MenuItem value={150}>150</MenuItem>
+                          <MenuItem value={175}>175</MenuItem>
+                          <MenuItem value={200}>200</MenuItem>
+                          <MenuItem value={225}>225</MenuItem>
+                          <MenuItem value={250}>250</MenuItem>
+                          <MenuItem value={275}>275</MenuItem>
+                          <MenuItem value={300}>300</MenuItem>
+                          
+                        </Select>
+                      </FormControl>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle  flex-all">
-                          <TextField
+                          {/* <TextField
                             required
                             className="textfield_ladle"
                             id="outlined-number"
@@ -2119,7 +2176,37 @@ const Ladlecalculator = ({ authtoken }) => {
                             size="small"
                             type="number"
                             onChange={(e) => setDensity(e.target.value)}
-                          />
+                          /> */}
+                          <FormControl
+                        sx={{ m: 0, minWidth: isMobile ? 225 : 100 }}
+                        size="small"
+                        error={error_show.density && !density}
+                      >
+                        <InputLabel id="demo-select-small-label">
+                          Density
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={density}
+                          label="Density"
+                          onChange={(e) => setDensity(e.target.value)}
+                          sx={{
+                            "& .MuiSelect-select": { overflowY: "scroll" },
+                          }}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={6.5}>6.5</MenuItem>
+                          <MenuItem value={6.6}>6.6</MenuItem>
+                          <MenuItem value={6.7}>6.7</MenuItem>
+                          <MenuItem value={6.8}>6.8</MenuItem>
+                          <MenuItem value={6.85}>6.85</MenuItem>
+                          <MenuItem value={6.9}>6.9</MenuItem>
+                          <MenuItem value={7.0}>7.0</MenuItem>
+                        </Select>
+                      </FormControl>
                         </div>
                       </TableCell>
                     </TableRow>
