@@ -46,6 +46,8 @@ const Ladlecalculator = ({ authtoken }) => {
   const div5Ref = useRef();
   const div6Ref = useRef();
   const div7Ref = useRef();
+  const div8Ref = useRef();
+  const div9Ref = useRef();
   const [capacity_aod, Setcapacity_aod] = useState(0)
   const [volumn_aod, Setvolumn_aod] = useState(0)
   const [total_capacity, Settotal_capacity] = useState(0)
@@ -2365,10 +2367,10 @@ const Ladlecalculator = ({ authtoken }) => {
   }, []);
 
   const handleDownloadPDF = async () => {
-     if (!download) {
-       toast.error("Calculate First");
-       return;
-     }
+    //  if (!download) {
+    //    toast.error("Calculate First");
+    //    return;
+    //  }
 
     // Capture the first div to an image
     const div1ImageData = await html2canvas(div1Ref.current);
@@ -2380,6 +2382,8 @@ const Ladlecalculator = ({ authtoken }) => {
     const div5ImageData = await html2canvas(div5Ref.current);
     const div6ImageData = await html2canvas(div6Ref.current);
     const div7ImageData = await html2canvas(div7Ref.current);
+    const div8ImageData = await html2canvas(div8Ref.current);
+    const div9ImageData = await html2canvas(div9Ref.current);
 
     // Create a new PDF document
     const pdf = new jsPDF("p", "mm", "a4", true);
@@ -2468,6 +2472,28 @@ const Ladlecalculator = ({ authtoken }) => {
     // Add the second image to the PDF document
     pdf.addImage(
       div7ImageData,
+      "PNG",
+      k3,
+      10,
+      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getHeight()-10
+    );
+    pdf.addPage();
+
+    // Add the second image to the PDF document
+    pdf.addImage(
+      div8ImageData,
+      "PNG",
+      k3,
+      10,
+      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getHeight()-10
+    );
+    pdf.addPage();
+
+    // Add the second image to the PDF document
+    pdf.addImage(
+      div9ImageData,
       "PNG",
       k3,
       10,
@@ -8562,8 +8588,11 @@ const Ladlecalculator = ({ authtoken }) => {
        
 
       
-      <div ref={div7Ref} className={output_show ? "" : "dis"}>
-        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh' }}>
+       <div ref={div7Ref} className={output_show ? "" : "dis"}>
+        <div
+          className="flex-all img_ladle"
+          style={{ gap: "50vh", marginTop: "15vh" }}
+        >
           <div
             style={{
               display: "flex",
@@ -8610,10 +8639,14 @@ const Ladlecalculator = ({ authtoken }) => {
               <p className="p1"> Vessel ID {dia5}</p>
             </div>
             <div className="dia_p_7aod">
-              <p className="p1" style={{ fontSize: '10px' }}>Cone Top ID</p>
+              <p className="p1" style={{ fontSize: "10px" }}>
+                Cone Top ID
+              </p>
             </div>
             <div className="dia_p_8aod">
-              <p className="p1" style={{ fontSize: '10px' }}>{dia6}</p>
+              <p className="p1" style={{ fontSize: "10px" }}>
+                {dia6}
+              </p>
             </div>
             <div className="dia_p_9aod">
               <p className="p1">Top Cone Height</p>
@@ -8666,9 +8699,10 @@ const Ladlecalculator = ({ authtoken }) => {
           </div>
         </div>
 
-
-        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh' }}>
-
+        <div
+          className="flex-all img_ladle"
+          style={{ gap: "50vh", marginTop: "15vh" }}
+        >
           <div className="dia">
             <div className="dia_p_22aod">
               <p className="p1">{dia14}</p>
@@ -8688,9 +8722,10 @@ const Ladlecalculator = ({ authtoken }) => {
           </div>
         </div>
 
-
-        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh' }}>
-
+        <div
+          className="flex-all img_ladle"
+          style={{ gap: "50vh", marginTop: "15vh" }}
+        >
           <div className="dia">
             <div className="dia_p_24aod">
               <p className="p1">{dia16}</p>
@@ -8721,9 +8756,13 @@ const Ladlecalculator = ({ authtoken }) => {
             />
           </div>
         </div>
-        
-        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh' }}>
+      </div>
 
+      <div ref={div8Ref} className={output_show ? "" : "dis"}>
+        <div
+          className="flex-all img_ladle"
+          style={{ gap: "50vh", marginTop: "15vh" }}
+        >
           <div className="dia">
             <div className="dia_p_30aod">
               <p className="p1">{dia22} Dia</p>
@@ -8743,8 +8782,10 @@ const Ladlecalculator = ({ authtoken }) => {
           </div>
         </div>
 
-        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh' }}>
-
+        <div
+          className="flex-all img_ladle"
+          style={{ gap: "50vh", marginTop: "15vh" }}
+        >
           <div className="dia">
             <div className="dia_p_24aod">
               <p className="p1">{dia24}</p>
@@ -8776,9 +8817,10 @@ const Ladlecalculator = ({ authtoken }) => {
           </div>
         </div>
 
-
-        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh', marginBottom:'15vh' }}>
-
+        <div
+          className="flex-all img_ladle"
+          style={{ gap: "50vh", marginTop: "15vh", marginBottom: "15vh" }}
+        >
           <div className="dia">
             <div className="dia_p_32aod">
               <p className="p1">R {dia30}</p>
@@ -8806,8 +8848,13 @@ const Ladlecalculator = ({ authtoken }) => {
             />
           </div>
         </div>
-        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh', marginBottom:'15vh' }}>
+      </div>
 
+      <div ref={div9Ref} className={output_show ? "" : "dis"}>
+        <div
+          className="flex-all img_ladle"
+          style={{ gap: "50vh", marginTop: "15vh", marginBottom: "15vh" }}
+        >
           <div className="dia">
             <div className="dia_p_32aod">
               <p className="p1">R {dia35}</p>
@@ -8835,8 +8882,11 @@ const Ladlecalculator = ({ authtoken }) => {
             />
           </div>
         </div>
-        <div className="flex-all img_ladle" style={{ gap: '50vh', marginTop: '15vh', marginBottom:'15vh' }}>
 
+        <div
+          className="flex-all img_ladle"
+          style={{ gap: "50vh", marginTop: "15vh", marginBottom: "15vh" }}
+        >
           <div className="dia">
             <div className="dia_p_32aod">
               <p className="p1">R {dia35}</p>
@@ -8864,7 +8914,6 @@ const Ladlecalculator = ({ authtoken }) => {
             />
           </div>
         </div>
-        
       </div>
 
       
