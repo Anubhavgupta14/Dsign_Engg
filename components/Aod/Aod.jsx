@@ -2367,10 +2367,10 @@ const Ladlecalculator = ({ authtoken }) => {
   }, []);
 
   const handleDownloadPDF = async () => {
-    //  if (!download) {
-    //    toast.error("Calculate First");
-    //    return;
-    //  }
+      if (!download) {
+        toast.error("Calculate First");
+        return;
+      }
 
     // Capture the first div to an image
     const div1ImageData = await html2canvas(div1Ref.current);
@@ -2476,7 +2476,7 @@ const Ladlecalculator = ({ authtoken }) => {
       k3,
       10,
       pdf.internal.pageSize.getWidth() - k4,
-      pdf.internal.pageSize.getHeight()-10
+      pdf.internal.pageSize.getHeight()-30
     );
     pdf.addPage();
 
@@ -2487,7 +2487,7 @@ const Ladlecalculator = ({ authtoken }) => {
       k3,
       10,
       pdf.internal.pageSize.getWidth() - k4,
-      pdf.internal.pageSize.getHeight()-10
+      pdf.internal.pageSize.getHeight()-20
     );
     pdf.addPage();
 
@@ -2498,7 +2498,7 @@ const Ladlecalculator = ({ authtoken }) => {
       k3,
       10,
       pdf.internal.pageSize.getWidth() - k4,
-      pdf.internal.pageSize.getHeight()-10
+      pdf.internal.pageSize.getHeight()-100
     );
     
     
