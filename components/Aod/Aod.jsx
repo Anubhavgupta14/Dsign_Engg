@@ -2419,7 +2419,7 @@ const Ladlecalculator = ({ authtoken }) => {
       div2ImageData,
       "PNG",
       k3,
-      10,
+      5,
       pdf.internal.pageSize.getWidth() - k4,
       pdf.internal.pageSize.getHeight()-20
     );
