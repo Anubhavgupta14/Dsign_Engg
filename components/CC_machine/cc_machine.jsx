@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -22,11 +21,13 @@ import { useTheme } from "@mui/material/styles";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import { toast } from "react-toastify"
+import CircularProgress from '@mui/material/CircularProgress';
 
 const CC_machine = ({ authtoken }) => {
   const pdfRef = useRef();
   const pdfRef2 = useRef();
   const theme = useTheme();
+  const [load, Setload] = useState(false)
   const isMobile = useMediaQuery(theme.breakpoints.up("sm"));
   const [section, setSection] = useState("");
   const [casting_speed, setCasting_speed] = useState("");
@@ -410,6 +411,7 @@ const CC_machine = ({ authtoken }) => {
 
 
   const handleDownloadPDF = async () => {
+    Setload(true)
 
     // Capture the first div to an image
     const div1ImageData = await html2canvas(pdfRef.current);
@@ -421,17 +423,17 @@ const CC_machine = ({ authtoken }) => {
     const pdf = new jsPDF('p', 'mm', 'a4', true);
 
     // Add the first image to the PDF document
-    pdf.addImage(div1ImageData, 'PNG', -20, 0, pdf.internal.pageSize.getWidth() + 40, pdf.internal.pageSize.getHeight());
+    pdf.addImage(div1ImageData, 'PNG', -20, 0, pdf.internal.pageSize.getWidth() + 40, pdf.internal.pageSize.getHeight()-40);
 
     // Add a new page to the PDF document
     pdf.addPage();
 
     // Add the second image to the PDF document
-    pdf.addImage(div2ImageData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+    pdf.addImage(div2ImageData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight()-40);
 
     // Save the PDF document
     pdf.save('ccm.pdf');
-
+    Setload(false)
     toast.success("Successfully Downloaded")
   };
 
@@ -440,6 +442,7 @@ const CC_machine = ({ authtoken }) => {
     <div className="body_ccm" >
       <Navbar moveIndex={0} authtoken={authtoken} />
       <div ref={pdfRef} id="pdf">
+      <h6 className={load?"watermark":"dis"}>The Design Engg</h6>
         <h2 className="head" style={{ fontSize: '33px' }}>CCM Complete Solution</h2>
         <div className="ccm_desc">
           <p className="ccm_para">
@@ -1163,6 +1166,7 @@ const CC_machine = ({ authtoken }) => {
 
       <div ref={pdfRef2}>
         {/* output */}
+        <h6 className={load?"watermark3":"dis"}>The Design Engg</h6>
         <div className={showoutput ? "" : "dis"}>
           <h2 className="head_cc" style={{ fontSize: '33px' }}>Output</h2>
           <h2 className="head_cc">Concast Data</h2>
@@ -1649,7 +1653,10 @@ const CC_machine = ({ authtoken }) => {
         </div>
       </div>
 
+      <div className="flex-all" style={{flexDirection:'column'}}>
       <div style={{ textAlign: 'center', marginBottom: '1vh' }} className={showoutput ? "" : "dis"}><button onClick={handleDownloadPDF} className="download_btn">Download PDF</button></div>
+      <div className={load ? "loader_load" : "loader_load dis_none"}><div><CircularProgress className="CircularProgress" color="inherit" /></div></div>
+      </div>
       <div style={{ textAlign: 'center', marginBottom: '5vh' }} className={showoutput ? "" : "dis"}><button onClick={fun2} className="download_btn">Reset</button></div>
       <Footer />
     </div>
