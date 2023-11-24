@@ -8847,7 +8847,7 @@ const Ladlecalculator = ({ authtoken }) => {
             <div className="dia_p_34aod">
               <p className="p1">{dia32}</p>
             </div>
-            <div className="dia_p_35aod">
+            <div className="dia_p_35aod2">
               <p className="p1">{dia33} r</p>
             </div>
             <div className="dia_p_36aod">
@@ -8914,7 +8914,7 @@ const Ladlecalculator = ({ authtoken }) => {
             <div className="dia_p_34aod">
               <p className="p1">{dia37}</p>
             </div>
-            <div className="dia_p_35aod">
+            <div className="dia_p_35aod2">
               <p className="p1">{dia38} r</p>
             </div>
             <div className="dia_p_36aod">
