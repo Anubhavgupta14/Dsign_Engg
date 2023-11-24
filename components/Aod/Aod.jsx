@@ -26,6 +26,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Link from "next/link";
 import Image from "next/image";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const style = {
   position: "absolute",
@@ -162,6 +163,7 @@ const Ladlecalculator = ({ authtoken }) => {
   const [AreaB3, setAreaB3] = useState(0);
   const [AreaB4, setAreaB4] = useState(0);
   const [AreaL1, setAreaL1] = useState(0);
+  const [load, setload] = useState(false);
   const [AreaL2, setAreaL2] = useState(0);
   const [AreaL3, setAreaL3] = useState(0);
   const [AreaL4, setAreaL4] = useState(0);
@@ -2371,6 +2373,7 @@ const Ladlecalculator = ({ authtoken }) => {
         toast.error("Calculate First");
         return;
       }
+      setload(true)
 
     // Capture the first div to an image
     const div1ImageData = await html2canvas(div1Ref.current);
@@ -2508,7 +2511,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
     // Save the PDF document
     pdf.save("aod.pdf");
-
+    setload(false)
     toast.success("Successfully Downloaded");
 
   };
@@ -2664,6 +2667,7 @@ const Ladlecalculator = ({ authtoken }) => {
       
 
       <div ref={div1Ref}>
+        <h6 className={load?"watermark":"watermark dis"}>The Design Engg</h6>
         <h2 className="head" style={{ fontSize: "33px" }}>
           AOD Calculator
         </h2>
@@ -4443,6 +4447,7 @@ const Ladlecalculator = ({ authtoken }) => {
             </Paper>
           </div>
         </div>
+        
       </div>
 
       <div className="btns_ladle">
@@ -4467,6 +4472,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
 
       <div ref={div2Ref} className={output_show ? "main-box_ladle" : "dis"} style={{ marginBottom: "5vh" }}>
+      <h6 className={load?"watermark2":"dis"}>The Design Engg</h6>
         <h2 className="head_ladle">Output</h2>
         <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
@@ -4871,6 +4877,7 @@ const Ladlecalculator = ({ authtoken }) => {
       
 
       <div ref={div3Ref} className={output_show ? "main-box_ladle" : "dis"} style={{ marginBottom: "5vh" }}>
+      <h6 className={load?"watermark2":"dis"}>The Design Engg</h6>
           <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
               <TableContainer
@@ -5363,6 +5370,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
 
        <div ref={div4Ref} className={output_show ? "main-box_ladle" : "dis"} style={{ marginBottom: "5vh" }}>
+       <h6 className={load?"watermark2":"dis"}>The Design Engg</h6>
             <p className="aod_para">Top Cone Bricks Details</p>
             <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
@@ -6750,6 +6758,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
 
        <div ref={div5Ref} className={output_show ? "main-box_ladle" : "dis"} style={{ marginBottom: "5vh" }}>
+       <h6 className={load?"watermark2":"dis"}>The Design Engg</h6>
         <p className="aod_para">Vessel bottom Conical Portion</p>
         <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
@@ -7999,6 +8008,7 @@ const Ladlecalculator = ({ authtoken }) => {
       
 
        <div ref={div6Ref} className={output_show ? "main-box_ladle" : "dis"} style={{ marginBottom: "5vh" }}>
+       <h6 className={load?"watermark2":"dis"}>The Design Engg</h6>
           <p className="aod_para">Fabrication Approx. Weight for AOD Vessel - Above Dimensions: {weightsum} Kgs</p>
           <div className="ladle_first">
             <Paper sx={{ overflow: "hidden" }}>
@@ -8589,6 +8599,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
       
        <div ref={div7Ref} className={output_show ? "" : "dis"}>
+       <h6 className={load?"watermark2":"dis"}>The Design Engg</h6>
         <h2 className="dia_head1">Straight Vessel Without Bottom Cone</h2>
         <div
           className="flex-all img_ladle"
@@ -8761,6 +8772,7 @@ const Ladlecalculator = ({ authtoken }) => {
       </div>
 
       <div ref={div8Ref} className={output_show ? "" : "dis"}>
+      <h6 className={load?"watermark2":"dis"}>The Design Engg</h6>
       <h2 className="dia_head1">Disc End</h2>
         <div
           className="flex-all img_ladle"
@@ -8855,6 +8867,7 @@ const Ladlecalculator = ({ authtoken }) => {
       </div>
 
       <div ref={div9Ref} className={output_show ? "" : "dis"}>
+      <h6 className={load?"watermark2":"dis"}>The Design Engg</h6>
         <div
           className="flex-all img_ladle"
           style={{ gap: "50vh", marginTop: "15vh", marginBottom: "15vh" }}
@@ -8935,6 +8948,7 @@ const Ladlecalculator = ({ authtoken }) => {
             Download PDF
           </button>
         </div>
+          <div className={load ? "loader_load" : "loader_load dis_none"}><div><CircularProgress className="CircularProgress" color="inherit" /></div></div>
         <div
           className={output_show ? "flex-all" : "dis"}
           style={{ marginBottom: "5vh" }}

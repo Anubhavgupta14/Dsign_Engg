@@ -26,6 +26,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Link from "next/link";
 import Image from "next/image";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const style = {
   position: "absolute",
@@ -47,6 +48,7 @@ const Ladlecalculator = ({ authtoken }) => {
   const div5Ref = useRef();
 
   const theme = useTheme();
+  const [load, setload] = useState(false);
   const [top_id_error, Settop_id_error] = useState(false)
   const [bottom_id_error, Setbottom_id_error] = useState(false)
   const isMobile = useMediaQuery(theme.breakpoints.up("sm"));
@@ -921,7 +923,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
     let f1_hori1 = 0;
     if (e_hori1 + 200 > (R2 * dev_sin * 2) / 2) {
-      const F1_hori1 = (R2 * dev_sin * 2) / 2 - 800 - g_hori1;
+      const F1_hori1 = (R2 * dev_sin * 2) / 2 - 800 - e_hori1;
       f1_hori1 = F1_hori1;
       Setf1_hori1(Math.round(f1_hori1));
     } else {
@@ -1718,6 +1720,7 @@ const Ladlecalculator = ({ authtoken }) => {
       toast.error("Calculate First");
       return;
     }
+    setload(true)
 
     await rotate1();
 
@@ -1751,8 +1754,8 @@ const Ladlecalculator = ({ authtoken }) => {
       div1ImageData,
       "PNG",
       k,
-      0,
-      pdf.internal.pageSize.getWidth() - k2+20,
+      5,
+      pdf.internal.pageSize.getWidth() - k4,
       pdf.internal.pageSize.getHeight()
     );
 
@@ -1802,7 +1805,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
     // Save the PDF document
     pdf.save("ladle.pdf");
-
+    setload(false)
     toast.success("Successfully Downloaded");
     await rotate2()
   };
@@ -1964,6 +1967,7 @@ const Ladlecalculator = ({ authtoken }) => {
       </Modal>
       }
       <div ref={div1Ref}>
+      <h6 className={load?"watermark":"dis"}>The Design Engg</h6>
         <h2 className="head" style={{ fontSize: "33px" }}>
           Ladle Calculator
         </h2>
@@ -3029,6 +3033,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
       <div ref={div2Ref}>
         {/* Output screen */}
+        <h6 className={load?"watermark3":"dis"}>The Design Engg</h6>
 
         <div className={output_show ? "output_ladle" : "output_ladle dis"}>
           <h2 className="head_output" style={{ marginBottom: "6vh" }}>
@@ -3566,6 +3571,7 @@ const Ladlecalculator = ({ authtoken }) => {
 
       <div ref={div3Ref} id="myDiv" className={output_show ? "" : "dis"}>
         {/* Diagrams */}
+        <h6 className={load?"watermark3":"dis"}>The Design Engg</h6>
         <h2 className="head_lad" style={{ marginBottom: "2vh" }}>
           Graphical Models
         </h2>
@@ -3639,6 +3645,7 @@ const Ladlecalculator = ({ authtoken }) => {
       </div>
 
     <div ref={div4Ref} id="pdf" className={output_show ? "" : "dis"}>
+    <h6 className={load?"watermark3":"dis"}>The Design Engg</h6>
       <div
         className="containerfab_ladle flex-all"
         style={{ marginTop: "4vh", marginBottom: "4vh" }}
@@ -3914,6 +3921,7 @@ const Ladlecalculator = ({ authtoken }) => {
       </div>
 
       <div ref={div5Ref} id="pdf" className={output_show ? "" : "dis"}>
+      <h6 className={load?"watermark3":"dis"}>The Design Engg</h6>
       <div className="flex-all img_ladle">
           <div
             style={{
@@ -4210,6 +4218,7 @@ const Ladlecalculator = ({ authtoken }) => {
             Download PDF
           </button>
         </div>
+        <div className={load ? "loader_load" : "loader_load dis_none"}><div><CircularProgress className="CircularProgress" color="inherit" /></div></div>
         <div
           className={output_show ? "flex-all" : "dis"}
           style={{ marginBottom: "5vh" }}

@@ -202,3 +202,15 @@
     text-align: center;
     margin-top: 5vh;
   }
+  .watermark{
+    text-align: center;
+    padding-block: 20px;
+    position: relative;
+    top: 130px;
+}
+  .watermark2{
+    text-align: center;
+    padding-block: 20px;
+    position: relative;
+    top: 48px;
+}
