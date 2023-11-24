@@ -66,7 +66,7 @@ const Ladlecalculator = ({ authtoken }) => {
   const [input3, setInput3] = useState(0);
   const [input4, setInput4] = useState(0);
   const [input5, setInput5] = useState(0);
-  const [input6, setInput6] = useState(0);
+  const [input6, setInput6] = useState(null);
   const [output1, setOutput1] = useState(0);
   const [output2, setOutput2] = useState(0);
   const [output3, setOutput3] = useState(0);
@@ -2326,7 +2326,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <TextField
+                          {/* <TextField
                             required
                             className="textfield_ladle"
                             id="outlined-number"
@@ -2338,7 +2338,40 @@ const Ladlecalculator = ({ authtoken }) => {
                             error={error_show.input6 && !input6}
                             type="number"
                             onChange={(e) => setInput6(e.target.value)}
-                          />
+                          /> */}
+                          <FormControl
+                        sx={{ m: 0, minWidth: isMobile ? 225 : 100 }}
+                        size="small"
+                        error={error_show.input6 && !input6}
+                      >
+                        <InputLabel id="demo-select-small-label">
+                          Free Board
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={input6}
+                          label="Free Board"
+                          onChange={(e) => setInput6(e.target.value)}
+                          sx={{
+                            "& .MuiSelect-select": { overflowY: "scroll" },
+                          }}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={100}>100</MenuItem>
+                          <MenuItem value={125}>125</MenuItem>
+                          <MenuItem value={150}>150</MenuItem>
+                          <MenuItem value={175}>175</MenuItem>
+                          <MenuItem value={200}>200</MenuItem>
+                          <MenuItem value={225}>225</MenuItem>
+                          <MenuItem value={250}>250</MenuItem>
+                          <MenuItem value={275}>275</MenuItem>
+                          <MenuItem value={300}>300</MenuItem>
+                          
+                        </Select>
+                      </FormControl>
                         </div>
                       </TableCell>
                     </TableRow>
