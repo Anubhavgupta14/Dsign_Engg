@@ -219,3 +219,23 @@
     position: relative;
     top: 48px;
 }
+
+.img_gap{
+  gap: 50vh;
+}
+.img_font{
+  font-size: 10px;
+}
+
+@media screen and (max-width:600px){
+  .img_gap{
+    gap: 12vh;
+  }
+  
+  .p2{
+    font-size: 4px;
+  }
+  .img_font{
+    font-size: 4px;
+  }
+}

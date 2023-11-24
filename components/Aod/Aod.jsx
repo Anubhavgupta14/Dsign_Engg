@@ -467,7 +467,7 @@ const Ladlecalculator = ({ authtoken }) => {
   const [dia48, Setdia48] = useState(0)
   const [dia49, Setdia49] = useState(0)
   const [dia50, Setdia50] = useState(0)
-  const [k, setK] = useState(25);
+  const [k, setK] = useState(5);
   const [k2, setK2] = useState(50);
   const [k3, setK3] = useState(0);
   const [k4, setK4] = useState(0);
@@ -530,8 +530,8 @@ const Ladlecalculator = ({ authtoken }) => {
     const F15 = Math.ceil((0.14 * vessel_cylindrical_height) / 100) * 100;
     const F16 = Math.ceil((0.23 * vessel_cylindrical_height) / 100) * 100;
     const F17 = vessel_cylindrical_height - (F14 + F15 + F16);
-    const P19 = F14 / 100 + F15 / 100 + F16 / 100 + F17 / 100;
-    const O19 = vessel_cylindrical_id * 3.1416 * P19 * 100;
+    const p29 = F14 / 100 + F15 / 100 + F16 / 100 + F17 / 100;
+    const O19 = vessel_cylindrical_id * 3.1416 * p29 * 100;
     const N19 = safety_bricks_width * safety_bricks_length;
     const safety_cyl = Math.ceil(O19 / N19);
     Setsafety_cyl1(safety_cyl);
@@ -542,14 +542,14 @@ const Ladlecalculator = ({ authtoken }) => {
       (parseFloat(size4_t) + parseFloat(safety_lining_length_t)) -
       (parseFloat(size4_s) + parseFloat(safety_lining_length_t));
     const O17 = 3.1416 * M17;
-    const P17 = F17 / 100;
+    const p27 = F17 / 100;
     const L12 = 360 - degree_lining_for_trapping_t;
     const L13 = L12 / 360;
     const K13 = degree_lining_for_trapping_t / 360;
     const K17 =
       Math.ceil(
         (O17 / bricks_std_width) * (degree_lining_for_trapping_t / 360)
-      ) * P17;
+      ) * p27;
     const L17 = (K17 / K13) * L13;
     const safety_cyl3 = K17 + L17;
     Setsafety_cyl3(safety_cyl3);
@@ -2392,25 +2392,32 @@ const Ladlecalculator = ({ authtoken }) => {
     const pdf = new jsPDF("p", "mm", "a4", true);
 
     // Add the first image to the PDF document
+    let kt = 5
+    let k4t = 0
+    let k3t=0
     if (!isMobile) {
-      setK(80);
+      setK(5);
       setK2(140);
       setK3(80);
       setK4(150);
-      console.log(k, k2, k3, k4);
+      kt=80
+      k4t=150
+      k3t=80
+      console.log(kt, k2, k3t, k4t);
     } else {
       setK(5);
       setK2(0);
       setK3(0);
-      setK4(0);
-      console.log(k, k2, k3, k4);
+      setK4(150);
+      console.log(kt, k2, k3, k4t);
+      //desktop
     }
     pdf.addImage(
       div1ImageData,
       "PNG",
-      k,
+      kt,
       5,
-      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getWidth() - k4t,
       pdf.internal.pageSize.getHeight()-20
     );
 
@@ -2421,9 +2428,9 @@ const Ladlecalculator = ({ authtoken }) => {
     pdf.addImage(
       div2ImageData,
       "PNG",
-      k3,
+      k3t,
       5,
-      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getWidth() - k4t,
       pdf.internal.pageSize.getHeight()-20
     );
     pdf.addPage();
@@ -2432,9 +2439,9 @@ const Ladlecalculator = ({ authtoken }) => {
     pdf.addImage(
       div3ImageData,
       "PNG",
-      k3,
+      k3t,
       10,
-      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getWidth() - k4t,
       pdf.internal.pageSize.getHeight()-130
     );
     pdf.addPage();
@@ -2443,9 +2450,9 @@ const Ladlecalculator = ({ authtoken }) => {
     pdf.addImage(
       div4ImageData,
       "PNG",
-      k3,
+      k3t,
       10,
-      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getWidth() - k4t,
       pdf.internal.pageSize.getHeight()-20
     );
     pdf.addPage();
@@ -2454,9 +2461,9 @@ const Ladlecalculator = ({ authtoken }) => {
     pdf.addImage(
       div5ImageData,
       "PNG",
-      k3,
+      k3t,
       10,
-      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getWidth() - k4t,
       pdf.internal.pageSize.getHeight()-20
     );
     pdf.addPage();
@@ -2465,9 +2472,9 @@ const Ladlecalculator = ({ authtoken }) => {
     pdf.addImage(
       div6ImageData,
       "PNG",
-      k3,
+      k3t,
       10,
-      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getWidth() - k4t,
       pdf.internal.pageSize.getHeight()-50
     );
     pdf.addPage();
@@ -2476,9 +2483,9 @@ const Ladlecalculator = ({ authtoken }) => {
     pdf.addImage(
       div7ImageData,
       "PNG",
-      k3,
+      k3t,
       10,
-      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getWidth() - k4t,
       pdf.internal.pageSize.getHeight()-50
     );
     pdf.addPage();
@@ -2487,9 +2494,9 @@ const Ladlecalculator = ({ authtoken }) => {
     pdf.addImage(
       div8ImageData,
       "PNG",
-      k3,
+      k3t,
       10,
-      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getWidth() - k4t,
       pdf.internal.pageSize.getHeight()-20
     );
     pdf.addPage();
@@ -2498,9 +2505,9 @@ const Ladlecalculator = ({ authtoken }) => {
     pdf.addImage(
       div9ImageData,
       "PNG",
-      k3,
+      k3t,
       10,
-      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getWidth() - k4t,
       pdf.internal.pageSize.getHeight()-130
     );
     
@@ -2566,11 +2573,13 @@ const Ladlecalculator = ({ authtoken }) => {
 
   // Calculate the image width based on screen size
   const imageWidth = windowWidth < 900 ? 300 : 550;
-  const imageWidth2 = windowWidth < 900 ? 100 : 400;
-  const imageWidth3 = windowWidth < 900 ? 100 : 800;
-  const imageheight1 = windowWidth < 900 ? 100 : 400;
-  const imageheight2 = windowWidth < 900 ? 100 : 300;
-  const imageheight3 = windowWidth < 900 ? 100 : 300;
+  const imageWidth2 = windowWidth < 900 ? 115 : 400;
+  const imageWidth3 = windowWidth < 900 ? 300 : 800;
+  const imageWidth4 = windowWidth < 900 ? 160 : 400;
+  const imageheight1 = windowWidth < 900 ? 115 : 400;
+  const imageheight2 = windowWidth < 900 ? 125 : 300;
+  const imageheight3 = windowWidth < 900 ? 100 : 400;
+  const imageheight4 = windowWidth < 900 ? 200 : 400;
 
   return (
     <div className="body_ladle" style={{ backgroundColor: "#f9fbfc" }}>
@@ -8602,8 +8611,8 @@ const Ladlecalculator = ({ authtoken }) => {
        <h6 className={load?"watermark2":"dis"}>The Design Engg</h6>
         <h2 className="dia_head1">Straight Vessel Without Bottom Cone</h2>
         <div
-          className="flex-all img_ladle"
-          style={{ gap: "50vh", marginTop: "10vh" }}
+          className="flex-all img_ladle img_gap"
+          style={{ marginTop: "10vh" }}
         >
           <div
             style={{
@@ -8620,19 +8629,19 @@ const Ladlecalculator = ({ authtoken }) => {
             </h5> */}
             <div className="dia">
               <div className="dia_p_1aod">
-                <p className="p1"> Cone Shell Thk. {dia1}</p>
+                <p className="p2"> Cone Shell Thk. {dia1}</p>
               </div>
               <div className="dia_p_2aod">
-                <p className="p1">Total Height of Vessel</p>
+                <p className="p2">Total Height of Vessel</p>
               </div>
               <div className="dia_p_3aod">
-                <p className="p1">Vessel Shell Thk. {dia2}</p>
+                <p className="p2">Vessel Shell Thk. {dia2}</p>
               </div>
               <div className="dia_p_4aod">
-                <p className="p1">Bottom Cone Thk. {dia3}</p>
+                <p className="p2">Bottom Cone Thk. {dia3}</p>
               </div>
               <div className="dia_p_5aod">
-                <p className="p1">Disc End Thk. {dia4}</p>
+                <p className="p2">Disc End Thk. {dia4}</p>
               </div>
               <Image
                 src="/aod6.jpeg"
@@ -8648,56 +8657,56 @@ const Ladlecalculator = ({ authtoken }) => {
 
           <div className="dia">
             <div className="dia_p_6aod">
-              <p className="p1"> Vessel ID {dia5}</p>
+              <p className="p2"> Vessel ID {dia5}</p>
             </div>
             <div className="dia_p_7aod">
-              <p className="p1" style={{ fontSize: "10px" }}>
+              <p className="p2 img_font">
                 Cone Top ID
               </p>
             </div>
             <div className="dia_p_8aod">
-              <p className="p1" style={{ fontSize: "10px" }}>
+              <p className="p2 img_font">
                 {dia6}
               </p>
             </div>
             <div className="dia_p_9aod">
-              <p className="p1">Top Cone Height</p>
+              <p className="p2">Top Cone Height</p>
             </div>
             <div className="dia_p_10aod">
-              <p className="p1">Cone Flange Thk.</p>
+              <p className="p2">Cone Flange Thk.</p>
             </div>
             <div className="dia_p_11aod">
-              <p className="p1">Vessel FLange Thk.</p>
+              <p className="p2">Vessel FLange Thk.</p>
             </div>
             <div className="dia_p_12aod">
-              <p className="p1">Cyl. Shell Height</p>
+              <p className="p2">Cyl. Shell Height</p>
             </div>
             <div className="dia_p_13aod">
-              <p className="p1 p_temp">Bottom Cone with Disc end Height</p>
+              <p className="p2 p_temp">Bottom Cone with Disc end Height</p>
             </div>
             <div className="dia_p_14aod">
-              <p className="p1">{dia7}</p>
+              <p className="p2">{dia7}</p>
             </div>
             <div className="dia_p_15aod">
-              <p className="p1">{dia8}</p>
+              <p className="p2">{dia8}</p>
             </div>
             <div className="dia_p_16aod">
-              <p className="p1">{dia9}</p>
+              <p className="p2">{dia9}</p>
             </div>
             <div className="dia_p_17aod">
-              <p className="p1">{dia10}</p>
+              <p className="p2">{dia10}</p>
             </div>
             <div className="dia_p_18aod">
-              <p className="p1">{dia11}</p>
+              <p className="p2">{dia11}</p>
             </div>
             <div className="dia_p_19aod">
-              <p className="p1">Bottom Cone Dia</p>
+              <p className="p2">Bottom Cone Dia</p>
             </div>
             <div className="dia_p_20aod">
-              <p className="p1">{dia12}</p>
+              <p className="p2">{dia12}</p>
             </div>
             <div className="dia_p_21aod">
-              <p className="p1">{dia13}</p>
+              <p className="p2">{dia13}</p>
             </div>
             <Image
               src="/aod1.png"
@@ -8718,10 +8727,10 @@ const Ladlecalculator = ({ authtoken }) => {
         >
           <div className="dia">
             <div className="dia_p_22aod">
-              <p className="p1">{dia14}</p>
+              <p className="p2">{dia14}</p>
             </div>
             <div className="dia_p_23aod">
-              <p className="p1">{dia15}</p>
+              <p className="p2">{dia15}</p>
             </div>
             <Image
               src="/aod7.png"
@@ -8741,22 +8750,22 @@ const Ladlecalculator = ({ authtoken }) => {
         >
           <div className="dia">
             <div className="dia_p_24aod">
-              <p className="p1">{dia16}</p>
+              <p className="p2">{dia16}</p>
             </div>
             <div className="dia_p_25aod">
-              <p className="p1">{dia17} R</p>
+              <p className="p2">{dia17} R</p>
             </div>
             <div className="dia_p_26aod">
-              <p className="p1">{dia18} r</p>
+              <p className="p2">{dia18} r</p>
             </div>
             <div className="dia_p_27aod">
-              <p className="p1">{dia19}</p>
+              <p className="p2">{dia19}</p>
             </div>
             <div className="dia_p_28aod">
-              <p className="p1">{dia20} Angle in Degree</p>
+              <p className="p2">{dia20} Angle in Degree</p>
             </div>
             <div className="dia_p_29aod">
-              <p className="p1">{dia21} Thk.</p>
+              <p className="p2">{dia21} Thk.</p>
             </div>
             <Image
               src="/aod2.png"
@@ -8780,10 +8789,10 @@ const Ladlecalculator = ({ authtoken }) => {
         >
           <div className="dia">
             <div className="dia_p_30aod">
-              <p className="p1">{dia22} Dia</p>
+              <p className="p2">{dia22} Dia</p>
             </div>
             <div className="dia_p_31aod">
-              <p className="p1">{dia23} Thk.</p>
+              <p className="p2">{dia23} Thk.</p>
             </div>
             <Image
               src="/aod4.png"
@@ -8804,22 +8813,22 @@ const Ladlecalculator = ({ authtoken }) => {
         >
           <div className="dia">
             <div className="dia_p_24aod">
-              <p className="p1">{dia24}</p>
+              <p className="p2">{dia24}</p>
             </div>
             <div className="dia_p_25aod">
-              <p className="p1">{dia25} R</p>
+              <p className="p2">{dia25} R</p>
             </div>
             <div className="dia_p_26aod">
-              <p className="p1">{dia26} r</p>
+              <p className="p2">{dia26} r</p>
             </div>
             <div className="dia_p_27aod">
-              <p className="p1">{dia27}</p>
+              <p className="p2">{dia27}</p>
             </div>
             <div className="dia_p_28aod">
-              <p className="p1">{dia28} Angle in Degree</p>
+              <p className="p2">{dia28} Angle in Degree</p>
             </div>
             <div className="dia_p_29aod">
-              <p className="p1">{dia29} Thk.</p>
+              <p className="p2">{dia29} Thk.</p>
             </div>
             <Image
               src="/aod2.png"
@@ -8839,25 +8848,25 @@ const Ladlecalculator = ({ authtoken }) => {
         >
           <div className="dia">
             <div className="dia_p_32aod">
-              <p className="p1">R {dia30}</p>
+              <p className="p2">R {dia30}</p>
             </div>
             <div className="dia_p_33aod">
-              <p className="p1">{dia31}</p>
+              <p className="p2">{dia31}</p>
             </div>
             <div className="dia_p_34aod">
-              <p className="p1">{dia32}</p>
+              <p className="p2">{dia32}</p>
             </div>
             <div className="dia_p_35aod2">
-              <p className="p1">{dia33} r</p>
+              <p className="p2">{dia33} r</p>
             </div>
             <div className="dia_p_36aod">
-              <p className="p1">{dia34}</p>
+              <p className="p2">{dia34}</p>
             </div>
             <Image
               src="/aod3.jpeg"
               alt="My Image"
-              width={imageWidth2}
-              height={imageheight1}
+              width={imageWidth4}
+              height={imageheight4}
               loading="eager" // Options: "eager", "lazy", or "auto"
               priority // Preload this image
               quality={80} // Set the image quality (0-100)
@@ -8874,25 +8883,25 @@ const Ladlecalculator = ({ authtoken }) => {
         >
           <div className="dia">
             <div className="dia_p_32aod">
-              <p className="p1">R {dia35}</p>
+              <p className="p2">R {dia35}</p>
             </div>
             <div className="dia_p_33aod">
-              <p className="p1">{dia36}</p>
+              <p className="p2">{dia36}</p>
             </div>
             <div className="dia_p_34aod">
-              <p className="p1">{dia37}</p>
+              <p className="p2">{dia37}</p>
             </div>
             <div className="dia_p_35aod">
-              <p className="p1">{dia38} r</p>
+              <p className="p2">{dia38} r</p>
             </div>
             <div className="dia_p_36aod">
-              <p className="p1">{dia39}</p>
+              <p className="p2">{dia39}</p>
             </div>
             <Image
               src="/aod3.jpeg"
               alt="My Image"
-              width={imageWidth2}
-              height={imageheight1}
+              width={imageWidth4}
+              height={imageheight4}
               loading="eager" // Options: "eager", "lazy", or "auto"
               priority // Preload this image
               quality={80} // Set the image quality (0-100)
@@ -8906,25 +8915,25 @@ const Ladlecalculator = ({ authtoken }) => {
         >
           <div className="dia">
             <div className="dia_p_32aod">
-              <p className="p1">R {dia35}</p>
+              <p className="p2">R {dia35}</p>
             </div>
             <div className="dia_p_37aod">
-              <p className="p1">{dia36}</p>
+              <p className="p2">{dia36}</p>
             </div>
             <div className="dia_p_34aod">
-              <p className="p1">{dia37}</p>
+              <p className="p2">{dia37}</p>
             </div>
             <div className="dia_p_35aod2">
-              <p className="p1">{dia38} r</p>
+              <p className="p2">{dia38} r</p>
             </div>
             <div className="dia_p_36aod">
-              <p className="p1">{dia39}</p>
+              <p className="p2">{dia39}</p>
             </div>
             <Image
               src="/aod5.jpeg"
               alt="My Image"
-              width={imageWidth2}
-              height={imageheight1}
+              width={imageWidth4}
+              height={imageheight4}
               loading="eager" // Options: "eager", "lazy", or "auto"
               priority // Preload this image
               quality={80} // Set the image quality (0-100)
