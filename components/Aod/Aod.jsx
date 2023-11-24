@@ -2406,7 +2406,7 @@ const Ladlecalculator = ({ authtoken }) => {
       div1ImageData,
       "PNG",
       k,
-      10,
+      5,
       pdf.internal.pageSize.getWidth() - k4,
       pdf.internal.pageSize.getHeight()-20
     );
@@ -2432,7 +2432,7 @@ const Ladlecalculator = ({ authtoken }) => {
       k3,
       10,
       pdf.internal.pageSize.getWidth() - k4,
-      pdf.internal.pageSize.getHeight()-100
+      pdf.internal.pageSize.getHeight()-130
     );
     pdf.addPage();
 
@@ -2465,7 +2465,7 @@ const Ladlecalculator = ({ authtoken }) => {
       k3,
       10,
       pdf.internal.pageSize.getWidth() - k4,
-      pdf.internal.pageSize.getHeight()-20
+      pdf.internal.pageSize.getHeight()-50
     );
     pdf.addPage();
 
@@ -2476,7 +2476,7 @@ const Ladlecalculator = ({ authtoken }) => {
       k3,
       10,
       pdf.internal.pageSize.getWidth() - k4,
-      pdf.internal.pageSize.getHeight()-30
+      pdf.internal.pageSize.getHeight()-50
     );
     pdf.addPage();
 
@@ -2498,7 +2498,7 @@ const Ladlecalculator = ({ authtoken }) => {
       k3,
       10,
       pdf.internal.pageSize.getWidth() - k4,
-      pdf.internal.pageSize.getHeight()-100
+      pdf.internal.pageSize.getHeight()-130
     );
     
     
@@ -8589,9 +8589,10 @@ const Ladlecalculator = ({ authtoken }) => {
 
       
        <div ref={div7Ref} className={output_show ? "" : "dis"}>
+        <h2 className="dia_head1">Straight Vessel Without Bottom Cone</h2>
         <div
           className="flex-all img_ladle"
-          style={{ gap: "50vh", marginTop: "15vh" }}
+          style={{ gap: "50vh", marginTop: "10vh" }}
         >
           <div
             style={{
@@ -8699,9 +8700,10 @@ const Ladlecalculator = ({ authtoken }) => {
           </div>
         </div>
 
+        <h2 className="dia_head1">Cylindrical Shell Plate</h2>
         <div
           className="flex-all img_ladle"
-          style={{ gap: "50vh", marginTop: "15vh" }}
+          style={{ gap: "50vh", marginTop: "10vh" }}
         >
           <div className="dia">
             <div className="dia_p_22aod">
@@ -8721,10 +8723,10 @@ const Ladlecalculator = ({ authtoken }) => {
             />
           </div>
         </div>
-
+        <h2 className="dia_head1">Top Cone Plate</h2>
         <div
           className="flex-all img_ladle"
-          style={{ gap: "50vh", marginTop: "15vh" }}
+          style={{ gap: "50vh", marginTop: "10vh" }}
         >
           <div className="dia">
             <div className="dia_p_24aod">
@@ -8759,9 +8761,10 @@ const Ladlecalculator = ({ authtoken }) => {
       </div>
 
       <div ref={div8Ref} className={output_show ? "" : "dis"}>
+      <h2 className="dia_head1">Disc End</h2>
         <div
           className="flex-all img_ladle"
-          style={{ gap: "50vh", marginTop: "15vh" }}
+          style={{ gap: "50vh", marginTop: "10vh" }}
         >
           <div className="dia">
             <div className="dia_p_30aod">
@@ -8782,9 +8785,10 @@ const Ladlecalculator = ({ authtoken }) => {
           </div>
         </div>
 
+        <h2 className="dia_head1">Bottom Cone Plate</h2>
         <div
           className="flex-all img_ladle"
-          style={{ gap: "50vh", marginTop: "15vh" }}
+          style={{ gap: "50vh", marginTop: "10vh" }}
         >
           <div className="dia">
             <div className="dia_p_24aod">
