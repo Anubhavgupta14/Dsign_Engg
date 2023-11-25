@@ -96,13 +96,13 @@ const Ladlecalculator = ({ authtoken }) => {
   const [size1_t, Setsize1_t] = useState(null);
   const [size1_s, Setsize1_s] = useState(null);
   const [size1_l, Setsize1_l] = useState(null);
-  const [size2_t, Setsize2_t] = useState(null);
+  const [size2_t, Setsize2_t] = useState(" ");
   const [size2_s, Setsize2_s] = useState(null);
   const [size2_l, Setsize2_l] = useState(null);
-  const [size3_t, Setsize3_t] = useState(null);
+  const [size3_t, Setsize3_t] = useState(" ");
   const [size3_s, Setsize3_s] = useState(null);
   const [size3_l, Setsize3_l] = useState(null);
-  const [size4_t, Setsize4_t] = useState(null);
+  const [size4_t, Setsize4_t] = useState(" ");
   const [size4_s, Setsize4_s] = useState(null);
   const [size4_l, Setsize4_l] = useState(null);
   const [safety_lining_length_t, Setsafety_lining_length_t] = useState(null);
@@ -125,7 +125,7 @@ const Ladlecalculator = ({ authtoken }) => {
     Setbottom_cone_safety_lining_brick_length,
   ] = useState(null);
   const [bricks_std_width, Setbricks_std_width] = useState(null);
-  const [bricks_std_height, Setbricks_std_height] = useState(null);
+  const [bricks_std_height, Setbricks_std_height] = useState(100);
   const [density_of_bricks, Setdensity_of_bricks] = useState(null);
   const [safety_bricks_width, Setsafety_bricks_width] = useState(115);
   const [safety_bricks_height, Setsafety_bricks_height] = useState(null);
@@ -154,6 +154,11 @@ const Ladlecalculator = ({ authtoken }) => {
   const [table1_7_4, Settable1_7_4] = useState(0);
   const [table1_6_5, Settable1_6_5] = useState(0);
   const [table1_7_5, Settable1_7_5] = useState(0);
+  const [L14t, SetL14t] = useState(0);
+  const [L15, SetL15] = useState(0);
+  // const [L16, SetL16] = useState(0);
+  // const [L17, SetL17] = useState(0);
+
   const [Diaon1, setDiaon1] = useState(0);
   const [Diaon2, setDiaon2] = useState(0);
   const [Diaon3, setDiaon3] = useState(0);
@@ -432,6 +437,7 @@ const Ladlecalculator = ({ authtoken }) => {
   const [dia13, Setdia13] = useState(0)
   const [dia14, Setdia14] = useState(0)
   const [dia15, Setdia15] = useState(0)
+  const [dia15_2, Setdia15_2] = useState(0)
   const [dia16, Setdia16] = useState(0)
   const [dia17, Setdia17] = useState(0)
   const [dia18, Setdia18] = useState(0)
@@ -528,8 +534,9 @@ const Ladlecalculator = ({ authtoken }) => {
 
     const F14 = Math.ceil((0.52 * vessel_cylindrical_height) / 100) * 100;
     const F15 = Math.ceil((0.14 * vessel_cylindrical_height) / 100) * 100;
-    const F16 = Math.ceil((0.23 * vessel_cylindrical_height) / 100) * 100;
-    const F17 = vessel_cylindrical_height - (F14 + F15 + F16);
+    // const F16 = Math.ceil((0.23 * vessel_cylindrical_height) / 100) * 100;
+     const F16 = size3_l
+    const F17 = parseFloat(vessel_cylindrical_height) - parseFloat(F14) - parseFloat(F15) - parseFloat(F16);
     const p29 = F14 / 100 + F15 / 100 + F16 / 100 + F17 / 100;
     const O19 = vessel_cylindrical_id * 3.1416 * p29 * 100;
     const N19 = safety_bricks_width * safety_bricks_length;
@@ -550,7 +557,16 @@ const Ladlecalculator = ({ authtoken }) => {
       Math.ceil(
         (O17 / bricks_std_width) * (degree_lining_for_trapping_t / 360)
       ) * p27;
-    const L17 = (K17 / K13) * L13;
+      const M14 =
+      vessel_cylindrical_id -
+      (parseFloat(size1_t) + parseFloat(safety_lining_length_t)) -
+      (parseFloat(size1_s) + parseFloat(safety_lining_length_s));
+    // const L17 = (K17 / K13) * L13;
+    let L17=0
+    const O14 = 3.1416*M14
+    if(size1_t==size4_s){
+      L17 = Math.ceil(O14/bricks_std_width*L13)*((F14/100)+(F15/100)+(F16/100)+(F17/100))
+    }
     const safety_cyl3 = K17 + L17;
     Setsafety_cyl3(safety_cyl3);
 
@@ -569,10 +585,7 @@ const Ladlecalculator = ({ authtoken }) => {
     const safety_top_cone2 = size3_s;
     Setsafety_top_cone2(safety_top_cone2);
 
-    const M14 =
-      vessel_cylindrical_id -
-      (parseFloat(size1_t) + parseFloat(safety_lining_length_t)) -
-      (parseFloat(size1_s) + parseFloat(safety_lining_length_s));
+    
     const K14 =
       Math.ceil(((3.1416 * M14) / bricks_std_width) * K13) * (F14 / 100);
     const M16 =
@@ -588,7 +601,12 @@ const Ladlecalculator = ({ authtoken }) => {
       (parseFloat(size2_s) + parseFloat(safety_lining_length_t));
     const K15 =
       Math.ceil(((3.1416 * M15) / bricks_std_width) * K13) * (F15 / 100);
-    const L16 = ((K14 + K15 + K16) / K13) * L13;
+    // const L16 = ((K14 + K15 + K16) / K13) * L13;
+    let L16 = 0
+
+    if(size1_t==size3_s){
+      L16 = Math.ceil(O14/bricks_std_width*L13)*((F14/100)+(F15/100)+(F16/100)+(F17/100))
+    }
     const safety_top_cone3 = K16 + L16;
     Setsafety_top_cone3(safety_top_cone3);
 
@@ -662,7 +680,19 @@ const Ladlecalculator = ({ authtoken }) => {
     setAreaL1(3.1416 * M14);
     setno_of_layer1(F14 / 100);
 
-    const L14 = 0;
+    let L14 = 0
+    if(size1_t==size1_s){
+      L14 = Math.ceil(O14/bricks_std_width*L13)*((F14/100)+(F15/100)+(F16/100)+(F17/100))
+    }
+    SetL14t(L14)
+
+    let l15 = 0
+    if(size1_t==size2_s){
+      l15 = Math.ceil(O14/bricks_std_width*L13)*((F14/100)+(F15/100)+(F16/100)+(F17/100))
+    }
+    SetL15(l15)
+    
+
     const weight_of_bricks2 =
       (size1_s *
         bricks_std_width *
@@ -1868,7 +1898,7 @@ const Ladlecalculator = ({ authtoken }) => {
     setTop_cone_table3_2((top_table3_2).toFixed(3))
     const top_table3_0 = top_table3_1 / top_table3_2
     setTop_cone_table3_0(Math.round(top_table3_0))
-    const top_table3_3 = bottom_cone_side_lining_brick_length * bricks_std_width * bricks_std_height * top_table3_0 * density_of_bricks / 1000000000
+    const top_table3_3 = bottom_cone_bottom_lining_brick_length * bricks_std_width * bricks_std_height * top_table3_0 * density_of_bricks / 1000000000
     setTop_cone_table3_3((top_table3_3).toFixed(3))
 
     const top_table4_1_1 = 3.1416 * (parseFloat(vessel_cylindrical_id) + parseFloat(D20)) * top_cone_height / 2
@@ -1941,7 +1971,7 @@ const Ladlecalculator = ({ authtoken }) => {
     const G991 = (H985 * 3.1428) * 360 / (D990 * 2 * 3.1428)
     const J991 = Math.sin(3.1416 / 180 * (G991 / 4))
     let sizel3;
-    if (top_cone_angle == 0) {
+    if (bottom_cone_angle == 0) {
       sizel3 = 0
     }
     else {
@@ -1954,7 +1984,7 @@ const Ladlecalculator = ({ authtoken }) => {
     const F997 = J992 * D991
     const D989 = D990 - D991
     let sizew3;
-    if (top_cone_angle == 0) {
+    if (bottom_cone_angle == 0) {
       sizew3 = 0
     }
     else {
@@ -1963,7 +1993,7 @@ const Ladlecalculator = ({ authtoken }) => {
     SetsizeW3(Math.round(sizew3))
 
     let qty3t;
-    if (top_cone_angle == 0) {
+    if (bottom_cone_angle == 0) {
       qty3t = 0
     }
     else {
@@ -2036,7 +2066,7 @@ const Ladlecalculator = ({ authtoken }) => {
     const J966 = 2 * (57.2958 * Math.acos(K966))
     const J969 = 0.01745 * I968 * J966
     let sizel7;
-    if (top_cone_angle == 0) {
+    if (bottom_cone_angle == 0) {
       sizel7 = F970
     }
     else {
@@ -2197,7 +2227,14 @@ const Ladlecalculator = ({ authtoken }) => {
     Setdia13(Math.round(d13))
     
     Setdia14(Math.round((parseFloat(vessel_cylindrical_id) + parseFloat(vessel_cylindrical_shell))*3.1428))
-    Setdia15(vessel_cylindrical_height)
+    let diarect = 0
+    if(bottom_cone_angle==0){
+      diarect = parseFloat(vessel_cylindrical_height)+parseFloat(bottom_cone_height)
+      }
+    else{
+    diarect = vessel_cylindrical_height 
+      }
+    Setdia15(diarect)
     Setdia16(Math.round(sizel2))
     Setdia17(Math.round(E955))
     Setdia18(Math.round(E956))
@@ -2207,8 +2244,17 @@ const Ladlecalculator = ({ authtoken }) => {
     Setdia22(Math.round(sizel7))
     Setdia23(Math.round(disc_end))
     Setdia24(Math.round(sizel3))
-    Setdia25(Math.round(D990))
-    Setdia26(Math.round(D991))
+    
+    let d990=D990
+    let d991=D991
+
+    if(bottom_cone_angle==0){
+      d990=0
+      d991=0
+
+    }
+    Setdia25(Math.round(d990))
+    Setdia26(Math.round(d991))
     Setdia27(Math.round(sizew3))
     Setdia28(Math.round((G991/4)*2))
     Setdia29(Math.round(vessel_bottom_cone))
@@ -3677,7 +3723,12 @@ const Ladlecalculator = ({ authtoken }) => {
                             id="demo-select-small"
                             value={size1_t}
                             label="Size 1"
-                            onChange={(e) => Setsize1_t(e.target.value)}
+                            onChange={(e) => {
+                              Setsize1_t(e.target.value)
+                              Setsize2_t(e.target.value)
+                              Setsize3_t(e.target.value)
+                              Setsize4_t(e.target.value)
+                            }}
                           >
                             <MenuItem value="">
                               <em>None</em>
@@ -3758,6 +3809,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
+                          disabled
                         // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
@@ -3849,6 +3901,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
+                          disabled
                         // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
@@ -3940,6 +3993,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
+                          disabled
                         // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
@@ -4331,6 +4385,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       <FormControl
                           sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
                           size="small"
+                          disabled
                         // error={error_show.thickness4 && !thickness4}
                         >
                           <InputLabel id="demo-select-small-label">
@@ -5066,6 +5121,8 @@ const Ladlecalculator = ({ authtoken }) => {
                         </div>
                       </TableCell>
                     </TableRow>
+
+
                     <TableRow
                       hover
                       role="checkbox"
@@ -5094,7 +5151,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{L14t}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -5151,7 +5208,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p></p>
+                          <p>{L15}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -5180,6 +5237,8 @@ const Ladlecalculator = ({ authtoken }) => {
                         </div>
                       </TableCell>
                     </TableRow>
+
+
                     <TableRow
                       hover
                       role="checkbox"
@@ -5237,6 +5296,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         </div>
                       </TableCell>
                     </TableRow>
+
                     <TableRow
                       hover
                       role="checkbox"
@@ -5442,7 +5502,7 @@ const Ladlecalculator = ({ authtoken }) => {
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>{top_cone_table_3_24}</p>
+                          <p>{(top_cone_table_3_24).toFixed(2)}</p>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -7714,7 +7774,7 @@ const Ladlecalculator = ({ authtoken }) => {
                     >
                       <TableCell>
                         <div className="row_ladle flex-all">
-                          <p>{bottom_cone_side_lining_brick_length}</p>
+                          <p>{bottom_cone_bottom_lining_brick_length}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -8732,6 +8792,9 @@ const Ladlecalculator = ({ authtoken }) => {
             <div className="dia_p_23aod">
               <p className="p2">{dia15}</p>
             </div>
+            <div className="dia_p_23aod2">
+              <p className="p2">{vessel_cylindrical_shell} thk</p>
+            </div>
             <Image
               src="/aod7.png"
               alt="My Image"
@@ -8860,7 +8923,7 @@ const Ladlecalculator = ({ authtoken }) => {
               <p className="p2">{dia33} r</p>
             </div>
             <div className="dia_p_36aod">
-              <p className="p2">{dia34}</p>
+              <p className="p2">{dia34} thk</p>
             </div>
             <Image
               src="/aod3.jpeg"
@@ -8895,7 +8958,7 @@ const Ladlecalculator = ({ authtoken }) => {
               <p className="p2">{dia38} r</p>
             </div>
             <div className="dia_p_36aod">
-              <p className="p2">{dia39}</p>
+              <p className="p2">{dia39} thk</p>
             </div>
             <Image
               src="/aod3.jpeg"
@@ -8927,7 +8990,7 @@ const Ladlecalculator = ({ authtoken }) => {
               <p className="p2">{dia38} r</p>
             </div>
             <div className="dia_p_36aod">
-              <p className="p2">{dia39}</p>
+              <p className="p2">{dia39} thk</p>
             </div>
             <Image
               src="/aod5.jpeg"
