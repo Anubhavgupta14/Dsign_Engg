@@ -104,7 +104,7 @@ const Ladlecalculator = ({ authtoken }) => {
   const [size3_l, Setsize3_l] = useState(null);
   const [size4_t, Setsize4_t] = useState(" ");
   const [size4_s, Setsize4_s] = useState(null);
-  const [size4_l, Setsize4_l] = useState(null);
+  const [size4_l, Setsize4_l] = useState(" ");
   const [safety_lining_length_t, Setsafety_lining_length_t] = useState(null);
   const [safety_lining_length_s, Setsafety_lining_length_s] = useState(null);
   const [degree_lining_for_trapping_t, Setdegree_lining_for_trapping_t] =
@@ -4039,7 +4039,16 @@ const Ladlecalculator = ({ authtoken }) => {
                           defaultValue="Small"
                           // error={error_show.topdiameter && !topdiameter}
                           size="small"
-                          onChange={(e) => Setsize3_l(e.target.value)}
+                          onChange={(e) => {
+                            Setsize3_l(e.target.value)
+                            // let a = parseFloat(vessel_cylindrical_height) - (parseFloat(size1_l) + parseFloat(size2_l) + parseFloat(size3_l))
+                            // Setsize4_l(a)
+                          }}
+                          onMouseMove={()=>{
+                            let a = parseFloat(vessel_cylindrical_height) - (parseFloat(size1_l) + parseFloat(size2_l) + parseFloat(size3_l))
+                            Setsize4_l(a)
+                          }}
+                          
                         />
                       </div>
                     </TableCell>
@@ -4122,16 +4131,18 @@ const Ladlecalculator = ({ authtoken }) => {
                       <div className="row_ladle flex-all">
                         <TextField
                           required
+                          disabled
                           className="textfield_ladle"
                           id="outlined-number"
                           sx={{ m: 1, minWidth: isMobile ? 220 : 100 }}
                           label="Size4"
+                          value={size4_l}
                           variant="outlined"
                           type="number"
                           defaultValue="Small"
                           // error={error_show.topdiameter && !topdiameter}
                           size="small"
-                          onChange={(e) => Setsize4_l(e.target.value)}
+                          // onChange={(e) => Setsize4_l(e.target.value)}
                         />
                       </div>
                     </TableCell>
