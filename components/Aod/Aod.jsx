@@ -63,7 +63,7 @@ const Ladlecalculator = ({ authtoken }) => {
     useState(null);
   const [top_cone_bottom_id, settop_cone_bottom_id] = useState(" ");
   const [top_cone_height, Settop_cone_height] = useState(null);
-  const [top_cone_angle, Settop_cone_angle] = useState(null);
+  const [top_cone_angle, Settop_cone_angle] = useState(30);
   const [top_safety, Settop_safety] = useState(null);
   const [density_of_liq_metal, Setdensity_of_liq_metal] = useState(null);
   const [bottom_cone_top_id, Setbottom_cone_top_id] = useState(" ");
@@ -2846,21 +2846,23 @@ const Ladlecalculator = ({ authtoken }) => {
                         <div className="row_ladle flex-all">
                           <TextField
                             required
+                            disabled
                             className="textfield_ladle"
                             id="outlined-number"
                             sx={{ m: 1, minWidth: isMobile ? 200 : 100 }}
                             label="Top Cone Angle"
                             variant="outlined"
                             type="number"
+                            value={top_cone_angle}
                             defaultValue="Small"
                             // error={error_show.topdiameter && !topdiameter}
                             size="small"
-                            onChange={(e) => Settop_cone_angle(e.target.value)}
+                            // onChange={(e) => Settop_cone_angle(e.target.value)}
                           />
                         </div>
                       </TableCell>
                       <TableCell>
-                        <div className="row_ladle flex-all">
+                        {/* <div className="row_ladle flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -2876,7 +2878,39 @@ const Ladlecalculator = ({ authtoken }) => {
                               Setdensity_of_liq_metal(e.target.value)
                             }
                           />
-                        </div>
+                        </div> */}
+                        <div className="row_ladle flex-all">
+                      
+                      <FormControl
+                        sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
+                        size="small"
+                      // error={error_show.thickness4 && !thickness4}
+                      >
+                        <InputLabel id="demo-select-small-label">
+                          Density of Liquid Metal
+                        </InputLabel>
+                        <Select
+                          labelId="demo-select-small-label"
+                          id="demo-select-small"
+                          value={density_of_liq_metal}
+                          label="Density of Liquid Metal"
+                          onChange={(e) =>
+                            Setdensity_of_liq_metal(e.target.value)}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={6.5}>6.5</MenuItem>
+                          <MenuItem value={6.8}>6.8</MenuItem>
+                          <MenuItem value={7}>7</MenuItem>
+                          <MenuItem value={7.2}>7.2</MenuItem>
+                          <MenuItem value={7.4}>7.4</MenuItem>
+                          <MenuItem value={7.6}>7.6</MenuItem>
+                          <MenuItem value={7.8}>7.8</MenuItem>
+                          <MenuItem value={7.86}>7.86</MenuItem>
+                        </Select>
+                      </FormControl>
+                      </div>
                       </TableCell>
                       <TableCell>
                         <div className="row_ladle flex-all">
@@ -2964,7 +2998,7 @@ const Ladlecalculator = ({ authtoken }) => {
                         </div>
                       </TableCell>
                       <TableCell>
-                        <div className="row_ladle flex-all">
+                        {/* <div className="row_ladle flex-all">
                           <TextField
                             required
                             className="textfield_ladle"
@@ -2978,6 +3012,33 @@ const Ladlecalculator = ({ authtoken }) => {
                             size="small"
                             onChange={(e) => Settop_safety(e.target.value)}
                           />
+                        </div> */}
+                        <div className="row_ladle flex-all">
+                      
+                        <FormControl
+                          sx={{ m: 0, minWidth: isMobile ? 220 : 100 }}
+                          size="small"
+                        // error={error_show.thickness4 && !thickness4}
+                        >
+                          <InputLabel id="demo-select-small-label">
+                            Safety
+                          </InputLabel>
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={top_safety}
+                            label="Safety"
+                            onChange={(e) => Settop_safety(e.target.value)}
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={25}>25</MenuItem>
+                            <MenuItem value={50}>50</MenuItem>
+                            <MenuItem value={75}>75</MenuItem>
+                            <MenuItem value={100}>100</MenuItem>
+                          </Select>
+                        </FormControl>
                         </div>
                       </TableCell>
                     </TableRow>
