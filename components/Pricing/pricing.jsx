@@ -67,6 +67,7 @@ const page = ({authtoken}) => {
   }, []);
 
   const submit = async () => {
+      // const token = localStorage.getItem('JWT');
 
       let order_id = uuidv4();
       let paymentDetails = {
@@ -79,9 +80,9 @@ const page = ({authtoken}) => {
         // billing_tel: user.phone,
         // billing_email: user.email,
         // merchant_param1: pancard,
-        // merchant_param2: pancardcopy || "",
+        merchant_param2: userData.email,
         // merchant_param3: user.message,
-        amount:900
+        amount:1
       }
       console.log(paymentDetails)
 
