@@ -6,7 +6,8 @@ import { TiTick } from 'react-icons/ti';
 
 
 const DonationSuccess = (props) => {
-    const { order_id, amount } = props.props;
+    console.log("frontend",props)
+    const { order_id, amount } = props.props.data;
     const router = useRouter();
     const [time, setTime] = useState(10);
 

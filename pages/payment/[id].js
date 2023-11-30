@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 import Donation from '../../userModel/Payment';
 
 const order = (props) => {
-    console.log(props, "op op rpops");
+    // console.log(props, "op op rpops");
     return (
         <>
             <Navbar />
@@ -21,6 +21,7 @@ export default order
 export async function getServerSideProps(context) {
     console.log(context.query)
     let slug = context.query.id;
+    // console.log(slug)
     if (!mongoose.connections[0].readyState) {
         await mongoose.connect('mongodb+srv://anubhavgu2002:anubhav14@mernauth.egcwxzx.mongodb.net/mernauth?retryWrites=true&w=majority', {
             useNewUrlParser: true,

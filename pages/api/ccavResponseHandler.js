@@ -48,7 +48,7 @@ export default async function handler(req, res) {
     if (user) {
       console.log("user ke ander hai")
 
-      if(jsonresponse.amount==1){
+      if(jsonresponse.amount==900){
         user.ladle_ticket += 2;  
       }
       else if(jsonresponse.amount==2400){
