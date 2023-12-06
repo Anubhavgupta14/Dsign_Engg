@@ -34,5 +34,5 @@ export function middleware(request) {
  
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ['/signin','/signup','/dashboard','/admin','/dashboard_security','/dashboard_history' ,'/api/users/:path*','/ccm','/ladle','/aod'],
+  matcher: ['/signin','/signup','/orders','/dashboard','/admin_dashboard','/admin','/dashboard_security','/dashboard_history' ,'/api/users/:path*','/ccm','/ladle','/aod'],
 }

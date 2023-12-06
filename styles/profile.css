@@ -8,7 +8,7 @@
     overflow-x: hidden;
     background-color: #f9fbfc;
     transition: all 0.3s ease;
-    padding-top: 17vh;
+    padding-top: 8vh;
   }
   .profile-load{
     background: none!important;
@@ -51,7 +51,7 @@
   
   .profile-content {
     grid-column: 2;
-    margin-left: 12rem;
+    margin-left: 0rem;
   }
   
   .shadow {
@@ -160,7 +160,7 @@
   }
   
   .fixed{
-    position: fixed;
+    /* position: fixed; */
     left: 0;
   }
   

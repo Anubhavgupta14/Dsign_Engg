@@ -4,29 +4,15 @@ import { BsInstagram, BsPeople, BsLinkedin, BsTwitter, BsDownload } from 'react-
 import { AiOutlineLink } from 'react-icons/ai'
 import { MdOutlinePersonOutline, MdOutlineSecurity, MdOutlineAnalytics } from 'react-icons/md';
 import { useRouter } from 'next/router';
+import { IoMdDocument } from "react-icons/io";
 import Link from 'next/link';
+import { BiSolidPurchaseTag } from "react-icons/bi";
 import { toast } from 'react-toastify'
 import { fetchCurrentUser } from '../../libs/fetchUser'
 
 const ProfileLeft = ({scroll}) => {
     const router = useRouter();
-    const links = [
-        {
-            title: 'General',
-            icon: <MdOutlinePersonOutline />,
-            link: '/dashboard'
-        },
-        {
-            title: 'Security',
-            icon: <MdOutlineSecurity />,
-            link: '/dashboard_security'
-        },
-        {
-            title: 'Orders',
-            icon: <BsPeople />,
-            link: '/dashboard_orders'
-        }
-    ];
+    
 
     const [userData, setUserData] = useState({
         name: '',
@@ -37,6 +23,7 @@ const ProfileLeft = ({scroll}) => {
         addressLine1: '',
         addressLine2: '',
         aboutMyself: '',
+        role: "user"
     });
     useEffect(() => {
         const token = localStorage.getItem('JWT');
@@ -74,85 +61,51 @@ const ProfileLeft = ({scroll}) => {
 
         getUserData();
     }, []);
+    const links = [
+        {
+          title: 'My Profile',
+          icon: <MdOutlinePersonOutline />,
+          link: '/dashboard',
+        },
+        {
+          title: 'Settings',
+          icon: <MdOutlineSecurity />,
+          link: '/dashboard_security',
+        },
+        // Step 2: Conditionally add "My Orders" based on role
+        userData.role == "admin"
+          ? {
+              title: 'Admin',
+              icon: <BsPeople />,
+              link: '/admin_dashboard',
+            }
+          : null,
+        {
+          title: 'My Orders',
+          icon: <BiSolidPurchaseTag />,
+          link: '/orders',
+        },
+        {
+          title: 'My Documents',
+          icon: <IoMdDocument />,
+          link: '/dashboard_documents',
+        },
+      ].filter(Boolean);
 
     const [isSticky, setIsSticky] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Define the scroll limit where you want to add the sticky class
-      const scrollLimit = scroll; // Adjust this value as needed
-      
-      // Get the current scroll position
-      const scrollY = window.scrollY || window.pageYOffset;
-
-      // Check if the scroll position is beyond the scroll limit
-      if (scrollY >= scrollLimit) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
-    };
-
-    // Attach the scroll event listener
-    window.addEventListener('scroll', handleScroll);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
     return (
         <div className={isSticky?"shadow h-auto w-15 fixed dis":"shadow h-auto w-15 fixed"}>
             <div className="user-details-profile">
                 <div className="user-image-profile">
                     <img
-                        src={userData.profilePic || "/defaultProfilePic.jpg"}
+                        src={userData.profilePic || "/profile.png"}
                         alt="user"
                     />
-                    {/* <div className="photo-icon flex-all">
-                        <AiOutlineCamera />
-                    </div> */}
                 </div>
                 <div className="user-name-profile">
-                    {userData.name}
+                    {(userData.name).toUpperCase()}
                 </div>
                 
-                <div className='social-icons'>
-                    {userData.linkedin && <Link target="_blank" href={userData.linkedin || ""}>
-                        <div className='social-icon'>
-
-                            <BsLinkedin />
-                        </div>
-                    </Link>
-                    }
-
-                    {userData.linkedin && <div className='profile__line'></div>}
-                    {userData.twitter &&
-                        <Link target="_blank" href={userData.twitter || ""}>
-                            <div className='social-icon'>
-                                <BsTwitter />
-                            </div>
-                        </Link>
-                    }
-                    {userData.twitter && <div className='profile__line'></div>}
-                    {userData.instagram && <Link target="_blank" href={userData.instagram || ""}>
-                        <div className='social-icon '>
-                            <BsInstagram />
-                        </div>
-                    </Link>}
-                    {userData.instagram && <div className='profile__line'></div>
-                    }
-
-                    {userData.website && <Link target="_blank" href={userData.website || ""}>
-
-                        <div className='social-icon aiicon'>
-                            <AiOutlineLink />
-                        </div>
-
-                    </Link>
-                    }
-                </div>
                 <div className='profile-links'>
 
                     {links.map((link, index) => (

@@ -5,14 +5,6 @@ import Footer from "../../components/Footer/footer";
 import { useEffect } from "react";
 
 const Layout = ({ children }) => {
-    // useEffect(() => {
-    //     const userLoggedIn = localStorage.getItem("JWT");
-    //     if (!userLoggedIn) {
-    //         window.location.href = "/login";
-    //     }
-    // }, [])
-
-
     return (
         <>
             <Navbar />

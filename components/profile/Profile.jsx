@@ -78,7 +78,7 @@ export default function AccountMenu() {
     router.push('/dashboard_security');
   };
   const admin_page=()=>{
-    router.push('/admin');
+    router.push('/admin_dashboard');
   }
 
   const handlelogout = async () => {

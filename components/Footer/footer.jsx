@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { BsTwitter, BsYoutube } from 'react-icons/bs'
 import { RiInstagramFill } from 'react-icons/ri'
@@ -14,9 +13,6 @@ import PlainButton from '../PlainButton/plainbutton'
 const Footer = () => {
     const icons = [
         {
-            svg: <BsTwitter />,
-        },
-        {
             svg: <RiInstagramFill />,
         },
         {
@@ -24,11 +20,7 @@ const Footer = () => {
         },
         {
             svg: <BsYoutube />,
-        },
-        {
-            svg: <SiDiscord />,
-        },
-
+        }
     ]
     return (
         <>
