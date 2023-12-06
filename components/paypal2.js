@@ -1,15 +1,12 @@
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { useState, useEffect } from "react";
 import { toast } from 'react-toastify';
+import { useRouter } from "next/router";
 
 
 const PaypalCheckoutButton = (props) => {
-  
+  const router = useRouter();
 
-  
-//   <script
-//   src="https://www.paypal.com/sdk/js?client-id=AaFKKLd_MGqMO-QLbbDO6grwnyXzmxn4w6t0Mm5T58Zy7vWhu6D1yJX9aNNzq0aV3SnliVViVrc9sWK5">
-// </script>
   const { product2 } = props;
 
   // const email = product2.email
@@ -31,7 +28,7 @@ const PaypalCheckoutButton = (props) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({token}),
+        body: JSON.stringify({token, orderId}),
       });
   
       const data = await response.json();
@@ -39,6 +36,9 @@ const PaypalCheckoutButton = (props) => {
       if (response.ok) {
         console.log(data.message); // Success message
         toast.success(data.message)
+        setTimeout(() => {
+          router.push('/')
+        }, 2000);
         // Perform other actions or UI updates here
       } else if (response.status === 404) {
         console.log(data.message); // User not found

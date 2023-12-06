@@ -240,7 +240,7 @@ const page = ({authtoken}) => {
                   <br />$ 30
                   <br />
                   {authtoken && <div className="paypal-button-container">
-                    <PaypalCheckoutButton product2={product2} />
+                    <PaypalCheckoutButton2 product2={product2} />
                   </div>}
                   {!authtoken && <button onClick={login} className="btn_pricing temp_btn">Get started</button>}
                 </td>

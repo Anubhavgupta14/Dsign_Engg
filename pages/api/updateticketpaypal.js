@@ -1,6 +1,7 @@
 import dbConnect from "../dbConfig/dbConfig";
 import Member from "../../userModel/userModel";
 import jwt from "jsonwebtoken";
+import payment from "../../userModel/Payment"
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
@@ -8,7 +9,7 @@ const handler = async (req, res) => {
     // const { email, amount } = req.body;
     // console.log("From API", email);
     // console.log("From API amount", amount);
-    const { token } = req.body;
+    const { token, orderId } = req.body;
 
     if(token==null) return res.status(200).json({});
 
@@ -26,7 +27,7 @@ const handler = async (req, res) => {
         const email = decodedToken.email;
         let user;
         user = await Member.findOne({ email });
-
+        console.log(orderId,"orderid from api")
       if (user) {
         console.log("User Name", user.name);
         
@@ -40,7 +41,14 @@ const handler = async (req, res) => {
         //     console.log("updated ladle ticket", user.ladle_ticket);
         //     console.log("updated aod ticket", user.ladle_ticket);
         // }
-        
+         const data = {
+           order_id: orderId,
+           order_status: "Success",
+           amount: 11.25,
+           currency: "US",
+           billing_email: email,
+         }
+         await payment.create(data)
 
         await user.save();
         return res.status(201).json({ message: "Thank You for Purchasing" });
