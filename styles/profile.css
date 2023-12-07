@@ -313,7 +313,6 @@
   .input-fields {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
     width: 100%;
     align-items: flex-start;
     margin: 4px 0;

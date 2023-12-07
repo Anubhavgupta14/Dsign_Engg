@@ -9,7 +9,7 @@ const handler = async (req, res) => {
 
     try {
       // const reqBody = req.body;
-      const { name, email, phone, dob, gender, password } = req.body;
+      const { name, email, phone, dob, gender, password, country } = req.body;
 
       console.log(req.body);
 
@@ -41,6 +41,7 @@ const handler = async (req, res) => {
         dob,
         gender,
         password: hashedPassword,
+        country,
       });
 
       const savedUser = await newUser.save();
@@ -59,19 +60,6 @@ const handler = async (req, res) => {
       const reqBody = req.body;
       const { email, password } = reqBody;
       console.log('Email:', email);
-      // if (email == "krishnadevassi@gmail.com") {
-      //   let admin = await Admin.findOne({ email });
-      //   let passwordMatch = await bcrypt.compare(password, admin.password);
-      //   if (passwordMatch) {
-      //     let token = jwt.sign({ email }, "your_secret_key");
-      //     const create_token = await Admin.findByIdAndUpdate(admin._id, {
-      //       token,
-      //     });
-      //     return res.status(200).json({ token, role: "admin" });
-      //   } else {
-      //     return res.status(401).json({ error: "Invalid Credentials." });
-      //   }
-      
 
       let findMember = await User.findOne({ email });
 

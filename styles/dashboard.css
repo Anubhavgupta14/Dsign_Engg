@@ -14,6 +14,17 @@
 .head_dash2 {
   text-align: center;
 }
+.flex-start{
+  display: flex;
+  justify-content: flex-start;
+}
+.k{
+  gap:1vh;
+    width: 100%;
+}
+.gap{
+  gap: 3vh;
+}
 .side_nav {
   position: fixed;
   top: 13vh;

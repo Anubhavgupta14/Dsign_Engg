@@ -127,8 +127,6 @@ const ProfileLeft = ({scroll}) => {
                 </div>
                 <div>
                     <p>Plan - {plan}</p>
-                    {show ? <p>Ladle Tickets - {userData.ladle_ticket}</p>:<p></p>}
-                    {show ? <p>AOD Tickets - {userData.aod_ticket}</p>:<p></p>}
                 </div>
                 
                 <div className='profile-links'>
