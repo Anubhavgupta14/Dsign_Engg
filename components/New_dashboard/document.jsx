@@ -117,10 +117,10 @@ const general = () => {
     <>
       <ProfileLayout>
         <div className="shadow general-container">
-          <p className="profile-t">My Orders</p>
+          <p className="profile-t">My Documents</p>
           <div className="my-2"></div>
           <div>
-          <Box sx={{ height: 400, width: '110%' }}>
+          {/* <Box sx={{ height: 400, width: '110%' }}>
               <DataGrid
                 rows={rows}
                 columns={columns}
@@ -135,7 +135,7 @@ const general = () => {
                 checkboxSelection
                 disableRowSelectionOnClick
               />
-            </Box>
+            </Box> */}
           </div>
 
         </div>

@@ -67,19 +67,7 @@ const general = () => {
       headerName: 'AOD Tickets',
       width: 150,
       sortable: true,
-    },
-    // {
-    //   field: 'expand',
-    //   headerName: 'Expand',
-    //   width: 100,
-    //   sortable: false,
-    //   renderCell: (params) => {
-    //     const expanded = params.row.__expanded__;
-    //     return (
-    //       <button onClick={() => handleExpand(params.row.email)}>Expand</button>
-    //     );
-    //   },
-    // },
+    },  
   ];
   
   const rows = data.map((user, index) => ({

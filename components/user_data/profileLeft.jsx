@@ -12,7 +12,8 @@ import { fetchCurrentUser } from '../../libs/fetchUser'
 
 const ProfileLeft = ({scroll}) => {
     const router = useRouter();
-    
+    const [plan,setplan] = useState("Free")
+    const [show,setshow] = useState(false)
 
     const [userData, setUserData] = useState({
         name: '',
@@ -23,7 +24,9 @@ const ProfileLeft = ({scroll}) => {
         addressLine1: '',
         addressLine2: '',
         aboutMyself: '',
-        role: "user"
+        role: "user",
+        ladle_ticket: 0,
+        aod_ticket:0
     });
     useEffect(() => {
         const token = localStorage.getItem('JWT');
@@ -51,6 +54,20 @@ const ProfileLeft = ({scroll}) => {
                     dob: user.dob ? user.dob.split('T')[0] : '',
                 };
                 setUserData(convertedUser);
+
+                if(convertedUser.aod_ticket !=0 && convertedUser.ladle_ticket!=0){
+                    setplan("Premium")
+                    setshow(true)
+                }
+                else if(convertedUser.aod_ticket==0 && convertedUser.ladle_ticket!=0){
+                    setplan("Regular")
+                    setshow(true)
+                }
+                else if(convertedUser.ladle_ticket==0 && convertedUser.aod_ticket!=0){
+                    setplan("Premium")
+                    setshow(true)
+                }
+                
             } catch (error) {
 
                 toast.error(error.message || "Some error occurred while fetching data");
@@ -61,6 +78,7 @@ const ProfileLeft = ({scroll}) => {
 
         getUserData();
     }, []);
+
     const links = [
         {
           title: 'My Profile',
@@ -88,11 +106,12 @@ const ProfileLeft = ({scroll}) => {
         {
           title: 'My Documents',
           icon: <IoMdDocument />,
-          link: '/dashboard_documents',
+          link: '/document',
         },
       ].filter(Boolean);
 
     const [isSticky, setIsSticky] = useState(false);
+
     return (
         <div className={isSticky?"shadow h-auto w-15 fixed dis":"shadow h-auto w-15 fixed"}>
             <div className="user-details-profile">
@@ -104,6 +123,12 @@ const ProfileLeft = ({scroll}) => {
                 </div>
                 <div className="user-name-profile">
                     {(userData.name).toUpperCase()}
+
+                </div>
+                <div>
+                    <p>Plan - {plan}</p>
+                    {show ? <p>Ladle Tickets - {userData.ladle_ticket}</p>:<p></p>}
+                    {show ? <p>AOD Tickets - {userData.aod_ticket}</p>:<p></p>}
                 </div>
                 
                 <div className='profile-links'>

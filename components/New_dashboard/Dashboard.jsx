@@ -18,6 +18,9 @@ const General = () => {
     addressLine1: "",
     addressLine2: "",
     basicProfile: "",
+    ladle_ticket:0,
+    aod_ticket:0,
+
   });
   const [errors, setErrors] = useState({
     name: "",
@@ -162,6 +165,7 @@ const General = () => {
       }
       console.log(data, "data: ");
       toast.success("Changes saved successfully");
+      window.location.reload();
     } else {
       setErrors(formErrors);
     }
