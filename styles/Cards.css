@@ -153,10 +153,34 @@
   transform: translateX(5px); /* Move the icon 5 pixels to the left on hover */
 }
 
+@media screen and (max-width: 1128px){
+  .card_data{
+    width: 729px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    height: 248px;
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 722px){
+  .card_data{
+    flex-direction: column;
+    width: 586px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 47px;
+    height: 630px;
+    font-size: 11px;
+  }
+}
 @media screen and (max-width: 555px) {
   .card_data{
     flex-direction: column;
     width: 295px;
+    height: 201px;
   }
 }
 

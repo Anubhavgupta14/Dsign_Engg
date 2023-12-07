@@ -345,7 +345,21 @@
     }
 }
 
+@media screen and (max-width: 1128px){
+    .home_data{
+        width: 724px;
+        height: 191px;
+    }
+}
+@media screen and (max-width: 722px){
+    .home_data{
+        width: 566px;
+        height: 715px;
+        flex-direction: column;
+    }
+}
 @media screen and (max-width: 555px) {
+    
     .artist-name {
         margin-top: 0;
     }
