@@ -25,7 +25,7 @@ export default function AccountMenu() {
     setAnchorEl(event.currentTarget);
   };
   const [userData, setUserData] = useState({
-    name: '',
+    name: ' ',
     email: '',
     phone: '',
     state: '',
@@ -123,7 +123,7 @@ export default function AccountMenu() {
             aria-expanded={open ? 'true' : undefined}
           >
             <Avatar sx={{ width: 45, height: 45, color: 'inherit' }}>
-              <PersonIcon />
+              {(userData.name[0]).toUpperCase() || ""}
             </Avatar>
           </IconButton>
         </Tooltip>
