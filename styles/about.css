@@ -127,6 +127,18 @@ width: 70vw;
         width: 80vw;
         
     }
-    
+    .hefty-title{
+        margin-bottom: 20px;
+        height: 70px;
+        width: 100%;
+        font-size: 13px;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        margin-top: 14px;
+    }
+    .hefty-info {
+        width: 100%;
+        font-size: 9px;
+        line-height: 14px;
+    }
     
 }

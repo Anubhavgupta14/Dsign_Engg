@@ -54,11 +54,11 @@ const Faqs = () => {
       <div className="faq-bg" >
         <div className="faqs-cont">
           <div className="faqs-title ha-title">
-            <div
-              className="faq-one"
+            <h2
+              className="heading"
             >
               Frequently Asked Question
-            </div>
+            </h2>
           </div>
           <div className="faq-cont" id="fcont">
             {faqs.slice(0, num).map((faq, index) => {

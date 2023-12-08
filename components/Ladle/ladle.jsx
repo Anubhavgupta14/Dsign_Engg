@@ -1737,11 +1737,17 @@ const Ladlecalculator = ({ authtoken }) => {
     const pdf = new jsPDF("p", "mm", "a4", true);
 
     // Add the first image to the PDF document
+    let kt = 5
+    let k4t = 0
+    let k3t=0
     if (!isMobile) {
       setK(80);
       setK2(140);
       setK3(80);
       setK4(150);
+      kt=80
+      k4t=150
+      k3t=80
       console.log(k, k2, k3, k4);
     } else {
       setK(5);
@@ -1753,9 +1759,9 @@ const Ladlecalculator = ({ authtoken }) => {
     pdf.addImage(
       div1ImageData,
       "PNG",
-      k,
+      kt,
       5,
-      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getWidth() - k4t,
       pdf.internal.pageSize.getHeight()
     );
 
@@ -1766,9 +1772,9 @@ const Ladlecalculator = ({ authtoken }) => {
     pdf.addImage(
       div2ImageData,
       "PNG",
-      k3,
+      k3t,
       10,
-      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getWidth() - k4t,
       pdf.internal.pageSize.getHeight()-20
     );
     
@@ -1777,7 +1783,7 @@ const Ladlecalculator = ({ authtoken }) => {
     pdf.addImage(
       div3ImageData,
       "PNG",
-      k3+25,
+      k3t+25,
       10,
       pdf.internal.pageSize.getWidth()-50,
       pdf.internal.pageSize.getHeight()
@@ -1786,18 +1792,18 @@ const Ladlecalculator = ({ authtoken }) => {
     pdf.addImage(
       div4ImageData,
       "PNG",
-      k3,
+      k3t,
       10,
-      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getWidth() - k4t,
       pdf.internal.pageSize.getHeight()-20
     );
     pdf.addPage();
     pdf.addImage(
       div5ImageData,
       "PNG",
-      k3,
+      k3t,
       10,
-      pdf.internal.pageSize.getWidth() - k4,
+      pdf.internal.pageSize.getWidth() - k4t,
       pdf.internal.pageSize.getHeight()-20
     );
 

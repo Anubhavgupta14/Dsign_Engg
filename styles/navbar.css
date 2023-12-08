@@ -21,7 +21,11 @@
 .logo{
     padding-inline: 18px;
     margin-right: 97px;
+    font-size: 24px;
+    font-weight: 500;
 }
+
+
 .logo:hover{
     color: #1081fc;
 }
@@ -128,6 +132,9 @@
 @media screen and (max-width:1006px){
     .normal{
         gap: 2px;
+    }
+    .logo{
+        font-size: 16px;
     }
 }
 
@@ -337,7 +344,7 @@
     background-color: #f9fbfc;
     /* border: 2px solid red; */
     width: 99.8%;
-    height: 41vh;
+    height: 35vh;
     z-index: 10;
     margin-top: 90px;
     margin-inline: 1px;

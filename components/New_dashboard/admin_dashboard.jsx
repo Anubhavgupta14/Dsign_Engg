@@ -37,35 +37,35 @@ const general = () => {
 
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 90 },
+    { field: 'id', headerName: 'ID', width: 70 },
     {
       field: 'name',
       headerName: 'Name',
-      width: 170,
+      width: 150,
       sortable: true,
     },
     {
       field: 'email',
       headerName: 'Email',
-      width: 250,
+      width: 230,
       sortable: false,
     },
     {
       field: 'phone',
       headerName: 'Contact',
-      width: 150,
+      width: 100,
       sortable: false,
     },
     {
       field: 'ladle_ticket',
       headerName: 'Ladle Tickets',
-      width: 150,
+      width: 100,
       sortable: true,
     },
     {
       field: 'aod_ticket',
       headerName: 'AOD Tickets',
-      width: 150,
+      width: 100,
       sortable: true,
     },  
   ];

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@500&display=swap');
+
 .drop-mar {
     margin: 3% 0px 80px 0px;
     padding-top: 10vh;
@@ -107,7 +109,8 @@
     justify-content: center;
 }
 .drop-p {
-    font-weight: 900;
+    font-weight: 500;
+    font-family: 'Bitter', serif;
     font-size: 65px;
     text-align: center;
     margin-top: 56px;
@@ -129,7 +132,7 @@
   }
 
 .drop-p2 {
-    font-weight: 900;
+    font-weight: 500;
     font-size: 43px;
     text-align: center;
     margin-bottom: 22px;
@@ -233,7 +236,9 @@
     display: flex;
     right: 0px;
 }
-
+.height_372{
+    height: 372px;
+}
 .circle {
     background-color: black;
     width: 15px;
@@ -267,7 +272,7 @@
         align-items: center;
         margin-bottom: 150px;
     }
-
+    
     
 
     .left-artist {
@@ -401,6 +406,9 @@
         margin: 10px 0px;
         margin-left: 10px;
     }
+    .height_372{
+        height: 237px;
+    }
 
     
     .home_data{
@@ -423,7 +431,7 @@
         font-size: 13px;
     }
     .home_faq{
-        margin-top: 35vh;
+        margin-top: 0vh;
     }
 }
 

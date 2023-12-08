@@ -67,6 +67,7 @@ export default function AccountMenu() {
   }, []);
 
   const handleClose = () => {
+    router.push('/orders')
     setAnchorEl(null);
   };
 
@@ -162,7 +163,7 @@ export default function AccountMenu() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem onClick={dashboard}>
-          <Avatar /> Profile
+          <Avatar /> My Profile
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Avatar /> My Orders

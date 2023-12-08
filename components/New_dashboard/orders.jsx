@@ -120,7 +120,7 @@ const general = () => {
           <p className="profile-t">My Orders</p>
           <div className="my-2"></div>
           <div>
-          <Box sx={{ height: 400, width: '110%' }}>
+          <Box sx={{ height: 400, width: '100%' }}>
               <DataGrid
                 rows={rows}
                 columns={columns}

@@ -8,7 +8,7 @@
     overflow-x: hidden;
     background-color: #f9fbfc;
     transition: all 0.3s ease;
-    padding-top: 8vh;
+    padding-top: 13vh;
   }
   .profile-load{
     background: none!important;
@@ -280,7 +280,7 @@
   .general-container {
     display: flex;
     flex-direction: column;
-    width: 50rem;
+    width: 54rem;
     margin-bottom: 24vh;
     margin-left: 20vh;
   }

@@ -1,7 +1,7 @@
 .heading {
   text-align: center;
   font-size: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 56px;
 }
 .cardContainer {
   display: flex;
@@ -104,7 +104,7 @@
 }
 .card_datas {
   background-color: #f6f5f4;
-  height: 164px;
+  height: 235px;
   width: 300px;
   padding: 22px;
   border-radius: 8px;

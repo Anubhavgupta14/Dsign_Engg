@@ -2,6 +2,7 @@
 import Navbar from "../navbar/Navbar";
 import "@/styles/Home.module.css"
 import { useRef } from 'react';
+import TestimonialCarousel from "../Testonomials/testonomials";
 // import { AiFillMail } from 'react-icons/ai'
 // import PlainButton from '../button/PlainButton'
 
@@ -36,7 +37,7 @@ const page = ({authtoken}) => {
                 </button></Link></div>
                 <div className="arrow_home"><ArrowForwardIcon className="arrow_home"/></div>
               </div> */}
-              <div style={{ height: "372px" }}>
+              <div className="height_372">
                 <Image
                 className="img_home"
                   src="/image.svg"
@@ -80,6 +81,7 @@ const page = ({authtoken}) => {
 
       <About />
       <Cards />
+      <TestimonialCarousel/>
       <div id='faq' ref={aboutRef} className="home_faq"><Faqs /></div>
       <Footer />
     </div>

@@ -113,7 +113,7 @@ const ProfileLeft = ({scroll}) => {
     const [isSticky, setIsSticky] = useState(false);
 
     return (
-        <div className={isSticky?"shadow h-auto w-15 fixed dis":"shadow h-auto w-15 fixed"}>
+        <div>
             <div className="user-details-profile">
                 <div className="user-image-profile">
                     <img
