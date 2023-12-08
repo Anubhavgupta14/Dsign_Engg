@@ -2,6 +2,11 @@
     margin-top: 2rem;
 }
 
+.slick-arrow{
+    background-color: black !important;
+    border-radius: 664px;
+}
+
 @media screen and (max-width:700px){
     .testonomial_top{
         margin-top: 30rem;

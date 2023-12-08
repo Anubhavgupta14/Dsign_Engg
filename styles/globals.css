@@ -12,6 +12,7 @@
   margin: 0 10px;
 }
 
+
 .slick-dots li.slick-active button:before {
   color:orange !important;
 }
@@ -22,7 +23,10 @@
 .App {
   text-align: center;
 }
-
+.slick-arrow{
+  background-color: black;
+  border-radius: 664px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
