@@ -67,7 +67,6 @@ export default function AccountMenu() {
   }, []);
 
   const handleClose = () => {
-    router.push('/orders')
     setAnchorEl(null);
   };
 
@@ -80,6 +79,9 @@ export default function AccountMenu() {
   };
   const admin_page=()=>{
     router.push('/admin_dashboard');
+  }
+  const ordersgo=()=>{
+    router.push('/orders');
   }
 
   const handlelogout = async () => {
@@ -165,7 +167,7 @@ export default function AccountMenu() {
         <MenuItem onClick={dashboard}>
           <Avatar /> My Profile
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={ordersgo}>
           <Avatar /> My Orders
         </MenuItem>
         <Divider />
