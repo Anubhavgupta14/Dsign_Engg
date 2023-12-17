@@ -35,21 +35,19 @@ window.removeEventListener("resize", handleResize);
   };
   return (
     <div className="w-3/4 m-auto">
-      <h2 className="heading testonomial_top">Testonomials</h2>
+      <h2 className="testonomial_top">Testonomials</h2>
       <div>
         <Slider {...settings}>
           {data.map((d) => (
             <div
               key={d.name}
-              className=" h-[450px] text-black rounded-xl"
+              className=" h text-black rounded-xl"
             >
-              <div className="h-56 flex justify-center items-center rounded-t-xl">
-                <img src={d.img} alt="" className="h-44 w-44 rounded-full" />
-              </div>
+              
 
               <div
                 className="flex flex-col items-center justify-center gap-4 p-4"
-                style={{ alignItems: "center" }}
+                style={{ alignItems: "center", border:"2px solid grey" }}
               >
                 <p className="text-xl text-center font-semibold">{d.name}</p>
                 <p className="text-center">{d.review}</p>

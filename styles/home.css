@@ -56,7 +56,7 @@
     gap: 70px;
 }
 .home_datas{
-    background-color: #f6f5f4;
+    background-color: #e9e8e8;
     height: 164px;
     width: 300px;
     padding: 22px;
@@ -65,7 +65,7 @@
 
 .home_datas:hover{
     cursor: pointer;
-  background-color: #e9e8e8;
+  background-color: #d2d0d0;
 }
 
 .home_datas h2{
@@ -413,22 +413,27 @@
     
     .home_data{
         flex-direction: column;
-        width: 295px;
+        width: 100%;
         height: 86vh;
         margin-top: -24vh;
+        gap: 25px;
     }
     .img_home{
         width: 343px;
     }
     .home_datas{
-        width: 180px;
-        
+        width: 85%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2vh;
     }
     .home_datas h2{
         font-size: 40px;
     }
     .home_datas p{
-        font-size: 13px;
+        font-size: 19px;
+        margin-bottom: 0px;
     }
     .home_faq{
         margin-top: 0vh;

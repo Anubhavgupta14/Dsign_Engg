@@ -44,6 +44,8 @@ const Navbar = ({ authtoken }) => {
 
   const excludedDivRef = useRef(null);
 
+  
+
   useEffect(() => {
     const handleClick = (event) => {
       if (
@@ -175,26 +177,6 @@ const Navbar = ({ authtoken }) => {
             </div>
 
           </div>
-
-          <div className="navrel pos-rel normal flex-all">
-            {/* <Link href="/components/LoginPage/login" className="nav">
-              Login
-            </Link> */}
-            {/* <div className="menu-btn">
-              <Link href="/components/CC_machine/cc_machine">
-              <button className="nav_login2">
-                  Get Started Its - Free
-                </button>
-              </Link>
-            </div>
-            <div className="menu-btn">
-              <Link href="/components/LoginPage/login">
-                <button className="nav_login">
-                  Login / Signup
-                </button>
-              </Link>
-            </div> */}
-          </div>
         </div>
         <div className="hamburger">
           <div>
@@ -204,9 +186,9 @@ const Navbar = ({ authtoken }) => {
           </div>
           <div onClick={handleClick} className={open ? "ham-pos res-nav" : "ham-pos"}>
             {click ? (
-              <CloseIcon size={20} style={{ color: "black" }} />
+              <CloseIcon size={25} style={{ color: "black" }} />
             ) : (
-              <MenuIcon size={20} style={{ color: "black" }} />
+              <MenuIcon size={50} style={{ color: "black" }} />
             )}
           </div>
         </div>
@@ -229,19 +211,19 @@ const Navbar = ({ authtoken }) => {
         </div>
 
         <div ref={excludedDivRef} className="drop-details">
-          <h2>CCM Solution</h2>
+          <h2 className="menu_mobile">CCM Solution</h2>
           <p>Embrace the
             art and science of Ladle Calculations and Continuous Casting
             Machine (CCM) Solutions with us.</p>
           <Link href="/ccm"><button className="button">Try Now</button></Link>
         </div>
         <div className="drop-details">
-          <h2>Ladle Calculator</h2>
+          <h2 className="menu_mobile">Ladle Calculator</h2>
           <p>Ladle Calculator is an indispensable tool for professionals in the field of metallurgy, Download Fabrication Diagram</p>
           <Link href="/ladle"><button className="button">Try Now</button></Link>
         </div>
         <div className="drop-details">
-          <h2>AOD Vessel Calculator</h2>
+          <h2 className="menu_mobile">AOD Vessel Calculator</h2>
           <p>Our AOD Converter Calculator is a vital asset for professionals in the stainless steel refining industry.</p>
           <Link href="/Aod"><button className="button">Try Now</button></Link>
         </div>

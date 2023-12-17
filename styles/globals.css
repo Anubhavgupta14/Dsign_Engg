@@ -14,7 +14,7 @@
 
 
 .slick-dots li.slick-active button:before {
-  color:orange !important;
+  color:blue !important;
 }
 *{
   margin: 0;

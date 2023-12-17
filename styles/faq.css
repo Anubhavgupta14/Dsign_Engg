@@ -39,6 +39,9 @@ transform: scale(.7)
     .faqs-title{
         width: 100%;
     }
+    .faq-head{
+        margin-block: 0px;
+    }
 }
 
 .btn_main{

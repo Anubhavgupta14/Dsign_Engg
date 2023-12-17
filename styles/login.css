@@ -88,7 +88,7 @@ p_log {
   outline: transparent;
   padding: 0.5em 1.5em;
   position: relative;
-  width: 105.5%;
+  width: 100%;
   transition: background-color 0.3s, opacity 0.3s;
   -webkit-appearance: none;
   appearance: none;
@@ -269,6 +269,7 @@ p_log {
 .login__sign-up_log {
   margin: 0;
   text-align: center;
+  font-size: 16px;
 }
 
 .login__testimonial_log {
@@ -292,7 +293,7 @@ p_log {
   font-size: 1rem;
 }
 .forget_log {
-  font-size: 12px;
+  font-size: 16px;
   margin: 0px;
   cursor: pointer;
 }
@@ -305,21 +306,24 @@ p_log {
     display: none;
   }
 
+  .login_pa{
+    font-size: 18px;
+  }
   html {
-    font-size: 62%;
+    font-size: 100%;
   }
   .login__form_log {
-    width: 67%;
+    width: 100%;
   }
   .login__btn_log{
-    width: 109%;
+    width: 100%;
   }
   .forgot_pas{
     right: 25px;
-    font-size: 8px;
+    font-size: 12px;
   }
   .forget_log {
-    font-size: 8px;
+    font-size: 16px;
     margin: 0px;
     cursor: pointer;
 }

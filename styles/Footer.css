@@ -203,11 +203,11 @@
 
 .p_sign {
     font-size: 13px;
-    width: 265px;
+    width: 100%;
     color: rgba(255, 255, 255, .6);
     margin: 14px 0 1.5em;
     transition: color 0.3s;
-    height: 50px;
+    height: 4px;
   }
 
 @media screen and (max-width:945px) {
@@ -223,6 +223,9 @@
     }
     .white-btn{
         margin: 0px;
+    }
+    .footer_btn{
+        height: 45px;
     }
     .footer-logo-cont{
         margin-left: 0px;
@@ -293,6 +296,7 @@
     }
     .p_sign{
         margin: 0 auto;
+        height: 19px;
     }
 
 

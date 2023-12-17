@@ -46,7 +46,7 @@ const General = () => {
       const { error } = data;
       console.log(error, "error getting user data");
       if (error) {
-        toast.error(error);
+        console.log(error);
         return;
       }
       let user = data;
@@ -56,7 +56,7 @@ const General = () => {
       };
       setUserData(convertedUser);
     } catch (error) {
-      toast.error(
+      console.log(
         error.message + "op" || "Some error occurred while fetching data"
       );
     }

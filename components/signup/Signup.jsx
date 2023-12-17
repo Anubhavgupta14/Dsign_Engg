@@ -128,7 +128,7 @@ const Signup = ({ authtoken }) => {
             <form className="signup__form" method="post" action="">
               <div className="signup__form-wrapper">
                 <h1 className="h1">Register Here</h1>
-                <p>Sign up to your account.</p>
+                <p className="signup_pa">Sign up to your account.</p>
                 <div className="signup_field-group">
                   <label className="signup__label" htmlFor="user-name">
                     Full Name

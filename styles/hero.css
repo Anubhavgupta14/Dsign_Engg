@@ -1,0 +1,153 @@
+.hero_main{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    margin-top: 11vh;
+}
+.hero_left{
+    /* border: 2px solid black; */
+    width: 100%;
+    padding-inline: 9%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero_right{
+    /* border: 2px solid black; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero_heading{
+    font-size: 70px;
+    margin-bottom: 0.5vh;
+}
+
+.hero_para{
+    font-size: 16.5px;
+    text-align: justify;
+    margin-bottom: 5vh;
+    width: 98%;
+}
+.left_content{
+    width: 100%;
+    position: relative;
+    top: -7vh;
+}
+
+.right_content{
+    width: 100%;
+    height: 95vh;
+}
+
+.hero_sub{
+    font-size: 30px;
+    margin-bottom: 4vh;
+}
+
+.hero_btn{
+    display: flex;
+    gap: 5vh;
+}
+
+.hero_btn1{
+    /* background: transparent; */
+    /* color: black; */
+    border: 3px solid black;
+    height: 50px;
+    width: 190px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.hero_btn2{
+    background: transparent;
+    color: black;
+    border: 3px solid black;
+    height: 50px;
+    width: 190px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.hero_img{
+    width: 650px;
+}
+
+
+@media screen and (max-width: 1400px) {
+  .hero_heading{
+    font-size: 60px;
+  }
+}
+
+@media screen and (max-width: 1187px) {
+  .hero_heading{
+    font-size: 50px;
+  }
+  .right_content{
+    height: 70vh;
+  }
+}
+
+@media screen and (max-width: 900px) {
+    .right_content{
+
+    }
+    .hero_left{
+        padding-inline: 5%;
+    }
+  }
+
+@media screen and (max-width: 750px){
+    .hero_main{
+        flex-direction: column;
+        margin-top: 6vh;
+        text-align: center;
+    }
+    .left_content{
+        top: 0;
+    }
+    .hero_main{
+        margin-top: 6vh;
+    }
+    .hero_heading{
+        margin-top: 7vh;
+    }
+    .hero_img{
+        width: 400px;
+        display: none;
+    }
+    .hero_btn{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:471px){
+    .hero_btn1{
+        width: 130px;
+        font-size: 11px;
+    }
+    .hero_heading{
+        font-size: 42px;
+        margin-top: 15vh;
+    }
+    .hero_sub{
+        font-size: 25px;
+        margin-bottom: 7vh;
+    }
+    .hero_para{
+        font-size: 14.5px;
+        margin-bottom: 10vh;
+    }
+    .hero_btn2{
+        width: 130px;
+        font-size: 11px;
+    }
+    .hero_main{
+        height: 120vh;
+    }
+}

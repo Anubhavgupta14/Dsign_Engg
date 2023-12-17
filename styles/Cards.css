@@ -103,7 +103,7 @@
   gap: 93px;
 }
 .card_datas {
-  background-color: #f6f5f4;
+  background-color: #e9e8e8;
   height: 235px;
   width: 300px;
   padding: 22px;
@@ -112,7 +112,7 @@
 
 .card_datas:hover {
   cursor: pointer;
-  background-color: #e9e8e8;
+  background-color: #d2d0d0;
 }
 
 .card_datas h2 {
@@ -179,7 +179,7 @@
 @media screen and (max-width: 555px) {
   .card_data{
     flex-direction: column;
-    width: 295px;
+    width: 100%;
     height: 201px;
   }
 }
@@ -196,11 +196,11 @@
     margin-top: 26px;
   }
   .card_data{
-    gap: 44px;
+    gap: 25px;
   }
   .card_datas{
     height: 225px;
-    width: 216px;
+    width: 85%;
     padding: 16px;
     border-radius: 8px;
   }

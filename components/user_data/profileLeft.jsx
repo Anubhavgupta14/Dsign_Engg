@@ -42,7 +42,7 @@ const ProfileLeft = ({scroll}) => {
                 const { error } = data;
                 console.log(error, "error getting user data");
                 if (error) {
-                    toast.error(error + "op")
+                    console.log(error + "op")
                     toast.error("Try logging in again")
                     localStorage.removeItem("token");
                     router.push("/signin")
@@ -70,7 +70,7 @@ const ProfileLeft = ({scroll}) => {
                 
             } catch (error) {
 
-                toast.error(error.message || "Some error occurred while fetching data");
+                console.log(error.message || "Some error occurred while fetching data");
                 toast.error("Try logging in again")
                 router.push("/signin")
             }

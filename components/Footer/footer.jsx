@@ -65,9 +65,12 @@ const Footer = () => {
                     </div>
 
                     <div className='footer_subline'>
-                        <div>
+                        <div style={{width:'100%'}}>
                             <p className="p_sign">
-                                © <span data-year>2023</span> The Design Engg. All rights reserved.
+                                © <span data-year>2023</span> The Design Engg
+                            </p>
+                            <p className="p_sign">
+                                All rights reserved.
                             </p>
                         </div>
                         <div className="terms-cont">

@@ -110,7 +110,7 @@ const general = () => {
       const { error } = data;
       console.log(error, "error getting user data");
       if (error) {
-        toast.error(error);
+        console.log(error);
         return;
       }
       let user = data;
@@ -120,7 +120,7 @@ const general = () => {
       };
       setUserData(convertedUser);
     } catch (error) {
-      toast.error(error.message || "Some error occurred while fetching data");
+      console.log(error.message || "Some error occurred while fetching data");
       toast.error("Try logging in again");
     }
   };

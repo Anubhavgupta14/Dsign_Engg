@@ -55,7 +55,7 @@ const Faqs = () => {
         <div className="faqs-cont">
           <div className="faqs-title ha-title">
             <h2
-              className="heading"
+              className="heading faq-head"
             >
               Frequently Asked Question
             </h2>

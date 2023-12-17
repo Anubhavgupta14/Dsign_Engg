@@ -2380,7 +2380,7 @@ const Ladlecalculator = ({ authtoken }) => {
       const { error } = data;
       console.log(error, "error getting user data");
       if (error) {
-        toast.error(error);
+        // toast.error(error);
         return;
       }
       let user = data;
@@ -2390,9 +2390,9 @@ const Ladlecalculator = ({ authtoken }) => {
       };
       setUserData(convertedUser);
     } catch (error) {
-      toast.error(
-        error.message + "op" || "Some error occurred while fetching data"
-      );
+      // toast.error(
+      //   error.message + "op" || "Some error occurred while fetching data"
+      // );
     }
     
   };
@@ -2591,7 +2591,7 @@ const Ladlecalculator = ({ authtoken }) => {
         return 1;
       }
     } catch (err) {
-      toast.error(err);
+      console.log(err);
       return 0;
     }
   };

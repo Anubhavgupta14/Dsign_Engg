@@ -48,7 +48,7 @@ export default function AccountMenu() {
       const { error } = data;
       console.log(error, 'error getting user data');
       if (error) {
-        toast.error(error);
+        console.log(error);
         return;
       }
       let user = data;

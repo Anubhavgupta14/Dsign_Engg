@@ -176,7 +176,7 @@
         height: 50px;
         justify-content: space-between;
         /* background-color: aqua; */
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
     }
     .nav:hover{
         background-color: transparent;
@@ -313,7 +313,7 @@
 
     .navrel a {
         width: 100%;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
     }
 
     .nav {
@@ -504,3 +504,11 @@
     color: white;
 }
 
+@media screen and (max-width:700px){
+    .nav_login{
+        width: 191px;
+    }
+    .menu_mobile{
+        font-size: 26px;
+    }
+}

@@ -9,10 +9,8 @@ import TestimonialCarousel from "../Testonomials/testonomials";
 import About from "../About/about";
 import Faqs from "../Faq/Faq";
 import Footer from "../Footer/footer";
+import Hero from "./hero";
 import Cards from "../card/card";
-import Image from "next/image";
-import Link from "next/link";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
 const page = ({authtoken}) => {
@@ -25,18 +23,12 @@ const page = ({authtoken}) => {
   return (
     <div style={{ backgroundColor: "#f9fbfc" }}>
       <Navbar authtoken={authtoken} />
-      <div className="drop-mar" >
+      {/* <div className="drop-mar" >
         <div className="drop-cont">
           <div className="drop-left">
             <div className="drop-inner">
               <div className="drop-p">The Design Engg</div>
               <div className="drop-p2"> Fastest way to smart <span style={{ color: "#1081fc" }}>solutions</span></div>
-              {/* <div className="home_free">
-                <div className="home_btn_div"><Link href="/ccm"><button className="home_btn">
-                  Free Trail
-                </button></Link></div>
-                <div className="arrow_home"><ArrowForwardIcon className="arrow_home"/></div>
-              </div> */}
               <div className="height_372">
                 <Image
                 className="img_home"
@@ -60,12 +52,13 @@ const page = ({authtoken}) => {
           </div>
         </div>
 
-      </div>
+      </div> */}
+      <Hero/>
 
       <div className="home_data">
         <div className="home_datas">
           <h2>1L+</h2>
-          <p>community members</p>
+          <h3>community members</h3>
         </div>
 
         <div className="home_datas">
@@ -79,7 +72,6 @@ const page = ({authtoken}) => {
         </div>
       </div>
 
-      <About />
       <Cards />
       <TestimonialCarousel/>
       <div id='faq' ref={aboutRef} className="home_faq"><Faqs /></div>
